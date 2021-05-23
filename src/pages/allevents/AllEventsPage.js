@@ -3,6 +3,7 @@ import React from "react"
 import FadeIn from "react-fade-in";
 import { Button, CardBody, Col, Row } from "reactstrap";
 import { db } from "../firebase";
+import { EventService } from "../networking/events/EventService";
 import { AddEventModal } from "./components/AddEventModal";
 
 
@@ -39,8 +40,15 @@ class AllEventsPage extends React.Component {
     };
 
     async componentDidMount() {
+        EventService.getAllEvents(this.props.match.params.orgId).then((events) => {
+            console.log(events)
+
+        })
+        
         this.orgId = this.props.match.params.orgId
         this.getEvents(this.props.match.params.orgId);
+
+    
     }
     
     render() {
