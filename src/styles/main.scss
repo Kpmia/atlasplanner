@@ -1,0 +1,307 @@
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
+
+
+.modal {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modal-content {
+  padding: 30px;
+  max-height: 800px;
+  overflow-y: auto
+}
+
+.signInCard {
+  position: fixed!important;
+  margin-left: auto;
+  width: 335px;
+  margin-right: auto;
+  z-index: 999;
+  padding: 6px;
+  transform: translate(-50%, -50%)!important;
+  top: 50%;
+  left: 50%;
+  background: #FFFFFF!important;
+  border: 1px solid rgba(241, 153, 255, 0.14)!important;
+  box-sizing: border-box;
+  box-shadow: 0px 62px 51px rgba(17, 12, 21, 0.1)!important;
+  border-radius: 23px!important;
+}
+
+.signInBg {
+  background: #EFF2F5;
+  height: 100vh;
+
+}
+.MuiDataGrid-root .MuiDataGrid-columnHeaderTitle {
+  font-weight: 400!important;
+}
+.MuiDataGrid-root .MuiDataGrid-columnHeader {
+  background: black!important;
+  color: white!important;
+  font-weight: 300!important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-cell {
+  border: 1px solid rgba(224, 224, 224, 1)!important;
+  font-weight: 400!important;
+}
+.signInVoyagerTitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  line-height: 118.34%;
+  /* or 31px */
+  width: 110px;
+  // height: 79px;
+  color: #000000;
+}
+
+.signInBtn {
+  // background: linear-gradient(165.99deg, #FFFFFF -130.93%, rgba(255, 255, 255, 0) 69.53%), linear-gradient(91.8deg, #D6924E 0%, #D56A82 33.1%, #7A25B3 97.3%);
+  outline: none!important;
+  border: none!important;
+  border-radius: 4px!important;
+  z-index: 999!important;
+  width: 100%;
+  background: #3430F6;
+  // width: 233px;
+  height: 41px!important;
+  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08)!important;
+  font-style: normal!important;
+  font-weight: 500!important;
+  font-size: 14px!important;
+  line-height: 17px!important;
+  background-size: 200% auto!important;
+
+  color: rgba(255, 255, 255, 0.92)!important;
+  transition: 0.5s!important;
+  
+}
+
+.signInBtn:hover {
+    background-position: right center;
+  
+}
+
+.textFieldSignIn {
+  outline: black!important;
+  color: black!important;
+}
+
+
+.eventBody {
+  height: 160vh;
+  background: #EFF2F5;
+  width: 100%;
+}
+
+.eventHeader {
+  background: black;
+  width: 100%;
+  height: 63px;
+  position: absolute;
+  top: 0px;
+}
+
+.eventWhiteHeader {
+  background: #FFFFFF;
+  position: absolute;
+  top: 63px;
+  width: 100%;
+  height: 139px;
+  border: 0.4px solid #D5DFEB;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 31px rgba(188, 189, 192, 0.3);
+  padding-top: 0px
+}
+
+.eventPageBody {
+  padding-top: 250px;
+}
+
+.eventProjectCard {
+  background: #FFFFFF!important;
+  border: 1px solid rgba(213, 223, 235, 0.75)!important;
+  box-sizing: border-box!important;
+  box-shadow: 0px 4px 11px 8px rgba(0, 0, 0, 0.04)!important;
+  border-radius: 8px!important;
+}
+
+.eventProjectGradCard {
+  background: linear-gradient(99.95deg, #F7C4F2 1.36%, #3430F6 91.88%);
+  box-shadow: 0px 7px 10px rgba(172, 177, 194, 0.22);
+  height: 86px;
+  width: 100%;
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 160px;
+}
+
+.eventProjectTitle {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  letter-spacing: -0.025em;
+
+  color: #4F4F54;
+
+}
+
+.eventWhiteHeaderTitle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 30px;
+  /* identical to box height */
+
+  letter-spacing: -0.025em;
+
+  color: #3B3642;
+}
+
+
+.createEventBtn {
+  background: #3430F6!important;
+  border-radius: 25px!important;
+    font-style: normal;
+  font-weight: 600!important;
+  font-size: 16px;
+  height: 48px;
+
+  width: 108px;
+
+  line-height: 19px;
+  /* identical to box height */
+
+  letter-spacing: -0.025em!important;
+
+  color: #FFFFFF;
+}
+
+.getLink {
+  border: 1px solid #3430F6!important;
+  box-sizing: border-box;
+  width: 68px;
+
+  background: none!important;
+  border-radius: 21px!important;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  letter-spacing: -0.025em!important;
+
+  color: #3430F6!important;
+
+}
+
+.userProfile {
+  font-size: 16px;
+line-height: 19px;
+/* identical to box height */
+
+letter-spacing: -0.025em;
+
+color: #FFFFFF;
+}
+
+.liveLinkHeader {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  line-height: 18px;
+  border-bottom: 1px solid #3430F6;
+  padding-bottom: 3px;
+  width: 236px!important;
+
+  /* identical to box height */
+
+  letter-spacing: -0.025em;
+
+  color: #3430F6;
+}
+
+.backBtn {
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 2px;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+  width: 84px;
+  height: 34px;
+  letter-spacing: -0.025em;
+  background: none!important;
+  color: #000000!important;
+}
+
+.eventSubTabs {
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  letter-spacing: -0.025em;
+
+  color: #3B3642;
+}
+
+.rat-TimeSlot_component {
+  background-color: #3430F6!important;
+
+}
+.rat-AvailableTimes_toolbar {
+  display: none!important;
+}
+
+.dayOfWeek {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 4px;
+  /* identical to box height */
+
+  letter-spacing: -0.025em;
+
+  color: #4F4F54;
+}
+
+.unavailableTime {
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 7px;
+  font-size: 13px;
+  line-height: 19px;
+  cursor: pointer;
+
+  /* identical to box height */
+
+  letter-spacing: -0.025em;
+
+  color: white;
+}
+
+.availableTime {
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 7px;
+  font-size: 13px;
+  line-height: 19px;
+  /* identical to box height */
+
+  letter-spacing: -0.025em;
+
+  color: black;
+}
