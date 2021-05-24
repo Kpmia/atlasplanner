@@ -5,6 +5,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label,  CardBody, R
 import { db } from '../../firebase';
 import { updateLocale } from 'moment';
 import 'semantic-ui-css/semantic.min.css'
+import { EventService } from '../../networking/events/EventService';
+import { toast } from 'react-toastify';
 
 export const AddEventModal = (props) => {
   const {
@@ -20,20 +22,17 @@ export const AddEventModal = (props) => {
   const toggle = () => setModal(!modal);
 
   const createEvent = async(name) => {
-    const uid = await new Promise((resolve, reject) => {
-        db.auth().onAuthStateChanged((user) => {
-            resolve(user.uid)
-        }, reject)
-    });
-
-    db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('/' + uid + '/' + orgId + '/events/' + projectName).set({
-        "mentors": "None",
-        "activity": "None"
+    const body = {
+      'name': projectName
+    }
+    EventService.createEvent(orgId, body).then((resp) => {
+      if (resp) {
+        toggle()
+        updateEvents(orgId)
+      } else {
+          toast.dark('Event name is taken.');
+      }
     })
-
-    db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('/organizations/' + orgId + '/events/' + projectName).set({"mentors": "None"})
-    toggle()
-    updateEvents(orgId)
   }
 
   return (

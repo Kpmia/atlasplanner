@@ -4,6 +4,7 @@ import { ReactFormBuilder, ReactFormGenerator } from "react-form-builder2";
 import { Button, Card, CardBody, Col, Row } from "reactstrap";
 import { Icon } from "semantic-ui-react";
 import { db } from "../firebase";
+import { EventService } from "../networking/events/EventService";
 
 class EventPage extends React.Component {
     constructor() {
@@ -20,20 +21,15 @@ class EventPage extends React.Component {
     }
 
     getEventData = async(orgId, eventId) => {
-        const uid = await new Promise((resolve, reject) => {
-            db.auth().onAuthStateChanged((user) => {
-                resolve(user.uid)
-            }, reject)
-        });
-        this.uid = uid
-        db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('/' + uid + '/' + orgId + '/events/' + eventId).get().then((eventData) => {
-            if (eventData.val() != null && eventData.val() != "None") {
-                this.setState({ eventData : eventData.val() });
+        await EventService.getEvent(orgId, eventId).then((event) => {
+            console.log(event)
+            if (event != null && event) {
+                this.setState({ eventData : event });
             } else {
                 this.pageNotFound();
             }
             this.isLoading();
-        });
+        })
     };
 
     pageNotFound() {

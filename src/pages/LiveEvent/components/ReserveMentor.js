@@ -5,6 +5,7 @@ import { Icon, Input } from 'semantic-ui-react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label,  CardBody, Row, Col, DropdownMenu } from 'reactstrap';
 import { db } from "../../firebase";
 import { Slide, toast } from "react-toastify";
+import { SessionService } from "../../networking/sessions/SessionService";
 
 export const ReserveMentor = (props) => {
     const {
@@ -36,30 +37,26 @@ export const ReserveMentor = (props) => {
             return toast.dark('Please enter a name', {transition: Slide})
         }
 
-        const uid = await new Promise((resolve, reject) => {
-            db.auth().onAuthStateChanged((user) => {
-                resolve(user.uid)
-            }, reject)
-        });
+        if (!mentor["data"]["timeslots"][timeslot["id"]]["filled"][currWeek]) {
+          mentor["data"]["timeslots"][timeslot["id"]]["filled"][currWeek] = []
+        }
 
-        db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('/organizations/' + orgId + '/events/' + eventId + '/mentors/' + mentor["id"] + '/timeslots/' + timeslot["id"] + '/filled/' + currWeek).push({
-            "name": projectName,
-            "desc": "12345"
+        (mentor["data"]["timeslots"][timeslot["id"]]["filled"][currWeek]).push({"name": projectName})
+
+        const body = { "session" : mentor["data"]}
+
+        SessionService.updateSession(orgId, eventId, mentor["data"]["_id"], body).then((sessions) => {
+          console.log(sessions)
+            if (sessions) {
+                toast.dark('Successfully added to session', {transition: Slide})
+
+                updateMentor()
+                updateCurrMentor(mentor["id"])
+                toggle()
+            }
         })
-
-        db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('/' + uid + '/' + orgId + '/events/' + eventId + '/mentors/' + mentor["id"] + '/timeslots/' + timeslot["id"] + '/filled/' + currWeek).push({
-            "name": projectName,
-            "desc": "12345"
-        })
-
-        toast.dark('Successfully added to session', {transition: Slide})
-
-        updateMentor()
-        updateCurrMentor(mentor["id"])
-        toggle()
     }
-
-  
+     
     return (
       <div onClick={toggle}>
           {children}

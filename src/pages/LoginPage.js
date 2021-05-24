@@ -8,6 +8,8 @@ import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 import LockIcon from '@material-ui/icons/Lock';
 import PersonIcon from '@material-ui/icons/Person';
 import { db } from './firebase';
+import { OrgService } from './networking/organizations/OrgService';
+import { toast, ToastContainer } from 'react-toastify';
 
 class LoginPage extends React.Component {
     constructor() {
@@ -27,22 +29,23 @@ class LoginPage extends React.Component {
                user.user.updateProfile({
                    displayName: this.state.email
                })
-               db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('/organizations/' + this.state.orgName).set({"name": name})
-               db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('/organizations/' + this.state.orgName + '/events').set("None").then(() => {
-
-                db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('/' + user.user.uid + '/' + this.state.orgName + '/events').set("None").then(() => {
-                    return window.location.href = '/events/' + this.state.orgName + '/all'
-                })
-           }) 
-
+               const body = {
+                   'name': this.state.orgName
+               }
+               OrgService.createOrganization(body).then((org) => {
+                   if (org) {
+                        return window.location.href = '/events/' + this.state.orgName + '/all'
+                   } else {
+                       toast.dark('Name is taken. Try another name.')
+                   }
+               })
         })
     }
 
     login = async(email, password) => {
         db.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
-            db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('/' + user.user.uid).get().then(() => {
+            // OrgService.
                 // return window.location.href = '/events/' + this.state.orgName + '/all'
-            })
         })
     }
 
@@ -138,7 +141,7 @@ class LoginPage extends React.Component {
                }
 
 
-                      
+               <ToastContainer />
 
             </div>
         )

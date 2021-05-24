@@ -1,9 +1,11 @@
 import { Card } from "@material-ui/core";
 import React from "react"
 import FadeIn from "react-fade-in";
+import { ToastContainer } from "react-toastify";
 import { Button, CardBody, Col, Row } from "reactstrap";
 import { db } from "../firebase";
 import { EventService } from "../networking/events/EventService";
+import { OrgService } from "../networking/organizations/OrgService";
 import { AddEventModal } from "./components/AddEventModal";
 
 
@@ -11,47 +13,53 @@ class AllEventsPage extends React.Component {
     constructor() {
         super();
         this.orgId = ""
+        this.org = []
         this.state={
             events: [],
-            isLoading: true
+            isLoading: true,
+            pageNotFound: false,
         }
     }
 
+    getOrganization = async(orgId) => {
+        await OrgService.getOrganization(orgId).then((org) => {
+            if (org != null && org) {
+                this.org = org;
+            } else {
+                this.pageNotFound();
+            }
+        })
+    };
+
     getEvents = async(orgId) => {
-        const uid = await new Promise((resolve, reject) => {
-            db.auth().onAuthStateChanged((user) => {
-                resolve(user.uid)
-            }, reject)
-        });
-        db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('/' + uid + '/' + orgId).get().then((events) => {
-            if (events.val()["events"] != null && events.val()["events"] != "None") {
-                this.setState({ events : events.val()["events"] })
-            };
-            this.isLoading();
-        });
+        await EventService.getAllEvents(orgId).then((events) => {
+            if (events != null && events) {
+                this.setState({ events : events })
+            } 
+        })
+        this.isLoading();
     };
 
     isLoading() {
         this.setState({ isLoading : false })
     };
 
-    deleteEvent = () => {
-
+    pageNotFound() {
+        this.setState({ pageNotFound : true })
     };
 
     async componentDidMount() {
-        EventService.getAllEvents(this.props.match.params.orgId).then((events) => {
-            console.log(events)
-
-        })
-        
         this.orgId = this.props.match.params.orgId
-        this.getEvents(this.props.match.params.orgId);
-
-    
+        this.getOrganization(this.props.match.params.orgId).then(() => {
+            this.getEvents(this.props.match.params.orgId);
+        });
     }
     
     render() {
+        if (this.state.pageNotFound) {
+            return "Page not found.."
+        }
+
         if (this.state.isLoading) {
             return "Loading..."
         }
@@ -81,18 +89,18 @@ class AllEventsPage extends React.Component {
                   <div className="eventPageBody container">
                       <Row>
                     {
-                        Object.keys(this.state.events).map((event) => {
+                        this.state.events.map((event) => {
                             return (
                                 <Col style={{marginBottom: 30}} sm={4}>
                                     <FadeIn delay="400">
                                     <Card style={{cursor: 'pointer'}}  className="eventProjectCard">
-                                        <div onClick={() => window.location.href = '/events/info/' + this.orgId + '/' + event} className="eventProjectGradCard"></div>
-                                        <CardBody onClick={() => window.location.href = '/events/info/' + this.orgId + '/' + event}>
-                                            <p className="eventProjectTitle"> {event} </p>
+                                        <div onClick={() => window.location.href = '/events/info/' + this.orgId + '/' + event["name"]} className="eventProjectGradCard"></div>
+                                        <CardBody onClick={() => window.location.href = '/events/info/' + this.orgId + '/' + event["name"]}>
+                                            <p className="eventProjectTitle"> {event["name"]} </p>
                                         </CardBody>
                                         <div style={{padding: 5}}>
 
-                                        <Button style={{marginRight: 10, marginBottom: 20}} onClick={() => window.location.href = '/c/' + this.orgId + '/' + event} className="float-right getLink"> Link </Button>
+                                        <Button style={{marginRight: 10, marginBottom: 20}} onClick={() => window.location.href = '/c/' + this.orgId + '/' + event["name"]} className="float-right getLink"> Link </Button>
                                         </div>
                                     </Card>
                                     </FadeIn>
@@ -103,6 +111,7 @@ class AllEventsPage extends React.Component {
                     </Row>
                 </div>
 
+                <ToastContainer />
 
             </div>
 

@@ -2,6 +2,7 @@ import React from "react"
 import { db } from "../firebase"
 import { ToastContainer } from "react-toastify";
 import { TabManager } from "./subtabs/SubTabManager";
+import { SessionService } from "../networking/sessions/SessionService";
 
 
 class LiveEventPage extends React.Component {
@@ -14,46 +15,45 @@ class LiveEventPage extends React.Component {
             mentors: [],
             tab: "sessions",
             pageComponent: [],
-            isLoading: true
+            isLoading: true,
+            pageNotFound: false
         }
     }
 
     getMentorData = async() => {
-        console.log('got here')
-        return new Promise((resolve, reject) => { 
-            db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('organizations/' + this.props.match.params.orgId + '/' + 'events/' + this.props.match.params.eventId).get().then((mentors) => {
-                if (mentors.val() != null) {
-                    this.setState({ mentors : mentors.val()["mentors"] })
-                    resolve(mentors.val()["mentors"])
-                }
-            })
+        SessionService.getAllSessions(this.props.match.params.orgId, this.props.match.params.eventId).then((sessions) => {
+            if (sessions != null) {
+                this.setState({ mentors : sessions })
+                this.updateTabData('mentors')
+            } else {
+                this.pageNotFound();
+            }
             this.isLoading();
-        }).then(() => {
-            this.updateTabData('mentors')
         })
     };
 
     updateTabData = (tabName) => {
         this.setState({ tab : tabName })
-        console.log('update tab')
         this.setState({ pageComponent : TabManager.getTabComp(tabName, this.props.match.params.orgId, this.props.match.params.eventId, this.state.mentors, this.getMentorData) })
-    }
+    };
+
+    pageNotFound() {
+        this.setState({ pageNotFound : true })
+    };
 
     isLoading() {
         this.setState({ isLoading : false })
-    }
+    };
 
     componentDidMount() {
-        this.getMentorData().then(() => {
-            this.updateTabData('mentors')
-        })
-
-        db.auth().onAuthStateChanged((user) => {
-            console.log(user.getIdToken(true))
-        })
+        this.getMentorData()
     }
     
     render() {
+        if (this.state.pageNotFound) {
+            return "Page is not found"
+        }
+
         if (this.state.isLoading) {
             return "Loading Page"
         }

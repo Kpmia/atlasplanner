@@ -7,6 +7,7 @@ import { db } from "../firebase";
 import 'react-toastify/dist/ReactToastify.css';
 import { ReactFormBuilder } from 'react-form-builder2';
 import 'react-form-builder2/dist/app.css';
+import { SessionService } from "../networking/sessions/SessionService";
 
 class MentorForm extends React.Component {
     constructor() {
@@ -41,45 +42,28 @@ class MentorForm extends React.Component {
                 "day": timeslot["start"].getDay(),
                 "start": timeslot["start"].toTimeString(),
                 "end": timeslot["end"].toTimeString(),
-                "filled": 0
+                "filled": {}
             })
         })
 
-            const uid = await new Promise((resolve, reject) => {
-                db.auth().onAuthStateChanged((user) => {
-                    resolve(user.uid)
-                }, reject)
-            });
+        const session = { 
+            "section": this.state.section,
+            "name": this.state.name,
+            "link": this.state.link,
+            "descriptions": this.state.description,
+            "timeslots": restructureDates
+        }
 
-            var ID = function () {
-                return '_' + Math.random().toString(36).substr(2, 9);
-              };
-     
-            const generate_id = ID()
+        SessionService.createSession(this.props.match.params.orgId, this.props.match.params.eventId, session).then((session) => {
+            if (session) {
+                toast.dark('Updated sessions!',{ transition : Slide  })
+                toast.dark('Now redirecting you back to all sessions', { transition : Slide  })
 
-            db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('/' + uid  + '/' + this.props.match.params.orgId +'/events/' +  this.props.match.params.eventId + '/mentors/' + generate_id).set({
-                "section": this.state.section,
-                "name": this.state.name,
-                "link": this.state.link,
-                "descriptions": this.state.description,
-                "timeslots": restructureDates
+                setTimeout(() => {
+                    window.open("/c/" + this.props.match.params.orgId + "/" + this.props.match.params.eventId)
+                    }, 3500)
+                }
             })
-        
-
-            db.database('https://atlasplanner-e530e-default-rtdb.firebaseio.com/').ref('/organizations/' + this.props.match.params.orgId + '/events/' + this.props.match.params.eventId + '/mentors/' + generate_id).set({
-                "section": this.state.section,
-                "name": this.state.name,
-                "link": this.state.link,
-                "descriptions": this.state.description,
-                "timeslots": restructureDates
-            })
-
-            toast.dark('Updated sessions!',{ transition : Slide  })
-            toast.dark('Now redirecting you back to all sessions', { transition : Slide  })
-
-            setTimeout(() => {
-                window.open("/c/" + this.props.match.params.orgId + "/" + this.props.match.params.eventId)
-            }, 3500)
         };
     
       render() {
