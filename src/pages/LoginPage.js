@@ -10,6 +10,8 @@ import PersonIcon from '@material-ui/icons/Person';
 import { db } from './firebase';
 import { OrgService } from './networking/organizations/OrgService';
 import { toast, ToastContainer } from 'react-toastify';
+import { Demo } from './networking/demo/Demo';
+import { LiveSiteUtils } from './LiveEvent/utils/LiveSiteUtil';
 
 class LoginPage extends React.Component {
     constructor() {
@@ -27,14 +29,21 @@ class LoginPage extends React.Component {
         db.auth().createUserWithEmailAndPassword(
            this.state.email, this.state.password).then((user) => {
                user.user.updateProfile({
-                   displayName: this.state.email
+                   displayName: this.state.name
                })
+               var orgName = LiveSiteUtils.splitSpacesToDashes(this.state.orgName)
                const body = {
-                   'name': this.state.orgName
+                   'name': orgName
                }
                OrgService.createOrganization(body).then((org) => {
                    if (org) {
-                        return window.location.href = '/events/' + this.state.orgName + '/all'
+                        localStorage.setItem('org_id', orgName)
+                        Demo.createDemoData(orgName).then(() => {
+                            localStorage.setItem('new_user', true)
+                            setTimeout(() => {
+                                return window.location.href = '/events/' + orgName + '/all'
+                            }, 2000)
+                        })
                    } else {
                        toast.dark('Name is taken. Try another name.')
                    }
@@ -43,10 +52,19 @@ class LoginPage extends React.Component {
     }
 
     login = async(email, password) => {
-        db.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
-            // OrgService.
-                // return window.location.href = '/events/' + this.state.orgName + '/all'
-        })
+        try {
+            return db.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
+                    OrgService.getAllOrganizations().then((val) => {
+                        if (val) {
+                            localStorage.setItem('org_id', val[0]["_id"])
+                            return window.location.href = '/events/' + val[0]["_id"] + '/all'
+                        }
+                    })
+                })
+            } catch (error)  {
+                console.log(error)
+                return alert('Incorrect credentials. Please try again!')
+            }
     }
 
     render() {

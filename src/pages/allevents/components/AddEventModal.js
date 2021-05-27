@@ -7,6 +7,7 @@ import { updateLocale } from 'moment';
 import 'semantic-ui-css/semantic.min.css'
 import { EventService } from '../../networking/events/EventService';
 import { toast } from 'react-toastify';
+import { LiveSiteUtils } from '../../LiveEvent/utils/LiveSiteUtil';
 
 export const AddEventModal = (props) => {
   const {
@@ -22,8 +23,10 @@ export const AddEventModal = (props) => {
   const toggle = () => setModal(!modal);
 
   const createEvent = async(name) => {
+    var name = projectName
+    name = LiveSiteUtils.splitSpacesToDashes(name)
     const body = {
-      'name': projectName
+      'name': name
     }
     EventService.createEvent(orgId, body).then((resp) => {
       if (resp) {

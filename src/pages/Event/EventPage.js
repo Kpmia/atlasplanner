@@ -4,7 +4,9 @@ import { ReactFormBuilder, ReactFormGenerator } from "react-form-builder2";
 import { Button, Card, CardBody, Col, Row } from "reactstrap";
 import { Icon } from "semantic-ui-react";
 import { db } from "../firebase";
+import { LoadingPage } from "../LoadingPage";
 import { EventService } from "../networking/events/EventService";
+import { PageNotFound } from "../PageNotFound";
 
 class EventPage extends React.Component {
     constructor() {
@@ -22,8 +24,7 @@ class EventPage extends React.Component {
 
     getEventData = async(orgId, eventId) => {
         await EventService.getEvent(orgId, eventId).then((event) => {
-            console.log(event)
-            if (event != null && event) {
+            if (event) {
                 this.setState({ eventData : event });
             } else {
                 this.pageNotFound();
@@ -41,17 +42,18 @@ class EventPage extends React.Component {
     };
 
     componentDidMount() {
+    
         this.getEventData(this.props.match.params.orgId, this.props.match.params.eventId);
     };
 
     render() {
         if (this.state.pageNotFound) {
-            return "Page not found"
+            return <PageNotFound />
         }
 
        if (this.state.isLoading) {
-           return "Loading page"
-       }
+        return <LoadingPage />
+    }
 
       
         return (
@@ -80,20 +82,18 @@ class EventPage extends React.Component {
             <div className="eventPageBody container">
 
                 <p className="eventSubTabs"> all sessions </p>
-                {
-                    this.state.eventData["mentors"] != "None"?
                     <Row>
                     {
-                        Object.keys(this.state.eventData["mentors"]).map((mentor) => {
+                        Object.keys(this.state.eventData).map((mentor) => {
                             return (
                                 <Col style={{marginBottom: 30}} sm={4}>
                                 <FadeIn delay="400">
                                     <Card style={{cursor: 'pointer'}}  className="eventProjectCard">
                                         <div className="eventProjectGradCard"></div>
                                         <CardBody>
-                                        <p style={{marginBottom: 0}} className="eventProjectTitle"> {this.state.eventData["mentors"][mentor]["name"]} </p>
+                                        {/* <p style={{marginBottom: 0}} className="eventProjectTitle"> {this.state.eventData["mentors"][mentor]["name"]} </p>
                                         <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {this.state.eventData["mentors"][mentor]["link"]} </p>
-                                        <p > {this.state.eventData["mentors"][mentor]["descriptions"]} </p>
+                                        <p > {this.state.eventData["mentors"][mentor]["descriptions"]} </p> */}
                                     </CardBody>
                                     </Card>
                                 </FadeIn>
@@ -102,7 +102,6 @@ class EventPage extends React.Component {
                         })
                     }
                 </Row>
-                : null }
 
                 </div>
 

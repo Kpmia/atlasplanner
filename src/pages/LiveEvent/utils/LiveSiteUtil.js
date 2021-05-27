@@ -1,7 +1,6 @@
 import React from "react";
 import moment from "moment"
 
-
 export const LiveSiteUtils = {
 
     getCurrWeek() {
@@ -12,7 +11,17 @@ export const LiveSiteUtils = {
                 "July", "August", "September", "October", "November", "December"
         ];
 
-        return monthNames[firstday.getMonth()] + " " + firstday.getDate() + " - " + monthNames[lastday.getMonth()] + " " + lastday.getDate()
+        return monthNames[firstday.getMonth()] + " " + firstday.getDate() + ", " + firstday.getFullYear() +  " - " + monthNames[lastday.getMonth()] + " " + lastday.getDate() + ", " + firstday.getFullYear()  
+    },
+
+    splitSpacesToDashes(name) {
+        var str = name.replace(/\s+/g, '-').toLowerCase();
+        return str;
+    },
+
+    splitDashestoSpaces(name) {
+        var str = name.replace('-', ' ').split(' ')
+        return str[0];
     }
 
 }

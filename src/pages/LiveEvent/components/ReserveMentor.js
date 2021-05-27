@@ -1,11 +1,13 @@
 import React, { useEffect } from "react"
-import { Card } from '@material-ui/core';
+import { Card, TextField } from '@material-ui/core';
 import { useState } from 'react';
-import { Icon, Input } from 'semantic-ui-react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label,  CardBody, Row, Col, DropdownMenu } from 'reactstrap';
+import { Accordion, Form, Icon, Input, TextArea } from 'semantic-ui-react'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label,  CardBody, Row, Col, DropdownMenu, Table } from 'reactstrap';
 import { db } from "../../firebase";
 import { Slide, toast } from "react-toastify";
 import { SessionService } from "../../networking/sessions/SessionService";
+import uuid from 'react-uuid'
+import DeletePersonModal from "./DeleteMentorModal";
 
 export const ReserveMentor = (props) => {
     const {
@@ -22,6 +24,8 @@ export const ReserveMentor = (props) => {
     const [modal, setModal] = useState(false);
     const [timeslott, setSlot] = useState(timeslot);
     const [projectName, setName] = useState("");
+    const [idx, setIdx] = useState(0);
+    const [description, setDesc] = useState("");
   
     const toggle = () => setModal(!modal);
 
@@ -31,6 +35,11 @@ export const ReserveMentor = (props) => {
 
     }, [timeslot])
 
+    const handleClick = (i) => {
+      console.log(idx)  
+      setIdx(i)
+    }
+
     const reserveMentor = async(name) => {
 
         if (projectName == "") {
@@ -38,10 +47,12 @@ export const ReserveMentor = (props) => {
         }
 
         if (!mentor["data"]["timeslots"][timeslot["id"]]["filled"][currWeek]) {
-          mentor["data"]["timeslots"][timeslot["id"]]["filled"][currWeek] = []
+          mentor["data"]["timeslots"][timeslot["id"]]["filled"][currWeek] = {}
         }
 
-        (mentor["data"]["timeslots"][timeslot["id"]]["filled"][currWeek]).push({"name": projectName})
+        const id = uuid();
+
+        mentor["data"]["timeslots"][timeslot["id"]]["filled"][currWeek][id] = {"name": projectName, "description": description}
 
         const body = { "session" : mentor["data"]}
 
@@ -56,41 +67,56 @@ export const ReserveMentor = (props) => {
             }
         })
     }
-     
     return (
       <div onClick={toggle}>
           {children}
         <Modal style={{padding: 20}} overlay={false} isOpen={modal} toggle={toggle} >
-          <ModalHeader cssModule={{'modal-title': 'w-100 text-center'}} style={{borderBottom: 'none', paddingBottom: '0px', padding: 10, fontWeight: 600, fontSize: '17px', textAlign: 'center'}} className="createProjectTitle" toggle={toggle}> <span style={{borderBottom: 'none', paddingBottom: '0px', fontWeight: 600, fontSize: '17px', textAlign: 'center'}}> reserve session </span></ModalHeader>
+          <ModalHeader cssModule={{'modal-title': 'w-100 text-center'}} style={{borderBottom: 'none', paddingBottom: '0px', padding: 10, fontWeight: 600, fontSize: '17px', textAlign: 'center'}} className="createProjectTitle" toggle={toggle}> <span style={{borderBottom: 'none', paddingBottom: '0px', fontWeight: 600, fontSize: '17px', textAlign: 'center'}}> Reserve Session </span></ModalHeader>
           <ModalBody>
           <Label style={{marginBottom: 9}} className="createProjectLabel"> Your Name </Label>
           <br></br>
           <Input style={{width: '100%'}} onChange={(text) => setName(text.target.value)} placeholder="Enter name" />
           <br></br>
           <br></br>
-          <table class="ui celled striped table">
-            <thead>
-                <tr><th colspan="3">
-                all people
-                </th>
-            </tr></thead>
-            <tbody>
-         
+          <Label style={{marginBottom: 9}} className="createProjectLabel"> Extra Info </Label>
+          <br></br>
+          <Form>
+          <TextArea style={{width: '100%'}} onChange={(text) => setDesc(text.target.value)} placeholder="What are we talking about? (optional)" />
+          </Form>
+          <br></br>
+          <br></br>
+          <p> Participants </p>
+          <Accordion styled>
+           
           {
-              Object.keys(timeslot["filled"]).map((time) => {
+              Object.keys(timeslot["filled"]).map((time, i) => {
                   if (time == currWeek) {
-                    return Object.keys(timeslot["filled"][time]).map((person) => {
-                        return <tr>
-                            <td class="collapsing">
-                                <Icon name="user"/> {timeslot["filled"][time][person]["name"]} 
-                            </td>
-                            </tr>
+                    return Object.keys(timeslot["filled"][time]).map((person, j) => {
+                        return <span>
+                        <Accordion.Title
+                            active={j === idx}
+                            index={j}
+                            onClick={() => handleClick(j)}
+                          >
+                          
+                                <Icon name="user" style={{marginRight: 15}} />
+                                {timeslot["filled"][time][person]["name"]}
+                               <DeletePersonModal orgId={orgId} /> 
+                          </Accordion.Title>
+                          <Accordion.Content active={j === idx}>
+                            <p>
+                            {timeslot["filled"][time][person]["description"]}
+                            </p>
+                          </Accordion.Content>
+                      </span>
+                           
                     })
                   }
               })
           }
-                </tbody>
-            </table>
+
+          </Accordion>
+           
           </ModalBody>
           <ModalFooter style={{borderTop: 'none'}}>
             <Button className="createEventBtn" onClick={() => reserveMentor(projectName)} color="primary"> Submit </Button>{' '}

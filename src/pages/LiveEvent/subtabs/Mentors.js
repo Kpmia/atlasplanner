@@ -42,10 +42,11 @@ export class Mentors extends Component {
 
             {
     this.state.currentMentor.length != 0 ?
-    <div>
-    <Card>
+    <div id="calendar_body">
+    <Card >
         <CardBody>
-        <p> {this.state.currentMentor["data"]["link"]} </p> 
+        <strong> {this.state.currentMentor["data"]["name"] + `'s Schedule`} </strong> 
+        <p style={{textDecoration: 'underline'}}> {this.state.currentMentor["data"]["link"]} </p> 
         <Row>
         {
             Object.keys(weekDayData).map((day, idx) => {
@@ -71,7 +72,7 @@ export class Mentors extends Component {
                                   }).map((time) => {
                                     if (time) {
                                         if (time["filled"] != 0) {
-                                            if (Object.keys(time["filled"])[0] == this.currWeek) {
+                                            if (Object.keys(time["filled"]).includes(this.currWeek)) {
                                                 return (
                                                     <div className="unavailableTime" style={{background: '#3430F6', textAlign: 'center', marginBottom: 5}}>
                                                        <ReserveMentor updateCurrMentor={this.selectMentor} updateMentor={this.props.updateMentor} timeslot={time} currWeek={this.currWeek} mentor={this.state.currentMentor} orgId={this.state.orgId} eventId={this.state.eventId}> <span> {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> </ReserveMentor>
@@ -104,15 +105,17 @@ export class Mentors extends Component {
     null
 }
 
-            <Row>
+            <Row id="sessions_body">
                 {
                     this.state.mentors != "None"?
 
                         Object.keys(this.state.mentors).map((mentor) => {
+                            console.log(this.state.mentors[mentor]['name'])
                             return (
                             <Col style={{marginBottom: 30}} sm={4}>
+                                
                                 <FadeIn delay="400">
-                                <Card onClick={() => this.selectMentor(mentor)} style={{cursor: 'pointer'}}  className="eventProjectCard">
+                                <Card id={this.state.mentors[mentor]['name']} onClick={() => this.selectMentor(mentor)} style={{cursor: 'pointer'}}  className="eventProjectCard">
                                 <div className="eventProjectGradCard"></div>
                                 <CardBody>
                                 <p style={{marginBottom: 0}} className="eventProjectTitle"> {this.state.mentors[mentor]["name"]} </p>

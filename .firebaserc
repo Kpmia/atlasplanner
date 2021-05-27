@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "atlasplanner-e530e"
+  },
+  "targets": {
+    "atlasplanner-e530e": {
+      "hosting": {
+        "dev": [
+          "atlasplanner-dev"
+        ],
+        "prod": [
+          "atlasplanner-e530e"
+        ]
+      }
+    }
   }
 }

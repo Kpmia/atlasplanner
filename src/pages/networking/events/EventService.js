@@ -10,11 +10,12 @@ export const EventService = {
         try {
             return new Promise((resolve, reject) => {
                 EventManager.getAllEvents(userToken, orgId).then((exp) => {
-                    console.log(exp["data"]["events"])
-                    if (exp) {
-                        resolve(exp["data"]["events"]);
-                    } else {
-                        resolve(null);
+                    if (exp != null && exp) {
+                        if (exp) {
+                            resolve(exp["data"]["events"]);
+                        } else {
+                            resolve(null);
+                        }
                     }
                 }, reject);
             })
@@ -38,7 +39,6 @@ export const EventService = {
             })
         } catch (err) {
             console.log('Cannot grab events.')
-            console.log(err)
             return null;
         }
     },
@@ -69,13 +69,13 @@ export const EventService = {
         try {
             return new Promise((resolve, reject) => {
                 EventManager.getEvent(userToken, orgId, eventId).then((exp) => {
-
-                    console.log(exp)
-                    console.log(exp["data"]["events"])
-                    if (exp) {
-                        resolve(exp["data"]["events"]);
-                    } else {
-                        resolve(null);
+                    if (exp != null & exp) {
+                        console.log(exp["data"]["events"])
+                        if (exp) {
+                            resolve(exp["data"]["events"]);
+                        } else {
+                            resolve(null);
+                        }
                     }
                 }, reject);
             })

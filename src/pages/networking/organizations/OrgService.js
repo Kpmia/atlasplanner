@@ -1,17 +1,18 @@
 
 import React from "react";
 import { db } from "../../firebase";
+import { LiveSiteUtils } from "../../LiveEvent/utils/LiveSiteUtil";
 import { EventService } from "../events/EventService";
 import { OrganizationManager } from "./OrgManager";
 
 export const OrgService = {
 
-    getAllOrganizations: async(orgId) => {
+    getAllOrganizations: async() => {
         const userToken = await EventService.getUserToken()
         try {
             return new Promise((resolve, reject) => {
                 OrganizationManager.getAllOrganizations(userToken).then((exp) => {
-                    if (exp) {
+                    if (exp != null && exp) {
                         resolve(exp["data"]["organizations"]);
                     } else {
                         resolve(null);
@@ -25,11 +26,12 @@ export const OrgService = {
     },
 
     createOrganization: async(orgId) => {
+        console.log(orgId)
         const userToken = await EventService.getUserToken()
         try {
             return new Promise((resolve, reject) => {
                 OrganizationManager.createOrganization(userToken, orgId).then((exp) => {
-                    if (exp != null) {
+                    if (exp != null && exp) {
                             resolve(exp["data"]["organization"]);
                     } else {
                         resolve(null);

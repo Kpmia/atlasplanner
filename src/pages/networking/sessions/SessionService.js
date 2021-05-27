@@ -29,6 +29,7 @@ export const SessionService = {
         try {
             return new Promise((resolve, reject) => {
                 SessionManager.createSession(userToken, orgId, eventId, session).then((exp) => {
+                    console.log(exp)
                     if (exp != null && exp) {
                             resolve(exp["data"]["sessions"]);
                     } else {
