@@ -7,7 +7,7 @@ import { db } from "../../firebase";
 import { Slide, toast } from "react-toastify";
 import { SessionService } from "../../networking/sessions/SessionService";
 import uuid from 'react-uuid'
-import DeletePersonModal from "./DeleteMentorModal";
+import moment from 'moment'
 
 export const ReserveMentor = (props) => {
     const {
@@ -36,7 +36,6 @@ export const ReserveMentor = (props) => {
     }, [timeslot])
 
     const handleClick = (i) => {
-      console.log(idx)  
       setIdx(i)
     }
 
@@ -57,21 +56,22 @@ export const ReserveMentor = (props) => {
         const body = { "session" : mentor["data"]}
 
         SessionService.updateSession(orgId, eventId, mentor["data"]["_id"], body).then((sessions) => {
-          console.log(sessions)
             if (sessions) {
-                toast.dark('Successfully added to session', {transition: Slide})
+                toast.dark('Successfully added to session', {transition: Slide, position: "top-center"})
 
                 updateMentor()
-                updateCurrMentor(mentor["id"])
+                updateCurrMentor(mentor["id"], mentor["data"], false)
                 toggle()
             }
         })
     }
+
     return (
       <div onClick={toggle}>
           {children}
         <Modal style={{padding: 20}} overlay={false} isOpen={modal} toggle={toggle} >
           <ModalHeader cssModule={{'modal-title': 'w-100 text-center'}} style={{borderBottom: 'none', paddingBottom: '0px', padding: 10, fontWeight: 600, fontSize: '17px', textAlign: 'center'}} className="createProjectTitle" toggle={toggle}> <span style={{borderBottom: 'none', paddingBottom: '0px', fontWeight: 600, fontSize: '17px', textAlign: 'center'}}> Reserve Session </span></ModalHeader>
+          <p style={{fontWeight: 'bold', textAlign: 'center'}}> {moment(timeslot['start'], 'HH:mm').format('h:mm a')} - {moment(timeslot['end'], 'H:mm').format('hh:mm a')} </p>
           <ModalBody>
           <Label style={{marginBottom: 9}} className="createProjectLabel"> Your Name </Label>
           <br></br>
@@ -96,12 +96,9 @@ export const ReserveMentor = (props) => {
                         <Accordion.Title
                             active={j === idx}
                             index={j}
-                            onClick={() => handleClick(j)}
-                          >
-                          
+                            onClick={() => handleClick(j)}>
                                 <Icon name="user" style={{marginRight: 15}} />
                                 {timeslot["filled"][time][person]["name"]}
-                               <DeletePersonModal orgId={orgId} /> 
                           </Accordion.Title>
                           <Accordion.Content active={j === idx}>
                             <p>

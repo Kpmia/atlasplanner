@@ -1,17 +1,13 @@
 import React from 'react';
 import { Card, CardBody } from 'reactstrap'
-import TextField from '@material-ui/core/TextField';
 import FadeIn from 'react-fade-in';
-import { InputAdornment, OutlinedInput } from '@material-ui/core';
 import MailOutlineRoundedIcon from '@material-ui/icons/MailOutlineRounded';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 import LockIcon from '@material-ui/icons/Lock';
 import PersonIcon from '@material-ui/icons/Person';
-import { db } from './firebase';
-import { OrgService } from './networking/organizations/OrgService';
 import { toast, ToastContainer } from 'react-toastify';
-import { Demo } from './networking/demo/Demo';
-import { LiveSiteUtils } from './LiveEvent/utils/LiveSiteUtil';
+import { Auth } from './networking/authentication/Auth';
+import { db } from './firebase';
 
 class LoginPage extends React.Component {
     constructor() {
@@ -25,47 +21,19 @@ class LoginPage extends React.Component {
         }
     }
 
-    signUp = async(email, password, teamName, name) => {
-        db.auth().createUserWithEmailAndPassword(
-           this.state.email, this.state.password).then((user) => {
-               user.user.updateProfile({
-                   displayName: this.state.name
-               })
-               var orgName = LiveSiteUtils.splitSpacesToDashes(this.state.orgName)
-               const body = {
-                   'name': orgName
-               }
-               OrgService.createOrganization(body).then((org) => {
-                   if (org) {
-                        localStorage.setItem('org_id', orgName)
-                        Demo.createDemoData(orgName).then(() => {
-                            localStorage.setItem('new_user', true)
-                            setTimeout(() => {
-                                return window.location.href = '/events/' + orgName + '/all'
-                            }, 2000)
-                        })
-                   } else {
-                       toast.dark('Name is taken. Try another name.')
-                   }
-               })
-        })
-    }
+    signUp = async(email, password, orgName, name) => {
+        if (orgName == "") {
+            return toast.dark('Please enter an organization name')
+        }
+        if (name == "") {
+            return toast.dark('Please enter your name')
+        }
+        return await Auth.signUp(email, password, orgName, name)
+    };
 
     login = async(email, password) => {
-        try {
-            return db.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
-                    OrgService.getAllOrganizations().then((val) => {
-                        if (val) {
-                            localStorage.setItem('org_id', val[0]["_id"])
-                            return window.location.href = '/events/' + val[0]["_id"] + '/all'
-                        }
-                    })
-                })
-            } catch (error)  {
-                console.log(error)
-                return alert('Incorrect credentials. Please try again!')
-            }
-    }
+        return await Auth.login(email, password)
+    };
 
     render() {
 
@@ -79,9 +47,7 @@ class LoginPage extends React.Component {
                     <Card id="card-demo" className="signInCard">
                         <CardBody style={{padding: 37 }}>
                         <FadeIn delay="300">
-                            {/* <img style={{marginBottom: 13}} src={require('../assets/stackstrLogoRocket.svg')} /> */}
-
-                            <p className="signInVoyagerTitle" style={{marginBottom: 10}}> Atlas planner </p>
+                            <p className="signInTitle" style={{marginBottom: 10}}> Login </p>
                             <InputGroup style={{height: 41, color: 'black'}}>
                             <InputGroupAddon style={{background: 'none'}} addonType="prepend">
                             <InputGroupText style={{background: 'white', borderRight: 'none'}}><MailOutlineRoundedIcon style={{color: 'gray', width: '15px'}} /></InputGroupText>
@@ -101,7 +67,7 @@ class LoginPage extends React.Component {
 
                             <button onClick={() => this.login(this.state.email, this.state.password)} id="card__image" className="signInBtn" style={{marginBottom: 11}}> Continue </button> 
 
-                            <p onClick={() => this.setState({ hasAccount : false })} className="forgotAccountLink"> Don’t have an account? <span style={{color: '#45484F'}}> Sign up </span> </p>
+                            <p onClick={() => this.setState({ hasAccount : false })} className="forgotAccountLink"> Don’t have an account? <span style={{color: '#45484F', cursor: 'pointer'}}> Sign up </span> </p>
                             </FadeIn>
 
                         </CardBody>
@@ -114,9 +80,8 @@ class LoginPage extends React.Component {
                     <Card id="card-demo" className="signInCard">
                         <CardBody style={{padding: 37 }}>
                         <FadeIn delay="300">
-                            {/* <img style={{marginBottom: 13}} src={require('../assets/stackstrLogoRocket.svg')} /> */}
 
-                            <p className="signInVoyagerTitle" style={{marginBottom: 10, width: 140}}> New user sign up. </p>
+                            <p className="signInTitle" style={{marginBottom: 10, width: 140}}> New user sign up. </p>
                             <InputGroup style={{height: 41, color: 'black'}}>
                             <InputGroupAddon style={{background: 'none'}} addonType="prepend">
                             <InputGroupText style={{background: 'white', borderRight: 'none'}}><MailOutlineRoundedIcon style={{color: 'gray', width: '15px'}} /></InputGroupText>
@@ -148,7 +113,7 @@ class LoginPage extends React.Component {
 
                             <button onClick={() => this.signUp(this.state.email, this.state.password, this.state.orgName, this.state.name)} id="card__image" className="signInBtn" style={{marginBottom: 11}}> Continue </button> 
 
-                            <p onClick={() => this.setState({ hasAccount : true })} className="forgotAccountLink"> Have an account? <span style={{color: '#45484F'}}> Sign in </span> </p>
+                            <p onClick={() => this.setState({ hasAccount : true })} style={{cursor: 'pointer'}} className="forgotAccountLink"> Have an account? <span style={{color: '#45484F', cursor: 'pointer'}}> Sign in </span> </p>
                             </FadeIn>
 
                         </CardBody>

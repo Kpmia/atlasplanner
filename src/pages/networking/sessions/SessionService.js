@@ -12,7 +12,7 @@ export const SessionService = {
             return new Promise((resolve, reject) => {
                 SessionManager.getAllSessions(userToken, orgId, eventId).then((exp) => {
                     if (exp != null && exp) {
-                        resolve(exp["data"]["sessions"]);
+                        resolve(exp["data"]);
                     } else {
                         resolve(null);
                     }
@@ -32,6 +32,25 @@ export const SessionService = {
                     console.log(exp)
                     if (exp != null && exp) {
                             resolve(exp["data"]["sessions"]);
+                    } else {
+                        resolve(null);
+                    }
+                }, reject);
+            })
+        } catch (err) {
+            console.log('Cannot create sessions.')
+            console.log(err)
+            return null;
+        }
+    },
+
+    deleteSession: async(orgId, eventId, sessionId, key) => {
+        const userToken = await EventService.getUserToken()
+        try {
+            return new Promise((resolve, reject) => {
+                SessionManager.deleteSession(userToken, orgId, eventId, sessionId, key).then((exp) => {
+                    if (exp != null && exp) {
+                            resolve(exp["data"]);
                     } else {
                         resolve(null);
                     }

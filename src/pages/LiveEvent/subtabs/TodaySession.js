@@ -34,6 +34,7 @@ export class TodaySession extends Component {
 
         Object.keys(this.state.mentors).map((mentor) => {
             var isAvailable = false
+            
             this.state.mentors[mentor]["timeslots"].map((time) => {
                 if (time["day"] == this.todayDate.getDay()) {
                     isAvailable = true
@@ -46,12 +47,11 @@ export class TodaySession extends Component {
 
         Object.keys(availTodaySess).map((mentor) => {
             availTodaySess[mentor]["timeslots"].map(time => {
-                console.log(time)
                 if (time["day"] == this.todayDate.getDay()) {
                     if (!times.includes(time["start"] + "-" + time["end"])) {
                         times.push(time["start"] + "-" + time["end"])
 
-                        columns.push({field: time["start"] + " - " + time["end"], editable: true, start: time["start"], end: time["end"], headerName: moment(time["start"], 'HH:mm'). format('h:mm A') + " - " + moment(time["end"], 'HH:mm'). format('h:mm A'), width: 190 })
+                        columns.push({field: time["start"] + " - " + time["end"], editable: false, start: time["start"], end: time["end"], headerName: moment(time["start"], 'HH:mm'). format('h:mm A') + " - " + moment(time["end"], 'HH:mm'). format('h:mm A'), width: 190 })
 
                         columns.sort(function compare(a, b) {
                             return new Date('1970/01/01 ' + a["start"]) - new Date('1970/01/01 ' + b["start"]);
@@ -73,11 +73,10 @@ export class TodaySession extends Component {
             }
 
             availTodaySess[mentor]["timeslots"].map((time) => {
-                if (time["day"] == this.todayDate.getDay()) {
+                if (time["day"]  == this.todayDate.getDay()) {
                     var getMemberInfo = ""
                     Object.keys(time["filled"]).map((week) => {
                         if (week == this.currWeek) {
-                            console.log(time["filled"])
                             Object.keys(time["filled"][week]).map((people) => {
                                 getMemberInfo += time["filled"][week][people]["name"] + ", "
                             })

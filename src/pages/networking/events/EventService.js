@@ -48,11 +48,8 @@ export const EventService = {
         try {
             return new Promise((resolve, reject) => {
                 EventManager.deleteEvent(userToken, orgId, eventId).then((exp) => {
-
-                    console.log(exp)
-                    console.log(exp["data"]["events"])
-                    if (exp) {
-                        resolve(exp["data"]["events"]);
+                    if (exp != null && exp) {
+                        resolve(exp['data']['message']);
                     } else {
                         resolve(null);
                     }
@@ -69,10 +66,9 @@ export const EventService = {
         try {
             return new Promise((resolve, reject) => {
                 EventManager.getEvent(userToken, orgId, eventId).then((exp) => {
-                    if (exp != null & exp) {
-                        console.log(exp["data"]["events"])
+                    if (exp != null && exp) {
                         if (exp) {
-                            resolve(exp["data"]["events"]);
+                            resolve(exp["data"]["events"][0]);
                         } else {
                             resolve(null);
                         }

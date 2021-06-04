@@ -59,7 +59,7 @@ export const EventManager = {
     try {
       const config = {
         headers: {
-          "Authorization": "Bearer " + userToken,
+          "Authorization": userToken,
         },
       };
       return await atlasAPI.delete(

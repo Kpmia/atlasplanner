@@ -1,122 +1,95 @@
 import React from "react"
-import AvailableTimes from 'react-available-times';
-import { Slide, toast, ToastContainer } from "react-toastify";
-import { Button, Col, Row } from "reactstrap";
-import { Form, Input, TextArea } from "semantic-ui-react";
+import { Button, CardBody, Col,  Row } from "reactstrap";
 import { db } from "../firebase";
 import 'react-toastify/dist/ReactToastify.css';
-import { ReactFormBuilder } from 'react-form-builder2';
 import 'react-form-builder2/dist/app.css';
 import { SessionService } from "../networking/sessions/SessionService";
+import 'intro.js/introjs.css'
+import { TabManager } from "./subtabs/TabManager";
+import history from "../history";
+import { io } from "socket.io-client";
+import { PageNotFound } from "../PageNotFound";
+import { LoadingPage } from "../LoadingPage";
+import { ToastContainer } from "react-toastify";
 
 class MentorForm extends React.Component {
     constructor() {
         super()
         this.orgId = ""
+        this.uid = ""
+        this.socket = io("http://localhost:8080")
         this.eventId = ""
-        this.uid= ""
         this.state={
-            name: "",
-            link: "",
-            section: "",
-            description: "",
-            timeSlots: [],
+            sessions: [],
+            pageNotFound: false,
+            pageComponent: [],
+            tab: "create-session",
+            isLoading: true,
         }
     }
 
-    submitMentor = async() => {
-
-        if (this.state.name == "") {
-            return toast.dark('Please enter your name',{ transition : Slide  })
-        }
-        if (this.state.timeSlots) {
-            if (this.state.timeSlots.length == 0) {
-                return toast.dark('Please enter your timeslots',{ transition : Slide  })
+    getSessions = async(orgId, eventId) => {
+        await SessionService.getAllSessions(orgId, eventId).then((sessions) => {
+            if (sessions) {
+                this.setState({ sessions : sessions['sessions'] })
+                this.updateTabData(this.state.tab)
+            } else {
+                this.pageNotFound()
             }
-        }
+            this.setState({ isLoading : false })
+        });
+    };
 
-        const restructureDates = []
+    pageNotFound() {
+        this.setState({ pageNotFound : true })
+    }
 
-        this.state.timeSlots.map((timeslot) => {
-            restructureDates.push({
-                "day": timeslot["start"].getDay(),
-                "start": timeslot["start"].toTimeString(),
-                "end": timeslot["end"].toTimeString(),
-                "filled": {}
-            })
+    updateTabData = (name) => {
+        history.push("?tab-name=" + name)
+        this.setState({ tab : name })
+        this.setState({ pageComponent : TabManager.getTabComponent(name, this.props.match.params.orgId, this.props.match.params.eventId, this.state.sessions, this.getSessions) })
+    }
+
+    componentDidMount() {
+        this.getSessions(this.props.match.params.orgId, this.props.match.params.eventId).then(() => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('tab-name') != "") {
+                this.updateTabData(urlParams.get('tab-name'))
+            }
         })
-
-        const session = { 
-            "section": this.state.section,
-            "name": this.state.name,
-            "link": this.state.link,
-            "descriptions": this.state.description,
-            "timeslots": restructureDates
-        }
-
-        SessionService.createSession(this.props.match.params.orgId, this.props.match.params.eventId, session).then((session) => {
-            if (session) {
-                toast.dark('Updated sessions!',{ transition : Slide  })
-                toast.dark('Now redirecting you back to all sessions', { transition : Slide  })
-
-                setTimeout(() => {
-                    window.open("/c/" + this.props.match.params.orgId + "/" + this.props.match.params.eventId)
-                    }, 3500)
-                }
-            })
-        };
+    }
     
       render() {
+          if (this.state.pageNotFound) {
+              return <PageNotFound />
+          }
+          if (this.state.isLoading) {
+              return <LoadingPage />
+          }
                    
         return (
             <div className="eventBody">
-                    <div className="eventHeader">
-                        <div className="container">
-                            <img style={{marginTop: 20}} src={require('../../assets/icon.svg')} />
+                <div className="top_form_header"></div>
+                <div className="container">
+                    <img style={{marginTop: 20}} src={require('../../assets/icon.svg')} />
                         </div>
-                </div>  
+                
 
-            <div style={{paddingTop: 80}} className="eventPageBody container">
+            <div style={{paddingTop: 50, zIndex:999, position: 'relative'}} className="eventPageBody container">          
+            <p className="eventWhiteHeaderTitle" style={{marginBottom: 5, marginTop: 25, fontSize: 45, color: 'white'}}>{this.props.match.params.eventId}</p>
+            <p className="eventWhiteHeaderTitle" style={{marginBottom: 5, marginTop: 15, fontSize: 18, color: 'white'}}>{this.props.match.params.orgId}</p>
 
-                <br></br>
-          
-            <p className="eventWhiteHeaderTitle" style={{marginBottom: 5, marginTop: 25}}>{this.props.match.params.eventId}</p>
-            <p className="eventWhiteHeaderTitle" style={{marginBottom: 5, fontSize: 16}}>{this.props.match.params.orgId}</p>
+            <p> </p>
 
-            <Row style={{marginLeft: 2}}>
-            <Input style={{marginRight: 30}} placeholder="Section (Optional)" onChange={(text) => this.setState({ section : text.target.value }) }  />
-              <Input style={{marginRight: 30}} placeholder="Full Name" onChange={(text) => this.setState({ name : text.target.value }) }  />
-              <Input placeholder="Link (Optional)" style={{marginRight: 30}}  onChange={(text) => this.setState({ link : text.target.value })}  />
-            
-              </Row>
-              <br></br>
-              <Form>
-                <TextArea  placeholder="Description" onChange={(text) => this.setState({ description : text.target.value })} placeholder='Tell us more' />
-            </Form>
+            <Button style={{background: 'none', marginRight: 10, color: 'white', border: '1px solid white'}} onClick={() => this.updateTabData("create-session")}> Create  </Button>
+            <Button style={{background: 'none', marginRight: 10, color: 'white', border: '1px solid white'}}  onClick={() => this.updateTabData("delete-session")}> Delete  </Button>
+            <Button disabled style={{background: 'none', color: 'white', border: '1px solid white'}}  onClick={() => this.updateTabData("edit-session")}> Edit </Button>
+            <br></br>
             <br></br>
 
-                    <AvailableTimes
-                
-                    weekStartsOn="monday"
-                    onClick={(date) => console.log(date)}
-                    calendars={[
-                        {
-                        id: 'work',
-                        title: 'Work',
-                        foregroundColor: '#ff00ff',
-                        backgroundColor: '#f0f0f0',
-                        selected: true,
-                        },
-                    ]}
-                    onChange={(selections) => this.setState({ timeSlots : selections })}         
-                    height={600}
-                    recurring={false}
-                    availableDays={['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']}
-                    availableHourRange={{ start: 0, end: 24 }}
-                    />
-                    <br></br>
-                    <Button className="createEventBtn float-right" onClick={this.submitMentor}> Submit </Button>
+            {this.state.pageComponent}
 
+            <br></br>
             </div>
             <ToastContainer />
           </div>

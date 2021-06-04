@@ -26,7 +26,6 @@ export const OrgService = {
     },
 
     createOrganization: async(orgId) => {
-        console.log(orgId)
         const userToken = await EventService.getUserToken()
         try {
             return new Promise((resolve, reject) => {

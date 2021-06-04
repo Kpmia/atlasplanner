@@ -9,7 +9,7 @@ export const TabManager = {
         switch (name) {
 
             case "mentors":
-                return <Mentors orgId={orgId} eventId={eventId} mentors={mentors} updateMentor={updateMentors} />
+                return <Mentors orgId={orgId} eventId={eventId}  mentors={mentors} updateMentor={updateMentors} />
 
             case "today-session":
                 return <TodaySession orgId={orgId} eventId={eventId} mentors={mentors} />
@@ -18,10 +18,10 @@ export const TabManager = {
 
     getTabNames: () =>{
         return [{
-            'name': 'all sessions',
+            'name': 'All Sessions',
             'route': 'mentors'
         },{
-            'name': 'today session',
+            'name': `Today's Session`,
             'route': 'today-session'
         }]
     }

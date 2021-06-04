@@ -3,10 +3,13 @@ import FadeIn from "react-fade-in";
 import { ReactFormBuilder, ReactFormGenerator } from "react-form-builder2";
 import { Button, Card, CardBody, Col, Row } from "reactstrap";
 import { Icon } from "semantic-ui-react";
+import { UserBanner } from "../../globalcomp/UserDropDown";
 import { db } from "../firebase";
 import { LoadingPage } from "../LoadingPage";
 import { EventService } from "../networking/events/EventService";
+import { SessionService } from "../networking/sessions/SessionService";
 import { PageNotFound } from "../PageNotFound";
+import { ShareSessionModal } from "./components/modals/ShareSessionModal";
 
 class EventPage extends React.Component {
     constructor() {
@@ -17,6 +20,7 @@ class EventPage extends React.Component {
         this.currWeek = ""
         this.state={
             eventData: [],
+            sessionData: [],
             pageNotFound: false,
             isLoading: true,
         }
@@ -24,12 +28,16 @@ class EventPage extends React.Component {
 
     getEventData = async(orgId, eventId) => {
         await EventService.getEvent(orgId, eventId).then((event) => {
-            if (event) {
+            if (event != null) {
                 this.setState({ eventData : event });
+                SessionService.getAllSessions(orgId, eventId).then((sessions) => {
+                    if (sessions) {
+                        this.setState({ sessionData : sessions["sessions"] })
+                    }
+                })
             } else {
                 this.pageNotFound();
             }
-            this.isLoading();
         })
     };
 
@@ -42,8 +50,9 @@ class EventPage extends React.Component {
     };
 
     componentDidMount() {
-    
-        this.getEventData(this.props.match.params.orgId, this.props.match.params.eventId);
+        this.getEventData(this.props.match.params.orgId, this.props.match.params.eventId).then(() => {
+            this.isLoading();
+        })
     };
 
     render() {
@@ -51,9 +60,9 @@ class EventPage extends React.Component {
             return <PageNotFound />
         }
 
-       if (this.state.isLoading) {
-        return <LoadingPage />
-    }
+        if (this.state.isLoading) {
+            return <LoadingPage />
+        }
 
       
         return (
@@ -62,49 +71,46 @@ class EventPage extends React.Component {
                 <div className="container">
                     <img style={{marginTop: 20}} src={require('../../assets/icon.svg')} />
 
-                    <p style={{marginTop: 23}} className="userProfile float-right"> user settings</p>
+                    <p style={{marginTop: 23}} className="userProfile float-right"> <UserBanner /></p>
+
                 </div>
             </div>            
             <div className="eventWhiteHeader">
                         <div style={{marginTop: 10}} className="container">
-                        <Button style={{marginBottom: 0}} className="backBtn" onClick={() => window.location.href = '/events/' + this.props.match.params.orgId + '/all'}> <Icon name="long arrow alternate left" /> Back </Button>
+                        <Button style={{marginBottom: 0}} className="backBtn" onClick={() => window.location.href = '/events/all/' + this.props.match.params.orgId}> <Icon name="long arrow alternate left" /> Back </Button>
 
                             <span> <p style={{marginBottom: 8}} className="eventWhiteHeaderTitle text-center">{this.props.match.params.eventId}</p>
                             </span>
 
                             <Row style={{justifyContent: 'center'}}>
-                            <p onClick={() => window.open("/c/" + this.props.match.params.orgId + "/" + this.props.match.params.eventId)} className="liveLinkHeader text-center">{window.location.origin.toString() + "/c/" + this.props.match.params.orgId + "/" + this.props.match.params.eventId}</p>
+                            <p onClick={() => window.open("/c/" + this.props.match.params.orgId + "/" + this.props.match.params.eventId)} className="liveLinkHeader text-center">view live event page <Icon name="window restore" /></p>
                             </Row>
                     </div>
-                    
+                    <br></br>
                 </div>
 
             <div className="eventPageBody container">
-
-                <p className="eventSubTabs"> all sessions </p>
-                    <Row>
-                    {
-                        Object.keys(this.state.eventData).map((mentor) => {
-                            return (
-                                <Col style={{marginBottom: 30}} sm={4}>
-                                <FadeIn delay="400">
-                                    <Card style={{cursor: 'pointer'}}  className="eventProjectCard">
-                                        <div className="eventProjectGradCard"></div>
-                                        <CardBody>
-                                        {/* <p style={{marginBottom: 0}} className="eventProjectTitle"> {this.state.eventData["mentors"][mentor]["name"]} </p>
-                                        <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {this.state.eventData["mentors"][mentor]["link"]} </p>
-                                        <p > {this.state.eventData["mentors"][mentor]["descriptions"]} </p> */}
-                                    </CardBody>
-                                    </Card>
-                                </FadeIn>
-                            </Col>
-                            )    
-                        })
-                    }
-                </Row>
-
+            <p style={{fontWeight: 'bold'}}> What would you like to do? </p>
+                <Card style={{cursor: 'pointer'}}>
+                    <CardBody onClick={() => window.open('/editsession/' + this.props.match.params.orgId+ '/' + this.props.match.params.eventId + '?tab-name=create-session')}>
+                        <p> <Icon name="add circle" /> Do you want to create a session?</p>
+                    </CardBody>
+                </Card>            
+                <br></br>
+                <Card style={{cursor: 'pointer'}}>
+                    <CardBody>
+                        <ShareSessionModal orgId={this.props.match.params.orgId} eventId={this.props.match.params.eventId}>  <p> <Icon name="user circle outline" /> Do you want to give others access to create, edit, or delete sessions?</p> </ShareSessionModal>
+                    </CardBody>
+                </Card>
+                <br></br>
+            <p style={{fontWeight: 'bold'}}> Coming soon </p>
+                <Card style={{opacity : .6}} aria-disabled>
+                    <CardBody>
+                        <p> <Icon name="line graph" /> View Session Activity</p>
+                    </CardBody>
+                </Card>
+                <br></br>
                 </div>
-
             </div>
         )
     }

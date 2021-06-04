@@ -5,6 +5,10 @@
 
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
 
+body {
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif!important;
+  background: #eff2f5!important;
+}
 
 .modal {
   background: rgba(0, 0, 0, 0.3);
@@ -56,16 +60,21 @@
   font-weight: 400!important;
 }
 .MuiDataGrid-root .MuiDataGrid-columnHeader {
-  background: black!important;
+  background: #010747!important;
   color: white!important;
   font-weight: 300!important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper .MuiDataGrid-cell {
+  background: #010747!important;
+
 }
 
 .MuiDataGrid-root .MuiDataGrid-cell {
   border: 1px solid rgba(224, 224, 224, 1)!important;
   font-weight: 400!important;
 }
-.signInVoyagerTitle {
+.signInTitle {
   font-style: normal;
   font-weight: 600;
   font-size: 28px;
@@ -110,26 +119,30 @@
 }
 
 
+
+
 .eventBody {
-  height: 160vh;
+  height: 100%;
   background: #EFF2F5;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .eventHeader {
-  background: black;
+  background: #010747;
   width: 100%;
   height: 63px;
-  position: absolute;
+  z-index: 999;
+  position: fixed;
   top: 0px;
 }
 
 .eventWhiteHeader {
   background: #FFFFFF;
-  position: absolute;
+  position: fixed;
   top: 63px;
+  z-index: 99;
   width: 100%;
-  height: 139px;
   border: 0.4px solid #D5DFEB;
   box-sizing: border-box;
   box-shadow: 0px 0px 31px rgba(188, 189, 192, 0.3);
@@ -140,31 +153,113 @@
   padding-top: 250px;
 }
 
+.top_form_header {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  z-index: 99;
+  box-shadow: inset 0px -12px 28px rgba(0, 0, 0, 0.13)!important;
+  top: 0px;
+  background-size: 400%!important;
+  animation: gradient 7s ease infinite;
+  background: linear-gradient(-45deg, #8e2bff, #e73c7e,#4742c0, #1d26fa);
+}
+
 .eventProjectCard {
   background: #FFFFFF!important;
   border: 1px solid rgba(213, 223, 235, 0.75)!important;
   border-bottom: 1px solid #3430F6!important;
   box-sizing: border-box!important;
-  box-shadow: 0px 4px 11px 8px rgba(0, 0, 0, 0.04)!important;
+  background-size: 100% auto;
+  cursor: pointer;
+  transition: all 0.5s;
+  box-shadow: 6px 8px 0px rgba(30, 58, 76, .17) !important;
   border-radius: 8px!important;
+  transform: translateY(0px);
+}
+
+.eventProjectCard:hover {
+  background-size: 200%;
+  z-index: 999;
+  transition: all 0.5s;
+  transform: rotate3d(3, 4, 100, 355deg) translateY(-15px);
+  border-radius: 40px!important;
+  box-shadow: -10px 50px 0px rgba(30, 58, 76, .05)!important;
+  background-position: left center;
 }
 
 .introjs-progressbar {
-  background-color: #6432f7!important;
+  background-color: #e03997!important;
+}
+
+
+
+.introjs-tooltip {
+  border: 1px solid #3430F6!important;
+  box-shadow: -9px 20px 3px rgba(33, 33, 33, .30)!important;
+}
+
+.introjs-helperLayer {
+   box-shadow: rgba(35, 35, 74, 0.434) 0px 0px 1px 2px, rgba(35, 35, 74, 0.434) -20px 20px 0px 0px!important;
+   color: white!important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.introjs-button {
+  font-weight: 500!important;
+  border-radius: 5px!important;
+  background: #3430F6 !important;
+  color: white!important;
+  text-shadow: none!important;
+}
+
+.optionsIcon {
+  color: white;
+  z-index: 999;
+  position: absolute;
+  top: 29px;
+  left: 20px;
+}
+
+.MuiDataGrid-root .MuiDataGrid-sortIcon, .MuiDataGrid-root .MuiDataGrid-filterIcon {
+  color: white!important;
+}
+
+.MuiDataGrid-root .MuiDataGrid-columnHeader:not(.MuiDataGrid-columnHeaderSorted) .MuiDataGrid-sortIcon {
+  opacity: 1!important;
+}
+
+.ui.dropdown .menu {
 }
 
 .eventProjectGradCard {
-  background: linear-gradient(99.95deg, #F7C4F2 1.36%, #3430F6 91.88%);
-  box-shadow: 0px 7px 10px rgba(172, 177, 194, 0.22);
+  background: linear-gradient(-45deg, #8e2bff, #e73c7e,#4742c0, #1d26fa);
+  box-shadow: -7px 16px 2px rgba(172, 177, 194, .22);
   height: 86px;
+  position: relative;
   width: 100%;
+  transition: all 2s;
+  margin-top: -20px;
+  background-size: 400%!important;
+  animation: gradient 7s ease infinite;
   border-bottom-left-radius: 11px;
   border-bottom-right-radius: 160px;
 }
 
+.eventProjectGradCard:hover {
+  background-size: 200%;
+  transition: all 0.5s;
+  background-position: left center;
+}
+
+
 .eventProjectTitle {
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
+  margin-bottom: 5px;
   font-size: 16px;
   line-height: 19px;
   /* identical to box height */
@@ -173,6 +268,18 @@
 
   color: #4F4F54;
 
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .nestedTab {
@@ -193,12 +300,15 @@
   font-size: 25px;
   line-height: 30px;
   /* identical to box height */
-
+  font-weight: bold;
   letter-spacing: -0.025em;
 
   color: #3B3642;
 }
 
+.createProjectLabel {
+  font-weight: bold;
+}
 
 .createEventBtn {
   background: #3430F6!important;
@@ -218,14 +328,18 @@
   color: #FFFFFF;
 }
 
+.eventDescription {
+  color: #4f4f54cc;
+  font-size: 14px;
+}
+
 .getLink {
   border: 1px solid #3430F6!important;
   box-sizing: border-box;
-  width: 68px;
 
   background: none!important;
   border-radius: 21px!important;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 14px;
   line-height: 17px;
   /* identical to box height */
@@ -263,19 +377,28 @@ color: #FFFFFF;
   color: #3430F6;
 }
 
+.getLinkShare {
+  padding: 8px;
+  border-radius: 10px;
+  background: gray;
+  color: #1e8e3e;
+  background: #e6f4ea;
+}
+
 .backBtn {
-  border: 1px solid #000000;
   box-sizing: border-box;
-  border-radius: 2px;
+  border-radius: 7px;
   font-weight: normal;
   font-size: 15px;
   line-height: 18px;
+
   /* identical to box height */
   width: 84px;
+  font-weight: 600;
   height: 34px;
   letter-spacing: -0.025em;
-  background: none!important;
-  color: #000000!important;
+  background: #3430F6!important;
+  color: white!important;
 }
 
 .eventSubTabs {

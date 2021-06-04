@@ -29,6 +29,22 @@ export const SessionManager = {
     }
   },
 
+  deleteSession: async (userToken, orgId, eventId, sessionId, key) => {
+    const config = {
+      headers: {
+        data: key
+      }
+    };
+    try {
+      return await atlasAPI.delete(
+        '/sessions/' + orgId + '/' + eventId + '/' + sessionId,
+        config
+      )
+    } catch (error) {
+        return null;
+    }
+  },
+
   updateSession: async (userToken, orgId, eventId, sessionId, session) => {
     const config = {};
     try {

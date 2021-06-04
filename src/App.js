@@ -14,6 +14,7 @@ import { db } from './pages/firebase';
 import { EventService } from './pages/networking/events/EventService';
 import { LoadingPage } from './pages/LoadingPage';
 import { PageNotFound } from './pages/PageNotFound';
+import history from './pages/history'
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
@@ -66,11 +67,11 @@ class App extends React.Component {
     }
 
     return (
-      <BrowserRouter basename={getBasename()}>
+      <BrowserRouter history={history} basename={getBasename()}>
             <Switch>
 
 
-<Route
+        <Route
           exact
           path='/'
           component={ this.state.user ? (props) => { return  <AllEventsPage {...props} orgId={this.state.orgId}  /> } : (props) => { return  <LoginPage /> }} 
@@ -84,10 +85,15 @@ class App extends React.Component {
 
         <Route
           exact
-          path='/events/:orgId/all'
+          path='/events/all/:orgId'
           component={ this.state.user ? (props) => { return  <AllEventsPage {...props}  /> } : (props) => { return  <LoginPage /> }}
           />
 
+      <Route
+        exact
+        path='/event/:orgId/:eventId'
+        component={ this.state.user ? (props) => { return  <EventPage {...props}  /> } : (props) => { return  <LoginPage /> }}
+        />
 
       <Route
           exact
@@ -97,15 +103,10 @@ class App extends React.Component {
 
       <Route
           exact
-          path='/createsession/:orgId/:eventId'
+          path='/editsession/:orgId/:eventId'
           component={MentorForm}
         />
 
-      <Route
-          exact
-          path='/events/info/:orgId/:eventId/'
-          component={ this.state.user ? (props) => { return  <EventPage {...props}  /> } : (props) => { return  <LoginPage /> }}
-        />
           </Switch>
         </BrowserRouter>
 
