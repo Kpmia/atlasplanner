@@ -104,34 +104,13 @@ class AllEventsPage extends React.Component {
                       <Row id="eventbody">
                     {
                         this.state.events.map((event) => {
-                            if (event["name"] == "cs-13xx-office-hours") {
-                                return (
-                                    <Col style={{marginBottom: 30}} sm={4}>
-                                    <FadeIn delay="400">
-                                    <Card id="demo_project" style={{cursor: 'pointer'}}  className="eventProjectCard">
-                                    <OptionsDropdown updateEvents={this.getEvents} orgId={this.props.match.params.orgId} eventId={event["name"]} />
-
-                                        <div style={{background: event['color']}} className="eventProjectGradCard"></div>
-                                        <CardBody onClick={() => window.location.href = '/event/' + this.orgId + '/' + event["name"]}>
-                                            <p className="eventProjectTitle"> {event["name"]} </p>
-                                            <p className="eventDescription"> {event["description"]} </p>
-                                        </CardBody>
-                                        <div style={{padding: 5}}>
-
-                                        <Button id="live_link" style={{marginRight: 10, marginBottom: 20}} onClick={() => window.location.href = '/c/' + this.orgId + '/' + event["name"]} className="float-right getLink"> View public link </Button>
-                                        </div>
-                                    </Card>
-                                    </FadeIn>
-                                </Col>
-                                )
-                            }
                             return (
                                 <Col style={{marginBottom: 30}} sm={4}>
                                     <FadeIn delay="400">
                                     <Card  className="eventProjectCard">
                                     <OptionsDropdown updateEvents={this.getEvents} orgId={this.props.match.params.orgId} eventId={event["name"]} />
 
-                                    <div style={{background: event['color']}}  className="eventProjectGradCard"></div>
+                                    <div  onClick={() => window.location.href = '/event/' + this.orgId + '/' + event["name"]} style={{background: event['color']}}  className="eventProjectGradCard"></div>
                                         <CardBody onClick={() => window.location.href = '/event/' + this.orgId + '/' + event["name"]} style={{cursor: 'pointer'}}>
                                             <p className="eventProjectTitle"> {event["name"]} </p>
                                             <p className="eventDescription"> {event["description"]} </p>

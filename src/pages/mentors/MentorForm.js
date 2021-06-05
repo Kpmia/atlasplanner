@@ -17,7 +17,7 @@ class MentorForm extends React.Component {
         super()
         this.orgId = ""
         this.uid = ""
-        this.socket = io("http://localhost:8080")
+        this.socket = io("//atlasplanner.ue.r.appspot.com")
         this.eventId = ""
         this.state={
             sessions: [],

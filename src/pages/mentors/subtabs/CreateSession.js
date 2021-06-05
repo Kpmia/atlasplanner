@@ -50,12 +50,12 @@ submitMentor = async() => {
 
     SessionService.createSession(this.state.orgId, this.state.eventId, session).then((session) => {
         if (session) {
-            toast.dark('Updated sessions!',{ transition : Slide  })
-            toast.dark('Now redirecting you back to all sessions', { transition : Slide  })
+            toast.dark('Successfully updated sessions',{ transition : Slide  })
+            toast.dark('Changes have been made to the live site', { transition : Slide  })
 
-            setTimeout(() => {
-                window.open("/c/" + this.state.orgId + "/" + this.state.eventId)
-                }, 3500)
+            // setTimeout(() => {
+            //     window.open("/c/" + this.state.orgId + "/" + this.state.eventId)
+            //     }, 3500)
             } else {
                 toast.dark('Key is incorrect.',{ transition : Slide  })
             }
