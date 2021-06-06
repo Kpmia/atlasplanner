@@ -2,7 +2,6 @@ import { CircularProgress } from '@material-ui/core';
 import { locale } from 'moment';
 import React, { useEffect } from 'react'
 import FadeIn from 'react-fade-in';
-import { toast } from 'react-toastify';
 import { Row } from 'reactstrap';
 import { Button, Header, Icon, Modal, Dropdown } from 'semantic-ui-react'
 import { EventService } from '../../../networking/events/EventService';

@@ -3,10 +3,10 @@ import AvailableTimes from 'react-available-times';
 import { Slide, toast, ToastContainer } from "react-toastify";
 import { Button, CardBody, Col,  Row } from "reactstrap";
 import { Form, Input, Label, TextArea } from "semantic-ui-react";
-import { db } from "../../firebase";
 import 'react-toastify/dist/ReactToastify.css';
 import { SessionService } from "../../networking/sessions/SessionService";
 import { Card } from "@material-ui/core";
+import moment from "moment"
 
 export class CreateSession extends Component {
     state={
@@ -64,6 +64,14 @@ submitMentor = async() => {
 
 
     render() {
+
+        if (this.state.timeSlots.length != 0 ) {
+            var firstday = moment(this.state.timeSlots[0]["start"]).startOf('week').toDate()
+            var lastday   = moment(this.state.timeSlots[0]["end"]).endOf('week').toDate();
+            console.log(firstday, lastday)
+            console.log(this.state.timeSlots[0]["start"].getDay())
+        }
+        console.log(this.state.timeSlots)
                    
         return (
             <div>
