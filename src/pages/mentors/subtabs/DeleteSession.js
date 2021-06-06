@@ -25,15 +25,17 @@ export class DeleteSession extends Component {
         sessions.map(async(sessionId) => {
             await SessionService.deleteSession(orgId, eventId, sessionId, this.state.key).then((session) => {
                 if (session) {
-                    toast.dark('Successfuly deleted sessions')
-                    toast.dark('Changes can be seen on live page')
                     this.getSessions(orgId, eventId)
                     this.setState({ checked : [] })
                 } else {
                     toast.dark('Something went wrong. Please check your key.',  { transition : Slide  })
                 }
-            })    
+            }).then(() => {
+             
+            })   
         })
+        toast.dark('Successfuly deleted sessions')
+        toast.dark('Changes can be seen on live page')
     };
 
      handleInputChange = (e, data, mentorId) => {
@@ -63,7 +65,7 @@ export class DeleteSession extends Component {
         return (
             <div>
 
-
+{/* 
                 <Input
                     id="key"
                     action={{
@@ -77,10 +79,10 @@ export class DeleteSession extends Component {
                     actionPosition='left'
                     style={{width: '100px'}}
                     placeholder="Leave empty if the coordinator did not set key" 
-                    onChange={(text) => this.setState({ key : text.target.value }) }  />
+                    onChange={(text) => this.setState({ key : text.target.value }) }  /> */}
                     <br></br>
                     <br></br>
-                    <Button style={{background: 'black', border: '1px solid black'}} onClick={() => this.deleteSession(this.state.orgId, this.state.eventId, this.state.checked)}> Delete Session </Button>
+                    <Button disabled={this.state.checked.length == 0 ? true : false} style={{background: 'black', float: 'right', border: '1px solid black'}} onClick={() => this.deleteSession(this.state.orgId, this.state.eventId, this.state.checked)}> Delete Session </Button>
 
                 <br></br>
                 <br></br>

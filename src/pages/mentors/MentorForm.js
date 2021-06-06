@@ -78,12 +78,13 @@ class MentorForm extends React.Component {
             <div style={{paddingTop: 50, zIndex:999, position: 'relative'}} className="eventPageBody container">          
             <p className="eventWhiteHeaderTitle" style={{marginBottom: 5, marginTop: 25, fontSize: 45, color: 'white'}}>{this.props.match.params.eventId}</p>
             <p className="eventWhiteHeaderTitle" style={{marginBottom: 5, marginTop: 15, fontSize: 18, color: 'white'}}>{this.props.match.params.orgId}</p>
+            <p style={{color: 'white', cursor: 'pointer', textDecoration: 'underline'}} onClick={() => window.open(window.location.origin + '/c/' + this.props.match.params.orgId + '/' + this.props.match.params.eventId)}> Live Site: {window.location.origin + '/c/' + this.props.match.params.orgId + '/' + this.props.match.params.eventId} </p>
 
             <p> </p>
 
-            <Button style={{background: 'none', marginRight: 10, color: 'white', border: '1px solid white'}} onClick={() => this.updateTabData("create-session")}> Create  </Button>
-            <Button style={{background: 'none', marginRight: 10, color: 'white', border: '1px solid white'}}  onClick={() => this.updateTabData("delete-session")}> Delete  </Button>
-            <Button disabled style={{background: 'none', color: 'white', border: '1px solid white'}}  onClick={() => this.updateTabData("edit-session")}> Edit </Button>
+            <Button style={{background: 'none', marginRight: 10, color: 'white', border: '1px solid white'}} onClick={() => this.updateTabData("create-session")}> Create Session  </Button>
+            <Button style={{background: 'none', marginRight: 10, color: 'white', border: '1px solid white'}}  onClick={() => this.updateTabData("delete-session")}> Delete Session  </Button>
+            {/* <Button disabled style={{background: 'none', color: 'white', border: '1px solid white'}}  onClick={() => this.updateTabData("edit-session")}> Edit </Button> */}
             <br></br>
             <br></br>
 

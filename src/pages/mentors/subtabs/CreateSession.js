@@ -104,7 +104,7 @@ submitMentor = async() => {
                 <Form.Field
                     id='form-input-control-first-name'
                     control={Input}
-                    label='Category'
+                    label='Category (Batch number)'
                     onChange={(text) => this.setState({ category : text.target.value }) }                    
                     placeholder='Category'
                 />
@@ -122,27 +122,17 @@ submitMentor = async() => {
               </Form>
               <br></br>
 
-            <Label style={{background: '#e03997', color: 'white'}} aria-required> Recurring Times </Label>
-            <br></br>
             <br></br>
 
             <div id="times">
                     <AvailableTimes
                     id="times"
-                    weekStartsOn="monday"
-                    onClick={(date) => console.log(date)}
+                    weekStartsOn="sunday"
                     calendars={[
-                        {
-                        id: 'work',
-                        title: 'Work',
-                        foregroundColor: '#ff00ff',
-                        backgroundColor: '#f0f0f0',
-                        selected: true,
-                        },
                     ]}
-                    onChange={(selections) => this.setState({ timeSlots : selections })}         
+                    onChange={(selections) => { console.log(selections[0]["start"] / (7 * 24 * 60))}}         
                     height={600}
-                    recurring={false}
+                    recurring={true}
                     availableDays={['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']}
                     availableHourRange={{ start: 0, end: 24 }}
                     />

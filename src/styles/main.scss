@@ -415,9 +415,17 @@ color: #FFFFFF;
   background-color: #3430F6!important;
 
 }
+
+.rat-AvailableTimes_button {
+  display: none!important;
+}
 // .rat-AvailableTimes_toolbar {
 //   display: none!important;
 // }
+
+.rat-AvailableTimes_toolbar {
+  justify-content: center!important;
+}
 
 .dayOfWeek {
   font-weight: 500;
