@@ -9,8 +9,6 @@ import { EventService } from "../networking/events/EventService";
 import { OrgService } from "../networking/organizations/OrgService";
 import { PageNotFound } from "../PageNotFound";
 import { AddEventModal } from "./components/modals/AddEventModal";
-import 'intro.js/introjs.css'
-import introJs from 'intro.js'
 import ExitDemoModal from "../../globalcomp/ExitDemoModal";
 import { OptionsDropdown } from './components/dropdown/OptionsDropdown'
 

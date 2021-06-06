@@ -7,6 +7,7 @@ import { PageNotFound } from "../PageNotFound";
 import 'intro.js/introjs.css'
 import { Icon } from "semantic-ui-react";
 import { io } from "socket.io-client";
+import { LiveSiteUtils } from "./utils/LiveSiteUtil";
 var _ = require('lodash');
 
 class LiveEventPage extends React.Component {
@@ -15,12 +16,14 @@ class LiveEventPage extends React.Component {
         this.orgId = ""
         this.socket = io("//atlasplanner.ue.r.appspot.com")
         this.eventId = ""
-        this.currWeek = ""
         this.state={
             mentors: [],
+            copiedMentorData: [],
             eventInfo: [],
             tab: "sessions",
             pageComponent: [],
+            currWeek: "",
+            weekToken: 0,
             isLoading: true,
             pageNotFound: false
         }
@@ -31,6 +34,7 @@ class LiveEventPage extends React.Component {
             if (eventInfo != null) {
                 this.eventId = this.props.match.params.eventId
                 this.setState({ mentors : eventInfo["sessions"] })
+                this.setState({ copiedMentorData : this.getWeekData(LiveSiteUtils.getCurrWeek(this.state.weekToken)) })
                 this.setState({ eventInfo : eventInfo["event_info"] })
             } else {
                 this.pageNotFound();
@@ -39,9 +43,63 @@ class LiveEventPage extends React.Component {
         })
     };
 
+    getWeekData(week) {
+        var copyMentorData = JSON.parse(JSON.stringify(this.state.mentors))
+
+        copyMentorData.map((mentor) => {
+            mentor["timeslots"] = []
+        })
+
+        this.state.mentors.map((mentor, idx) => {
+            if (mentor["timeslots"][week] != undefined) {
+                copyMentorData[idx]["timeslots"] = mentor["timeslots"][week]
+            } 
+        })    
+        
+        return copyMentorData
+    };
+
+    incrementWeekToken = async(inc) => {
+        var saveToken = this.state.weekToken 
+        if (inc) {
+            saveToken += 1;
+        } else {
+            saveToken -= 1
+        }
+        this.setState({ weekToken : saveToken })
+    }
+
+    goToNextWeek = () => {
+        this.incrementWeekToken(true).then(() => {
+            this.setState({ currWeek : LiveSiteUtils.getCurrWeek(this.state.weekToken) })
+            this.updateMentorData().then(() => {
+                this.updateTabData(this.state.tab)
+            })
+        })
+    }
+
+    goBackWeek = () => {
+        this.incrementWeekToken(false).then(() => {
+            this.setState({ currWeek : LiveSiteUtils.getCurrWeek(this.state.weekToken) })
+            this.updateMentorData().then(() => {
+                console.log('x')
+                this.updateTabData(this.state.tab)
+            })
+        })
+    }
+
     updateTabData = (tabName) => {
+        console.log('here')
         this.setState({ tab : tabName })
-        this.setState({ pageComponent : TabManager.getTabComp(tabName, this.props.match.params.orgId, this.props.match.params.eventId, this.state.mentors, this.getMentorData, this.state.eventInfo) })
+        this.setState({ pageComponent : TabManager.getTabComp(tabName, this.props.match.params.orgId, this.props.match.params.eventId, this.state.mentors, this.getMentorData, this.state.copiedMentorData, this.state.currWeek) })
+    };
+
+    updateMentorData = async(data) => {
+        if (data != undefined) {
+            this.setState({ mentors : data })
+
+        }
+        this.setState({ copiedMentorData : this.getWeekData(LiveSiteUtils.getCurrWeek(this.state.weekToken)) })
     };
 
     pageNotFound() {
@@ -54,6 +112,7 @@ class LiveEventPage extends React.Component {
 
     componentDidMount() {
         this.getMentorData().then(() => {
+            this.setState({ currWeek : LiveSiteUtils.getCurrWeek(this.state.weekToken) })
             this.updateTabData('mentors')
            
         })
@@ -66,8 +125,9 @@ class LiveEventPage extends React.Component {
         this.socket.on('ADDED_SESSION', (data) => {
             var dataMentors = this.state.mentors
             dataMentors.push(data)
-            this.updateTabData(this.state.tab)
-            this.setState({ mentors : dataMentors })
+            this.updateMentorData(dataMentors).then(() => {
+                this.updateTabData(this.state.tab)
+            })
         })
 
         this.socket.on('UPDATED_SESSION', (data) => {
@@ -81,9 +141,9 @@ class LiveEventPage extends React.Component {
             Object.keys(jsonBody).map((mentor) => {
                 mentors.push(jsonBody[mentor])
             })
-            this.setState({ mentors : mentors })
-            this.updateTabData(this.state.tab)
-
+            this.updateMentorData(mentors).then(() => {
+                this.updateTabData(this.state.tab)
+            })
         })
     }
 
@@ -133,6 +193,7 @@ class LiveEventPage extends React.Component {
                   
                 <div id="eventBodyContainer" className="eventPageBody container" style={{paddingTop: 230}}>
                     <p style={{fontSize: '13px'}}> {this.state.eventInfo["description"]} </p>
+                    <p className="eventSubTabs" style={{fontWeight: 'bold'}}> <Icon style={{cursor: 'pointer'}} disabled={this.state.weekToken == 0 ? true : false} onClick={this.state.weekToken != 0 ? this.goBackWeek : null} name="caret left" /> {this.state.currWeek} <Icon onClick={this.goToNextWeek} style={{cursor: 'pointer'}} name="caret right" /> <span style={{float: 'right'}}> </span> </p>
 
                     {this.state.pageComponent}
 

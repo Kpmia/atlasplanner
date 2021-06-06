@@ -4,7 +4,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import * as FullStory from '@fullstory/browser';
 
-FullStory.init({ orgId: '133805' })
+// FullStory.init({ orgId: '133805' })
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

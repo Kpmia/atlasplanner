@@ -14,14 +14,15 @@ export class Mentors extends Component {
         orgId: this.props.orgId,
         eventId: this.props.eventId,
         mentors: this.props.mentors,
+        originalMentors: this.props.originalMentors,
         category: 'All Categories',
+        currWeek: this.props.currWeek,
         search: '',
         currentMentor: []
     }
 
     updateMentor = this.props.updateMentor
 
-    currWeek = LiveSiteUtils.getCurrWeek() 
 
     selectMentor = (id, session, switched) => {
         if (switched) {
@@ -36,6 +37,10 @@ export class Mentors extends Component {
     }
 
     componentDidUpdate() {
+        if (this.state.currWeek != this.props.currWeek) {
+            this.setState({ currWeek : this.props.currWeek })
+        }
+
         if (this.props.mentors != this.state.mentors) {
             this.setState({ mentors : this.props.mentors })
             var saveData = ""
@@ -52,6 +57,8 @@ export class Mentors extends Component {
         var weekDayData = {
             'Sunday': [], "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": [], 'Saturday': [], 
         }
+
+        console.log(this.state.currWeek)
 
         const tags = {}
 
@@ -82,18 +89,7 @@ export class Mentors extends Component {
 
         return (
             <div>
-              <p className="eventSubTabs" style={{fontWeight: 'bold'}}> {this.currWeek} <span style={{float: 'right'}}>      
-             <Dropdown text={this.state.category} icon="caret down">
-              <Dropdown.Menu>
-                    <Dropdown.Divider />
-                    <Dropdown.Header icon='tags' content='Tag Label' />
-                    <Dropdown.Menu scrolling>
-                        {tagOptions.map((option) => (
-                        <Dropdown.Item onClick={() => this.chooseCategory(option['key'])} key={option.value} {...option} />
-                        ))}
-                    </Dropdown.Menu>
-                    </Dropdown.Menu>
-                </Dropdown></span> </p>
+       
 
             {
     this.state.currentMentor.length != 0 ?
@@ -133,18 +129,17 @@ export class Mentors extends Component {
                                     return new Date('1970/01/01 ' + a["start"]) - new Date('1970/01/01 ' + b["start"]);
                                   }).map((time) => {
                                     if (time) {
-                                        if (time["filled"] != 0) {
-                                            if (Object.keys(time["filled"]).includes(this.currWeek)) {
-                                                return (
-                                                    <div className="unavailableTime" style={{background: '#3430F6', boxShadow: '0px 20px 5px 0px rgb(30, 58, 76, .17)', textAlign: 'center', marginBottom: 5}}>
-                                                       <ReserveMentor updateCurrMentor={this.selectMentor} updateMentor={this.props.updateMentor} timeslot={time} currWeek={this.currWeek} mentor={this.state.currentMentor} orgId={this.state.orgId} eventId={this.state.eventId}> <span> {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> </ReserveMentor>
-                                                    </div>
-                                                )
-                                            }
+                                        console.log(time)
+                                        if (Object.keys(time["filled"]) != 0) {
+                                            return (
+                                                <div className="unavailableTime" style={{background: '#3430F6', boxShadow: '0px 20px 5px 0px rgb(30, 58, 76, .17)', textAlign: 'center', marginBottom: 5}}>
+                                                    <ReserveMentor originalMentors={this.state.originalMentors} updateCurrMentor={this.selectMentor} updateMentor={this.props.updateMentor} timeslot={time} currWeek={this.state.currWeek} mentor={this.state.currentMentor} orgId={this.state.orgId} eventId={this.state.eventId}> <span> {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> </ReserveMentor>
+                                                </div>
+                                            )
                                         }
                                         return (
                                             <div className="availableTime"   style={{background: 'none',boxShadow: '0px 20px 5px 0px rgb(30, 58, 76, .17)', marginBottom: 5, textAlign: 'center', border: '1px solid black'}}>
-                                               <ReserveMentor updateCurrMentor={this.selectMentor} updateMentor={this.props.updateMentor} timeslot={time} currWeek={this.currWeek} mentor={this.state.currentMentor} orgId={this.state.orgId} eventId={this.state.eventId}> <span style={{color: 'black'}}> {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> </ReserveMentor>
+                                               <ReserveMentor originalMentors={this.state.originalMentors} updateCurrMentor={this.selectMentor} updateMentor={this.props.updateMentor} timeslot={time} currWeek={this.state.currWeek} mentor={this.state.currentMentor} orgId={this.state.orgId} eventId={this.state.eventId}> <span style={{color: 'black'}}> {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> </ReserveMentor>
                                             </div>
                                         )
                                     }
@@ -169,8 +164,20 @@ export class Mentors extends Component {
             }
 
             <Icon name="search" /><Input disableUnderline placeholder="Search name, description, or section" style={{width : '260px', marginLeft: '10px', borderBottom: 'none'}} icon="search" iconPosition="left" onChange={(text) => this.setState({ search : text.target.value })} />
+            <Dropdown className="float-right" style={{marginTop: 7}} text={this.state.category} icon="caret down">
+              <Dropdown.Menu>
+                    <Dropdown.Divider />
+                    <Dropdown.Header icon='tags' content='Tag Label' />
+                    <Dropdown.Menu scrolling>
+                        {tagOptions.map((option) => (
+                        <Dropdown.Item onClick={() => this.chooseCategory(option['key'])} key={option.value} {...option} />
+                        ))}
+                    </Dropdown.Menu>
+                    </Dropdown.Menu>
+                </Dropdown>
             <br></br>            
             <br></br>
+            <br></br>            
 
             <Row id="sessions_body">
             {

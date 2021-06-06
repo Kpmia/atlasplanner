@@ -1,6 +1,5 @@
 import React from "react"
 import { Button, CardBody, Col,  Row } from "reactstrap";
-import { db } from "../firebase";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-form-builder2/dist/app.css';
 import { SessionService } from "../networking/sessions/SessionService";
@@ -81,9 +80,9 @@ class MentorForm extends React.Component {
 
             <p> </p>
 
-            <Button style={{background: 'none', marginRight: 10, color: 'white', border: '1px solid white'}} onClick={() => this.updateTabData("create-session")}> Create  </Button>
-            <Button style={{background: 'none', marginRight: 10, color: 'white', border: '1px solid white'}}  onClick={() => this.updateTabData("delete-session")}> Delete  </Button>
-            <Button disabled style={{background: 'none', color: 'white', border: '1px solid white'}}  onClick={() => this.updateTabData("edit-session")}> Edit </Button>
+            <Button style={{background: 'none', marginRight: 10, color: 'white', border: '1px solid white'}} onClick={() => this.updateTabData("create-session")}> Create Sessions  </Button>
+            <Button style={{background: 'none', marginRight: 10, color: 'white', border: '1px solid white'}}  onClick={() => this.updateTabData("delete-session")}> Delete Sessions  </Button>
+            {/* <Button disabled style={{background: 'none', color: 'white', border: '1px solid white'}}  onClick={() => this.updateTabData("edit-session")}> Edit </Button> */}
             <br></br>
             <br></br>
 

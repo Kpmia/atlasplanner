@@ -3,9 +3,9 @@ import moment from "moment"
 
 export const LiveSiteUtils = {
 
-    getCurrWeek() {
-        var firstday = moment().startOf('week').toDate()
-        var lastday   = moment().endOf('week').toDate();
+    getCurrWeek(weekCount) {
+        var firstday = moment().add(weekCount, 'weeks').startOf('week').toDate()
+        var lastday   = moment().add(weekCount, 'weeks').endOf('week').toDate();
     
         const monthNames = ["January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"

@@ -17,6 +17,7 @@ export const ReserveMentor = (props) => {
       timeslot,
       mentor,
       updateMentor,
+      originalMentors,
       updateCurrMentor,
       children,
     } = props;
@@ -26,6 +27,8 @@ export const ReserveMentor = (props) => {
     const [projectName, setName] = useState("");
     const [idx, setIdx] = useState(0);
     const [description, setDesc] = useState("");
+
+    console.log(currWeek)
   
     const toggle = () => setModal(!modal);
 
@@ -41,26 +44,35 @@ export const ReserveMentor = (props) => {
 
     const reserveMentor = async(name) => {
 
+        console.log(mentor)
+        console.log(originalMentors)
+
         if (projectName == "") {
             return toast.dark('Please enter a name', {transition: Slide})
         }
-
-        if (!mentor["data"]["timeslots"][timeslot["id"]]["filled"][currWeek]) {
-          mentor["data"]["timeslots"][timeslot["id"]]["filled"][currWeek] = {}
-        }
-
+        
         const id = uuid();
 
-        mentor["data"]["timeslots"][timeslot["id"]]["filled"][currWeek][id] = {"name": projectName, "description": description}
+        console.log(mentor["data"])
 
-        const body = { "session" : mentor["data"]}
+        mentor["data"]["timeslots"][timeslot["id"]]["filled"][id] = {"name": projectName, "description": description}
 
-        SessionService.updateSession(orgId, eventId, mentor["data"]["_id"], body).then((sessions) => {
+        console.log(mentor["data"])
+
+        var saveMentor = {}
+        originalMentors.map((orgMentor, idx) => {
+          if (mentor["data"]["_id"] == orgMentor["_id"]) {
+            originalMentors[idx]["timeslots"][currWeek] = mentor["data"]["timeslots"]
+            saveMentor['session'] = originalMentors[idx]
+          }
+        })
+
+        SessionService.updateSession(orgId, eventId, mentor["data"]["_id"], saveMentor).then((sessions) => {
             if (sessions) {
                 toast.dark('Successfully added to session', {transition: Slide, position: "top-center"})
 
                 updateMentor()
-                updateCurrMentor(mentor["id"], mentor["data"], false)
+                updateCurrMentor(mentor["id"], mentor['data'], false)
                 toggle()
             }
         })
@@ -71,6 +83,7 @@ export const ReserveMentor = (props) => {
           {children}
         <Modal style={{padding: 20}} overlay={false} isOpen={modal} toggle={toggle} >
           <ModalHeader cssModule={{'modal-title': 'w-100 text-center'}} style={{borderBottom: 'none', paddingBottom: '0px', padding: 10, fontWeight: 600, fontSize: '17px', textAlign: 'center'}} className="createProjectTitle" toggle={toggle}> <span style={{borderBottom: 'none', paddingBottom: '0px', fontWeight: 600, fontSize: '17px', textAlign: 'center'}}> Reserve Session </span></ModalHeader>
+          <p style={{fontWeight: 'bold', textAlign: 'center'}}> {currWeek} </p>
           <p style={{fontWeight: 'bold', textAlign: 'center'}}> {moment(timeslot['start'], 'HH:mm').format('h:mm a')} - {moment(timeslot['end'], 'H:mm').format('hh:mm a')} </p>
           <ModalBody>
           <Label style={{marginBottom: 9}} className="createProjectLabel"> Your Name </Label>
@@ -90,25 +103,21 @@ export const ReserveMentor = (props) => {
            
           {
               Object.keys(timeslot["filled"]).map((time, i) => {
-                  if (time == currWeek) {
-                    return Object.keys(timeslot["filled"][time]).map((person, j) => {
-                        return <span>
-                        <Accordion.Title
-                            active={j === idx}
-                            index={j}
-                            onClick={() => handleClick(j)}>
-                                <Icon name="user" style={{marginRight: 15}} />
-                                {timeslot["filled"][time][person]["name"]}
-                          </Accordion.Title>
-                          <Accordion.Content active={j === idx}>
-                            <p>
-                            {timeslot["filled"][time][person]["description"]}
-                            </p>
-                          </Accordion.Content>
-                      </span>
-                           
-                    })
-                  }
+                console.log(time)
+                  return <span>
+                  <Accordion.Title
+                      active={i === idx}
+                      index={i}
+                      onClick={() => handleClick(i)}>
+                          <Icon name="user" style={{marginRight: 15}} />
+                          {timeslot["filled"][time]["name"]}
+                    </Accordion.Title>
+                    <Accordion.Content active={i === idx}>
+                      <p>
+                      {timeslot["filled"][time]["description"]}
+                      </p>
+                    </Accordion.Content>
+                </span>
               })
           }
 

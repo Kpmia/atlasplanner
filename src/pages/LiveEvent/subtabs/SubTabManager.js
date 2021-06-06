@@ -5,14 +5,15 @@ import { TodaySession } from "./TodaySession"
 
 export const TabManager = {
 
-    getTabComp: (name, orgId, eventId, mentors,  updateMentors) => {
+    getTabComp: (name, orgId, eventId, mentors,  updateMentors, copiedMentorData, currWeek) => {
+        console.log(copiedMentorData)
         switch (name) {
 
             case "mentors":
-                return <Mentors orgId={orgId} eventId={eventId}  mentors={mentors} updateMentor={updateMentors} />
+                return <Mentors orgId={orgId} eventId={eventId} currWeek={currWeek} mentors={copiedMentorData} originalMentors={mentors}  updateMentor={updateMentors} />
 
             case "today-session":
-                return <TodaySession orgId={orgId} eventId={eventId} mentors={mentors} />
+                return <TodaySession orgId={orgId} eventId={eventId} currWeek={currWeek} mentors={copiedMentorData} />
         }
     },
 

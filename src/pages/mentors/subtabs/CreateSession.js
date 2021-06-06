@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { SessionService } from "../../networking/sessions/SessionService";
 import { Card } from "@material-ui/core";
 import moment from "moment"
+import uuid from "react-uuid";
 
 export class CreateSession extends Component {
     state={
@@ -22,16 +23,33 @@ export class CreateSession extends Component {
         timeSlots: [],
     }
 
+getCurrWeek(date) {
+    var firstday = moment(date).startOf('week').toDate()
+    var lastday   = moment(date).endOf('week').toDate();
+
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+    ];
+
+    return monthNames[firstday.getMonth()] + " " + firstday.getDate() + ", " + firstday.getFullYear() +  " - " + monthNames[lastday.getMonth()] + " " + lastday.getDate() + ", " + firstday.getFullYear()  
+}
+
 submitMentor = async() => {
     if (this.state.name == "") {
         return toast.dark('Please enter your name',{ transition : Slide  })
     }
 
-    const restructureDates = []
+    const restructureDates = {}
 
     this.state.timeSlots.map((timeslot) => {
-        restructureDates.push({
+        var currWeek = this.getCurrWeek(timeslot["start"])
+        if (restructureDates[currWeek] == undefined) {
+            restructureDates[currWeek] = []
+        }
+        console.log(restructureDates)
+        restructureDates[currWeek].push({
             "day": timeslot["start"].getDay(),
+            "_id": uuid().toString(),
             "start": timeslot["start"].toTimeString(),
             "end": timeslot["end"].toTimeString(),
             "filled": {}
@@ -132,14 +150,9 @@ submitMentor = async() => {
                     weekStartsOn="monday"
                     onClick={(date) => console.log(date)}
                     calendars={[
-                        {
-                        id: 'work',
-                        title: 'Work',
-                        foregroundColor: '#ff00ff',
-                        backgroundColor: '#f0f0f0',
-                        selected: true,
-                        },
+                       
                     ]}
+                    weekStartsOn={'sunday'}
                     onChange={(selections) => this.setState({ timeSlots : selections })}         
                     height={600}
                     recurring={false}
