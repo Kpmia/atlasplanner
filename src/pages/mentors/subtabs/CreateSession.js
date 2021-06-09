@@ -8,13 +8,16 @@ import { SessionService } from "../../networking/sessions/SessionService";
 import { Card } from "@material-ui/core";
 import moment from "moment"
 import uuid from "react-uuid";
+import FadeIn from 'react-fade-in'
 
 export class CreateSession extends Component {
     state={
         orgId: this.props.orgId,
         eventId: this.props.eventId,
+        eventInfo: this.props.eventInfo,
         name: "",
         link: "",
+        submitted: false,
         section: "",
         description: "",
         category: "",
@@ -70,6 +73,7 @@ submitMentor = async() => {
         if (session) {
             toast.dark('Successfully updated sessions',{ transition : Slide  })
             toast.dark('Changes have been made to the live site', { transition : Slide  })
+            this.setState({ submitted : true })
 
             // setTimeout(() => {
             //     window.open("/c/" + this.state.orgId + "/" + this.state.eventId)
@@ -83,18 +87,19 @@ submitMentor = async() => {
 
     render() {
 
-        if (this.state.timeSlots.length != 0 ) {
-            var firstday = moment(this.state.timeSlots[0]["start"]).startOf('week').toDate()
-            var lastday   = moment(this.state.timeSlots[0]["end"]).endOf('week').toDate();
-            console.log(firstday, lastday)
-            console.log(this.state.timeSlots[0]["start"].getDay())
-        }
-        console.log(this.state.timeSlots)
+        console.log(this.state.eventI)
+
                    
         return (
             <div>
             <Card style={{borderRadius: '20px', border: 'none', overflow: 'scroll', boxShadow: 'none'}}>
                 <CardBody style={{padding: '4.25em'}}>
+                    <div style={{border: '1px solid gray', padding: 10, borderRadius: 10}}>
+                    <p style={{color: 'GrayText', marginBottom: 0}}>  Added instructions </p>
+                        <p> {this.state.eventInfo['instruction'].length != 0 ? this.state.eventInfo['instruction'] : "Coordinator did not add notes."} </p>
+                    </div>
+                    <br></br>
+                    <br></br>
             <Form id="basicDetails">
                 <Form.Group widths='equal'>
                 <Form.Field
@@ -122,7 +127,7 @@ submitMentor = async() => {
                 <Form.Field
                     id='form-input-control-first-name'
                     control={Input}
-                    label='Category'
+                    label='Category (Batch number)'
                     onChange={(text) => this.setState({ category : text.target.value }) }                    
                     placeholder='Category'
                 />
@@ -140,15 +145,12 @@ submitMentor = async() => {
               </Form>
               <br></br>
 
-            <Label style={{background: '#e03997', color: 'white'}} aria-required> Recurring Times </Label>
-            <br></br>
             <br></br>
 
             <div id="times">
                     <AvailableTimes
                     id="times"
-                    weekStartsOn="monday"
-                    onClick={(date) => console.log(date)}
+                    weekStartsOn="sunday"
                     calendars={[
                        
                     ]}
@@ -179,6 +181,15 @@ submitMentor = async() => {
                     <br></br>
                     <br></br>
                     <Button className="createEventBtn" onClick={this.submitMentor}> Submit </Button>
+                    <br></br>
+                    <br></br>
+                    {
+                        this.state.submitted ? 
+                            <FadeIn>
+                            <p> Thanks for submitting! Your changes are now live on <span style={{textDecoration: 'underline', cursor: 'pointer'}} onClick={() => window.open(window.location.origin + '/c/' + this.state.orgId + '/' + this.props.eventId)}> {window.location.origin + '/c/' + this.state.orgId + '/' + this.state.eventId}! </span></p>
+                            </FadeIn>
+                            : null
+                    }
                     </CardBody>
             </Card>
             </div>

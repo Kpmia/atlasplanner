@@ -1,9 +1,7 @@
 import React from "react"
 import { Button, CardBody, Col,  Row } from "reactstrap";
 import 'react-toastify/dist/ReactToastify.css';
-import 'react-form-builder2/dist/app.css';
 import { SessionService } from "../networking/sessions/SessionService";
-import 'intro.js/introjs.css'
 import { TabManager } from "./subtabs/TabManager";
 import history from "../history";
 import { io } from "socket.io-client";
@@ -22,6 +20,7 @@ class MentorForm extends React.Component {
             sessions: [],
             pageNotFound: false,
             pageComponent: [],
+            eventInfo: [],
             tab: "create-session",
             isLoading: true,
         }
@@ -30,6 +29,7 @@ class MentorForm extends React.Component {
     getSessions = async(orgId, eventId) => {
         await SessionService.getAllSessions(orgId, eventId).then((sessions) => {
             if (sessions) {
+                this.setState({ eventInfo : sessions['event_info'] })
                 this.setState({ sessions : sessions['sessions'] })
                 this.updateTabData(this.state.tab)
             } else {
@@ -46,7 +46,7 @@ class MentorForm extends React.Component {
     updateTabData = (name) => {
         history.push("?tab-name=" + name)
         this.setState({ tab : name })
-        this.setState({ pageComponent : TabManager.getTabComponent(name, this.props.match.params.orgId, this.props.match.params.eventId, this.state.sessions, this.getSessions) })
+        this.setState({ pageComponent : TabManager.getTabComponent(name, this.props.match.params.orgId, this.props.match.params.eventId, this.state.sessions, this.getSessions, this.state.eventInfo) })
     }
 
     componentDidMount() {
@@ -65,6 +65,8 @@ class MentorForm extends React.Component {
           if (this.state.isLoading) {
               return <LoadingPage />
           }
+
+          console.log(this.state.eventInfo)
                    
         return (
             <div className="eventBody">
@@ -77,6 +79,7 @@ class MentorForm extends React.Component {
             <div style={{paddingTop: 50, zIndex:999, position: 'relative'}} className="eventPageBody container">          
             <p className="eventWhiteHeaderTitle" style={{marginBottom: 5, marginTop: 25, fontSize: 45, color: 'white'}}>{this.props.match.params.eventId}</p>
             <p className="eventWhiteHeaderTitle" style={{marginBottom: 5, marginTop: 15, fontSize: 18, color: 'white'}}>{this.props.match.params.orgId}</p>
+            <p style={{color: 'white', cursor: 'pointer', textDecoration: 'underline'}} onClick={() => window.open(window.location.origin + '/c/' + this.props.match.params.orgId + '/' + this.props.match.params.eventId)}> Live Site: {window.location.origin + '/c/' + this.props.match.params.orgId + '/' + this.props.match.params.eventId} </p>
 
             <p> </p>
 

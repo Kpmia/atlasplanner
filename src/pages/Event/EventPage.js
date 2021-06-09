@@ -1,10 +1,7 @@
 import React from "react";
-import FadeIn from "react-fade-in";
-import { ReactFormBuilder, ReactFormGenerator } from "react-form-builder2";
 import { Button, Card, CardBody, Col, Row } from "reactstrap";
 import { Icon } from "semantic-ui-react";
 import { UserBanner } from "../../globalcomp/UserDropDown";
-import { db } from "../firebase";
 import { LoadingPage } from "../LoadingPage";
 import { EventService } from "../networking/events/EventService";
 import { SessionService } from "../networking/sessions/SessionService";
@@ -91,6 +88,12 @@ class EventPage extends React.Component {
 
             <div className="eventPageBody container">
             <p style={{fontWeight: 'bold'}}> What would you like to do? </p>
+                <Card style={{cursor: 'pointer'}}>
+                    <CardBody onClick={() => window.open('/editsession/' + this.props.match.params.orgId+ '/' + this.props.match.params.eventId + '?tab-name=create-session')}>
+                        <p> <Icon name="add circle" /> Do you want to create a session?</p>
+                    </CardBody>
+                </Card>       
+                <br></br>
                 <Card style={{cursor: 'pointer'}}>
                     <CardBody onClick={() => window.open('/editsession/' + this.props.match.params.orgId+ '/' + this.props.match.params.eventId + '?tab-name=create-session')}>
                         <p> <Icon name="add circle" /> Do you want to create a session?</p>
