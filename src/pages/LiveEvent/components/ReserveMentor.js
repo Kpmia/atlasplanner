@@ -78,14 +78,13 @@ export const ReserveMentor = (props) => {
           <Input style={{width: '100%'}} onChange={(text) => setName(text.target.value)} placeholder="Enter name" />
           <br></br>
           <br></br>
-          <Label style={{marginBottom: 9}} className="createProjectLabel"> Extra Info </Label>
-          <br></br>
+          {/* <br></br>
           <Form>
           <TextArea style={{width: '100%'}} onChange={(text) => setDesc(text.target.value)} placeholder="What are we talking about? (optional)" />
-          </Form>
+          </Form> */}
           <br></br>
           <br></br>
-          <p> Participants </p>
+          {/* <p> Participants </p>
           <Accordion styled>
            
           {
@@ -112,7 +111,7 @@ export const ReserveMentor = (props) => {
               })
           }
 
-          </Accordion>
+          </Accordion> */}
            
           </ModalBody>
           <ModalFooter style={{borderTop: 'none'}}>

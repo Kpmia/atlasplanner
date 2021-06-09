@@ -133,11 +133,17 @@ export class Mentors extends Component {
                                     return new Date('1970/01/01 ' + a["start"]) - new Date('1970/01/01 ' + b["start"]);
                                   }).map((time) => {
                                     if (time) {
+                                        
                                         if (time["filled"] != 0) {
                                             if (Object.keys(time["filled"]).includes(this.currWeek)) {
+                                                var pushNames = []
+                                                Object.keys(time["filled"]).map((name) => {
+                                                    pushNames.push(Object.values(time["filled"][name])[0]["name"])
+                                                })
+                                                console.log(pushNames)
                                                 return (
-                                                    <div className="unavailableTime" style={{background: '#3430F6', boxShadow: '0px 20px 5px 0px rgb(30, 58, 76, .17)', textAlign: 'center', marginBottom: 5}}>
-                                                       <ReserveMentor updateCurrMentor={this.selectMentor} updateMentor={this.props.updateMentor} timeslot={time} currWeek={this.currWeek} mentor={this.state.currentMentor} orgId={this.state.orgId} eventId={this.state.eventId}> <span> {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> </ReserveMentor>
+                                                    <div onClick={() => toast.dark('This spot has been taken!', { transition : Slide, position: 'top-center' })} className="unavailableTime" style={{background: 'repeating-linear-gradient(45deg, #606dbc, #606dbc 10px, #465298 10px,#465298 20px)', boxShadow: '0px 20px 5px 0px rgb(30, 58, 76, .17)', textAlign: 'center', marginBottom: 5}}>
+                                                      <span > {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> <p style={{fontWeight: 'bolder'}}> {pushNames[0]} </p>
                                                     </div>
                                                 )
                                             }

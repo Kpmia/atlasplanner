@@ -5,10 +5,10 @@ import { EditSession } from "./EditSession";
 
 export const TabManager = {
 
-    getTabComponent: (name, orgId, eventId, sessions, getSessions) => {
+    getTabComponent: (name, orgId, eventId, sessions, getSessions, eventInfo) => {
         switch (name) {
             case "create-session":
-                return <CreateSession orgId={orgId} eventId={eventId} sessions={sessions} />
+                return <CreateSession eventInfo={eventInfo} orgId={orgId} eventId={eventId} sessions={sessions} />
             case "delete-session":
                 return <DeleteSession  orgId={orgId} eventId={eventId} getSessions={getSessions} sessions={sessions} />
             case "edit-session":

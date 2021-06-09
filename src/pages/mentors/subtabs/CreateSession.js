@@ -6,14 +6,16 @@ import { Form, Input, Label, TextArea } from "semantic-ui-react";
 import 'react-toastify/dist/ReactToastify.css';
 import { SessionService } from "../../networking/sessions/SessionService";
 import { Card } from "@material-ui/core";
-import moment from "moment"
+import FadeIn from "react-fade-in";
 
 export class CreateSession extends Component {
     state={
         orgId: this.props.orgId,
         eventId: this.props.eventId,
+        eventInfo: this.props.eventInfo,
         name: "",
         link: "",
+        submitted: false,
         section: "",
         description: "",
         category: "",
@@ -52,6 +54,7 @@ submitMentor = async() => {
         if (session) {
             toast.dark('Successfully updated sessions',{ transition : Slide  })
             toast.dark('Changes have been made to the live site', { transition : Slide  })
+            this.setState({ submitted : true })
 
             // setTimeout(() => {
             //     window.open("/c/" + this.state.orgId + "/" + this.state.eventId)
@@ -65,18 +68,19 @@ submitMentor = async() => {
 
     render() {
 
-        if (this.state.timeSlots.length != 0 ) {
-            var firstday = moment(this.state.timeSlots[0]["start"]).startOf('week').toDate()
-            var lastday   = moment(this.state.timeSlots[0]["end"]).endOf('week').toDate();
-            console.log(firstday, lastday)
-            console.log(this.state.timeSlots[0]["start"].getDay())
-        }
-        console.log(this.state.timeSlots)
+        console.log(this.state.eventI)
+
                    
         return (
             <div>
             <Card style={{borderRadius: '20px', border: 'none', overflow: 'scroll', boxShadow: 'none'}}>
                 <CardBody style={{padding: '4.25em'}}>
+                    <div style={{border: '1px solid gray', padding: 10, borderRadius: 10}}>
+                    <p style={{color: 'GrayText', marginBottom: 0}}>  Added instructions </p>
+                        <p> {this.state.eventInfo['instruction'].length != 0 ? this.state.eventInfo['instruction'] : "Coordinator did not add notes."} </p>
+                    </div>
+                    <br></br>
+                    <br></br>
             <Form id="basicDetails">
                 <Form.Group widths='equal'>
                 <Form.Field
@@ -130,9 +134,9 @@ submitMentor = async() => {
                     weekStartsOn="sunday"
                     calendars={[
                     ]}
-                    onChange={(selections) => { console.log(selections[0]["start"] / (7 * 24 * 60))}}         
+                    onChange={(selections) =>  this.setState({ timeSlots : selections })}         
                     height={600}
-                    recurring={true}
+                    recurring={false}
                     availableDays={['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']}
                     availableHourRange={{ start: 0, end: 24 }}
                     />
@@ -156,6 +160,15 @@ submitMentor = async() => {
                     <br></br>
                     <br></br>
                     <Button className="createEventBtn" onClick={this.submitMentor}> Submit </Button>
+                    <br></br>
+                    <br></br>
+                    {
+                        this.state.submitted ? 
+                            <FadeIn>
+                            <p> Thanks for submitting! Your changes are now live on <span style={{textDecoration: 'underline', cursor: 'pointer'}} onClick={() => window.open(window.location.origin + '/c/' + this.state.orgId + '/' + this.props.eventId)}> {window.location.origin + '/c/' + this.state.orgId + '/' + this.state.eventId}! </span></p>
+                            </FadeIn>
+                            : null
+                    }
                     </CardBody>
             </Card>
             </div>
