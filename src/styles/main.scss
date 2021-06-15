@@ -2,12 +2,129 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 body {
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif!important;
   background: #eff2f5!important;
+  font-family: Helvetica!important;
+  color: black!important;
+  letter-spacing: -0.025em!important;
+}
+
+
+.formCard {
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(31, 41, 55, 0.06), 0px 4px 6px rgba(31, 41, 55, 0.1)!important;
+  border-radius: 2px 2px 2px 2px!important;
+  border-top: 7px solid #80808029!important;
+}
+
+.nextBtn {
+  width: 100px!important;
+  background: #000000!important;
+  height: 41px;
+  font-size: 14px!important;
+  font-weight: 500!important;
+  font-family: Inter;
+  line-height: 20px;
+  color: white!important;
+}
+
+.v-animal-avatar {
+  border-radius: 100%!important;
+  --a-size: 32px!important;
+  border: 1px solid white!important;
+  padding: 3px!important;
+  background: black!important;
+}
+
+.formStep {
+  font-size: 25px!important;
+  font-family: Inter!important;
+  font-weight: 600!important;
+  color: black!important;
+  letter-spacing: -0.076em;
+}
+
+.cellTitle {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #A1A1AA;
+}
+
+.tableTitle {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 28px;
+  /* identical to box height, or 187% */
+
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+tr td {
+  height: auto !important;
+}
+.bigWhiteBanner {
+  height: 254px;
+  left: 0px;
+  top: 0px;
+
+  background: linear-gradient(0deg, #FFFFFF, #FFFFFF), #FFFFFF;
+  /* Border */
+
+  border: 1px solid #EEEEEE;
+  box-sizing: border-box;
+  /* soft */
+
+  box-shadow: 0px 15px 50px rgba(160, 163, 189, 0.1);
+}
+
+
+.cellText {
+  font-family: Inter;
+  font-weight: 400!important;
+  font-size: 14px;
+  line-height: 20px;
+  color: #52525B;
+}
+
+.tableProjectBg {
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(31, 41, 55, 0.06), 0px 4px 6px rgba(31, 41, 55, 0.1);
+  border-radius: 16px 16px 0px 0px;
+}
+
+.table td{
+  border-bottom: #E4E4E7 solid 1px !important;
+}
+
+.backBtn {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  width: 100px!important;
+  font-size: 13px;
+  height: 41px;
+  line-height: 20px;
+  background: none!important;
+  border: 1px solid #000000!important;
+  box-sizing: border-box!important;
+  color: #000000!important;
+}
+
+.rat-AvailableTimes_toolbar {
+  font-family: Inter!important;
+  color: black!important;
 }
 
 .modal {
@@ -32,6 +149,11 @@ body {
   transform: translate(-50%, -50%);
   left: 50%;
   z-index: 999!important;
+}
+
+.editRow:hover {
+  border: 1px solid black!important;
+  box-shadow: 0px 2px 1px rgba(17, 12, 21, 0.8)!important;
 }
 
 .signInCard {
@@ -60,13 +182,13 @@ body {
   font-weight: 400!important;
 }
 .MuiDataGrid-root .MuiDataGrid-columnHeader {
-  background: #010747!important;
+  background:black!important;
   color: white!important;
   font-weight: 300!important;
 }
 
 .MuiDataGrid-root .MuiDataGrid-columnHeaderWrapper .MuiDataGrid-cell {
-  background: #010747!important;
+  background:black!important;
 
 }
 
@@ -74,6 +196,7 @@ body {
   border: 1px solid rgba(224, 224, 224, 1)!important;
   font-weight: 400!important;
 }
+
 .signInTitle {
   font-style: normal;
   font-weight: 600;
@@ -84,6 +207,91 @@ body {
   width: 110px;
   // height: 79px;
   color: #000000;
+}
+
+.iconLogo {
+  position: absolute;
+  top: 20px;
+}
+
+.finalMessageSession {
+  text-align: center;
+  font-size: 15px;
+  line-height: 195%;
+  font-family: 'Inter';
+}
+
+
+
+.tabSessionForm {
+  background:  none!important;
+  margin-right: 10!important; 
+  color: black!important;
+  transition: .6s all!important;
+  height: 41px;
+  outline: none!important;
+  font-size: 14px;
+  margin-right: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.378)!important;
+  font-family: Helvetica!important;
+}
+
+.clickedSessionForm {
+  margin-right: 20!important;
+  transition: all .6s ease-in!important; 
+  background: none!important;
+  height: 41px;
+  margin-left: 10px;
+  outline: none!important;
+  font-size: 14px!important;
+  font-weight: 600!important;
+  font-family: Inter;
+  line-height: 20px;
+  border-left: none!important;
+  border: 1px solid white!important;
+  margin-right: 10px;
+  color: black!important;
+}
+
+.editSessionCardTitle {
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-family: 'Inter';
+    line-height: 19px;
+    letter-spacing: -0.025em;
+    color: black;
+}
+
+.ui.form .field>label {
+  font-family: Helvetica;
+  letter-spacing: -0.035em;
+}
+
+.overrideShareBtn {
+  margin-right: 10px;
+  background: rgb(26, 115, 232)!important;
+  border-radius: 2px!important;
+  border: none!important;
+  font-weight: 600!important;
+  width: 88px;
+  position: relative;
+  top: -65px;
+  right: 5px;
+  border-radius: 4px!important;
+  height: 36px!important;
+}
+
+.atlasPlannerName {
+  color: white;
+  position: relative;
+  left: -20px;
+  top: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: Inter;
+  letter-spacing: -0.05em;
 }
 
 .signInBtn {
@@ -119,8 +327,6 @@ body {
 }
 
 
-
-
 .eventBody {
   height: 100%;
   background: #EFF2F5;
@@ -128,13 +334,38 @@ body {
   overflow-x: hidden;
 }
 
+.gradientBackground {
+  width: 100%;
+  height: 200vh;
+  position: absolute;
+  z-index: 99;
+  box-shadow: inset 0px -12px 28px rgba(0, 0, 0, 0.13)!important;
+  top: 0px;
+  background-size: 600%!important;
+  animation: gradient 15s ease infinite;
+  background: linear-gradient(-45deg, #ff1ea5, #ff8b8b, #4742c0, #9da1ff);
+}
+
 .eventHeader {
-  background: #010747;
+  background: black;
   width: 100%;
   height: 63px;
-  z-index: 999;
+  z-index: 9999;
   position: fixed;
   top: 0px;
+}
+
+.editEventHeader {
+  background: black;
+  width: 100%;
+  height: 83px;
+  z-index: 9999;
+  position: fixed;
+  top: 0px;
+}
+
+.adminHeader {
+
 }
 
 .eventWhiteHeader {
@@ -153,22 +384,16 @@ body {
   padding-top: 250px;
 }
 
-.top_form_header {
-  width: 100%;
-  height: 500px;
-  position: absolute;
-  z-index: 99;
-  box-shadow: inset 0px -12px 28px rgba(0, 0, 0, 0.13)!important;
-  top: 0px;
-  background-size: 400%!important;
-  animation: gradient 7s ease infinite;
-  background: linear-gradient(-45deg, #8e2bff, #e73c7e,#4742c0, #1d26fa);
+.MuiCircularProgress-colorSecondary {
+  color: white!important;
 }
+
+
 
 .eventProjectCard {
   background: #FFFFFF!important;
   border: 1px solid rgba(213, 223, 235, 0.75)!important;
-  border-bottom: 1px solid #3430F6!important;
+  border-bottom: 6px solid #00000045 !important;  
   box-sizing: border-box!important;
   background-size: 100% auto;
   cursor: pointer;
@@ -195,13 +420,47 @@ body {
 
 
 .introjs-tooltip {
-  border: 1px solid #3430F6!important;
-  box-shadow: -9px 20px 3px rgba(33, 33, 33, .30)!important;
+  border: 1px solid rgba(0, 0, 0, 0.18)!important;
+  box-shadow: -16px 20px 15px 4px rgba(0, 0, 0, .19) !important;
 }
 
-.introjs-helperLayer {
-   box-shadow: rgba(35, 35, 74, 0.434) 0px 0px 1px 2px, rgba(35, 35, 74, 0.434) -20px 20px 0px 0px!important;
-   color: white!important;
+// .introjs-helperLayer {
+//    box-shadow: rgba(35, 35, 74, 0.434) 0px 0px 1px 2px, rgba(35, 35, 74, 0.434) -20px 20px 0px 0px!important;
+//    color: white!important;
+// }
+
+.rs-steps-item-status-process .rs-steps-item-icon-wrapper:not(.rs-steps-item-custom-icon) {
+  background: black!important;
+  font-family: Helvetica!important;
+  border: none!important;
+}
+
+.rs-steps-item-status-finish .rs-steps-item-icon-wrapper:not(.rs-steps-item-custom-icon) .rs-steps-item-icon::before {
+  color: black!important;
+}
+
+.rs-steps-item-status-finish .rs-steps-item-icon-wrapper:not(.rs-steps-item-custom-icon) {
+  border-color: black!important;
+}
+
+.rs-steps-item-title {
+  font-family: Helvetica!important;
+  letter-spacing: -0.035em!important;
+  font-weight: bold;
+}
+
+.rs-steps-item-status-finish .rs-steps-item-tail, .rs-steps-item-status-finish .rs-steps-item-title::after {
+  color: black!important;
+  border-color: black!important;
+}
+
+.rs-steps-item-status-process .rs-steps-item-content {
+  font-family: Helvetica!important;
+}
+
+.introjs-tooltip-title {
+  font-family: Helvetica;
+  letter-spacing: -0.045em;
 }
 
 html {
@@ -211,9 +470,39 @@ html {
 .introjs-button {
   font-weight: 500!important;
   border-radius: 5px!important;
-  background: #3430F6 !important;
+  font-family: Helvetica!important;
+  background: black !important;
   color: white!important;
   text-shadow: none!important;
+}
+
+.MuiStepIcon-root.MuiStepIcon-active {
+  color: black!important;
+}
+
+.MuiStepIcon-root.MuiStepIcon-completed {
+  color: black!important;
+}
+
+.MuiStepLabel-label {
+  font-family: Helvetica!important;
+  font-weight: bold!important;
+  letter-spacing: -0.045em!important;
+  font-size: 15px!important;
+}
+
+.MuiStepLabel-label.MuiStepLabel-completed {
+  font-family: Helvetica!important;
+  font-weight: bold!important;
+  letter-spacing: -0.045em!important;
+  font-size: 15px!important;
+}
+
+.MuiStepLabel-label.MuiStepLabel-active {
+  font-family: Helvetica!important;
+  font-weight: bold!important;
+  letter-spacing: -0.045em!important;
+  font-size: 15px!important;
 }
 
 .optionsIcon {
@@ -228,16 +517,28 @@ html {
   color: white!important;
 }
 
+.ui.dropdown>.text {
+  font-weight: bold!important;
+  font-family: Helvetica!important;
+}
+
 .MuiDataGrid-root .MuiDataGrid-columnHeader:not(.MuiDataGrid-columnHeaderSorted) .MuiDataGrid-sortIcon {
   opacity: 1!important;
+}
+
+.diamondIcon {
+  font-size: 18px!important;
+  margin-top: 20px!important;
+  color: white;
+  margin-right: 20px!important;
 }
 
 .ui.dropdown .menu {
 }
 
 .eventProjectGradCard {
-  background: linear-gradient(-45deg, #8e2bff, #e73c7e,#4742c0, #1d26fa);
-  box-shadow: -7px 16px 2px rgba(172, 177, 194, .22);
+  background: linear-gradient(-45deg, #f2a6f7, #e73c7e, #4742c0, #a0a3e5);
+   box-shadow: -7px 16px 2px rgba(172, 177, 194, .22);
   height: 86px;
   position: relative;
   width: 100%;
@@ -266,7 +567,7 @@ html {
 
   letter-spacing: -0.025em;
 
-  color: #4F4F54;
+  color: #161618;
 
 }
 
@@ -285,34 +586,133 @@ html {
 .nestedTab {
   border-bottom: 3px solid rgba(255, 255, 255, 0.0);
   padding-bottom: 10px;
+  font-family: Helvetica;
   transition: all 2s;
 }
 
 .nestedTabHover {
-  border-bottom: 3px solid #EA60DC;
+  border-bottom: 3px solid black;
   padding-bottom: 10px;
   transition: all 2s;
 }
 
+.tabBackground {
+  box-shadow: 0px 2px 4px rgba(31, 41, 55, 0.06), 0px 4px 6px rgba(31 ,41 ,55, .10) !important;
+  border-radius: 2px 2px 2px 2px !important;
+  background: white!important;
+  border-top: 6px solid rgba(165, 164, 175, 0.35);
+  height: 50px;
+}
+
+.userIcons {
+  position: relative;
+  right: 150px;
+  top: -32px;
+
+
+}
+
+
+.poweredByCompany {
+  position: absolute;
+  top: 14px;
+  font-size: 13px!important;
+  color: white!important;
+  cursor: pointer;
+  font-family: Helvetica!important;
+  letter-spacing: -0.045em!important;
+  // border-bottom: 1px solid white;
+  border-left: 3px solid white;
+  font-weight: bold!important;
+  padding: 8px;
+}
+
+
 .eventWhiteHeaderTitle {
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
+  font-family: Helvetica!important;
   font-size: 25px;
   line-height: 30px;
-  /* identical to box height */
-  font-weight: bold;
-  letter-spacing: -0.025em;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  color: #3b3642;
+}
 
-  color: #3B3642;
+.editEventTitle {
+  font-weight: bold;
+  font-size: 22px !important;
+  color: white;
+  position: relative;
+  left: -10px;
+  top: 25px;
+  font-family: Helvetica;
+  letter-spacing: -0.045em;
+  color: white;
+}
+
+.eventWhiteHeaderSubtitle {
+  color: white!important;
+  font-family: Helvetica!important;
+  font-size: 14px!important;
+  z-index: 9999!important;
+  position: relative;
+  top: 25px;
+  left: 15px;
+}
+
+.eventSubtitle {
+  font-family: Helevtica;
+  font-size: 14px;
+  font-weight: 500;
+  position: absolute;
+  z-index: 9999;
+  top: 60px;
+  left: 20px;
+}
+
+.eventSub {
+  position: relative;
+  left: 10px;
+  top: 26px;
+
+}
+
+.MuiInputBase-root {
+  color: black!important;
+  font-family: Helvetica!important;
+  border-radius: 6px!important;
+  font-size: 14px!important;
+  
+}
+
+.MuiInputBase-root::placeholder {
+  color: black!important;
+  font-family: Helvetica!important;
+}
+
+.MuiInputBase-input {
+  color: black!important;
+  font-size: 14px!important;
+  font-family: Helvetica!important;
+  padding-left: 5px!important;
+
 }
 
 .createProjectLabel {
   font-weight: bold;
+  font-family: Helvetica;
+  font-size: 14px;
+}
+
+.modal-content {
+  margin-top: 60px;
+  display: block!important;
 }
 
 .createEventBtn {
-  background: #3430F6!important;
-  border-radius: 25px!important;
+  background: black!important;
+  border-radius: 5px!important;
     font-style: normal;
   font-weight: 600!important;
   font-size: 16px;
@@ -360,21 +760,61 @@ letter-spacing: -0.025em;
 color: #FFFFFF;
 }
 
+.calendarMentorCard {
+  box-shadow: 0px 2px 4px rgba(31 ,41 ,55, .06), 0px 4px 6px rgba(31, 41, 55, .10) !important;
+  border-radius: 2px 2px 2px 2px !important;
+}
+
 .liveLinkHeader {
   font-style: normal;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 15px;
   cursor: pointer;
+  letter-spacing: -0.035em;
+  font-family: Helvetica;
   display: inline;
+  margin-right: 9px;
   line-height: 18px;
-  border-bottom: 1px solid #3430F6;
   padding-bottom: 3px;
-
-  /* identical to box height */
-
   letter-spacing: -0.025em;
+  border-left: 2px solid black;
+  color: #34344b;
+  padding-left: 5px;
+}
+.ui.dropdown {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+  border-radius: 3px!important;
+  /* width: 130px; */
+  background: black;
+  color: white;
+  font-weight: 500!important;
+  margin-top: -2px!important;
+  transition: box-shadow .1s ease,width .1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.shareBtn {
+  background: black!important;
+  color: white!important;
+  border-radius: 30px!important;
+  font-family: Helvetica!important;
+  position: relative;
+  top: -65px;
+  right: 5px;
+}
 
-  color: #3430F6;
+.shareBtn:hover {
+  background: white!important;
+  color: black!important;
+  border-radius: 30px!important;
+  font-family: Helvetica!important;
+  position: relative;
+  top: -65px;
+  right: 5px;
 }
 
 .getLinkShare {
@@ -385,34 +825,29 @@ color: #FFFFFF;
   background: #e6f4ea;
 }
 
-.backBtn {
-  box-sizing: border-box;
-  border-radius: 7px;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 18px;
-
-  /* identical to box height */
-  width: 84px;
-  font-weight: 600;
-  height: 34px;
-  letter-spacing: -0.025em;
-  background: #3430F6!important;
-  color: white!important;
-}
-
 .eventSubTabs {
   font-size: 16px;
   line-height: 19px;
   /* identical to box height */
 
   letter-spacing: -0.025em;
+  font-family: Helvetica;
 
   color: #3B3642;
 }
 
 .rat-TimeSlot_component {
-  background-color: #3430F6!important;
+  background-color: black!important;
+
+}
+
+.rat-AvailableTimes_component, .rat-AvailableTimes_component * {
+  font-family: Helvetica!important;
+
+}
+
+.rat-AvailableTimes_component, .rat-AvailableTimes_component * {
+  font-family: Helvetica!important;
 
 }
 
@@ -424,7 +859,6 @@ color: #FFFFFF;
 // }
 
 .rat-AvailableTimes_toolbar {
-  justify-content: center!important;
 }
 
 .dayOfWeek {
@@ -457,13 +891,23 @@ color: #FFFFFF;
 .availableTime {
   font-weight: 500;
   cursor: pointer;
-  border-radius: 10px;
   padding: 7px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 19px;
   /* identical to box height */
-
+  box-shadow: 0px 2px 4px rgba(31, 41, 55, 0.06), 0px 4px 6px rgba(31, 41, 55, 0.1)!important;
   letter-spacing: -0.025em;
+  background: none;
+  border: 1px solid rgba(165, 172, 180, .75) !important;
+  text-align: center;
+  border-radius: 3px;
+  font-family: Helvetica;
+  margin-bottom: 8px;
 
-  color: black;
+  color: #29313e!important;
 }
+
+
+
+
+

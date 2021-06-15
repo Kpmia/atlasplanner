@@ -1,32 +1,20 @@
 import React, { Component } from "react";
 import moment from "moment"
 import { DataGrid } from '@material-ui/data-grid';
+import { LiveSiteUtils } from "../utils/LiveSiteUtil";
 
 export class TodaySession extends Component {
     state = {
         orgId: this.props.orgId,
         eventId: this.props.eventId,
-        mentors: this.props.mentors,
-        currWeek: this.props.currWeek
+        mentors: LiveSiteUtils.getWeekData(this.props.mentors, LiveSiteUtils.getCurrWeek(0)),
     }
 
     todayDate = new Date()
 
-    componentDidUpdate() {
-        if (this.state.currWeek != this.props.curWeek) {
-            this.setState({ curWeek : this.props.currWeek })
-        }
-        if (this.props.mentors != this.state.mentors) {
-            this.setState({ mentors : this.props.mentors })
-        };
-    };
-
     render() {
-        if (this.state.mentors == "None") {
-            return "no mentors yet"
-        }
 
-        console.log('Here')
+        console.log(this.props.mentors)
 
         const columns = [{field: "section", sorted: true, resizable: true, editable: true, resizable: true, headerName: "Section", width: 120}, {field: "name",  resizable: true, editable: true, headerName: "Name", width: 120}, {field: "link", resizable: true,  editable: true, headerName: "Link", width: 120}, {field: "descriptions", editable: true, resizable: true, headerName: "Other", width: 120},]
 

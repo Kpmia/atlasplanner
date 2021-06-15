@@ -8,15 +8,20 @@ import { io } from "socket.io-client";
 import { PageNotFound } from "../PageNotFound";
 import { LoadingPage } from "../LoadingPage";
 import { ToastContainer } from "react-toastify";
+import { Icon } from "semantic-ui-react";
+import Animal from "react-animals";
+import { onboarding } from "./components/onboarding";
+import { Header } from "./components/layout/Header";
+import { Tooltip } from "@material-ui/core";
 
 class MentorForm extends React.Component {
     constructor() {
         super()
         this.orgId = ""
-        this.uid = ""
         this.socket = io("//atlasplanner.ue.r.appspot.com")
         this.eventId = ""
         this.state={
+            numPeople: 0,
             sessions: [],
             pageNotFound: false,
             pageComponent: [],
@@ -31,7 +36,7 @@ class MentorForm extends React.Component {
             if (sessions) {
                 this.setState({ eventInfo : sessions['event_info'] })
                 this.setState({ sessions : sessions['sessions'] })
-                this.updateTabData(this.state.tab)
+                onboarding.startNewUser(orgId, eventId)
             } else {
                 this.pageNotFound()
             }
@@ -44,18 +49,77 @@ class MentorForm extends React.Component {
     }
 
     updateTabData = (name) => {
-        history.push("?tab-name=" + name)
         this.setState({ tab : name })
         this.setState({ pageComponent : TabManager.getTabComponent(name, this.props.match.params.orgId, this.props.match.params.eventId, this.state.sessions, this.getSessions, this.state.eventInfo) })
+    }
+
+    switchTab = (name) => {
+        history.push("?tab-name=" + name)
     }
 
     componentDidMount() {
         this.getSessions(this.props.match.params.orgId, this.props.match.params.eventId).then(() => {
             const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('tab-name') != "") {
+            if (urlParams.get('tab-name') != "" && urlParams.get('tab-name') != null) {
                 this.updateTabData(urlParams.get('tab-name'))
+                
+            } else {
+                this.props.history.push('?tab-name=create-session')
+                this.updateTabData('create-session')
             }
         })
+
+        this.socket.on('connect', () => { 
+            this.socket.emit("edit-sessions", this.props.match.params.orgId + "-" + this.props.match.params.eventId + '-edit-sessions');
+            this.socket.emit("edit-sessions-users", this.props.match.params.orgId + "-" + this.props.match.params.eventId + '-user-edit-sessions');
+        })
+
+        this.socket.on('num_user_editing', (data) => {
+            var animals = []
+            for (var i = 0; i < data; i++) {
+                if (i == 3) {
+                    animals.push(<div style={{borderRadius: '10%', padding: 7, width: 32, fontWeight: 'bold', height: 32, background: 'white', color: 'black'}}> 3+ </div>)
+                    break;
+                } else {
+                  animals.push(<a style={{marginRight: 5}}><Tooltip title="Anonymous" placement="bottom"><Animal style={{borderRadius: '100%'}} rounded /></Tooltip></a>)
+                }
+            }
+            this.setState({ numPeople : animals })
+        })
+
+        this.socket.on('ADDED_SESSION', (data) => {
+            var dataMentors = this.state.sessions
+            dataMentors.push(data)
+            this.setState({ sessions : dataMentors })
+            this.updateTabData(this.state.tab)
+        })
+
+        this.socket.on('UPDATED_SESSION', (data) => {
+            var dataMentors = this.state.sessions
+            var jsonBody = {}
+            dataMentors.map((mentor) => {
+                jsonBody[mentor['_id']] = mentor
+            })
+            jsonBody[data['_id']] = data
+            var mentors = []
+            Object.keys(jsonBody).map((mentor) => {
+                mentors.push(jsonBody[mentor])
+            })
+            this.setState({ sessions : mentors })
+            this.updateTabData(this.state.tab)
+        })
+
+        this.socket.on('DELETED_SESSION', (data) => {
+            var mentors = []
+            this.state.sessions.map((mentor) => {
+                if (mentor["_id"] != data) {
+                    mentors.push(mentor)
+                }
+            })
+            this.setState({ sessions : mentors })
+            this.updateTabData(this.state.tab)
+        })
+
     }
     
       render() {
@@ -64,33 +128,43 @@ class MentorForm extends React.Component {
           }
           if (this.state.isLoading) {
               return <LoadingPage />
-          }
-
-          console.log(this.state.eventInfo)
+          } 
                    
         return (
-            <div className="eventBody">
-                <div className="top_form_header"></div>
-                <div className="container">
-                    <img style={{marginTop: 20}} src={require('../../assets/icon.svg')} />
-                        </div>
-                
+            <div className="gradientBackground">
 
-            <div style={{paddingTop: 50, zIndex:999, position: 'relative'}} className="eventPageBody container">          
-            <p className="eventWhiteHeaderTitle" style={{marginBottom: 5, marginTop: 25, fontSize: 45, color: 'white'}}>{this.props.match.params.eventId}</p>
-            <p className="eventWhiteHeaderTitle" style={{marginBottom: 5, marginTop: 15, fontSize: 18, color: 'white'}}>{this.props.match.params.orgId}</p>
-            <p style={{color: 'white', cursor: 'pointer', textDecoration: 'underline'}} onClick={() => window.open(window.location.origin + '/c/' + this.props.match.params.orgId + '/' + this.props.match.params.eventId)}> Live Site: {window.location.origin + '/c/' + this.props.match.params.orgId + '/' + this.props.match.params.eventId} </p>
+                <Header 
+                    orgId={this.props.match.params.orgId} 
+                    eventId={this.props.match.params.eventId} 
+                    numPeople={this.state.numPeople} 
+                />
+              
+            <div style={{paddingTop: 82, zIndex:999, position: 'relative'}} className="eventPageBody">          
 
-            <p> </p>
+            <div className="tabBackground">
 
-            <Button style={{background: 'none', marginRight: 10, color: 'white', border: '1px solid white'}} onClick={() => this.updateTabData("create-session")}> Create Sessions  </Button>
-            <Button style={{background: 'none', marginRight: 10, color: 'white', border: '1px solid white'}}  onClick={() => this.updateTabData("delete-session")}> Delete Sessions  </Button>
-            {/* <Button disabled style={{background: 'none', color: 'white', border: '1px solid white'}}  onClick={() => this.updateTabData("edit-session")}> Edit </Button> */}
+                <div className="container" style={{borderLeft: '1px solid #a5a4af59', borderRight: '1px solid #a5a4af59'}}>
+            {
+                TabManager.getTabNames().map((tab) => {
+                    if (tab["route"] == this.state.tab) {
+                        return (
+                            <Button className="clickedSessionForm" onClick={() => { this.switchTab(tab["route"]); this.updateTabData(tab["route"])}}> <Icon name={tab["icon"]} /> {tab["name"]}  </Button>
+                        )
+                    }
+                    return (
+                        <Button className="tabSessionForm" onClick={() => { this.switchTab(tab["route"]); this.updateTabData(tab["route"])}}> <Icon name={tab["icon"]} /> {tab["name"]}  </Button>
+                    )
+                })
+            }
+            </div>
+            </div>
             <br></br>
-            <br></br>
+
+            <div className="container">
 
             {this.state.pageComponent}
 
+            </div>
             <br></br>
             </div>
             <ToastContainer />

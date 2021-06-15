@@ -81,6 +81,26 @@ export const EventService = {
         }
     },
 
+    updateEvent: async(orgId, eventId, event) => {
+        const userToken = await EventService.getUserToken()
+        try {
+            return new Promise((resolve, reject) => {
+                EventManager.updateEvent(userToken, orgId, eventId, event).then((exp) => {
+                    if (exp != null && exp) {
+                        if (exp) {
+                            resolve(exp["data"]["event"]);
+                        } else {
+                            resolve(null);
+                        }
+                    }
+                }, reject);
+            })
+        } catch (err) {
+            console.log('Cannot update event.')
+            return null;
+        }
+    },
+
     async getUserToken() {
         return new Promise((resolve, reject) => {
             const unsubscribe = db.auth().onAuthStateChanged(async (user) => {

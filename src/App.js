@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router';
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 import './styles/main.scss';
 import './styles/homepage.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from './pages/LoginPage';
 import AllEventsPage from './pages/allevents/AllEventsPage';
 import LiveEventPage from './pages/LiveEvent/LiveEventPage';

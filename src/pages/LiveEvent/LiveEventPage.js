@@ -8,6 +8,8 @@ import 'intro.js/introjs.css'
 import { Icon } from "semantic-ui-react";
 import { io } from "socket.io-client";
 import { LiveSiteUtils } from "./utils/LiveSiteUtil";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 var _ = require('lodash');
 
 class LiveEventPage extends React.Component {
@@ -34,29 +36,13 @@ class LiveEventPage extends React.Component {
             if (eventInfo != null) {
                 this.eventId = this.props.match.params.eventId
                 this.setState({ mentors : eventInfo["sessions"] })
-                this.setState({ copiedMentorData : this.getWeekData(LiveSiteUtils.getCurrWeek(this.state.weekToken)) })
+                this.setState({ copiedMentorData : LiveSiteUtils.getWeekData(eventInfo["sessions"], LiveSiteUtils.getCurrWeek(this.state.weekToken)) })
                 this.setState({ eventInfo : eventInfo["event_info"] })
             } else {
                 this.pageNotFound();
             }
             this.isLoading();
         })
-    };
-
-    getWeekData(week) {
-        var copyMentorData = JSON.parse(JSON.stringify(this.state.mentors))
-
-        copyMentorData.map((mentor) => {
-            mentor["timeslots"] = []
-        })
-
-        this.state.mentors.map((mentor, idx) => {
-            if (mentor["timeslots"][week] != undefined) {
-                copyMentorData[idx]["timeslots"] = mentor["timeslots"][week]
-            } 
-        })    
-        
-        return copyMentorData
     };
 
     incrementWeekToken = async(inc) => {
@@ -82,14 +68,13 @@ class LiveEventPage extends React.Component {
         this.incrementWeekToken(false).then(() => {
             this.setState({ currWeek : LiveSiteUtils.getCurrWeek(this.state.weekToken) })
             this.updateMentorData().then(() => {
-                console.log('x')
                 this.updateTabData(this.state.tab)
             })
         })
     }
 
     updateTabData = (tabName) => {
-        console.log('here')
+        this.props.history.push("?tab-name=" + tabName)
         this.setState({ tab : tabName })
         this.setState({ pageComponent : TabManager.getTabComp(tabName, this.props.match.params.orgId, this.props.match.params.eventId, this.state.mentors, this.getMentorData, this.state.copiedMentorData, this.state.currWeek) })
     };
@@ -99,7 +84,7 @@ class LiveEventPage extends React.Component {
             this.setState({ mentors : data })
 
         }
-        this.setState({ copiedMentorData : this.getWeekData(LiveSiteUtils.getCurrWeek(this.state.weekToken)) })
+        this.setState({ copiedMentorData : LiveSiteUtils.getWeekData(this.state.mentors, LiveSiteUtils.getCurrWeek(this.state.weekToken)) })
     };
 
     pageNotFound() {
@@ -111,9 +96,10 @@ class LiveEventPage extends React.Component {
     };
 
     componentDidMount() {
+
         this.getMentorData().then(() => {
             this.setState({ currWeek : LiveSiteUtils.getCurrWeek(this.state.weekToken) })
-            this.updateTabData('mentors')
+            this.updateTabData(TabManager.getCurrSubtab());
            
         })
 
@@ -121,11 +107,26 @@ class LiveEventPage extends React.Component {
             this.socket.emit("sessions", this.props.match.params.orgId + "-" + this.props.match.params.eventId + "-sessions");
         });
 
-
         this.socket.on('ADDED_SESSION', (data) => {
+            console.log(data)
             var dataMentors = this.state.mentors
             dataMentors.push(data)
             this.updateMentorData(dataMentors).then(() => {
+                setTimeout(() => {
+                    this.updateTabData(this.state.tab)
+                }, 600)
+            })
+        })
+
+        this.socket.on('DELETED_SESSION', (data) => {
+            var mentors = []
+            this.state.mentors.map((mentor) => {
+                console.log(mentor)
+                if (mentor["_id"] != data) {
+                    mentors.push(mentor)
+                }
+            })
+            this.updateMentorData(mentors).then(() => {
                 this.updateTabData(this.state.tab)
             })
         })
@@ -162,8 +163,8 @@ class LiveEventPage extends React.Component {
                 <div className="eventHeader">
                     <div className="container">
                         <row>
-                        <img style={{marginTop: 20, marginRight: 30}} src={require('../../assets/icon.svg')} />
-                            <a onClick={() => window.location.href = '/'} style={{color: 'white', position: 'absolute', top: '22px', cursor: 'pointer'}}> My Events </a>
+                            <Icon className="diamondIcon" name="diamond" />
+                            <a className="poweredByCompany" onClick={() => window.location.href = '/'}> Powered by Atlasplanner. </a>
                         </row>
                     </div>
                         </div>      

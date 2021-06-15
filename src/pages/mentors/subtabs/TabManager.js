@@ -12,10 +12,26 @@ export const TabManager = {
             case "delete-session":
                 return <DeleteSession  orgId={orgId} eventId={eventId} getSessions={getSessions} sessions={sessions} />
             case "edit-session":
-                return <EditSession  orgId={orgId} eventId={eventId} sessions={sessions} />
+                return <EditSession  orgId={orgId} eventId={eventId} getSessions={getSessions} sessions={sessions} />
             default:
                 return
         }
+    },
+
+    getTabNames() {
+        return [{
+            "name": "Create",
+            "route": "create-session",
+            "icon": "calendar plus outline icon"
+        }, {
+            "name": "Delete",
+            "route": "delete-session",
+            "icon": "cut"
+        }, {
+            "name": "Edit",
+            "route": "edit-session",
+            "icon": "pencil alternate"
+        }]
     }
 
 }

@@ -1,5 +1,5 @@
 import io from "socket.io-client";
 
-let socket = io("http://localhost:8080");
+let socket = io("//atlasplanner.ue.r.appspot.com");
 
 export default socket;

@@ -1,4 +1,5 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
 import { Button, Card, CardBody, Col, Row } from "reactstrap";
 import { Icon } from "semantic-ui-react";
 import { UserBanner } from "../../globalcomp/UserDropDown";
@@ -7,6 +8,7 @@ import { EventService } from "../networking/events/EventService";
 import { SessionService } from "../networking/sessions/SessionService";
 import { PageNotFound } from "../PageNotFound";
 import { ShareSessionModal } from "./components/modals/ShareSessionModal";
+import { UpdateEventModal } from "./components/modals/UpdateEventModal";
 
 class EventPage extends React.Component {
     constructor() {
@@ -27,11 +29,11 @@ class EventPage extends React.Component {
         await EventService.getEvent(orgId, eventId).then((event) => {
             if (event != null) {
                 this.setState({ eventData : event });
-                SessionService.getAllSessions(orgId, eventId).then((sessions) => {
-                    if (sessions) {
-                        this.setState({ sessionData : sessions["sessions"] })
-                    }
-                })
+                // SessionService.getAllSessions(orgId, eventId).then((sessions) => {
+                //     if (sessions) {
+                //         this.setState({ sessionData : sessions["sessions"] })
+                //     }
+                // })
             } else {
                 this.pageNotFound();
             }
@@ -88,11 +90,14 @@ class EventPage extends React.Component {
 
             <div className="eventPageBody container">
             <p style={{fontWeight: 'bold'}}> What would you like to do? </p>
+                <UpdateEventModal updateEvents={this.getEventData} orgId={this.props.match.params.orgId} eventId={this.props.match.params.eventId} eventData={this.state.eventData}>
                 <Card style={{cursor: 'pointer'}}>
-                    <CardBody onClick={() => window.open('/editsession/' + this.props.match.params.orgId+ '/' + this.props.match.params.eventId + '?tab-name=create-session')}>
-                        <p> <Icon name="add circle" /> Do you want to create a session?</p>
+                    <CardBody>
+                        <span> <Icon name="info" />Do you want to edit the event's information? </span>
                     </CardBody>
-                </Card>       
+                </Card> 
+                </UpdateEventModal>
+      
                 <br></br>
                 <Card style={{cursor: 'pointer'}}>
                     <CardBody onClick={() => window.open('/editsession/' + this.props.match.params.orgId+ '/' + this.props.match.params.eventId + '?tab-name=create-session')}>
@@ -114,6 +119,7 @@ class EventPage extends React.Component {
                 </Card>
                 <br></br>
                 </div>
+                <ToastContainer />
             </div>
         )
     }

@@ -14,6 +14,22 @@ export const LiveSiteUtils = {
         return monthNames[firstday.getMonth()] + " " + firstday.getDate() + ", " + firstday.getFullYear() +  " - " + monthNames[lastday.getMonth()] + " " + lastday.getDate() + ", " + firstday.getFullYear()  
     },
 
+    getWeekData(sessions, week) {
+        var copyMentorData = JSON.parse(JSON.stringify(sessions))
+    
+        copyMentorData.map((mentor) => {
+            mentor["timeslots"] = []
+        })
+    
+        sessions.map((mentor, idx) => {
+            if (mentor["timeslots"][week] != undefined) {
+                copyMentorData[idx]["timeslots"] = mentor["timeslots"][week]
+            } 
+        })    
+        
+        return copyMentorData;
+    },
+
     splitSpacesToDashes(name) {
         var str = name.replace(/\s+/g, '-').toLowerCase();
         return str;

@@ -21,6 +21,8 @@ export const ReserveMentor = (props) => {
       updateCurrMentor,
       children,
     } = props;
+
+    console.log(originalMentors)
   
     const [modal, setModal] = useState(false);
     const [timeslott, setSlot] = useState(timeslot);
@@ -61,11 +63,18 @@ export const ReserveMentor = (props) => {
 
         var saveMentor = {}
         originalMentors.map((orgMentor, idx) => {
+          console.log(originalMentors)
+          console.log(mentor["_id"] == orgMentor["_id"])
+          console.log(mentor["data"]["_id"])
+          console.log(orgMentor["_id"])
           if (mentor["data"]["_id"] == orgMentor["_id"]) {
+            console.log("matces")
             originalMentors[idx]["timeslots"][currWeek] = mentor["data"]["timeslots"]
-            saveMentor['session'] = originalMentors[idx]
+            saveMentor['session'] = orgMentor
           }
         })
+
+        console.log(saveMentor)
 
         SessionService.updateSession(orgId, eventId, mentor["data"]["_id"], saveMentor).then((sessions) => {
             if (sessions) {
@@ -82,9 +91,9 @@ export const ReserveMentor = (props) => {
       <div onClick={toggle}>
           {children}
         <Modal style={{padding: 20}} overlay={false} isOpen={modal} toggle={toggle} >
-          <ModalHeader cssModule={{'modal-title': 'w-100 text-center'}} style={{borderBottom: 'none', paddingBottom: '0px', padding: 10, fontWeight: 600, fontSize: '17px', textAlign: 'center'}} className="createProjectTitle" toggle={toggle}> <span style={{borderBottom: 'none', paddingBottom: '0px', fontWeight: 600, fontSize: '17px', textAlign: 'center'}}> Reserve Session </span></ModalHeader>
-          <p style={{fontWeight: 'bold', textAlign: 'center'}}> {currWeek} </p>
-          <p style={{fontWeight: 'bold', textAlign: 'center'}}> {moment(timeslot['start'], 'HH:mm').format('h:mm a')} - {moment(timeslot['end'], 'H:mm').format('hh:mm a')} </p>
+          <ModalHeader cssModule={{'modal-title': 'w-100 text-center'}} style={{borderBottom: 'none', paddingBottom: '0px', padding: 10, fontWeight: 600, fontSize: '17px', textAlign: 'center'}} className="createProjectTitle" toggle={toggle}> <span style={{borderBottom: 'none', paddingBottom: '0px', fontWeight: 600, fontSize: '15px', fontFamily: 'Helvetica', textAlign: 'center'}}> Reserve Session </span></ModalHeader>
+          <p style={{fontWeight: 'bold', textAlign: 'center', marginBottom: 3, fontFamily: 'Helvetica', fontSize: 14}}> {currWeek} </p>
+          <p style={{textAlign: 'center', fontFamily: 'Helvetica', fontSize: 14}}> {moment(timeslot['start'], 'HH:mm').format('h:mm a')} - {moment(timeslot['end'], 'H:mm').format('hh:mm a')} </p>
           <ModalBody>
           <Label style={{marginBottom: 9}} className="createProjectLabel"> Your Name </Label>
           <br></br>

@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { LiveSiteUtils } from "../utils/LiveSiteUtil"
 import { Card, CardBody, Col, Row } from "reactstrap";
 import FadeIn from "react-fade-in";
 import { ReserveMentor } from "../components/ReserveMentor";
@@ -7,7 +6,6 @@ import moment from "moment"
 import { Dropdown, Icon } from "semantic-ui-react";
 import { Input } from "@material-ui/core";
 import { Slide, toast } from "react-toastify";
-
 
 export class Mentors extends Component {
     state = {
@@ -39,6 +37,10 @@ export class Mentors extends Component {
     componentDidUpdate() {
         if (this.state.currWeek != this.props.currWeek) {
             this.setState({ currWeek : this.props.currWeek })
+        }
+
+        if (this.props.originalMentors != this.state.originalMentors) {
+            this.setState({ originalMentors : this.props.originalMentors })
         }
 
         if (this.props.mentors != this.state.mentors) {
@@ -88,13 +90,13 @@ export class Mentors extends Component {
         })
 
         return (
-            <div>
+            <div style={{marginTop: 20}}>
        
 
             {
     this.state.currentMentor.length != 0 ?
     <div id="calendar_body">
-    <Card >
+    <Card className="calendarMentorCard">
         <CardBody>
         <strong> {this.state.currentMentor["data"]["name"] + `'s Schedule`} </strong> 
 
@@ -129,17 +131,20 @@ export class Mentors extends Component {
                                     return new Date('1970/01/01 ' + a["start"]) - new Date('1970/01/01 ' + b["start"]);
                                   }).map((time) => {
                                     if (time) {
-                                        console.log(time)
                                         if (Object.keys(time["filled"]) != 0) {
+                                            var pushNames = []
+                                            Object.keys(time["filled"]).map((name) => {
+                                                pushNames.push(time["filled"][name]["name"])
+                                            })
                                             return (
-                                                <div className="unavailableTime" style={{background: '#3430F6', boxShadow: '0px 20px 5px 0px rgb(30, 58, 76, .17)', textAlign: 'center', marginBottom: 5}}>
-                                                    <ReserveMentor originalMentors={this.state.originalMentors} updateCurrMentor={this.selectMentor} updateMentor={this.props.updateMentor} timeslot={time} currWeek={this.state.currWeek} mentor={this.state.currentMentor} orgId={this.state.orgId} eventId={this.state.eventId}> <span> {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> </ReserveMentor>
+                                                <div onClick={() => toast.dark('This spot has been taken!', { transition : Slide, position: 'top-center' })} className="unavailableTime" style={{background: 'repeating-linear-gradient(45deg, #606dbc, #606dbc 10px, #465298 10px,#465298 20px)', boxShadow: '0px 20px 5px 0px rgb(30, 58, 76, .17)', textAlign: 'center', marginBottom: 5}}>
+                                                  <span > {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> <p style={{fontWeight: 'bolder'}}> {pushNames[0]} </p>
                                                 </div>
                                             )
                                         }
                                         return (
-                                            <div className="availableTime"   style={{background: 'none',boxShadow: '0px 20px 5px 0px rgb(30, 58, 76, .17)', marginBottom: 5, textAlign: 'center', border: '1px solid black'}}>
-                                               <ReserveMentor originalMentors={this.state.originalMentors} updateCurrMentor={this.selectMentor} updateMentor={this.props.updateMentor} timeslot={time} currWeek={this.state.currWeek} mentor={this.state.currentMentor} orgId={this.state.orgId} eventId={this.state.eventId}> <span style={{color: 'black'}}> {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> </ReserveMentor>
+                                            <div className="availableTime">
+                                               <ReserveMentor originalMentors={this.state.originalMentors} updateCurrMentor={this.selectMentor} updateMentor={this.props.updateMentor} timeslot={time} currWeek={this.state.currWeek} mentor={this.state.currentMentor} orgId={this.state.orgId} eventId={this.state.eventId}> <span> {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> </ReserveMentor>
                                             </div>
                                         )
                                     }

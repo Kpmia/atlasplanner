@@ -55,6 +55,24 @@ export const EventManager = {
     }
   },
 
+  updateEvent: async (userToken, orgId, eventId, event) => {
+    const config = {
+      headers: {
+        "Authorization": userToken,
+      },
+    };
+    try {
+      return await atlasAPI.put(
+        '/events/' + orgId +'/' + eventId,
+        event,
+        config
+      )
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  },
+
   deleteEvent: async (userToken, orgId, eventId) => {
     try {
       const config = {

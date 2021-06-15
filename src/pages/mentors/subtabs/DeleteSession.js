@@ -64,31 +64,22 @@ export class DeleteSession extends Component {
 
         return (
             <div>
-
-{/* 
-                <Input
-                    id="key"
-                    action={{
-                        color: 'pink',
-                        position: 'left',
-                        labelPosition: 'left',
-                        icon: 'key',
-                        background: 'black',
-                        content: 'Key',
-                    }}
-                    actionPosition='left'
-                    style={{width: '100px'}}
-                    placeholder="Leave empty if the coordinator did not set key" 
-                    onChange={(text) => this.setState({ key : text.target.value }) }  /> */}
+    <Card className="formCard">
+                <CardBody style={{padding: '3.25em'}}>
+                <div style={{border: '1px solid black', padding: 20, borderRadius: 10}}>
+                    <p className="formStep" style={{marginBottom: 10}}> Delete Sessions </p>
+                        <p style={{color: 'black', fontSize: 14, fontFamily: 'Inter', lineHeight: '146%'}}> Delete session by clicking on the checkbox of each card & clicking on the button. </p>
+                    </div>                    
                     <br></br>
                     <br></br>
                     <Button disabled={this.state.checked.length == 0 ? true : false} style={{background: 'black', float: 'right', border: '1px solid black'}} onClick={() => this.deleteSession(this.state.orgId, this.state.eventId, this.state.checked)}> Delete Session </Button>
 
                 <br></br>
                 <br></br>
-                <div style={{color: 'white'}}  className="float-right"> {this.state.checked.length} selected </div>
+                <div style={{color: 'black'}}  className="float-right"> {this.state.checked.length} selected </div>
                 <br></br>
                 <br></br>
+            
                 <Row id="sessions_body">
 
             {
@@ -96,17 +87,13 @@ export class DeleteSession extends Component {
                 return (
                     <Col style={{marginBottom: 30}} sm={4}>
                         <FadeIn delay="400">
-                            <Card style={{cursor: 'pointer'}}  className="eventProjectCard">
+                            <Card style={{cursor: 'pointer'}}  className="formCard">
                             
                                 <CardBody>
                                 <Checkbox id={mentor["_id"]} onChange={(e, data) => this.handleInputChange(e, data, mentor["_id"])} /> 
 
                                 <p style={{marginBottom: 0}} className="eventProjectTitle"> {mentor["name"]} </p>
-                                <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {mentor["link"]} </p>
-                                <a class={"ui pink image label"}>
-                                {mentor['category']}
-                                    <div class="detail">{mentor['timeslots'].length} Total Slots</div>
-                                    </a>
+                                <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {mentor["link"]} </p>                               
                                 <p > {mentor["descriptions"]} </p>
                                 </CardBody>
                             </Card>
@@ -116,6 +103,8 @@ export class DeleteSession extends Component {
                     })
                 }
                         </Row>
+            </CardBody>
+            </Card>
 
 
         </div>
