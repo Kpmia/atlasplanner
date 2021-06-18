@@ -13,6 +13,33 @@ body {
   letter-spacing: -0.025em!important;
 }
 
+.shareLinkIcon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+}
+
+.linkCopyText {
+  font-size: 14px;
+  font-family: Inter;
+  transition: all .6s;
+  padding: 8px;
+  border-radius: 3px;
+  background: #8080802b;
+}
+
+.linkCopiedText {
+  font-size: 14px;
+  font-family: Inter;
+  transition: all .6s;
+  padding: 8px;
+  color: white;
+  border-radius: 3px;
+  background: black;
+}
+
+
 
 .formCard {
   background: #FFFFFF;
@@ -120,6 +147,37 @@ tr td {
   border: 1px solid #000000!important;
   box-sizing: border-box!important;
   color: #000000!important;
+  transition: all .6s;
+}
+
+
+.backBtn:hover {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  width: 100px!important;
+  font-size: 13px!important;
+  height: 41px;
+  line-height: 20px;
+  background: black!important;
+  border: 1px solid #000000!important;
+  box-sizing: border-box!important;
+  color: white!important;
+}
+
+.clickedbackBtn {
+  font-family: Inter;
+  font-style: normal;
+  transition: all .6s;
+  font-weight: normal;
+  width: 100px!important;
+  font-size: 13px!important;
+  height: 41px;
+  line-height: 20px;
+  background: black!important;
+  border: 1px solid #000000!important;
+  box-sizing: border-box!important;
+  color: white!important;
 }
 
 .rat-AvailableTimes_toolbar {
@@ -271,7 +329,8 @@ tr td {
 
 .overrideShareBtn {
   margin-right: 10px;
-  background: rgb(26, 115, 232)!important;
+  background: linear-gradient(-45deg,#f2a6f7,#e73c7e,#4742c0,#a0a3e5)!important;
+  background-size: 200%!important;
   border-radius: 2px!important;
   border: none!important;
   font-weight: 600!important;
@@ -301,7 +360,7 @@ tr td {
   border-radius: 4px!important;
   z-index: 999!important;
   width: 100%;
-  background: #3430F6;
+  background: linear-gradient(-45deg,#f2a6f7,#e73c7e,#4742c0,#a0a3e5);
   // width: 233px;
   height: 41px!important;
   box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08)!important;

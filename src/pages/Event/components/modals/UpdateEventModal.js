@@ -141,13 +141,6 @@ export const UpdateEventModal = (props) => {
         </Form>
         <br></br>
         <hr />
-        <p style={{fontWeight: 'bold'}}> Session Options</p>
-        <hr />
-        <Label style={{marginBottom: 9}} className="createProjectLabel">  Instructions (optional) </Label>
-        <br></br>
-        <Form>
-          <TextArea value={instruction} style={{width: '100%',  borderRadius: '5px'}} onChange={(text) => setInstruct(text.target.value)} placeholder="Set instructions for people or you creating sessions" />
-        </Form>
         <br></br>
         </ModalBody>
         <ModalFooter style={{borderTop: 'none'}}>

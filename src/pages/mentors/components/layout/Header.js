@@ -1,21 +1,14 @@
 import React, { Component } from "react"
 import { Button, Row } from "reactstrap"
 import { Icon } from "semantic-ui-react"
-import { LiveSiteUtils } from "../../../LiveEvent/utils/LiveSiteUtil"
-
+import { ShareLinkModal } from '../modals/ShareLinkModal';
 
 export class Header extends Component {
     state = {
         orgId: this.props.orgId,
         eventId: this.props.eventId,
-        admin: false,
         numPeople: this.props.numPeople
     }
-
-    componentDidMount() {
-        console.log('admin')
-    }
-
 
     componentDidUpdate() {
         if (this.state.numPeople != this.props.numPeople) {
@@ -48,7 +41,7 @@ export class Header extends Component {
                          <p className="eventWhiteHeaderSubtitle"> Event document created & shared by {reformatOrgName}</p>
                         <div className="float-right">
                         <span className="userIcons"> <Row> {this.state.numPeople} </Row></span>
-                        <Button className="overrideShareBtn" style={{marginRight: 10}}> <Icon name="pencil" /> Share </Button>
+                       <ShareLinkModal orgId={this.state.orgId} eventName={this.state.eventId} /> 
                         <Button onClick={() =>  window.open("/c/" + this.state.orgId + "/" + this.state.eventId)} className="shareBtn"> <Icon name="globe" /> View Live Link </Button>
 
                         </div>

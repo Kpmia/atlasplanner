@@ -8,6 +8,7 @@ import { SessionService } from "../../networking/sessions/SessionService";
 import uuid from "react-uuid";
 import { Slide, toast } from "react-toastify";
 import { CircularProgress } from "@material-ui/core";
+import { ShareSessionModal } from "../components/modals/ShareSessionModal";
 
 export class EditSession extends Component {
     state = {
@@ -19,6 +20,8 @@ export class EditSession extends Component {
         isLoading: true
     }
 
+    orgId = this.props.orgId
+    eventId = this.props.eventId
     getSessions = this.props.getSessions
 
     addQuery = (key, value) => {
@@ -302,22 +305,19 @@ export class EditSession extends Component {
 
                             <br></br>
 
-                    <div id="times">
-                        <AvailableTimes
-                            id="times"
-                            weekStartsOn="sunday"
-                            calendars={[
-                            
-                            ]}
- 
-                            weekStartsOn={'sunday'}
-                            onChange={(selections) => this.editTimeslot(selections)}         
-                            height={600}
-                            initialSelections={reformatTimeslots}
-                            recurring={false}
-                            availableDays={['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']}
-                            availableHourRange={{ start: 0, end: 24 }}
-                        />
+                        <div id="times">
+                            <AvailableTimes
+                                id="times"
+                                weekStartsOn="sunday"
+                                calendars={[]}
+                                weekStartsOn={'sunday'}
+                                onChange={(selections) => this.editTimeslot(selections)}         
+                                height={600}
+                                initialSelections={reformatTimeslots}
+                                recurring={false}
+                                availableDays={['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']}
+                                availableHourRange={{ start: 0, end: 24 }}
+                            />
                         </div>
                         <br></br>
                         <Button className="float-right nextBtn" onClick={() => this.updateUserInfo()}> Submit </Button>
@@ -336,16 +336,13 @@ export class EditSession extends Component {
                     <br></br>
 
                          <Row id="sessions_body">
-
-
                         {
-                        this.state.sessions.map((mentor) => {
-                            return (
-                                <Col onClick={() => this.chooseSession(mentor)} style={{marginBottom: 30}} sm={4}>
+                            this.state.sessions.map((mentor) => {
+                                return (
+                                    <Col style={{marginBottom: 30}} sm={4}>
                                         <Card style={{cursor: 'pointer'}}  className="formCard">
-                                        
-                                            <CardBody>
-
+                                        <ShareSessionModal orgId={this.orgId} eventId = {this.eventId} userId={mentor["_id"]} />
+                                            <CardBody onClick={() => this.chooseSession(mentor)}>
                                             <p style={{marginBottom: 0}} className="editSessionCardTitle"> {mentor["name"]} </p>
                                             <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {mentor["link"]} </p>
                                             <a style={{background: 'black', backgroundColor: 'black', border: 'black', color: 'white', borderRadius: '2px'}} class={"ui image label"}>
@@ -356,8 +353,8 @@ export class EditSession extends Component {
                                             <p > {mentor["descriptions"]} </p>
                                             </CardBody>
                                         </Card>
-                                </Col>
-                            )
+                                    </Col>
+                                )
                                 })
                             }
                             </Row>

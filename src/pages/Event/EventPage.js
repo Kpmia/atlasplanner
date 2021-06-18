@@ -29,11 +29,6 @@ class EventPage extends React.Component {
         await EventService.getEvent(orgId, eventId).then((event) => {
             if (event != null) {
                 this.setState({ eventData : event });
-                // SessionService.getAllSessions(orgId, eventId).then((sessions) => {
-                //     if (sessions) {
-                //         this.setState({ sessionData : sessions["sessions"] })
-                //     }
-                // })
             } else {
                 this.pageNotFound();
             }

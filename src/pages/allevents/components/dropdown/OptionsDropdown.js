@@ -6,7 +6,7 @@ import { ViewKeyModal } from '../modals/ViewKeyModal'
 
 export const OptionsDropdown = ({orgId, eventId, updateEvents, ...restProps}) => {
     return (
-        <Dropdown className="optionsIcon" trigger={<Icon  name="cog" />}>
+        <Dropdown style={{background: 'none', border: 'none'}} className="optionsIcon" trigger={<Icon  name="cog" />}>
             <Dropdown.Menu>
                 <Dropdown.Item  onClick={() => window.location.href = '/event/' + orgId + '/' + eventId} description="Edit name, description, or instruction." icon="edit"> 
                 <Icon name="edit" /> <span> Edit Event </span></Dropdown.Item>

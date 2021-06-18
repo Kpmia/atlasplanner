@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody } from 'reactstrap'
+import { Card, CardBody, Button, ButtonGroup, Row } from 'reactstrap'
 import FadeIn from 'react-fade-in';
 import MailOutlineRoundedIcon from '@material-ui/icons/MailOutlineRounded';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
@@ -7,7 +7,7 @@ import LockIcon from '@material-ui/icons/Lock';
 import PersonIcon from '@material-ui/icons/Person';
 import { toast, ToastContainer } from 'react-toastify';
 import { Auth } from './networking/authentication/Auth';
-import { db } from './firebase';
+import { Icon } from 'semantic-ui-react';
 
 class LoginPage extends React.Component {
     constructor() {
@@ -40,14 +40,30 @@ class LoginPage extends React.Component {
         return (
             <div className="signInBg">
 
+        <Card id="card-demo" className="signInCard">
+            <CardBody style={{padding: 37 }}>
+                <Row style={{justifyContent: 'center'}}>
+                    <Icon name="diamond" style={{color: 'black', fontSize: 18}} />
+                </Row>
+
+                <br></br>
+
+                <Row style={{justifyContent: 'center'}}>
+                    <ButtonGroup> 
+                        <Button onClick={() => this.setState({ hasAccount : true })} className={this.state.hasAccount ? "clickedbackBtn" : "backBtn"}> Login </Button>
+                        <Button  onClick={() => this.setState({ hasAccount : false })} className={!this.state.hasAccount ? "clickedbackBtn" : "backBtn"}> Sign Up </Button>
+                    </ButtonGroup>
+                </Row>
+                <hr />
+                <br></br>
+
                {
                    this.state.hasAccount ? 
 
-                <div>
-                    <Card id="card-demo" className="signInCard">
-                        <CardBody style={{padding: 37 }}>
+                    <div>
                         <FadeIn delay="300">
                             <p className="signInTitle" style={{marginBottom: 10}}> Login </p>
+
                             <InputGroup style={{height: 41, color: 'black'}}>
                             <InputGroupAddon style={{background: 'none'}} addonType="prepend">
                             <InputGroupText style={{background: 'white', borderRight: 'none'}}><MailOutlineRoundedIcon style={{color: 'gray', width: '15px'}} /></InputGroupText>
@@ -65,20 +81,15 @@ class LoginPage extends React.Component {
                             <br></br>
                             <br></br>
 
-                            <button onClick={() => this.login(this.state.email, this.state.password)} id="card__image" className="signInBtn" style={{marginBottom: 11}}> Continue </button> 
+                            <button  onClick={() => this.login(this.state.email, this.state.password)} id="card__image" className="signInBtn" style={{marginBottom: 11}}> Continue </button> 
 
-                            <p onClick={() => this.setState({ hasAccount : false })} className="forgotAccountLink"> Don’t have an account? <span style={{color: '#45484F', cursor: 'pointer'}}> Sign up </span> </p>
                             </FadeIn>
 
-                        </CardBody>
-
-                    </Card>
                 </div>
                 :  
 
                 <div>
-                    <Card id="card-demo" className="signInCard">
-                        <CardBody style={{padding: 37 }}>
+              
                         <FadeIn delay="300">
 
                             <p className="signInTitle" style={{marginBottom: 10, width: 140}}> New user sign up. </p>
@@ -111,21 +122,15 @@ class LoginPage extends React.Component {
                         </InputGroup>
                             <br></br>
 
-                            <button onClick={() => this.signUp(this.state.email, this.state.password, this.state.orgName, this.state.name)} id="card__image" className="signInBtn" style={{marginBottom: 11}}> Continue </button> 
+                            <button  onClick={() => this.signUp(this.state.email, this.state.password, this.state.orgName, this.state.name)} id="card__image" className="signInBtn" style={{marginBottom: 11}}> Continue </button> 
 
-                            <p onClick={() => this.setState({ hasAccount : true })} style={{cursor: 'pointer'}} className="forgotAccountLink"> Have an account? <span style={{color: '#45484F', cursor: 'pointer'}}> Sign in </span> </p>
                             </FadeIn>
 
+                        </div>
+                            }
                         </CardBody>
-
                     </Card>
-                </div>
-
-               }
-
-
                <ToastContainer />
-
             </div>
         )
     }
