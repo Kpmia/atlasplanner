@@ -2,6 +2,7 @@ import React from "react";
 import { CreateSession } from "./CreateSession";
 import { DeleteSession } from "./DeleteSession";
 import { EditSession } from "./EditSession";
+import { ViewSession } from "./ViewSession";
 
 export const TabManager = {
 
@@ -13,6 +14,8 @@ export const TabManager = {
                 return <DeleteSession  orgId={orgId} eventId={eventId} getSessions={getSessions} sessions={sessions} />
             case "edit-session":
                 return <EditSession  orgId={orgId} eventId={eventId} getSessions={getSessions} sessions={sessions} />
+            case "view-session":
+                return <ViewSession  orgId={orgId} eventId={eventId} sessions={sessions} />
             default:
                 return
         }
@@ -31,7 +34,11 @@ export const TabManager = {
             "name": "Edit",
             "route": "edit-session",
             "icon": "pencil alternate"
-        }]
+        }, {
+            "name": "View Sessions",
+            "route": "view-session",
+            "icon": "calendar"
+        },]
     }
 
 }

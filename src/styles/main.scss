@@ -199,6 +199,107 @@ tr td {
   background-color: gray!important;
 
 }
+.fc .fc-toolbar-title {
+  font-size: 1.75em;
+  margin: 0;
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 1.55em!important;
+  margin: 0;
+  margin-top: -8px;
+}
+
+.fc-timegrid-event-harness-inset .fc-timegrid-event, .fc-timegrid-event.fc-event-mirror, .fc-timegrid-more-link {
+  animation: gradient 12s infinite ease !important;
+  transition: .6s all !important;
+  border-radius: 5px !important;
+  border: 1px solid rgba(0, 0, 0, .29) !important;
+  background-size: 600% !important;
+  height: 110%;
+  box-shadow: -2px 15px 20px 8px #00000036, inset -20px 14px 0px 0px #ffffff57 !important;
+
+}
+
+.fc-timegrid-event-harness-inset:hover .fc-timegrid-event:hover, .fc-timegrid-event.fc-event-mirror, .fc-timegrid-more-link:hover {
+  animation: gradient 12s infinite ease !important;
+    transition: .6s all !important;
+    border-radius: 5px !important;
+    border: 1px solid rgba(0, 0, 0, 0.29) !important;
+    background-size: 600% !important;
+    height: 110%;
+    transform: rotate3d(60, -30, 1, 
+45deg
+);
+    box-shadow: -2px -13px 20px 8px #00000036, inset -20px 14px 0px 0px #ffffff57 !important;
+
+}
+
+.fc-daygrid-event-dot {
+  border: 3px solid white!important;
+}
+
+.fc-daygrid-dot-event .fc-event-title {
+  color: white!important;
+}
+
+.fc-timegrid-event .fc-event-time {
+  font-weight: bold!important;
+}
+
+.fc .fc-button-primary {
+  background: black!important;
+  font-family: Helvetica!important;
+  border-radius: 2px!important;
+  border: 1px solid white!important;
+  border: none!important;
+}
+
+.fc-direction-ltr .fc-button-group > .fc-button:not(:last-child) {
+  font-size: 13px!important;
+  font-family: Inter!important;
+  border: 1px solid white!important;
+  font-weight: 500!important;
+}
+
+.fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
+  font-size: 13px!important;
+  font-family: Inter!important;
+  font-weight: 500!important;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+  box-shadow: -20px 6px 8px -2px #0000003b!important;
+  padding: 20px;
+  color: black!important;
+  border-radius: 3px!important;
+}
+
+.fc-timegrid-divider fc-cell-shaded {
+  display: none!important;
+}
+
+.fc .fc-col-header-cell-cushion {
+  font-weight: 500!important;
+}
+
+
+
+.fc-scrollgrid-section fc-scrollgrid-section-body  {
+  display: none!important;
+}
+
+.fc-timegrid-divider fc-cell-shaded {
+  display: none!important;
+}
+
+.fc-timegrid-divider fc-cell-shaded {
+  display: none!important;
+}
+
+
 
 .ui.basic.modal {
   position: fixed;

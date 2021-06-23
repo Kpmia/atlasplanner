@@ -12,7 +12,6 @@ import { OrgService } from './pages/networking/organizations/OrgService';
 import { db } from './pages/firebase';
 import { EventService } from './pages/networking/events/EventService';
 import { LoadingPage } from './pages/LoadingPage';
-import { PageNotFound } from './pages/PageNotFound';
 import history from './pages/history'
 
 const getBasename = () => {

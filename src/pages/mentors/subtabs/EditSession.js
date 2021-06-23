@@ -104,6 +104,8 @@ export class EditSession extends Component {
         }, 1500)
     }
 
+    
+
     updateUserInfo = () => {
 
         var adjustTimeslots = {}
@@ -121,7 +123,6 @@ export class EditSession extends Component {
                                     adjustTimeslots[week] = []
                                 }
                                 adjustTimeslots[week][idx] = JSON.parse(JSON.stringify(time))
-                                console.log(sessionTime["actual_start"], time["actual_start"])
                                 if (JSON.parse(JSON.stringify(sessionTime["actual_start"])) == JSON.parse(JSON.stringify(time["actual_start"]))) {
                                     adjustTimeslots[week][idx]["_id"] = sessionTime["_id"]
                                     console.log(sessionTime["filled"])
