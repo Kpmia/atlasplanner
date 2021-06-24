@@ -31,7 +31,7 @@ export const SessionService = {
                 SessionManager.createSession(userToken, orgId, eventId, session).then((exp) => {
                     console.log(exp)
                     if (exp != null && exp) {
-                            resolve(exp["data"]["sessions"]);
+                        resolve(exp["data"]["sessions"]);
                     } else {
                         resolve(null);
                     }
@@ -50,7 +50,7 @@ export const SessionService = {
             return new Promise((resolve, reject) => {
                 SessionManager.deleteSession(userToken, orgId, eventId, sessionId, key).then((exp) => {
                     if (exp != null && exp) {
-                            resolve(exp["data"]);
+                        resolve(exp["data"]);
                     } else {
                         resolve(null);
                     }
@@ -69,7 +69,7 @@ export const SessionService = {
             return new Promise((resolve, reject) => {
                 SessionManager.updateSession(userToken, orgId, eventId, sessionId, session).then((exp) => {
                     if (exp != null && exp) {
-                            resolve(exp["data"]["sessions"]);
+                        resolve(exp["data"]["sessions"]);
                     } else {
                         resolve(null);
                     }
