@@ -26,15 +26,13 @@ export const EventManager = {
         "Authorization": userToken,
       },
     };
-    try {
       return await atlasAPI.get(
         '/events/' + orgId + '/' + eventId,
         config
-      )
-    } catch (error) {
-      console.log(error)
-      return null;
-    }
+      ).catch (function (err) {
+          console.log("No event")
+          return null;
+      })
   },
 
   createEvent: async (userToken, orgId, event) => {

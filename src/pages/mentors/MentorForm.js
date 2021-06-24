@@ -11,7 +11,7 @@ import { ToastContainer } from "react-toastify";
 import { Icon } from "semantic-ui-react";
 import Animal from "react-animals";
 import { onboarding } from "./components/onboarding";
-import { Header } from "./components/layout/Header";
+import { Header } from "./components/layout/InfoHeader";
 import { Tooltip } from "@material-ui/core";
 
 class MentorForm extends React.Component {
@@ -139,7 +139,7 @@ class MentorForm extends React.Component {
                     numPeople={this.state.numPeople} 
                 />
               
-            <div style={{paddingTop: 82, zIndex:999, position: 'relative'}} className="eventPageBody">          
+            <div style={{paddingTop: 147, zIndex:999, position: 'relative'}} className="eventPageBody">          
 
             <div className="tabBackground">
 
@@ -160,7 +160,7 @@ class MentorForm extends React.Component {
             </div>
             <br></br>
 
-            <div className="container">
+            <div style={{paddingTop: 56}} className="container">
 
             {this.state.pageComponent}
 

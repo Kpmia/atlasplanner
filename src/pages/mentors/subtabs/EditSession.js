@@ -238,7 +238,7 @@ export class EditSession extends Component {
 
                 {
                     this.state.chosenSession.length != 0 ?
-                    <Card className="formCard">
+                    <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
                     <CardBody style={{padding: '3.25em'}}>
                         <Button style={{width: '300px'}} className="backBtn" onClick={this.goBack}> <Icon name="caret left" /> Back</Button>
                     <div>
@@ -327,7 +327,7 @@ export class EditSession extends Component {
                   
                     : 
                     <div>
-                          <Card className="formCard">
+                          <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
                 <CardBody style={{padding: '3.25em'}}>
                 <div style={{border: '1px solid black', padding: 20, borderRadius: 10}}>
                     <p className="formStep" style={{marginBottom: 10}}> Edit Sessions </p>

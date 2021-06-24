@@ -63,22 +63,18 @@ export const EventService = {
 
     getEvent: async(orgId, eventId) => {
         const userToken = await EventService.getUserToken()
-        try {
-            return new Promise((resolve, reject) => {
-                EventManager.getEvent(userToken, orgId, eventId).then((exp) => {
-                    if (exp != null && exp) {
-                        if (exp) {
-                            resolve(exp["data"]["events"][0]);
-                        } else {
-                            resolve(null);
-                        }
-                    }
-                }, reject);
-            })
-        } catch (err) {
+        return new Promise((resolve, reject) => {
+            return EventManager.getEvent(userToken, orgId, eventId).then((exp) => {
+                if (exp != null && exp) {
+                    resolve(exp["data"]["events"][0]);
+                } else {
+                    resolve(null);
+                }
+            });
+        }).catch(function(error) {
             console.log('Cannot grab events.')
             return null;
-        }
+        })
     },
 
     updateEvent: async(orgId, eventId, event) => {

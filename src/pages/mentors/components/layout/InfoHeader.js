@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Button, Row } from "reactstrap"
 import { Icon } from "semantic-ui-react"
 import { ShareLinkModal } from '../modals/ShareLinkModal';
+import { AdminHeader } from "./UserHeader";
 
 export class Header extends Component {
     state = {
@@ -21,7 +22,6 @@ export class Header extends Component {
         function splitDashestoSpaces(name) {
             var amendedStr = ""
             var str = name.split(/[-]+/)
-            console.log(str)
             str.map((word) => {
                 amendedStr += word.substring(0, 1).toUpperCase() + word.substring(1, word.length) + " "
             })
@@ -33,10 +33,9 @@ export class Header extends Component {
 
         return (
             <div>
+                <AdminHeader orgId={this.state.orgId} eventId={this.state.eventId} />
                  <div className="editEventHeader">
-                    <div style={{marginTop: -10}} className="container">
-                        <span onClick={() => window.location.href = '/'} style={{cursor: 'pointer'}} className="atlasPlannerName" > <Icon name="diamond" /> 
-                         </span>
+                    <div style={{marginTop: 10, height: '100%', borderLeft: '1px solid #ffffff1c', borderRight: '1px solid #ffffff1c'}} className="container">
                          <span className="editEventTitle"> {reformatEventName} </span>
                          <p className="eventWhiteHeaderSubtitle"> Event document created & shared by {reformatOrgName}</p>
                         <div className="float-right">

@@ -231,6 +231,7 @@ tr td {
   border-radius: 23px!important;
 }
 
+
 .signInBg {
   background: #EFF2F5;
   height: 100vh;
@@ -328,18 +329,32 @@ tr td {
 }
 
 .overrideShareBtn {
-  margin-right: 10px;
-  background: linear-gradient(-45deg,#f2a6f7,#e73c7e,#4742c0,#a0a3e5)!important;
-  background-size: 200%!important;
-  border-radius: 2px!important;
-  border: none!important;
-  font-weight: 600!important;
   width: 88px;
   position: relative;
   top: -65px;
   right: 5px;
   border-radius: 4px!important;
   height: 36px!important;
+  outline: none!important;
+  border: none!important;
+  border-radius: 4px!important;
+  z-index: 999!important;
+  background: linear-gradient(-45deg,#f2a6f7,#e73c7e,#4742c0,#a0a3e5);
+  // width: 233px;
+  height: 41px!important;
+  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08)!important;
+  font-style: normal!important;
+  font-weight: 500!important;
+  font-size: 14px!important;
+  line-height: 17px!important;
+  background-size: 200% auto!important;
+
+  color: rgba(255, 255, 255, 0.92)!important;
+  transition: 0.5s!important;
+}
+
+.overrideShareBtn:hover {
+  background-position: right center;
 }
 
 .atlasPlannerName {
@@ -414,13 +429,30 @@ tr td {
   top: 0px;
 }
 
-.editEventHeader {
-  background: black;
+.adminEventHeader {
   width: 100%;
-  height: 83px;
+  padding: 10px;
+  height: 53px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  position: fixed;
+  z-index: 999999;
+  top: 0px;
+  background: #25272a;
+}
+
+.adminToolsBtn {
+  background: #0479f6!important;
+  border: none!important;
+  margin-right: 6px!important;
+}
+
+.editEventHeader {
+  background:#101011;
+  width: 100%;
+  height: 103px;
   z-index: 9999;
   position: fixed;
-  top: 0px;
+  top: 45px;
 }
 
 .adminHeader {
@@ -659,8 +691,11 @@ html {
   box-shadow: 0px 2px 4px rgba(31, 41, 55, 0.06), 0px 4px 6px rgba(31 ,41 ,55, .10) !important;
   border-radius: 2px 2px 2px 2px !important;
   background: white!important;
+  position: fixed;
+  z-index: 9999;
   border-top: 6px solid rgba(165, 164, 175, 0.35);
   height: 50px;
+  width: 100%;
 }
 
 .userIcons {
@@ -703,7 +738,7 @@ html {
   font-size: 22px !important;
   color: white;
   position: relative;
-  left: -10px;
+  left: 0px;
   top: 25px;
   font-family: Helvetica;
   letter-spacing: -0.045em;
@@ -717,7 +752,7 @@ html {
   z-index: 9999!important;
   position: relative;
   top: 25px;
-  left: 15px;
+  left: 0px;
 }
 
 .eventSubtitle {
@@ -857,11 +892,13 @@ color: #FFFFFF;
   -webkit-tap-highlight-color: transparent;
 }
 .shareBtn {
-  background: black!important;
+  background: none!important;
   color: white!important;
-  border-radius: 30px!important;
+  border-radius: 5px!important;
   font-family: Helvetica!important;
   position: relative;
+  height: 40px!important;
+  transition: all 1s;
   top: -65px;
   right: 5px;
 }
@@ -871,6 +908,7 @@ color: #FFFFFF;
   color: black!important;
   border-radius: 30px!important;
   font-family: Helvetica!important;
+  transition: all .6s;
   position: relative;
   top: -65px;
   right: 5px;
