@@ -233,11 +233,10 @@ export class Mentors extends Component {
                     <tr>
                         <td className="cellTitle"> NAME </td>
 
-                        <td className="cellTitle"> LINK </td>
+                        <td className="cellTitle"> LOCATION </td>
                         <td className="cellTitle"> CATEGORY </td>
-                        <td className="cellTitle"> DESCRIPTION </td>
-
                         <td className="cellTitle"> SECTION </td>
+                        <td className="cellTitle"> DESCRIPTION </td>
 
                     </tr>
                 <tbody>
