@@ -59,7 +59,7 @@ export class ViewSession extends Component {
         })
 
         return (
-            <Card className="formCard">
+            <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
                 <CardBody>
 
                  <FullCalendar

@@ -265,7 +265,7 @@ export class EditSession extends Component {
                     id='form-input-control-first-name'
                     control={Input}
                     value={this.state.copiedSession["link"]}
-                    label='External Links or Location'
+                    label='Meeting Link or Physical Location'
                     onChange={(text) => this.handleSelect("link", text.target.value)}                    
                     placeholder='Link'
                 />
@@ -347,8 +347,7 @@ export class EditSession extends Component {
                                             <p style={{marginBottom: 0}} className="editSessionCardTitle"> {mentor["name"]} </p>
                                             <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {mentor["link"]} </p>
                                             <a style={{background: 'black', backgroundColor: 'black', border: 'black', color: 'white', borderRadius: '2px'}} class={"ui image label"}>
-                                            {mentor['category']}
-                                                <div style={{background: 'black', backgroundColor: 'black', color: 'white'}} class="detail">{mentor['timeslots'].length} Total Slots</div>
+                                                    {mentor['category']}
                                                 </a>
                                             <p style={{fontWeight: 'bold', marginTop: 5}}> {mentor["section"]} </p>
                                             <p > {mentor["descriptions"]} </p>

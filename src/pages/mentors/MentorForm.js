@@ -8,7 +8,7 @@ import { io } from "socket.io-client";
 import { PageNotFound } from "../PageNotFound";
 import { LoadingPage } from "../LoadingPage";
 import { ToastContainer } from "react-toastify";
-import { Icon } from "semantic-ui-react";
+import { Icon, Popup } from "semantic-ui-react";
 import Animal from "react-animals";
 import { onboarding } from "./components/onboarding";
 import { Header } from "./components/layout/InfoHeader";
@@ -81,7 +81,7 @@ class MentorForm extends React.Component {
                     animals.push(<div style={{borderRadius: '10%', padding: 7, width: 32, fontWeight: 'bold', height: 32, background: 'white', color: 'black'}}> 3+ </div>)
                     break;
                 } else {
-                  animals.push(<a style={{marginRight: 5}}><Tooltip title="Anonymous" placement="bottom"><Animal style={{borderRadius: '100%'}} rounded /></Tooltip></a>)
+                  animals.push(<Popup content="Anonymous User" position="bottom center" on="hover" trigger={<a style={{marginRight: 5}}><Animal style={{borderRadius: '100%'}} rounded /></a>}/>)
                 }
             }
             this.setState({ numPeople : animals })
@@ -138,7 +138,7 @@ class MentorForm extends React.Component {
                     eventId={this.props.match.params.eventId} 
                     numPeople={this.state.numPeople} 
                 />
-              
+
             <div style={{paddingTop: 147, zIndex:999, position: 'relative'}} className="eventPageBody">          
 
             <div className="tabBackground">
@@ -167,7 +167,8 @@ class MentorForm extends React.Component {
             </div>
             <br></br>
             </div>
-            <ToastContainer />
+            <ToastContainer
+             />
           </div>
         );
       }

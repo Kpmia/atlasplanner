@@ -21,6 +21,7 @@ export class CreateSession extends Component {
             category: "",
             key: "",
         },
+        eventInfo: this.props.eventInfo,
         sessionId: "",
         timeSlots: [],
         step: 1,
@@ -92,8 +93,10 @@ export class CreateSession extends Component {
                 <CardBody style={{padding: '3.25em'}}>
                
                     <div style={{border: '1px solid black', padding: 20, borderRadius: 10}}>
-                    <p className="formStep" style={{marginBottom: 10}}> {SessionUtils.getInstruction(this.state.step)["title"]} </p>
-                        <p style={{color: 'black', fontSize: 14, fontFamily: 'Inter', lineHeight: '146%'}}> {SessionUtils.getInstruction(this.state.step)["message"]} </p>
+                    <p className="formStep" style={{marginBottom: 10}}> Choose availability </p>
+                    <Label color="black"> Instructions set by coordinator </Label>
+                    <p style={{marginTop: 10}}> {this.state.eventInfo["instruction"]} </p>
+
                     </div>
 
                     <br></br>
@@ -112,6 +115,7 @@ export class CreateSession extends Component {
                 
                     <br></br>
 
+           
 
                     {
                         this.state.step == 1 ? 
@@ -133,7 +137,7 @@ export class CreateSession extends Component {
                                         id='form-input-control-first-name'
                                         control={Input}
                                         value={this.state.sessionBody["link"]}
-                                        label='External Links or Location'
+                                        label='Meeting Link or Physical Location'
                                         onChange={(text) => this.handleChange("link", text.target.value) }                    
                                         placeholder='Link'
                                     />

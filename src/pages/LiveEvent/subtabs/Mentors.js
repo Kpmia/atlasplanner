@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Card, CardBody, Col, Row } from "reactstrap";
+import { Card, CardBody, Col, Row, Table } from "reactstrap";
 import FadeIn from "react-fade-in";
 import { ReserveMentor } from "../components/ReserveMentor";
 import moment from "moment"
@@ -14,6 +14,7 @@ export class Mentors extends Component {
         mentors: this.props.mentors,
         originalMentors: this.props.originalMentors,
         category: 'All Categories',
+        view: 'grid',
         currWeek: this.props.currWeek,
         search: '',
         currentMentor: []
@@ -98,9 +99,9 @@ export class Mentors extends Component {
     <div id="calendar_body">
     <Card className="calendarMentorCard">
         <CardBody>
-        <strong> {this.state.currentMentor["data"]["name"] + `'s Schedule`} </strong> 
+        <p className="mentorLiveEventName"> {this.state.currentMentor["data"]["name"] + `'s Schedule`} </p> 
 
-        <p style={{textDecoration: 'underline'}}> {this.state.currentMentor["data"]["link"]} </p> 
+        <p style={{textDecoration: 'underline', textAlign: 'center'}}> {this.state.currentMentor["data"]["link"]} </p> 
         {
             this.state.currentMentor["data"]['timeslots'].length == 0 ?
 
@@ -168,7 +169,7 @@ export class Mentors extends Component {
                 null
             }
 
-            <Icon name="search" /><Input disableUnderline placeholder="Search name, description, or section" style={{width : '260px', marginLeft: '10px', borderBottom: 'none'}} icon="search" iconPosition="left" onChange={(text) => this.setState({ search : text.target.value })} />
+            <Icon name="search" /><Input disableUnderline placeholder="Search name" style={{width : '260px', marginLeft: '10px', borderBottom: 'none'}} icon="search" iconPosition="left" onChange={(text) => this.setState({ search : text.target.value })} />
             <Dropdown className="float-right" style={{marginTop: 7}} text={this.state.category} icon="caret down">
               <Dropdown.Menu>
                     <Dropdown.Divider />
@@ -180,42 +181,99 @@ export class Mentors extends Component {
                     </Dropdown.Menu>
                     </Dropdown.Menu>
                 </Dropdown>
+            <p className="float-right" style={{marginTop: 5, marginRight: 10}}> View as <Icon color={this.state.view == 'list'? "pink": null} onClick={() => this.setState({ view : 'list' })} style={{cursor: 'pointer'}} name="list" /> <Icon color={this.state.view == 'grid'? "pink": null} onClick={() => this.setState({ view : 'grid' })} style={{cursor: 'pointer'}} name="grid layout" /> </p>
+
             <br></br>            
             <br></br>
-            <br></br>            
+            <br></br>           
+
+
+            {
+                this.state.view == "grid"?
 
             <Row id="sessions_body">
-            {
-            this.state.mentors.filter((item) => {
-                    if (item['category'] == this.state.category || this.state.category == 'All Categories') {
-                        if (item['name'].toLowerCase().lastIndexOf(this.state.search.toLowerCase()) >= 0 || item['descriptions'].toLowerCase().lastIndexOf(this.state.search.toLowerCase()) >= 0 || item['section'].toLowerCase().lastIndexOf(this.state.search.toLowerCase()) >= 0 || this.state.search.length == 0) {
-                            return item 
-                        }
-                    }
-                }).map((session) => {
-                        return (
-                            <Col style={{marginBottom: 30}} sm={4}>
-                                
-                                <FadeIn delay="300">
-                                    <Card  onClick={() => this.selectMentor(session['_id'], session, true)} style={{cursor: 'pointer'}}  className="eventProjectCard">
-                                    <div style={{marginTop: 0}}  className="eventProjectGradCard"></div>
-                                        <CardBody>
-                                        <p style={{marginBottom: 0}} className="eventProjectTitle"> {session["name"]} </p>
-                                        <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {session["link"]} </p>
-                                        <a class={"ui " + tags[session['category']] + " image label"}>
-                                        {session['category']}
-                                            <div class="detail">{session['timeslots'].length} Total Slots</div>
-                                            </a>
-                                        <p style={{fontWeight: 'bold', marginTop: 5}}> {session["section"]} </p>
-                                        <p> {session["descriptions"]} </p>
-                                        </CardBody>
-                                    </Card>
-                                </FadeIn>
-                            </Col>
-                        )
-                    })
-                }
-            </Row>
+                    {
+                        this.state.mentors.filter((item) => {
+                                if (item['category'] == this.state.category || this.state.category == 'All Categories') {
+                                    if (item['name'].toLowerCase().lastIndexOf(this.state.search.toLowerCase()) >= 0) {
+                                        return item 
+                                    }
+                                }
+                            }).map((session) => {
+                                    return (
+                                        <Col style={{marginBottom: 30}} sm={4}>
+                                            
+                                            <FadeIn delay="300">
+                                                <Card  onClick={() => this.selectMentor(session['_id'], session, true)} style={{cursor: 'pointer'}}  className="eventProjectCard">
+                                                <div style={{marginTop: 0}}  className="eventProjectGradCard"></div>
+                                                    <CardBody>
+                                                    <p style={{marginBottom: 0}} className="eventProjectTitle"> {session["name"]} </p>
+                                                    <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {session["link"]} </p>
+                                                    <a class={"ui " + tags[session['category']] + " image label"}>
+                                                    {session['category']}
+                                                        <div class="detail">{session['timeslots'].length} Total Slots</div>
+                                                        </a>
+                                                    <p style={{fontWeight: 'bold', marginTop: 5}}> {session["section"]} </p>
+                                                    <p> {session["descriptions"]} </p>
+                                                    </CardBody>
+                                                </Card>
+                                            </FadeIn>
+                                        </Col>
+                                    )
+                                })
+                            }
+                        </Row>
+                : 
+
+                <Table hover className="tableProjectBg">
+                <div style={{padding: 10, paddingLeft: 15}}>
+                <p className="tableTitle" style={{marginBottom: 0}}> </p>
+                {/* <Button className="float-right"> Sort By </Button> */}
+                </div>
+                    <tr>
+                        <td className="cellTitle"> NAME </td>
+
+                        <td className="cellTitle"> LINK </td>
+                        <td className="cellTitle"> CATEGORY </td>
+                        <td className="cellTitle"> DESCRIPTION </td>
+
+                        <td className="cellTitle"> SECTION </td>
+
+                    </tr>
+                <tbody>
+                {
+                        this.state.mentors.filter((item) => {
+                            if (item['category'] == this.state.category || this.state.category == 'All Categories') {
+                                if (item['name'].toLowerCase().lastIndexOf(this.state.search.toLowerCase()) >= 0) {
+                                    return item 
+                                }
+                            }
+                            }).map((session) => {
+                                    return (
+                                        <tr style={{'cursor': 'pointer'}} onClick={() => this.selectMentor(session['_id'], session, true)}>
+                                            <th className="cellText"> {session["name"]} </th>
+                                            <th className="cellText"> {session["link"]} </th>
+                                            <th className="cellText">{session['category']} </th>
+                                            <th className="cellText"> {session["section"]} </th>
+                                            <th className="cellText"> {session["descriptions"]} </th>
+                                        </tr>
+                                    )
+                                })
+                            }
+                </tbody>
+
+                <div>
+                    <br></br>
+                    <br></br>
+
+                </div>
+            </Table>
+            } 
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
             </div>
         )
     }

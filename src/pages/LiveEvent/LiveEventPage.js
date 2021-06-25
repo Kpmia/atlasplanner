@@ -174,7 +174,7 @@ class LiveEventPage extends React.Component {
 
                                     <p onClick={() => window.open("/c/" + this.props.match.params.orgId + "/" + this.props.match.params.eventId)} className="liveLinkHeader">{window.location.origin.toString() + "/c/" + this.props.match.params.orgId + "/" + this.props.match.params.eventId} </p>
                                     <span onClick={() => navigator.clipboard.writeText(window.location.origin.toString() + "/c/" + this.props.match.params.orgId + "/" + this.props.match.params.eventId)}>      
-                                        <Icon style={{color: '#010747', cursor: 'pointer'}} name="copy"/> </span>
+                                        </span>
                                    
 
                                     <p style={{color: 'GrayText', paddingTop: 10, paddingBottom: 30}}>  </p>

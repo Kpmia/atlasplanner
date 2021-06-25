@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import { Form, Icon, Input, TextArea } from 'semantic-ui-react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label,  CardBody, Row, Col, DropdownMenu } from 'reactstrap';
-import { db } from '../../../firebase';
 import 'semantic-ui-css/semantic.min.css'
 import { EventService } from '../../../networking/events/EventService';
 import { toast } from 'react-toastify';
 import { LiveSiteUtils } from '../../../LiveEvent/utils/LiveSiteUtil';
 import "react-color-palette/lib/css/styles.css"
 import FadeIn from 'react-fade-in';
-import { KeyService } from '../../../networking/keys/KeyService';
 
 export const UpdateEventModal = (props) => {
   const {
     orgId,
     eventId,
     className,
-    updateEvents,
     eventData,
     children,
   } = props;
@@ -28,24 +25,6 @@ export const UpdateEventModal = (props) => {
   const [instruction, setInstruct] = useState(eventData["instruction"]);
 
   const toggle = () => setModal(!modal);
-
-  const checkEventName = async(name) => {
-      if (name != eventData["name"]) {
-          return EventService.getAllEvents(orgId).then((events) => {
-              console.log(events)
-              if (events) {
-                  var checked = events.some((event) => {
-                    if (event["name"] == name) {
-                        return true
-                    }
-                  })
-                  return checked;
-              }
-          })
-      } else {
-          return false;
-      }
-  };
 
   const updateEvent = async(name) => {
     if (name == "") {
@@ -68,30 +47,13 @@ export const UpdateEventModal = (props) => {
         }
     }
 
-    checkEventName(name).then((checked) => {
-        if (!checked) {
-            EventService.updateEvent(orgId, eventId, eventBody).then((resp) => {
-                if (resp) {
-                    toast.dark(`Successfully changed the event's information`);
-                    if (name != eventData["name"]) {
-                        toast.dark('Because you changed the event name, we will reload this page.')
-                        KeyService.createKey(orgId, name, { key : "" }).then(() => {
-                          setTimeout(() => {
-                            return window.location.href = '/event/' + orgId + '/' + name
-                          }, 4000)
-                        })
-                    }
-                    updateEvents(orgId, name)
-                    toggle()
-                } else {
-                    toast.dark('Event name is taken in your organization.');
-                }
-            })
-        } else {
-            toast.dark('Event name is already used in your organization.')
-        }
-    })
-  }
+      EventService.updateEvent(orgId, eventId, eventBody).then((resp) => {
+          if (resp) {
+              toast.dark(`Successfully changed the event's information`);
+              toggle()
+          } 
+      })
+    }
 
   const colors = [
     "#EA60DC",
@@ -109,10 +71,6 @@ export const UpdateEventModal = (props) => {
       <Modal style={{padding: 20}} overlay={false} isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader cssModule={{'modal-title': 'w-100 text-center'}} style={{borderBottom: 'none', paddingBottom: '0px', padding: 10, fontWeight: 600, fontSize: '17px', textAlign: 'center'}} className="createProjectTitle" toggle={toggle}> <span style={{borderBottom: 'none', paddingBottom: '0px', fontWeight: 600, fontSize: '17px', textAlign: 'center'}}> Update Event </span></ModalHeader>
         <ModalBody>
-        <Label style={{marginBottom: 9}} className="createProjectLabel">  Name </Label>
-        <br></br>
-        <Input value={name} style={{width: '100%',  borderRadius: '5px'}} onChange={(text) => setName(text.target.value)} placeholder="Enter name" />
-        <br></br>
         <br></br>
         <Label style={{marginBottom: 9}} className="createProjectLabel">  Color <span> <FadeIn>  </FadeIn></span> </Label>
         <br></br>
@@ -139,8 +97,12 @@ export const UpdateEventModal = (props) => {
         <Form>
           <TextArea value={description} style={{width: '100%',  borderRadius: '5px'}} onChange={(text) => setDesc(text.target.value)} placeholder="Enter description" />
         </Form>
-        <br></br>
         <hr />
+        <Label style={{marginBottom: 9}} className="createProjectLabel">  Customize Instructions (optional) </Label>
+        <p> Add instructions or an introduction for people who create sections </p>
+        <Form>
+          <TextArea value={instruction} style={{width: '100%',  borderRadius: '5px'}} onChange={(text) => setInstruct(text.target.value)} placeholder="Enter description" />
+        </Form>
         <br></br>
         </ModalBody>
         <ModalFooter style={{borderTop: 'none'}}>

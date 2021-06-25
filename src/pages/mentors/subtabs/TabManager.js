@@ -29,13 +29,13 @@ export const TabManager = {
         }, {
             "name": "Delete",
             "route": "delete-session",
-            "icon": "cut"
+            "icon": "trash"
         }, {
             "name": "Edit",
             "route": "edit-session",
             "icon": "pencil alternate"
         }, {
-            "name": "View Sessions",
+            "name": "View All",
             "route": "view-session",
             "icon": "calendar"
         },]

@@ -1,7 +1,7 @@
 import { CircularProgress } from "@material-ui/core";
 import React, {Component} from "react";
 import { Button } from "reactstrap";
-import { Icon } from "semantic-ui-react";
+import { Icon, Popup } from "semantic-ui-react";
 import { UpdateEventModal } from "../../../Event/components/modals/UpdateEventModal";
 import { EventService } from "../../../networking/events/EventService";
 import { ShareSessionModal } from "../modals/ShareSessionModal";
@@ -50,13 +50,18 @@ export class AdminHeader extends Component {
                             <UpdateEventModal orgId={this.state.orgId} eventId={this.state.eventId} eventData={this.state.eventData}>
                                 <Button className="adminToolsBtn"> <Icon name="edit" /> Edit Event </Button>
                             </UpdateEventModal>
-                            <Button className="adminToolsBtn"> <Icon name="cog" /> Privacy Settings </Button>
-                            <a  style={{color: 'white', marginTop: 7, fontWeight: 'bold', fontSize: '13px'}} className="float-right"> <Icon style={{marginLeft: -10}} name="diamond" /> Powered by Atlasplanner. </a>
+                            <Popup on="hover" trigger={<Button className="adminToolsBtn"> <Icon name="cog" /> Privacy Settings </Button>} content="Coming soon! Working on the features to make the people in event reservations private as well as the access to this document!"/>
+                            <a onClick={() => window.location.href = '/'}  style={{color: 'white', cursor: 'pointer', marginTop: 7, fontWeight: 'bold', fontSize: '13px'}} className="float-right"> <Icon style={{marginLeft: -10}} name="diamond" /> Powered by Atlasplanner. </a>
 
                         </div>
 
                         :
-                      <p> User View </p>
+                      <div>
+                            <a style={{color: 'white', fontWeight: 'bold', marginRight: 20, marginTop: 10, position: 'relative', top: '7px'}}>  <Icon style={{marginLeft: -10}} name="eye" />  You are anonymously viewing this live document </a>
+
+                            <a onClick={() => window.location.href = '/'}  style={{color: 'white', cursor: 'pointer', marginTop: 7, fontWeight: 'bold', fontSize: '13px'}} className="float-right"> <Icon style={{marginLeft: -10}} name="diamond" /> Powered by Atlasplanner. </a>
+
+                    </div>
 
                     }
                 </div>
