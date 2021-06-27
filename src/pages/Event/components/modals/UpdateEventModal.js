@@ -77,7 +77,6 @@ export const UpdateEventModal = (props) => {
         <Row style={{justifyContent: 'space-around'}}>
         {
           colors.map((color) => {
-              console.log(colorGrad == color.toString())
             if (colorGrad == color.toString()) {
             
               return (

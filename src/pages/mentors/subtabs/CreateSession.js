@@ -8,6 +8,7 @@ import { Card, Step, StepLabel, Stepper } from "@material-ui/core";
 import FadeIn from 'react-fade-in'
 import { CreateSessionReCaptcha } from "../components/recaptcha/SubmitSession";
 import { SessionUtils } from "../utils/SessionUtils";
+import CalendarScheduler from "../components/calendars/CalendarScheduler";
 
 export class CreateSession extends Component {
     state={
@@ -63,6 +64,10 @@ export class CreateSession extends Component {
 
     goBackStep = () => {
         this.setState({ step : this.state.step - 1 })
+    };
+
+    setTimeslots = (timeslots) => {
+        this.setState({ timeSlots : timeslots })
     };
 
     showConfirmPage = (sessionId) => {
@@ -182,15 +187,8 @@ export class CreateSession extends Component {
                         this.state.step == 2?
                             <div>
                                  <div id="times">
-                                    <AvailableTimes
-                                        id="times"
-                                        weekStartsOn="sunday"
-                                        weekStartsOn={'sunday'}
-                                        onChange={(selections) => this.setState({ timeSlots : selections })}         
-                                        height={600}
-                                        recurring={false}
-                                        availableDays={['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']}
-                                        availableHourRange={{ start: 0, end: 24 }}
+                                     <CalendarScheduler
+                                        setTimeslots={this.setTimeslots}
                                     />
 
                                 </div>

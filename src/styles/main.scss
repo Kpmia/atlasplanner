@@ -223,19 +223,9 @@ tr td {
 
 }
 
-.fc-timegrid-event-harness-inset:hover .fc-timegrid-event:hover, .fc-timegrid-event.fc-event-mirror, .fc-timegrid-more-link:hover {
-  animation: gradient 12s infinite ease !important;
-    transition: .6s all !important;
-    border-radius: 5px !important;
-    border: 1px solid rgba(0, 0, 0, 0.29) !important;
-    background-size: 600% !important;
-    height: 110%;
-    transform: rotate3d(60, -30, 1, 
-45deg
-);
-    box-shadow: -2px -13px 20px 8px #00000036, inset -20px 14px 0px 0px #ffffff57 !important;
 
-}
+
+
 
 .fc-daygrid-event-dot {
   border: 3px solid white!important;
@@ -271,7 +261,6 @@ tr td {
 }
 
 .fc .fc-toolbar.fc-header-toolbar {
-  box-shadow: -20px 6px 8px -2px #0000003b!important;
   padding: 20px;
   color: black!important;
   border-radius: 3px!important;

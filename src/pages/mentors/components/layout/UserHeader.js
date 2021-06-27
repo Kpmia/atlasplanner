@@ -35,7 +35,6 @@ export class AdminHeader extends Component {
     }
 
     render() {
-        console.log(this.state.isLoading)
         return (
             <div className="adminEventHeader">
                 <div className="container">
