@@ -56,7 +56,7 @@ export class AdminHeader extends Component {
 
                         :
                       <div>
-                            <a className="userHeaderTitle" style={{ marginRight: 20, marginTop: 10, position: 'relative', top: '7px'}}>  <Icon style={{marginLeft: -10}} name="eye" />  You are anonymously viewing this live document </a>
+                            <a className="userHeaderTitle" style={{ marginRight: 20, marginTop: 10, fontSize: '13px', position: 'relative', top: '7px'}}>  <Icon style={{marginLeft: -10}} name="eye" />  You are anonymously viewing this live document </a>
 
                             <a onClick={() => window.location.href = '/'}  style={{cursor: 'pointer', marginTop: 7}} className="float-right poweredByTxt">  Powered by atlasplanner </a>
 
