@@ -25,11 +25,11 @@ export const TabManager = {
         return [{
             "name": "Create",
             "route": "create-session",
-            "icon": "calendar plus outline icon"
+            "icon": "plus square outline"
         }, {
             "name": "Delete",
             "route": "delete-session",
-            "icon": "trash"
+            "icon": "trash alternate outline"
         }, {
             "name": "Edit",
             "route": "edit-session",
@@ -37,7 +37,7 @@ export const TabManager = {
         }, {
             "name": "View All",
             "route": "view-session",
-            "icon": "calendar"
+            "icon": "list ul"
         },]
     }
 

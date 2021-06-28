@@ -62,17 +62,18 @@ body {
 .v-animal-avatar {
   border-radius: 100%!important;
   --a-size: 32px!important;
-  border: 1px solid white!important;
+  margin-right: -15px;
+  --a-bg-color: #c04fe5!important;
+  border: 1px solid #222222!important;
   padding: 3px!important;
-  background: black!important;
 }
 
 .formStep {
-  font-size: 25px!important;
-  font-family: Inter!important;
-  font-weight: 600!important;
-  color: black!important;
-  letter-spacing: -0.076em;
+  font-size: 25px !important;
+  font-family: Inter !important;
+  font-weight: 500 !important;
+  color: rgb(54, 50, 50) !important;
+  letter-spacing: -0.043em;
 }
 
 .cellTitle {
@@ -382,32 +383,29 @@ tr td {
 
 .tabSessionForm {
   background:  none!important;
-  margin-right: 10!important; 
-  color: black!important;
+  margin-right: 20px!important; 
   transition: .6s all!important;
-  height: 41px;
   outline: none!important;
-  font-size: 14px;
-  margin-right: 3px;
-  border: 1px solid rgba(255, 255, 255, 0.378)!important;
-  font-family: Helvetica!important;
+  cursor: pointer!important;
+  font-family: Inter!important;
+  font-weight: 500!important;
+  border: none!important;
+  font-size: 13px!important;  
+  color: rgba(255, 255, 255, 0.71)!important;
+  
 }
 
 .clickedSessionForm {
-  margin-right: 20!important;
-  transition: all .6s ease-in!important; 
-  background: none!important;
-  height: 41px;
-  margin-left: 10px;
+  background:  none!important;
+  margin-right: 20px!important; 
+  transition: .6s all!important;
   outline: none!important;
-  font-size: 14px!important;
-  font-weight: 600!important;
-  font-family: Inter;
-  line-height: 20px;
-  border-left: none!important;
-  border: 1px solid white!important;
-  margin-right: 10px;
-  color: black!important;
+  cursor: pointer!important;
+  font-family: Inter!important;
+  font-weight: 500!important;
+  border: none!important;
+  font-size: 14px;  
+  color: rgba(255, 255, 255, 0.71)!important;
 }
 
 .editSessionCardTitle {
@@ -427,22 +425,21 @@ tr td {
 }
 
 .overrideShareBtn {
-  width: 88px;
-  position: relative;
-  top: -65px;
-  right: 5px;
+  width: 71.64px;
+  position: absolute;
+  right: 150px;
   border-radius: 4px!important;
   height: 36px!important;
   outline: none!important;
   border: none!important;
-  border-radius: 4px!important;
+  font-family: Inter!important;
   z-index: 999!important;
-  background: linear-gradient(-45deg,#f2a6f7,#e73c7e,#4742c0,#a0a3e5);
-  // width: 233px;
-  height: 41px!important;
+  background:#ff4bed!important;
+  border-radius: 4px;
+  height: 35.36px!important;
   box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08)!important;
   font-style: normal!important;
-  font-weight: 500!important;
+  font-weight: 600!important;
   font-size: 14px!important;
   line-height: 17px!important;
   background-size: 200% auto!important;
@@ -506,6 +503,14 @@ tr td {
   overflow-x: hidden;
 }
 
+.borders {
+  position: absolute;
+  width: 100%;
+  height: 200vh;
+  border-left: 25px solid rgba(255, 255, 255, 0.35);
+  border-right: 25px solid rgba(255, 255, 255, 0.35);
+}
+
 .gradientBackground {
   width: 100%;
   height: 200vh;
@@ -515,7 +520,7 @@ tr td {
   top: 0px;
   background-size: 600%!important;
   animation: gradient 15s ease infinite;
-  background: linear-gradient(-45deg, #ff1ea5, #ff8b8b, #4742c0, #9da1ff);
+  background: linear-gradient(128.97deg, #EA60DC -2.41%, #6720FF 36.65%, #EABB60 104.09%)
 }
 
 .eventHeader {
@@ -527,15 +532,53 @@ tr td {
   top: 0px;
 }
 
+.userHeaderTitle {
+  font-family: Inter!important;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  letter-spacing: -0.03em!important;
+
+  color: #999999!important;
+}
+
+
+.userHeaderBtn {
+  font-family: Inter;
+  font-style: normal;
+  margin-top: -2px;
+  margin-right: 14px;
+  font-weight: normal;
+  font-size: 14px;
+  border: none!important;
+  background: none!important;
+  /* or 154% */
+
+  letter-spacing: -0.035em;
+
+  color: #FFFFFF;
+}
+
+.poweredByTxt {
+  font-family: Inter!important;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.03em!important;
+
+  color: #FFFFFF!important;
+
+}
+
 .adminEventHeader {
   width: 100%;
-  padding: 10px;
-  height: 53px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 8px;
+  height: 45px;
   position: fixed;
   z-index: 999999;
   top: 0px;
-  background: #25272a;
+  background: black;
 }
 
 .adminToolsBtn {
@@ -545,12 +588,36 @@ tr td {
 }
 
 .editEventHeader {
-  background:#101011;
+  background:linear-gradient(0deg, #222222, #222222), #FFFFFF;
   width: 100%;
-  height: 103px;
+  height: 88.14px;
+  border-bottom: 1px solid #1E1C1C;
   z-index: 9999;
   position: fixed;
   top: 45px;
+}
+
+.flexMiddle {
+  position: relative;
+  top: 30px;
+}
+
+
+
+.orgNameLiveEventHeader {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  position: absolute;
+  left: 23px;
+  font-size: 14px;
+  line-height: 28px;
+  /* or 200% */
+  
+  display: flex;
+  align-items: center;
+  
+  color: #999999;
 }
 
 .adminHeader {
@@ -716,10 +783,13 @@ html {
 }
 
 .diamondIcon {
-  font-size: 18px!important;
-  margin-top: 20px!important;
+  font-size: 13px!important;
   color: white;
-  margin-right: 20px!important;
+  cursor: pointer;
+  margin-left: -50px!important;
+  margin-top: -33px!important;
+  position: absolute!important;
+  top: 39px;
 }
 
 .ui.dropdown .menu {
@@ -786,20 +856,20 @@ html {
 }
 
 .tabBackground {
-  box-shadow: 0px 2px 4px rgba(31, 41, 55, 0.06), 0px 4px 6px rgba(31 ,41 ,55, .10) !important;
-  border-radius: 2px 2px 2px 2px !important;
-  background: white!important;
-  position: fixed;
-  z-index: 9999;
-  border-top: 6px solid rgba(165, 164, 175, 0.35);
-  height: 50px;
+  filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.25));  border-radius: 2px 2px 2px 2px !important;
+  background: #2C2C2C; 
+   position: fixed;
+   border-bottom: 1px solid rgb(29, 27, 27);
+  outline: 17px solid rgba(255, 255, 255, 0.35)!important;
+  z-index: 9999999;
+  border-top: 1px solid rgba(30, 28, 28, 0.79)!important;
+  height: 53px;
   width: 100%;
 }
 
 .userIcons {
-  position: relative;
-  right: 150px;
-  top: -32px;
+  position: absolute;
+  right: 270px;
 }
 
 .Toastify__toast {
@@ -834,15 +904,28 @@ html {
 }
 
 .editEventTitle {
-  font-weight: bold;
-  font-size: 22px !important;
-  color: white;
-  position: relative;
-  left: 0px;
-  top: 25px;
-  font-family: Helvetica;
-  letter-spacing: -0.045em;
-  color: white;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.03em;
+  
+  color: #FFFFFF;
+  
+}
+
+.editEventTitleBg {
+  background: #2C2C2C;
+  height: 100%;
+  position: absolute;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  right: 50%;
+  top: -24px;
+  padding-bottom: 60px!important;
+  padding-top: 40px;
+  padding: 30px;
 }
 
 .eventWhiteHeaderSubtitle {
@@ -850,9 +933,6 @@ html {
   font-family: Helvetica!important;
   font-size: 14px!important;
   z-index: 9999!important;
-  position: relative;
-  top: 25px;
-  left: 0px;
 }
 
 .eventSubtitle {
@@ -989,27 +1069,17 @@ color: #FFFFFF;
   transition: box-shadow .1s ease,width .1s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.shareBtn {
-  background: none!important;
-  color: white!important;
-  border-radius: 5px!important;
-  font-family: Helvetica!important;
-  position: relative;
-  height: 40px!important;
-  transition: all 1s;
-  top: -65px;
-  right: 5px;
-}
 
-.shareBtn:hover {
-  background: white!important;
-  color: black!important;
-  border-radius: 30px!important;
-  font-family: Helvetica!important;
-  transition: all .6s;
-  position: relative;
-  top: -65px;
-  right: 5px;
+.shareBtn {
+  font-family: Inter;
+  font-style: normal;
+  position: absolute;
+  right: 0px;
+  font-weight: 500!important;
+  font-size: 14px;
+  color: #FFFFFF;  
+  background: none!important;
+  border: none!important;
 }
 
 .getLinkShare {
@@ -1125,4 +1195,10 @@ color: #FFFFFF;
 
 .table td{
   border-bottom: #E4E4E7 solid 1px !important;
+}
+
+@media (min-width: 1200px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 1240px!important;
+  }
 }

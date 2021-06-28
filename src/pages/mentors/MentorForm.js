@@ -78,10 +78,10 @@ class MentorForm extends React.Component {
             var animals = []
             for (var i = 0; i < data; i++) {
                 if (i == 3) {
-                    animals.push(<div style={{borderRadius: '10%', padding: 7, width: 32, fontWeight: 'bold', height: 32, background: 'white', color: 'black'}}> 3+ </div>)
+                    animals.push(<div style={{borderRadius: '100%', padding: 5, border: '1px solid white', width: 32, fontWeight: 'bold', height: 32, background: '#222', color: 'white'}}> 3+ </div>)
                     break;
                 } else {
-                  animals.push(<Popup content="Anonymous User" position="bottom center" on="hover" trigger={<a style={{marginRight: 5}}><Animal style={{borderRadius: '100%'}} rounded /></a>}/>)
+                  animals.push(<Popup content="Anonymous User" position="bottom center" on="hover" trigger={<a style={{marginRight: 5}}><Animal  style={{borderRadius: '100%'}} rounded /></a>}/>)
                 }
             }
             this.setState({ numPeople : animals })
@@ -139,20 +139,20 @@ class MentorForm extends React.Component {
                     numPeople={this.state.numPeople} 
                 />
 
-            <div style={{paddingTop: 147, zIndex:999, position: 'relative'}} className="eventPageBody">          
+            <div style={{paddingTop: 131, zIndex:999, position: 'relative'}} className="eventPageBody">          
 
             <div className="tabBackground">
 
-                <div className="container" style={{borderLeft: '1px solid #a5a4af59', borderRight: '1px solid #a5a4af59'}}>
+                <div className="container" style={{borderLeft: '1px solid #1D1B1B', padding: '12px', height: '100%', borderRight: '1px solid #1D1B1B'}}>
             {
                 TabManager.getTabNames().map((tab) => {
                     if (tab["route"] == this.state.tab) {
                         return (
-                            <Button className="clickedSessionForm" onClick={() => { this.switchTab(tab["route"]); this.updateTabData(tab["route"])}}> <Icon name={tab["icon"]} /> {tab["name"]}  </Button>
+                            <Button className="clickedSessionForm" onClick={() => { this.switchTab(tab["route"]); this.updateTabData(tab["route"])}}> <Icon style={{color: 'white', fontSize: 11}} name={tab["icon"]} /> {tab["name"]}  </Button>
                         )
                     }
                     return (
-                        <Button className="tabSessionForm" onClick={() => { this.switchTab(tab["route"]); this.updateTabData(tab["route"])}}> <Icon name={tab["icon"]} /> {tab["name"]}  </Button>
+                        <Button className="tabSessionForm" onClick={() => { this.switchTab(tab["route"]); this.updateTabData(tab["route"])}}> <Icon style={{color: 'white', fontSize: 11}} name={tab["icon"]} /> {tab["name"]}  </Button>
                     )
                 })
             }
@@ -160,7 +160,7 @@ class MentorForm extends React.Component {
             </div>
             <br></br>
 
-            <div style={{paddingTop: 56}} className="container">
+            <div style={{paddingTop: 106}} className="container">
 
             {this.state.pageComponent}
 

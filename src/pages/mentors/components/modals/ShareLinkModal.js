@@ -26,7 +26,7 @@ export const ShareLinkModal = (props) => {
 
   return (
     <span onClick={toggle}>
-        <Button className="overrideShareBtn" style={{marginRight: 10}}> <Icon name="pencil" /> Share </Button> 
+        <Button className="overrideShareBtn" style={{marginRight: 10}}>  Share </Button> 
       <Modal style={{padding: 20}} overlay={false} isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader cssModule={{'modal-title': 'w-100 text-center'}} style={{borderBottom: 'none', paddingBottom: 0, fontWeight: 600, fontSize: '17px', textAlign: 'center'}} className="createProjectTitle" toggle={toggle}> <span style={{borderBottom: 'none', paddingBottom: '0px', fontWeight: 600, fontSize: '17px', textAlign: 'center'}}> Share Link </span></ModalHeader>
         <ModalBody>

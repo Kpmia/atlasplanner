@@ -99,7 +99,7 @@ export class CreateSession extends Component {
                
                     <div style={{border: '1px solid black', padding: 20, borderRadius: 10}}>
                     <p className="formStep" style={{marginBottom: 10}}> Choose availability </p>
-                    <Label color="black"> Instructions set by coordinator </Label>
+                    <Label style={{background: '#1a1b1d', color: 'white'}}> Instructions set by coordinator </Label>
                     <p style={{marginTop: 10}}> {this.state.eventInfo["instruction"]} </p>
 
                     </div>

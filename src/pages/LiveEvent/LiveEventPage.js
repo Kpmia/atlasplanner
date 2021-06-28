@@ -163,7 +163,7 @@ class LiveEventPage extends React.Component {
                 <div className="eventHeader">
                     <div className="container">
                         <row>
-                            <Icon className="diamondIcon" name="diamond" />
+                            <Icon style={{marginTop: '-16px', paddingTop: 15}} className="diamondIcon" name="diamond" />
                             <a className="poweredByCompany" onClick={() => window.location.href = '/'}> Powered by Atlasplanner. </a>
                         </row>
                     </div>

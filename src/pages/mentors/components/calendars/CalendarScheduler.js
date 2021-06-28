@@ -5,7 +5,6 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import uuid from "react-uuid"
 import momentTimezonePlugin from '@fullcalendar/moment-timezone';
-import { toMoment } from '@fullcalendar/moment'; // only for formatting
 import moment from "moment"
 
 const CalendarScheduler = ({setTimeslots, ...restProps}) => {
@@ -52,6 +51,7 @@ const CalendarScheduler = ({setTimeslots, ...restProps}) => {
       })
       reformatTimeslot(events)
     }
+    
     const renderEventContent = (eventInfo) => {
       return (
         <>
@@ -60,6 +60,7 @@ const CalendarScheduler = ({setTimeslots, ...restProps}) => {
         </>
       )
     }
+
     return (
       <div>
         <div>
@@ -72,7 +73,7 @@ const CalendarScheduler = ({setTimeslots, ...restProps}) => {
             headerToolbar={{
               left: 'prev',
               center: 'title',
-              right: 'next,customWeeks,timeGridWeek'
+              right: 'next'
             }}
             initialView='timeGridWeek'
             eventDurationEditable

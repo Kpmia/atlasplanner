@@ -45,20 +45,20 @@ export class AdminHeader extends Component {
                         this.state.isAdmin ?
                         <div> 
 
-                            <a style={{color: 'white', fontWeight: 'bold', marginRight: 20}}>  <Icon style={{marginLeft: -10}} name="star" />  Admin Controls </a>
+                            <a className="userHeaderTitle" style={{marginRight: 20}}>  <Icon  onClick={() => window.location.href = '/'}  style={{marginLeft: -10, color: '#999999', cursor: 'pointer', marginRight: 10, fontSize: '12px'}} name="home" />  Admin Tools </a>
                             <UpdateEventModal orgId={this.state.orgId} eventId={this.state.eventId} eventData={this.state.eventData}>
-                                <Button className="adminToolsBtn"> <Icon name="edit" /> Edit Event </Button>
+                                <Button className="userHeaderBtn"> Edit Event </Button>
                             </UpdateEventModal>
-                            <Popup on="hover" trigger={<Button className="adminToolsBtn"> <Icon name="cog" /> Privacy Settings </Button>} content="Coming soon! Working on the features to make the people in event reservations private as well as the access to this document!"/>
-                            <a onClick={() => window.location.href = '/'}  style={{color: 'white', cursor: 'pointer', marginTop: 7, fontWeight: 'bold', fontSize: '13px'}} className="float-right"> <Icon style={{marginLeft: -10}} name="diamond" /> Powered by Atlasplanner. </a>
+                            <Popup on="hover" trigger={<Button className="userHeaderBtn"> Privacy Settings </Button>} content="Coming soon! Working on the features to make the people in event reservations private as well as the access to this document!"/>
+                            <a onClick={() => window.location.href = '/'}  style={{cursor: 'pointer', marginTop: 7}} className="float-right poweredByTxt">  Powered by atlasplanner </a>
 
                         </div>
 
                         :
                       <div>
-                            <a style={{color: 'white', fontWeight: 'bold', marginRight: 20, marginTop: 10, position: 'relative', top: '7px'}}>  <Icon style={{marginLeft: -10}} name="eye" />  You are anonymously viewing this live document </a>
+                            <a className="userHeaderTitle" style={{ marginRight: 20, marginTop: 10, position: 'relative', top: '7px'}}>  <Icon style={{marginLeft: -10}} name="eye" />  You are anonymously viewing this live document </a>
 
-                            <a onClick={() => window.location.href = '/'}  style={{color: 'white', cursor: 'pointer', marginTop: 7, fontWeight: 'bold', fontSize: '13px'}} className="float-right"> <Icon style={{marginLeft: -10}} name="diamond" /> Powered by Atlasplanner. </a>
+                            <a onClick={() => window.location.href = '/'}  style={{cursor: 'pointer', marginTop: 7}} className="float-right poweredByTxt">  Powered by atlasplanner </a>
 
                     </div>
 
