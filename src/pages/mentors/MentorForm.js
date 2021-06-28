@@ -13,6 +13,7 @@ import Animal from "react-animals";
 import { onboarding } from "./components/onboarding";
 import { Header } from "./components/layout/InfoHeader";
 import { Tooltip } from "@material-ui/core";
+import { InstructionBanner } from "./components/layout/InstructionBanner";
 
 class MentorForm extends React.Component {
     constructor() {
@@ -144,6 +145,8 @@ class MentorForm extends React.Component {
             <div className="tabBackground">
 
                 <div className="container" style={{borderLeft: '1px solid #1D1B1B', padding: '12px', height: '100%', borderRight: '1px solid #1D1B1B'}}>
+
+            
             {
                 TabManager.getTabNames().map((tab) => {
                     if (tab["route"] == this.state.tab) {
@@ -160,7 +163,9 @@ class MentorForm extends React.Component {
             </div>
             <br></br>
 
-            <div style={{paddingTop: 106}} className="container">
+            <div style={{paddingTop: 90}} className="container">
+
+            <InstructionBanner instruction={this.state.eventInfo["instruction"]} />
 
             {this.state.pageComponent}
 

@@ -1173,6 +1173,60 @@ color: #FFFFFF;
 }
 
 
+.formStepDesc {
+  font-size: 14;
+  font-family: Inter;
+  color: rgba(29, 27, 27, .80);
+}
+
+.instructionCard {
+  margin-top: 0px;
+  background: linear-gradient(0deg, #FFFFFF, #FFFFFF), #FFFFFF!important;
+  outline: 20px solid rgba(224, 224, 224, 0.17);
+  border-radius: 0px!important;
+  box-shadow: 69px 57px 75px rgba(125, 129, 138, 0.23)!important;
+}
+
+.instructionTitle {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0em;
+  margin-bottom: 3px;
+  line-height: 20px;
+  color: #222222;
+}
+
+.instructionSubTitle {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+  word-wrap: break-word;
+
+  color: #2C2C2C;
+}
+
+.cancelInstructionBtn {
+  cursor: pointer;
+    position: absolute;
+    color: #212121;
+    font-size: 10px;
+    right: 15px;
+    top: 15px;
+}
+
+
+
+.ui.input {
+  background: #FFFFFF;
+  border: 1px solid #f2f3f5f0!important;
+  box-sizing: border-box;
+  box-shadow: 0px 6px 7px 1px rgba(0, 0, 0, 0.022)!important;
+  border-radius: 4px!important;
+}
 
 
 

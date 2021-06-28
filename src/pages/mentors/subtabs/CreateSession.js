@@ -97,14 +97,11 @@ export class CreateSession extends Component {
             <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
                 <CardBody style={{padding: '3.25em'}}>
                
-                    <div style={{border: '1px solid black', padding: 20, borderRadius: 10}}>
-                    <p className="formStep" style={{marginBottom: 10}}> Choose availability </p>
-                    <Label style={{background: '#1a1b1d', color: 'white'}}> Instructions set by coordinator </Label>
-                    <p style={{marginTop: 10}}> {this.state.eventInfo["instruction"]} </p>
-
+                    <div style={{border: '1px solid rgb(29, 27, 27) ', padding: 20, borderRadius: 10}}>
+                        <p className="formStep" style={{marginBottom: 10}}> Choose availability </p>
+                        <p className="formStepDesc"> Fill out your information & schedule to add your schedule to this organization's event. </p>
                     </div>
 
-                    <br></br>
 
                     <Stepper activeStep={this.state.step - 1}>
                         <Step key={"hey"}>
