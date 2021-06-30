@@ -25,8 +25,6 @@ class LiveEventPage extends React.Component {
             eventInfo: [],
             tab: "sessions",
             pageComponent: [],
-            currWeek: "",
-            weekToken: 0,
             isLoading: true,
             pageNotFound: false
         }
@@ -37,7 +35,7 @@ class LiveEventPage extends React.Component {
             if (eventInfo != null) {
                 this.eventId = this.props.match.params.eventId
                 this.setState({ mentors : eventInfo["sessions"] })
-                this.setState({ copiedMentorData : LiveSiteUtils.getWeekData(eventInfo["sessions"], LiveSiteUtils.getCurrWeek(this.state.weekToken)) })
+                this.setState({ copiedMentorData : eventInfo["sessions"] })
                 this.setState({ eventInfo : eventInfo["event_info"] })
             } else {
                 this.pageNotFound();
@@ -45,34 +43,6 @@ class LiveEventPage extends React.Component {
             this.isLoading();
         })
     };
-
-    incrementWeekToken = async(inc) => {
-        var saveToken = this.state.weekToken 
-        if (inc) {
-            saveToken += 1;
-        } else {
-            saveToken -= 1
-        }
-        this.setState({ weekToken : saveToken })
-    }
-
-    goToNextWeek = () => {
-        this.incrementWeekToken(true).then(() => {
-            this.setState({ currWeek : LiveSiteUtils.getCurrWeek(this.state.weekToken) })
-            this.updateMentorData().then(() => {
-                this.updateTabData(this.state.tab)
-            })
-        })
-    }
-
-    goBackWeek = () => {
-        this.incrementWeekToken(false).then(() => {
-            this.setState({ currWeek : LiveSiteUtils.getCurrWeek(this.state.weekToken) })
-            this.updateMentorData().then(() => {
-                this.updateTabData(this.state.tab)
-            })
-        })
-    }
 
     updateTabData = (tabName) => {
         this.props.history.push("?tab-name=" + tabName)
@@ -83,9 +53,8 @@ class LiveEventPage extends React.Component {
     updateMentorData = async(data) => {
         if (data != undefined) {
             this.setState({ mentors : data })
-
         }
-        this.setState({ copiedMentorData : LiveSiteUtils.getWeekData(this.state.mentors, LiveSiteUtils.getCurrWeek(this.state.weekToken)) })
+        this.setState({ copiedMentorData : data })
     };
 
     pageNotFound() {
@@ -99,9 +68,7 @@ class LiveEventPage extends React.Component {
     componentDidMount() {
 
         this.getMentorData().then(() => {
-            this.setState({ currWeek : LiveSiteUtils.getCurrWeek(this.state.weekToken) })
             this.updateTabData(TabManager.getCurrSubtab());
-           
         })
 
         this.socket.on('connect', () => { 
@@ -195,7 +162,6 @@ class LiveEventPage extends React.Component {
                   
                 <div id="eventBodyContainer" className="eventPageBody container" style={{paddingTop: 230}}>
                     <EventDescBanner eventDescription={this.state.eventInfo["description"]} />
-                    <p className="eventSubTabs" style={{fontWeight: 'bold'}}> <Icon style={{cursor: 'pointer'}} disabled={this.state.weekToken == 0 ? true : false} onClick={this.state.weekToken != 0 ? this.goBackWeek : null} name="caret left" /> {this.state.currWeek} <Icon onClick={this.goToNextWeek} style={{cursor: 'pointer'}} name="caret right" /> <span style={{float: 'right'}}> </span> </p>
 
                     {this.state.pageComponent}
 

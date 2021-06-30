@@ -51,7 +51,7 @@ export class TodaySession extends Component {
         })
 
         return (
-            <div style={{marginTop: '-60px', zIndex: 100, position: 'relative'}}>
+            <div style={{ zIndex: 100, position: 'relative'}}>
                 <CalendarBanner />
                 <Row>
                     <Col sm={4}>
