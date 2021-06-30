@@ -23,7 +23,7 @@ export const TabManager = {
 
     getTabNames() {
         return [{
-            "name": "Create",
+            "name": "Add",
             "route": "create-session",
             "icon": "plus square outline"
         }, {

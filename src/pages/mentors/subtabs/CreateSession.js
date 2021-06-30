@@ -1,13 +1,10 @@
 import React, { Component } from "react"
-import AvailableTimes from 'react-available-times';
-import { Slide, toast, ToastContainer } from "react-toastify";
 import { Button, CardBody, Col,  Row } from "reactstrap";
 import { Form, Icon, Input, Label, TextArea } from "semantic-ui-react";
 import 'react-toastify/dist/ReactToastify.css';
-import { Card, Step, StepLabel, Stepper } from "@material-ui/core";
+import { Card } from "@material-ui/core";
 import FadeIn from 'react-fade-in'
 import { CreateSessionReCaptcha } from "../components/recaptcha/SubmitSession";
-import { SessionUtils } from "../utils/SessionUtils";
 import CalendarScheduler from "../components/calendars/CalendarScheduler";
 
 export class CreateSession extends Component {
@@ -29,27 +26,6 @@ export class CreateSession extends Component {
         loading: false,
     }
 
-    validateUserInfo() {
-        if (this.state.step == 1) {
-            if (this.state.name == "") {
-                toast.dark('Please enter your name',{ transition : Slide  })
-                return false;
-            }
-        }
-        if (this.state.step == 2) {
-            if (this.state.timeSlots.length == 0) {
-                toast.dark('Please enter a timeslot',{ transition : Slide  })
-                return false;
-            } 
-            window.scroll({
-                top: 0, 
-                left: 0, 
-                behavior: 'smooth'
-            });
-        }
-        return true;
-    };
-
     handleChange = (key, value) => {
         var copySessionBody = this.state.sessionBody
         copySessionBody[key] = value;
@@ -57,9 +33,7 @@ export class CreateSession extends Component {
     };
 
     goToNextStep = () => {
-        if (this.validateUserInfo()) {
-            this.setState({ step : this.state.step + 1 })
-        };
+        this.setState({ step : this.state.step + 1 })
     };
 
     goBackStep = () => {
@@ -71,6 +45,10 @@ export class CreateSession extends Component {
     };
 
     showConfirmPage = (sessionId) => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
         this.setState({ sessionId : sessionId })
         this.goToNextStep()
     }
@@ -97,23 +75,9 @@ export class CreateSession extends Component {
             <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
                 <CardBody style={{padding: '3.25em'}}>
                
-                    <div style={{border: '1px solid rgb(29, 27, 27) ', padding: 20, borderRadius: 10}}>
-                        <p className="formStep" style={{marginBottom: 10}}> Choose availability </p>
-                        <p className="formStepDesc"> Fill out your information & schedule to add your schedule to this organization's event. </p>
+                    <div style={{borderBottom: '1px solid rgb(29 27 27 / 17%) '}}>
+                        <p className="formStep" style={{marginBottom: 10}}> Add your availability </p>
                     </div>
-
-
-                    <Stepper activeStep={this.state.step - 1}>
-                        <Step key={"hey"}>
-                            <StepLabel>{"Basic Info"}</StepLabel>
-                        </Step>
-                        <Step key={"hey"}>
-                            <StepLabel>{"Schedule"}</StepLabel>
-                        </Step>
-                        <Step key={"hey"}>
-                            <StepLabel>{"Complete"}</StepLabel>
-                        </Step>
-                    </Stepper>
                 
                     <br></br>
 
@@ -122,6 +86,8 @@ export class CreateSession extends Component {
                     {
                         this.state.step == 1 ? 
                         <div>
+                            <Row>
+                                <Col>
                               <Form id="basicDetails">
                                     <Form.Group widths='equal'>
                                     <Form.Field
@@ -139,9 +105,9 @@ export class CreateSession extends Component {
                                         id='form-input-control-first-name'
                                         control={Input}
                                         value={this.state.sessionBody["link"]}
-                                        label='Meeting Link or Physical Location'
+                                        label='Location'
                                         onChange={(text) => this.handleChange("link", text.target.value) }                    
-                                        placeholder='Link'
+                                        placeholder='Location'
                                     />
                                     <Form.Field
                                         id='form-input-control-first-name'
@@ -159,8 +125,9 @@ export class CreateSession extends Component {
                                 <Form.Field
                                         id='form-input-control-first-name'
                                         control={Input}
+                                
                                         value={this.state.sessionBody["category"]}
-                                        label='Category (Batch number)'
+                                        label='Category'
                                         onChange={(text) => this.handleChange("category", text.target.value) }                    
                                         placeholder='Category'
                                     />
@@ -176,40 +143,37 @@ export class CreateSession extends Component {
                                         placeholder='Description'
                                         />
                                     </Form>
-                                    <br></br>
+                                    </Col>
 
-                                <Button className="float-right nextBtn" onClick={this.goToNextStep}> Next <Icon name="right caret"/> </Button>
+                                    <br></br>
+                                    <Col>
+                                        <CalendarScheduler
+                                            setTimeslots={this.setTimeslots}
+                                        />
+                                
+                                    </Col>
+                            </Row>
+                            <br></br>
+
+                            <CreateSessionReCaptcha
+                                orgId={this.state.orgId}
+                                eventId={this.state.eventId}
+                                timeslots={this.state.timeSlots}
+                                sessionData={this.state.sessionBody}
+                                showConfirmPage={this.showConfirmPage}
+                            />
                         </div>
                         :
                         this.state.step == 2?
-                            <div>
-                                 <div id="times">
-                                     <CalendarScheduler
-                                        setTimeslots={this.setTimeslots}
-                                    />
-
-                                </div>
-                                <br></br>
-                                    <CreateSessionReCaptcha
-                                        orgId={this.state.orgId}
-                                        eventId={this.state.eventId}
-                                        timeslots={this.state.timeSlots}
-                                        sessionData={this.state.sessionBody}
-                                        showConfirmPage={this.showConfirmPage}
-                                    />
-
-                                <Button className="float-left backBtn" onClick={this.goBackStep}> <Icon name="left caret"/> Back  </Button>
-                        
-                        </div>
-                        :
-                        this.state.step == 3?
+                          
                         <div>
                             <FadeIn>
                                     <p className="finalMessageSession"> You can find your session live on <span style={{textDecoration: 'underline', cursor: 'pointer', fontWeight: 600}} onClick={() => window.open(window.location.origin + '/c/' + this.state.orgId + '/' + this.props.eventId)}> {window.location.origin + '/c/' + this.state.orgId + '/' + this.state.eventId} </span>.</p>
                                     <p className="finalMessageSession">  Other options? <span onClick={() => window.location.href = '/editsession/' + this.state.orgId + '/' + this.state.eventId + '?tab-name=edit-session&user=' + this.state.sessionId} style={{textDecoration: 'underline', fontWeight: 400, cursor: 'pointer'}}> Edit</span> your session or <span onClick={this.resetInfo} style={{textDecoration: 'underline', fontWeight: 400, cursor: 'pointer'}}> create</span> another one.</p>
                             </FadeIn>
                         </div>
-                        : 
+                        :
+                       
                         null
                     }
                     <br></br>

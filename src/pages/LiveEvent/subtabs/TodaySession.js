@@ -1,94 +1,112 @@
 import React, { Component } from "react";
-import moment from "moment"
-import { DataGrid } from '@material-ui/data-grid';
-import { LiveSiteUtils } from "../utils/LiveSiteUtil";
+import FullCalendar from '@fullcalendar/react' // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import { Card } from "@material-ui/core";
+import { CardBody, Col, Row } from "reactstrap";
+import interactionPlugin from '@fullcalendar/interaction';
+import { SessionUtils } from "../../mentors/utils/SessionUtils";
+import { CalendarBanner } from "../components/banners/CalendarBanner";
 
 export class TodaySession extends Component {
     state = {
         orgId: this.props.orgId,
         eventId: this.props.eventId,
-        mentors: LiveSiteUtils.getWeekData(this.props.mentors, LiveSiteUtils.getCurrWeek(0)),
+        sessions: this.props.mentors,
+        chosenSession: [],
+        assignedColor: [],
     }
 
-    todayDate = new Date()
+    colorCodeEvents = (events) => {
+        var recordColors = []
+        this.state.sessions.map((session, id) => {
+            var colorIdx = id % SessionUtils.getGradColors().length
+            recordColors.push(SessionUtils.getGradColors()[colorIdx]);
+        })
+        this.setState({ assignedColor : recordColors });
+    }
+
+    componentDidMount() {
+        this.colorCodeEvents(this.state.sessions)
+    }
 
     render() {
 
-        console.log(this.props.mentors)
+        var events = [];
 
-        const columns = [{field: "section", sorted: true, resizable: true, editable: true, resizable: true, headerName: "Section", width: 120}, {field: "name",  resizable: true, editable: true, headerName: "Name", width: 120}, {field: "link", resizable: true,  editable: true, headerName: "Link", width: 120}, {field: "descriptions", editable: true, resizable: true, headerName: "Other", width: 120},]
-
-        const times = []
-
-        const availTodaySess = []
-
-        Object.keys(this.state.mentors).map((mentor) => {
-            var isAvailable = false
-            
-            this.state.mentors[mentor]["timeslots"].map((time) => {
-                if (time["day"] == this.todayDate.getDay()) {
-                    isAvailable = true
-                }
-            })
-            if (isAvailable) {
-                availTodaySess.push(this.state.mentors[mentor])
-            }
-        })
-
-        Object.keys(availTodaySess).map((mentor) => {
-            availTodaySess[mentor]["timeslots"].map(time => {
-                if (time["day"] == this.todayDate.getDay()) {
-                    if (!times.includes(time["start"] + "-" + time["end"])) {
-                        times.push(time["start"] + "-" + time["end"])
-
-                        columns.push({field: time["start"] + " - " + time["end"], editable: false, start: time["start"], end: time["end"], headerName: moment(time["start"], 'HH:mm'). format('h:mm A') + " - " + moment(time["end"], 'HH:mm'). format('h:mm A'), width: 190 })
-
-                        columns.sort(function compare(a, b) {
-                            return new Date('1970/01/01 ' + a["start"]) - new Date('1970/01/01 ' + b["start"]);
-                          })
-                    }
-                }
-            })
-        })
-
-        const rows = []
-
-        Object.keys(availTodaySess).map((mentor, idx) => {
-            var mentorInfo = {
-                "id": idx, 
-                "section": availTodaySess[mentor]["section"], 
-                "name": availTodaySess[mentor]["name"], 
-                "descriptions": availTodaySess[mentor]["descriptions"], 
-                "link": availTodaySess[mentor]["link"]
-            }
-
-            availTodaySess[mentor]["timeslots"].map((time) => {
-                if (time["day"]  == this.todayDate.getDay()) {
-                    var getMemberInfo = ""
-                    Object.keys(time["filled"]).map((week) => {
-                        getMemberInfo += time["filled"][week]["name"] + ", "
+        this.state.sessions.map((session, id) => {
+            Object.keys(session["timeslots"]).map((slot) => {
+                session["timeslots"][slot].map((time) => {
+                    events.push({
+                        title: session["name"],
+                        background: this.state.assignedColor[id],
+                        extraInfo: session["_id"],
+                        extendedProps: { session },
+                        start: time["actual_start"],
+                        end: time["actual_end"]
                     })
-
-                    mentorInfo[time["start"] + " - " + time["end"]] = getMemberInfo
-                }
+                })
             })
-
-            rows.push(mentorInfo)
-            rows.sort(function compare(a, b) {
-                return a["section"] -  b["section"];
-              })
-            
         })
 
         return (
-            <div>
+            <div style={{marginTop: '-60px', zIndex: 100, position: 'relative'}}>
+                <CalendarBanner />
+                <Row>
+                    <Col sm={4}>
+                <Card className="formCard">
+                    <CardBody>
+                        <p> Session Details </p>
+                            <p style={{marginBottom: 0}} className="eventProjectTitle"> {this.state.chosenSession["name"]} </p>
+                            <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {this.state.chosenSession["link"]} </p>
+                            <a class={"ui image label"}> {this.state.chosenSession['category']} </a>
+                            <p style={{fontWeight: 'bold', marginTop: 5}}> {this.state.chosenSession["section"]} </p>
+                            <p> {this.state.chosenSession["descriptions"]} </p>
+                    </CardBody>
+                </Card>
+                </Col>
 
-                <p className="dayOfWeek"> {`Today's Sessions`}</p>
-                <br></br>
-                <div id="today-session-body" style={{ height: '500px', background: 'white', width: '100%'}}>
-                <DataGrid filterMode={false} sortModel={false}  rows={rows} columns={columns} />
-                </div>
-             
+                <Col>
+                    <Card style={{ position: 'relative', zIndex: 9}} className="formCard">
+                    <CardBody>                       
+                        <FullCalendar
+                                defaultAllDay={false}
+                                allDaySlot={false}
+                                eventClick={(event) => this.setState({ chosenSession : event.event._def.extendedProps.session })}
+                                contentHeight={700}
+                                buttonText={{
+                                        today: 'Today',
+                                        month: 'Month',
+                                        week: 'Week',
+                                        day: 'Day',
+                                        list: 'List',
+                                        daygrid: 'Grid',
+                                    }}
+                                    expandRows
+                                plugins={ [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ]}
+                                initialView={ 'dayGridMonth' }
+                                events={events}
+                                headerToolbar={{
+                                    left: 'prev,next today',
+                                    center: 'title',
+                                    right: 'dayGridMonth,timeGridWeek,listWeek'
+                                }}
+                                eventDidMount={ function (info) {
+                                        if (info.event.extendedProps.background) {
+                                            info.el.style.backgroundColor = 'black'
+                                            info.el.style.background = info.event.extendedProps.background;
+                                            info.el.style.backgroundSize = '500%';
+                                        }
+                                    }}
+                            /> 
+                            </CardBody>
+                    </Card>
+                    </Col>
+
+               
+                </Row>
+                    <br></br>     
             </div>
         )
     }

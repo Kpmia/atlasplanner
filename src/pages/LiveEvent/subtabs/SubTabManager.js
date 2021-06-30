@@ -10,7 +10,7 @@ export const TabManager = {
             case "mentors":
                 return <Mentors orgId={orgId} eventId={eventId} currWeek={currWeek} mentors={copiedMentorData} originalMentors={mentors}  updateMentor={updateMentors} />
 
-            case "today-session":
+            case "view-calendar":
                 return <TodaySession orgId={orgId} eventId={eventId} currWeek={currWeek} mentors={mentors} />
         }
     },
@@ -27,10 +27,12 @@ export const TabManager = {
     getTabNames: () =>{
         return [{
             'name': 'All Sessions',
-            'route': 'mentors'
+            'route': 'mentors',
+            'icon': 'clone outline',
         },{
-            'name': `Today's Session`,
-            'route': 'today-session'
+            'name': `View Calendar`,
+            'route': 'view-calendar',
+            'icon': 'calendar alternate outline',
         }]
     }
 

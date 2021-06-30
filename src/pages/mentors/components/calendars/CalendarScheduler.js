@@ -51,7 +51,7 @@ const CalendarScheduler = ({setTimeslots, ...restProps}) => {
       })
       reformatTimeslot(events)
     }
-    
+
     const renderEventContent = (eventInfo) => {
       return (
         <>
@@ -64,13 +64,12 @@ const CalendarScheduler = ({setTimeslots, ...restProps}) => {
     return (
       <div>
         <div>
-          <p> Select any cell in the calendar to mark your timeslot. Drag each timeslot to expand duration. Delete timeslots by clicking on the created timeslot again, and a modal will ask you to confirm. </p>
           <FullCalendar
-          ref={calendarAPI}
-        allDaySlot={false}
-        defaultAllDay={false}
-            plugins={[interactionPlugin,dayGridPlugin, timeGridPlugin, momentTimezonePlugin]}
-            headerToolbar={{
+            ref={calendarAPI}
+          allDaySlot={false}
+          defaultAllDay={false}
+              plugins={[interactionPlugin,dayGridPlugin, timeGridPlugin, momentTimezonePlugin]}
+              headerToolbar={{
               left: 'prev',
               center: 'title',
               right: 'next'

@@ -9,6 +9,7 @@ import { Icon } from "semantic-ui-react";
 import { io } from "socket.io-client";
 import { LiveSiteUtils } from "./utils/LiveSiteUtil";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { EventDescBanner } from "./components/banners/EventDescBanner";
 
 var _ = require('lodash');
 
@@ -183,7 +184,7 @@ class LiveEventPage extends React.Component {
                                     {
                                         TabManager.getTabNames().map((tab) => {
                                             return (
-                                                <a className={tab["route"] == this.state.tab ? "nestedTabHover nestedTab": "nestedTab" } onClick={() => this.updateTabData(tab["route"])} style={{cursor: 'pointer', marginRight: 16}} > {tab["name"]} </a>
+                                                <a className={tab["route"] == this.state.tab ? "nestedTabHover nestedTab": "nestedTab" } onClick={() => this.updateTabData(tab["route"])} style={{cursor: 'pointer', marginRight: 16}}> <Icon style={{fontSize: '10px', marginTop: '-10px'}} name={tab["icon"]} /> {tab["name"]} </a>
                                             )
                                         })
                                     }
@@ -193,7 +194,7 @@ class LiveEventPage extends React.Component {
                         </div>
                   
                 <div id="eventBodyContainer" className="eventPageBody container" style={{paddingTop: 230}}>
-                    <p style={{fontSize: '13px'}}> {this.state.eventInfo["description"]} </p>
+                    <EventDescBanner eventDescription={this.state.eventInfo["description"]} />
                     <p className="eventSubTabs" style={{fontWeight: 'bold'}}> <Icon style={{cursor: 'pointer'}} disabled={this.state.weekToken == 0 ? true : false} onClick={this.state.weekToken != 0 ? this.goBackWeek : null} name="caret left" /> {this.state.currWeek} <Icon onClick={this.goToNextWeek} style={{cursor: 'pointer'}} name="caret right" /> <span style={{float: 'right'}}> </span> </p>
 
                     {this.state.pageComponent}

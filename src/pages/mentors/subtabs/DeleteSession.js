@@ -66,7 +66,7 @@ export class DeleteSession extends Component {
             <div>
             <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
                 <CardBody style={{padding: '3.25em'}}>
-                <div style={{border: '1px solid rgb(29, 27, 27) ', padding: 20, borderRadius: 10}}>
+                <div>
                     <p className="formStep" style={{marginBottom: 10}}> Delete Sessions </p>
                         <p className="formStepDesc"> Delete session by clicking on the checkbox of each card & clicking on the button. </p>
                     </div>                    

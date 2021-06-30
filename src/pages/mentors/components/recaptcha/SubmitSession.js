@@ -82,6 +82,14 @@ export class CreateSessionReCaptcha extends Component {
         return true;
     };
 
+    checkName = (name) => {
+        if (name == "") {
+            toast.dark('Please enter your name',{ transition : Slide  })
+            return false;
+        }
+        return true;
+    };
+
     componentDidUpdate() {
         if (this.props.timeslots != this.state.timeslots) {
             this.setState({ timeslots : this.props.timeslots })
@@ -103,7 +111,7 @@ export class CreateSessionReCaptcha extends Component {
                 <br></br>
                 <br></br>
 
-                <Button className="float-right nextBtn" onClick={() => { if (this.validateEmail(this.state.email) && this.validateTimeslot(this.state.timeslots)) { console.log('here'); this.recaptchaRef.current.execute(); }}}>
+                <Button className="float-right nextBtn" onClick={() => { if (this.validateEmail(this.state.email) && this.checkName(this.state.sessionData["name"]) && this.validateTimeslot(this.state.timeslots)) {  this.recaptchaRef.current.execute(); }}}>
                     Submit
                     <ReCAPTCHA
                         ref={this.recaptchaRef}
