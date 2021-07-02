@@ -13,7 +13,6 @@ export const EventDescBanner = ({
 
     return (
         <div>
-
             {
                 open ?
                 <div>

@@ -4,9 +4,6 @@ import { Button, Header, Icon, Modal, Dropdown } from 'semantic-ui-react'
 const DeletePersonModal = ({orgId, sessionId,...restProps}) => {
   const [open, setOpen] = React.useState(false)
 
-  const deleteProject = () => {
-
-  };
 
   return (
       <Modal

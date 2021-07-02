@@ -12,7 +12,6 @@ export const CalendarBanner = ({
 
     return (
         <div>
-
             {
                 open ?
                 <div>

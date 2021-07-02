@@ -1,11 +1,12 @@
 import React, { Component } from "react"
 import { Card, CardBody, Col, Row, Table } from "reactstrap";
 import FadeIn from "react-fade-in";
-import { ReserveMentor } from "../components/ReserveMentor";
-import moment from "moment"
 import { Dropdown, Icon } from "semantic-ui-react";
 import { Input } from "@material-ui/core";
 import { Slide, toast } from "react-toastify";
+import { MiniCalendar } from "../components/calendars/MiniCalendar";
+import { ReserveInstructBanner } from "../components/banners/ReserveInstructBanner";
+import { FilledBanner } from "../components/banners/FilledBanner";
 
 export class Mentors extends Component {
     state = {
@@ -15,25 +16,29 @@ export class Mentors extends Component {
         originalMentors: this.props.originalMentors,
         category: 'All Categories',
         view: 'grid',
-        currWeek: this.props.currWeek,
+        currentMentor: [],
+        selectEvent: [],
         search: '',
-        currentMentor: []
     }
 
     updateMentor = this.props.updateMentor
 
-
     selectMentor = (id, session, switched) => {
         if (switched) {
             toast.dark(`Switched to `+  session['name'] + `'s availability`, {position: 'top-center', transition: Slide})
+            this.setState({ selectEvent : [] })
             document.getElementById("eventBodyContainer").scrollIntoView({behavior: 'smooth' });
         }
         this.setState({ currentMentor : {"id": id, "data": session }})
     };
 
+    selectEvent = (event, el) => {
+        this.setState({ selectEvent : event._def.extendedProps.session })
+    };
+
     chooseCategory = (name) => {
         this.setState({ category : name })
-    }
+    };
 
     componentDidUpdate() {
         if (this.state.currWeek != this.props.currWeek) {
@@ -57,11 +62,8 @@ export class Mentors extends Component {
     }
 
     render() {
-        var weekDayData = {
-            'Sunday': [], "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": [], 'Saturday': [], 
-        }
 
-        console.log(this.state.currWeek)
+        console.log(this.state.selectEvent)
 
         const tags = {}
 
@@ -94,73 +96,44 @@ export class Mentors extends Component {
             <div style={{marginTop: 20}}>
        
 
-            {
-    this.state.currentMentor.length != 0 ?
-    <div id="calendar_body">
-    <Card className="calendarMentorCard">
-        <CardBody>
-        <p className="mentorLiveEventName"> {this.state.currentMentor["data"]["name"] + `'s Schedule`} </p> 
-
-        <p style={{textDecoration: 'underline', textAlign: 'center'}}> {this.state.currentMentor["data"]["link"]} </p> 
         {
-            this.state.currentMentor["data"]['timeslots'].length == 0 ?
-
-            <p className="text-center"> No times available this week. </p>
-        :
-        <Row>
-            {
-            Object.keys(weekDayData).map((day, idx) => {
-               const times = []
-                
-               this.state.currentMentor["data"]["timeslots"].map((time, id) => { 
-                   time = {"id": id, ...time}
-                   if (time["day"] == idx) { 
-                       return times.push(time) 
-                    }
-                })
-
-                return (
-                    <Col style={{marginTop: 10}} sm={3}>
-                         
-                    <Card className="eventProjectCard">
+            this.state.currentMentor.length != 0 ?
+                <div id="calendar_body">
+                    <Card className="calendarMentorCard">
                         <CardBody>
-                   
-                        <p className="dayOfWeek"> {day} </p>
-                    
-                            <p> {
-                                times.sort(function compare(a, b) {
-                                    return new Date('1970/01/01 ' + a["start"]) - new Date('1970/01/01 ' + b["start"]);
-                                  }).map((time) => {
-                                    if (time) {
-                                        if (Object.keys(time["filled"]) != 0) {
-                                            var pushNames = []
-                                            Object.keys(time["filled"]).map((name) => {
-                                                pushNames.push(time["filled"][name]["name"])
-                                            })
-                                            return (
-                                                <div onClick={() => toast.dark('This spot has been taken!', { transition : Slide, position: 'top-center' })} className="unavailableTime" style={{background: 'repeating-linear-gradient(45deg, #606dbc, #606dbc 10px, #465298 10px,#465298 20px)', boxShadow: '0px 20px 5px 0px rgb(30, 58, 76, .17)', textAlign: 'center', marginBottom: 5}}>
-                                                  <span > {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> <p style={{fontWeight: 'bolder'}}> {pushNames[0]} </p>
-                                                </div>
-                                            )
-                                        }
-                                        return (
-                                            <div className="availableTime">
-                                               <ReserveMentor originalMentors={this.state.originalMentors} updateCurrMentor={this.selectMentor} updateMentor={this.props.updateMentor} timeslot={time} currWeek={this.state.currWeek} mentor={this.state.currentMentor} orgId={this.state.orgId} eventId={this.state.eventId}> <span> {moment(time["start"], 'HH:mm'). format('h:mm A')} - {moment(time["end"], 'HH:mm'). format('h:mm A')}</span> </ReserveMentor>
-                                            </div>
-                                        )
+                            <Row>
+                                <Col sm={4}>
+                                    <ReserveInstructBanner />
+                                    {
+                                        this.state.selectEvent["filled"] ?
+                                            Object.keys(this.state.selectEvent["filled"]).length != 0 ?  
+                                                <FilledBanner filled={this.state.selectEvent["filled"]} />
+                                                : null
+                                        : null
                                     }
-                                })
-                            } </p>
-                        <br></br>
-                            </CardBody>
-                        </Card>
-                    </Col>
-                )
-            })
+                                    <FadeIn delay="300">
+                                        <Card style={{cursor: 'pointer'}}  className="eventProjectCard">
+                                        <div style={{marginTop: 0}}  className="eventProjectGradCard"></div>
+                                        <CardBody>
+                                            <p style={{marginBottom: 0}} className="eventProjectTitle"> {this.state.currentMentor["data"]["name"]} </p>
+                                            <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {this.state.currentMentor["data"]["link"]} </p>
+                                            <a class={"ui image label"}> {this.state.currentMentor["data"]['category']} </a>
+                                            <p style={{fontWeight: 'bold', marginTop: 5}}> {this.state.currentMentor["data"]["section"]} </p>
+                                            <p> {this.state.currentMentor["data"]["descriptions"]} </p>
+                                            </CardBody>
+                                        </Card>
+                                    </FadeIn>
+                                </Col>
+                                <Col>
+                                    <MiniCalendar 
+                                        selectEvent={this.selectEvent}
+                                        session={this.state.currentMentor["data"]} 
+                                        orgId={this.state.orgId} 
+                                        eventId={this.state.eventId} 
+                                    />
 
-        }
-                </Row>
-            }
+                                </Col>
+                            </Row>
                     </CardBody>
                     </Card>
                     <br></br>
@@ -231,12 +204,12 @@ export class Mentors extends Component {
                 {/* <Button className="float-right"> Sort By </Button> */}
                 </div>
                     <tr>
-                        <td className="cellTitle"> NAME </td>
+                        <td className="cellTitle">  </td>
 
-                        <td className="cellTitle"> LOCATION </td>
-                        <td className="cellTitle"> CATEGORY </td>
-                        <td className="cellTitle"> SECTION </td>
-                        <td className="cellTitle"> DESCRIPTION </td>
+                        <td className="cellTitle">  </td>
+                        <td className="cellTitle"> </td>
+                        <td className="cellTitle"> </td>
+                        <td className="cellTitle"> </td>
 
                     </tr>
                 <tbody>

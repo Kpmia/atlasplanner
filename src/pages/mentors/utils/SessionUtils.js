@@ -18,15 +18,10 @@ export const SessionUtils = {
      * Returns an object array of the timeslots with the added attributes
      */
     reformatTimeslots(timeslots) {
-        const restructureDates = {}
+        const restructureDates = []
 
         timeslots.map((timeslot) => {
-            var currWeek = LiveSiteUtils.getStartEndCurrWeek(timeslot["start"])
-            if (restructureDates[currWeek] == undefined) {
-                restructureDates[currWeek] = []
-            }
-
-            restructureDates[currWeek].push({
+            restructureDates.push({
                 "day": timeslot["start"].getDay(),
                 "_id": uuid().toString(),
                 "actual_start": timeslot["start"],

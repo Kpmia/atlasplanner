@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Card } from "@material-ui/core";
 import FadeIn from 'react-fade-in'
 import { CreateSessionReCaptcha } from "../components/recaptcha/SubmitSession";
-import CalendarScheduler from "../components/calendars/CalendarScheduler";
+import CalendarScheduler from "../components/calendars/create-session/CalendarScheduler";
 
 export class CreateSession extends Component {
     state={
@@ -94,28 +94,27 @@ export class CreateSession extends Component {
                                         id='form-input-control-first-name'
                                         control={Input}
                                         value={this.state.sessionBody["name"]}
-                                        label='Full Name'
+                                        label='A'
                                         className="formLabel"                                       
-
                                         required
                                         onChange={(text) => this.handleChange("name", text.target.value) }                    
-                                        placeholder='Full Name'
+                                        placeholder='A'
                                     />
                                     <Form.Field
                                         id='form-input-control-first-name'
                                         control={Input}
                                         value={this.state.sessionBody["link"]}
-                                        label='Location'
+                                        label='B'
                                         onChange={(text) => this.handleChange("link", text.target.value) }                    
-                                        placeholder='Location'
+                                        placeholder='B'
                                     />
                                     <Form.Field
                                         id='form-input-control-first-name'
                                         control={Input}
                                         value={this.state.sessionBody["section"]}
-                                        label='Section'
+                                        label='C'
                                         onChange={(text) => this.handleChange("section", text.target.value) }                    
-                                        placeholder='Section'
+                                        placeholder='C'
                                     />
                             
                                     </Form.Group>
@@ -127,9 +126,9 @@ export class CreateSession extends Component {
                                         control={Input}
                                 
                                         value={this.state.sessionBody["category"]}
-                                        label='Category'
+                                        label='D'
                                         onChange={(text) => this.handleChange("category", text.target.value) }                    
-                                        placeholder='Category'
+                                        placeholder='D'
                                     />
                                     <br></br>
                                 </Form>
@@ -139,8 +138,8 @@ export class CreateSession extends Component {
                                         control={TextArea}
                                         value={this.state.sessionBody["descriptions"]}
                                         onChange={(text) => this.handleChange("descriptions", text.target.value) }                    
-                                        label='Anything more about this session?'
-                                        placeholder='Description'
+                                        label='E'
+                                        placeholder='E'
                                         />
                                     </Form>
                                     </Col>

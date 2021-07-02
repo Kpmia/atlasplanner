@@ -39,6 +39,7 @@ export const AddEventModal = (props) => {
     }
 
     var name = name
+    console.log(name)
     name = LiveSiteUtils.splitSpacesToDashes(name)
 
     const eventBody = {

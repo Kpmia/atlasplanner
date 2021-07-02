@@ -2,20 +2,18 @@ import React, { Component } from "react";
 import { Button, Card, CardBody, Col, Row, Table } from "reactstrap";
 import { Form, Icon, Input, TextArea } from "semantic-ui-react";
 import history from "../../history";
-import AvailableTimes from "react-available-times";
-import moment from "moment"
 import { SessionService } from "../../networking/sessions/SessionService";
-import uuid from "react-uuid";
 import { Slide, toast } from "react-toastify";
 import { CircularProgress } from "@material-ui/core";
 import { ShareSessionModal } from "../components/modals/ShareSessionModal";
+import CalendarScheduler from "../components/calendars/edit-session/CalendarScheduler";
 
 export class EditSession extends Component {
     state = {
         sessions: this.props.sessions,
         chosenSession: [],
         copiedSession: [],
-        chosenTimeslots: [],
+        timeslots: [],
         userExists: true,
         isLoading: true
     }
@@ -63,40 +61,6 @@ export class EditSession extends Component {
         this.setState({ copiedSession :  session })
     };
 
-    getCurrWeek(date) {
-        var firstday = moment(date).startOf('week').toDate()
-        var lastday   = moment(date).endOf('week').toDate();
-    
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
-        ];
-    
-        return monthNames[firstday.getMonth()] + " " + firstday.getDate() + ", " + firstday.getFullYear() +  " - " + monthNames[lastday.getMonth()] + " " + lastday.getDate() + ", " + firstday.getFullYear()  
-    }
-
-    editTimeslot = (times) => {
-        var restructureDates = {}
-
-        times.map((timeslot, idx) => {
-            var currWeek = this.getCurrWeek(timeslot["start"])
-            if (restructureDates[currWeek] == undefined) {
-                restructureDates[currWeek] = []
-            }
-            var times = {
-                "day": timeslot["start"].getDay(),
-                "_id": timeslot["id"],
-                "actual_start": timeslot["start"],
-                "actual_end": timeslot["end"],
-                "start": new Date(timeslot["start"]),
-                "end": new Date(timeslot["end"]),
-                "filled": timeslot["filled"]
-            }
-
-            restructureDates[currWeek].push(times)
-        })
-
-        this.setState({ chosenTimeslots : restructureDates })
-    }
 
     isLoading() {
         setTimeout(() => {
@@ -107,62 +71,24 @@ export class EditSession extends Component {
     
 
     updateUserInfo = () => {
-
-        var adjustTimeslots = {}
-
-
-            Object.keys(this.state.copiedSession["timeslots"]).map((session) => {
-
-                this.state.copiedSession["timeslots"][session].map((sessionTime, id) => {
-
-                    Object.keys(this.state.chosenTimeslots).map((week) => {
-
-                        this.state.chosenTimeslots[week].map((time, idx) => {
-                            if (id <= idx) {
-                                if (adjustTimeslots[week] == undefined) {
-                                    adjustTimeslots[week] = []
-                                }
-                                adjustTimeslots[week][idx] = JSON.parse(JSON.stringify(time))
-                                if (JSON.parse(JSON.stringify(sessionTime["actual_start"])) == JSON.parse(JSON.stringify(time["actual_start"]))) {
-                                    adjustTimeslots[week][idx]["_id"] = sessionTime["_id"]
-                                    console.log(sessionTime["filled"])
-                                    adjustTimeslots[week][idx]["filled"] = sessionTime["filled"]
-                                }
-                                adjustTimeslots[week][idx]["start"] = new Date(JSON.parse(JSON.stringify(time["actual_start"]))).toTimeString()
-                                adjustTimeslots[week][idx]["end"] = new Date(JSON.parse(JSON.stringify(time["actual_end"]))).toTimeString()
-                            }
-                        })
-                    })
-                })
-            })
-
-            Object.keys(adjustTimeslots).map((times) => {
-                adjustTimeslots[times].map((time) => {
-                    if (time["filled"] == undefined) {
-                        time["filled"] = {}
-                    }
-                    if (!time["_id"]) {
-                        time["_id"] = uuid().toString()
-                    }
-                })
-            })
-
-            var sessionData = this.state.copiedSession
-
-            sessionData["timeslots"] = adjustTimeslots
         
-            const session = {
-                "session": sessionData
-            }
+        var sessionData = this.state.copiedSession
+        sessionData["timeslots"] = this.state.timeslots
+    
+        const session = {
+            "session": sessionData
+        }
 
-            SessionService.updateSession(this.state.copiedSession["_orgId"], this.state.copiedSession["_eventId"], this.state.copiedSession["_id"], session).then((session) => {
-                toast.dark('Successfully updated the session', { position: "top-center", transition: Slide })
-                window.scroll({
-                    top: 0,
-                    left: 0,
-                    behavior: "smooth"
-                })
-                this.goBack()
+        console.log(sessionData)
+
+        SessionService.updateSession(this.state.copiedSession["_orgId"], this.state.copiedSession["_eventId"], this.state.copiedSession["_id"], session).then((session) => {
+            toast.dark('Successfully updated the session', { position: "top-center", transition: Slide })
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: "smooth"
+            })
+            this.goBack()
         })
 
     };
@@ -203,6 +129,10 @@ export class EditSession extends Component {
         }
     }
 
+    setTimeslots = (timeslots) => {
+        this.setState({ timeslots : timeslots })
+    };
+
     render() {
 
         if (this.state.isLoading) {
@@ -218,20 +148,6 @@ export class EditSession extends Component {
             </div>
         }
 
-        const reformatTimeslots = []
-
-        if (this.state.chosenTimeslots) {
-            Object.keys(this.state.chosenTimeslots).map((time) => {
-                this.state.chosenTimeslots[time].map((slot, idx) => {
-                    var startObj = new Date(slot["actual_start"])
-                    var endObj = new Date(slot["actual_end"])
-                    slot["start"] = startObj
-                    slot["end"] = endObj
-                    reformatTimeslots.push(slot)
-                })
-            })
-        }
-
         return (
             <div>
                 <row>
@@ -239,6 +155,7 @@ export class EditSession extends Component {
 
                 {
                     this.state.chosenSession.length != 0 ?
+                    
                     <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
                     <CardBody style={{padding: '3.25em'}}>
                         <Button style={{width: '300px'}} className="backBtn" onClick={this.goBack}> <Icon name="caret left" /> Back</Button>
@@ -250,32 +167,35 @@ export class EditSession extends Component {
                     <br></br>
                     <br></br>
 
+                    <Row>
+                        <Col>
+
                           <Form id="basicDetails">
                 <Form.Group widths='equal'>
                 <Form.Field
                     id='form-input-control-first-name'
                     control={Input}
-                    label='Full Name'
+                    label='A'
                     value={this.state.copiedSession["name"]}
                     required
                     onChange={(text) => this.handleSelect("name", text.target.value)}                    
-                    placeholder={this.state.copiedSession["name"]}
+                    placeholder={"A"}
                 />
                    <Form.Field
                     id='form-input-control-first-name'
                     control={Input}
                     value={this.state.copiedSession["link"]}
-                    label='Meeting Link or Physical Location'
+                    label='B'
                     onChange={(text) => this.handleSelect("link", text.target.value)}                    
-                    placeholder='Link'
+                    placeholder={"B"}
                 />
                  <Form.Field
                     id='form-input-control-first-name'
                     control={Input}
-                    label='Section'
+                    label='C'
                     value={this.state.copiedSession["section"]}
                     onChange={(text) => this.handleSelect("section", text.target.value)}                    
-                    placeholder='Section'
+                    placeholder={"C"}
                 />
               
              
@@ -285,10 +205,10 @@ export class EditSession extends Component {
                             <Form.Field
                             id='form-input-control-first-name'
                             control={Input}
-                            label='Category (Batch number)'
+                            label='D'
                             value={this.state.copiedSession["category"]}
                             onChange={(text) => this.handleSelect("category", text.target.value)}                    
-                            placeholder='Category'
+                            placeholder='D'
                         />
                     </Form>
                     <br></br>
@@ -298,30 +218,20 @@ export class EditSession extends Component {
                         control={TextArea}
                         value={this.state.copiedSession["descriptions"]}
                         onChange={(text) => this.handleSelect("descriptions", text.target.value)}                    
-                        label='Anything more about this session?'
-                        placeholder='Description'
+                        label='E'
+                        placeholder='E'
                         />
                     </Form>
-                    <br></br>
-
+                    </Col>
+                        <Col>
+                            <div id="times">
+                                <CalendarScheduler setTimeslots={this.setTimeslots} events={this.state.chosenSession} />
+                            </div>
                             <br></br>
+                            <Button className="float-right nextBtn" onClick={() => this.updateUserInfo()}> Submit </Button>
+                        </Col>
+                    </Row>
 
-                        <div id="times">
-                            <AvailableTimes
-                                id="times"
-                                weekStartsOn="sunday"
-                                calendars={[]}
-                                weekStartsOn={'sunday'}
-                                onChange={(selections) => this.editTimeslot(selections)}         
-                                height={600}
-                                initialSelections={reformatTimeslots}
-                                recurring={false}
-                                availableDays={['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']}
-                                availableHourRange={{ start: 0, end: 24 }}
-                            />
-                        </div>
-                        <br></br>
-                        <Button className="float-right nextBtn" onClick={() => this.updateUserInfo()}> Submit </Button>
                     </div>
                     </CardBody>
                     </Card>

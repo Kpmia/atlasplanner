@@ -76,15 +76,7 @@ export const ReserveMentor = (props) => {
 
         console.log(saveMentor)
 
-        SessionService.updateSession(orgId, eventId, mentor["data"]["_id"], saveMentor).then((sessions) => {
-            if (sessions) {
-                toast.dark('Successfully added to session', {transition: Slide, position: "top-center"})
-
-                updateMentor()
-                updateCurrMentor(mentor["id"], mentor['data'], false)
-                toggle()
-            }
-        })
+       
     }
 
     return (

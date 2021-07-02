@@ -8,6 +8,8 @@ import { CardBody, Col, Row } from "reactstrap";
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import { SessionUtils } from "../utils/SessionUtils";
 import { CalendarBanner } from "../../LiveEvent/components/banners/CalendarBanner";
+import FadeIn from "react-fade-in";
+import { FilledBanner } from "../../LiveEvent/components/banners/FilledBanner";
 
 export class ViewSession extends Component {
     state = {
@@ -43,48 +45,55 @@ export class ViewSession extends Component {
         console.log(this.state.chosenSession)
 
         this.state.sessions.map((session, id) => {
-            Object.keys(session["timeslots"]).map((slot) => {
-                session["timeslots"][slot].map((time) => {
-                    events.push({
-                        title: session["name"],
-                        background: this.state.assignedColor[id],
-                        extraInfo: session["_id"],
-                        extendedProps: { 
-                            session : {
-                                name: session["name"],
-                                descriptions: session["descriptions"],
-                                link: session["link"],
-                                section: session["section"],
-                                filled: time["filled"]
-                            }
-                        },
-                        editable: true,
-                        start: time["actual_start"],
-                        end: time["actual_end"]
-                    })
+            session["timeslots"].map((time) => {
+                events.push({
+                    title: session["name"],
+                    background: this.state.assignedColor[id],
+                    extraInfo: session["_id"],
+                    extendedProps: { 
+                        name: session["name"],
+                        descriptions: session["descriptions"],
+                        link: session["link"],
+                        section: session["section"],
+                        start_time: time["actual_start"],
+                        end_time: time["actual_end"],
+                        filled: time["filled"],
+                        _id: time["_id"]
+                    },
+                    editable: true,
+                    start: time["actual_start"],
+                    end: time["actual_end"]
                 })
             })
         })
 
-        console.log(this.state.chosenSession)
 
         return (
             <div style={{outline: '#ffffff21 solid 40px'}}>
 
                 <CalendarBanner />
                 <Row>
-                    <Col sm={5}>
-                    <Card className="formCard">
-                    <CardBody>
-                        <p> Session Details </p>
+                    <Col sm={4}>
+                        {
+                        this.state.chosenSession["filled"] ?
+                            Object.keys(this.state.chosenSession["filled"]).length != 0 ?  
+                                <FilledBanner filled={this.state.chosenSession["filled"]} />
+                                : null
+                        : null
+                        }
+                        <FadeIn delay="300">
+                            <Card style={{cursor: 'pointer', outline: '#ffffff21 solid 40px'}}  className="eventProjectCard">
+                            <div style={{marginTop: 0}}  className="eventProjectGradCard"></div>
+                                <CardBody>
                             <p style={{marginBottom: 0}} className="eventProjectTitle"> {this.state.chosenSession["name"]} </p>
                             <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {this.state.chosenSession["link"]} </p>
                             <a class={"ui image label"}> {this.state.chosenSession['category']} </a>
                             <p style={{fontWeight: 'bold', marginTop: 5}}> {this.state.chosenSession["section"]} </p>
                             <p> {this.state.chosenSession["descriptions"]} </p>
-                    </CardBody>
-                </Card>
-                    </Col>
+                            </CardBody>
+                                </Card>
+                        </FadeIn>
+                        </Col>
                     <Col>
 
             <Card className="formCard">
@@ -93,7 +102,7 @@ export class ViewSession extends Component {
                     <FullCalendar
                             defaultAllDay={false}
                             allDaySlot={false}
-                            eventClick={(event) => this.setState({ chosenSession : event.event._def.extendedProps.session })}
+                            eventClick={(event) => this.setState({ chosenSession : event.event._def.extendedProps })}
                             contentHeight={700}
                             buttonText={{
                                     today: 'Today',
