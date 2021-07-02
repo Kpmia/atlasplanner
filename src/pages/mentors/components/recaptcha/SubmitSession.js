@@ -116,7 +116,7 @@ export class CreateSessionReCaptcha extends Component {
                     <ReCAPTCHA
                         ref={this.recaptchaRef}
                         size="invisible"
-                        sitekey={"6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
+                        sitekey={"6LcX80MbAAAAAEQ0Q69Jlbg43dqFGAnfedxpBKBs"}
                         onChange={this.submitSession}
                     />
                 </Button>

@@ -885,6 +885,11 @@ html {
   margin-top: 50px;
 }
 
+.table td.fit, 
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}
 
 .poweredByCompany {
   position: absolute;

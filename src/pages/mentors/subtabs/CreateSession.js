@@ -17,6 +17,9 @@ export class CreateSession extends Component {
             section: "",
             descriptions: "",
             category: "",
+            box_a: "",
+            box_b: "",
+            box_c: "",
             key: "",
         },
         eventInfo: this.props.eventInfo,
@@ -94,27 +97,28 @@ export class CreateSession extends Component {
                                         id='form-input-control-first-name'
                                         control={Input}
                                         value={this.state.sessionBody["name"]}
-                                        label='A'
+                                        label='Full Name'
                                         className="formLabel"                                       
+
                                         required
                                         onChange={(text) => this.handleChange("name", text.target.value) }                    
-                                        placeholder='A'
+                                        placeholder='Full Name'
                                     />
                                     <Form.Field
                                         id='form-input-control-first-name'
                                         control={Input}
                                         value={this.state.sessionBody["link"]}
-                                        label='B'
+                                        label='Location'
                                         onChange={(text) => this.handleChange("link", text.target.value) }                    
-                                        placeholder='B'
+                                        placeholder='Location'
                                     />
                                     <Form.Field
                                         id='form-input-control-first-name'
                                         control={Input}
                                         value={this.state.sessionBody["section"]}
-                                        label='C'
+                                        label='Section'
                                         onChange={(text) => this.handleChange("section", text.target.value) }                    
-                                        placeholder='C'
+                                        placeholder='Section'
                                     />
                             
                                     </Form.Group>
@@ -126,22 +130,57 @@ export class CreateSession extends Component {
                                         control={Input}
                                 
                                         value={this.state.sessionBody["category"]}
-                                        label='D'
+                                        label='Category'
                                         onChange={(text) => this.handleChange("category", text.target.value) }                    
-                                        placeholder='D'
+                                        placeholder='Category'
                                     />
                                     <br></br>
                                 </Form>
-                                <Form>
-                                    <Form.Field
-                                        id='form-textarea-control-opinion'
-                                        control={TextArea}
-                                        value={this.state.sessionBody["descriptions"]}
-                                        onChange={(text) => this.handleChange("descriptions", text.target.value) }                    
-                                        label='E'
-                                        placeholder='E'
-                                        />
+                                    <Form>
+                                            <Form.Field
+                                                id='form-textarea-control-opinion'
+                                                control={TextArea}
+                                                value={this.state.sessionBody["descriptions"]}
+                                                onChange={(text) => this.handleChange("descriptions", text.target.value) }                    
+                                                label='Anything more about this session?'
+                                                placeholder='Description'
+                                                />
+                                        </Form>
+
+                                    <hr />
+
+                                    <Row style={{justifyContent: 'center'}}>
+                                    <Form>
+                                        <Form.Field
+                                            id='form-input-control-first-name'
+                                            control={Input} 
+                                            value={this.state.sessionBody["box_a"]}
+                                            label='Box A'
+                                            onChange={(text) => this.handleChange("box_a", text.target.value) }                    
+                                            placeholder='Box A'
+                                            />
                                     </Form>
+                                    <Form>
+                                        <Form.Field
+                                            id='form-input-control-first-name'
+                                            control={Input} 
+                                            value={this.state.sessionBody["box_b"]}
+                                            label='Box B'
+                                            onChange={(text) => this.handleChange("box_b", text.target.value) }                    
+                                            placeholder='Box B'
+                                            />
+                                    </Form>
+                                    <Form>
+                                        <Form.Field
+                                            id='form-input-control-first-name'
+                                            control={Input} 
+                                            value={this.state.sessionBody["box_c"]}
+                                            label='Box C'
+                                            onChange={(text) => this.handleChange("box_c", text.target.value) }                    
+                                            placeholder='Box C'
+                                            />
+                                    </Form>
+                                    </Row>
                                     </Col>
 
                                     <br></br>
@@ -179,7 +218,6 @@ export class CreateSession extends Component {
 
                  
           
-                        <br></br>
                         <br></br>
                     </CardBody>
                 </Card>

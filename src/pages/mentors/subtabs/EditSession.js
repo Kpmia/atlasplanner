@@ -175,27 +175,27 @@ export class EditSession extends Component {
                 <Form.Field
                     id='form-input-control-first-name'
                     control={Input}
-                    label='A'
+                    label='Full Name'
                     value={this.state.copiedSession["name"]}
                     required
                     onChange={(text) => this.handleSelect("name", text.target.value)}                    
-                    placeholder={"A"}
+                    placeholder={this.state.copiedSession["name"]}
                 />
                    <Form.Field
                     id='form-input-control-first-name'
                     control={Input}
                     value={this.state.copiedSession["link"]}
-                    label='B'
+                    label='Location'
                     onChange={(text) => this.handleSelect("link", text.target.value)}                    
-                    placeholder={"B"}
+                    placeholder='Link'
                 />
                  <Form.Field
                     id='form-input-control-first-name'
                     control={Input}
-                    label='C'
+                    label='Section'
                     value={this.state.copiedSession["section"]}
                     onChange={(text) => this.handleSelect("section", text.target.value)}                    
-                    placeholder={"C"}
+                    placeholder='Section'
                 />
               
              
@@ -205,10 +205,10 @@ export class EditSession extends Component {
                             <Form.Field
                             id='form-input-control-first-name'
                             control={Input}
-                            label='D'
+                            label='Category'
                             value={this.state.copiedSession["category"]}
                             onChange={(text) => this.handleSelect("category", text.target.value)}                    
-                            placeholder='D'
+                            placeholder='Category'
                         />
                     </Form>
                     <br></br>
@@ -218,8 +218,8 @@ export class EditSession extends Component {
                         control={TextArea}
                         value={this.state.copiedSession["descriptions"]}
                         onChange={(text) => this.handleSelect("descriptions", text.target.value)}                    
-                        label='E'
-                        placeholder='E'
+                        label='Anything more about this session?'
+                        placeholder='Description'
                         />
                     </Form>
                     </Col>
