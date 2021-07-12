@@ -68,18 +68,13 @@ export class EditSession extends Component {
         }, 1500)
     }
 
-    
-
     updateUserInfo = () => {
-        
         var sessionData = this.state.copiedSession
         sessionData["timeslots"] = this.state.timeslots
     
         const session = {
             "session": sessionData
         }
-
-        console.log(sessionData)
 
         SessionService.updateSession(this.state.copiedSession["_orgId"], this.state.copiedSession["_eventId"], this.state.copiedSession["_id"], session).then((session) => {
             toast.dark('Successfully updated the session', { position: "top-center", transition: Slide })
@@ -90,7 +85,6 @@ export class EditSession extends Component {
             })
             this.goBack()
         })
-
     };
 
     componentDidMount() {
@@ -222,6 +216,41 @@ export class EditSession extends Component {
                         placeholder='Description'
                         />
                     </Form>
+
+                    <hr />
+
+                    <Row style={{justifyContent: 'space-evenly'}}>
+                            <Form>
+                                <Form.Field
+                                    id='form-input-control-first-name'
+                                    control={Input} 
+                                    value={this.state.copiedSession["box_a"]}
+                                    label='Box A'
+                                    onChange={(text) => this.handleSelect("box_a", text.target.value) }                    
+                                    placeholder='Box A'
+                                    />
+                            </Form>
+                            <Form>
+                                <Form.Field
+                                    id='form-input-control-first-name'
+                                    control={Input} 
+                                    value={this.state.copiedSession["box_b"]}
+                                    label='Box B'
+                                    onChange={(text) => this.handleSelect("box_b", text.target.value) }                    
+                                    placeholder='Box B'
+                                    />
+                            </Form>
+                            <Form>
+                                <Form.Field
+                                    id='form-input-control-first-name'
+                                    control={Input} 
+                                    value={this.state.copiedSession["box_c"]}
+                                    label='Box C'
+                                    onChange={(text) => this.handleSelect("box_c", text.target.value) }                    
+                                    placeholder='Box C'
+                                    />
+                            </Form>
+                            </Row>
                     </Col>
                         <Col>
                             <div id="times">

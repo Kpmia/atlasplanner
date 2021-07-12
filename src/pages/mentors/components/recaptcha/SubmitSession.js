@@ -13,7 +13,7 @@ export class CreateSessionReCaptcha extends Component {
     state = {
         sessionData: this.props.sessionData,
         timeslots: this.props.timeslots,
-        sendEmail: false,
+        sendEmail: true,
         email: "",
         sessionId: "",
     }

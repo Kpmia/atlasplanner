@@ -66,6 +66,9 @@ export class CreateSession extends Component {
                 section: "",
                 description: "",
                 category: "",
+                box_a: "",
+                box_b: "",
+                box_c: "",
                 key: "",
             }
         })
@@ -149,7 +152,7 @@ export class CreateSession extends Component {
 
                                     <hr />
 
-                                    <Row style={{justifyContent: 'center'}}>
+                                    <Row style={{justifyContent: 'space-evenly'}}>
                                     <Form>
                                         <Form.Field
                                             id='form-input-control-first-name'

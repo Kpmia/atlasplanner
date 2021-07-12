@@ -63,8 +63,6 @@ export class Mentors extends Component {
 
     render() {
 
-        console.log(this.state.selectEvent)
-
         const tags = {}
 
         const tagOptions = [{key: 'All Categories', value: 'All Categories', text: 'All Categories'}]
@@ -120,6 +118,10 @@ export class Mentors extends Component {
                                             <a class={"ui image label"}> {this.state.currentMentor["data"]['category']} </a>
                                             <p style={{fontWeight: 'bold', marginTop: 5}}> {this.state.currentMentor["data"]["section"]} </p>
                                             <p> {this.state.currentMentor["data"]["descriptions"]} </p>
+                                            <hr />
+                                            <p> {this.state.currentMentor["data"]["box_a"]} </p>
+                                            <p> {this.state.currentMentor["data"]["box_b"]} </p>
+                                            <p> {this.state.currentMentor["data"]["box_c"]} </p>
                                             </CardBody>
                                         </Card>
                                     </FadeIn>
@@ -188,6 +190,10 @@ export class Mentors extends Component {
                                                         </a>
                                                     <p style={{fontWeight: 'bold', marginTop: 5}}> {session["section"]} </p>
                                                     <p> {session["descriptions"]} </p>
+                                                    <hr />
+                                                        <p> {session["box_a"]} </p>
+                                                        <p> {session["box_b"]} </p>
+                                                        <p> {session["box_c"]} </p>
                                                     </CardBody>
                                                 </Card>
                                             </FadeIn>
