@@ -11,6 +11,7 @@ import moment from "moment";
 import uuid from 'react-uuid'
 import { SessionService } from "../../../networking/sessions/SessionService";
 import { Slide, toast } from "react-toastify";
+import { EmailService } from "../../../networking/emails/EmailService";
 
 export class MiniCalendar extends Component {
     state = {
@@ -19,7 +20,7 @@ export class MiniCalendar extends Component {
         modal: false,
         reserveInfo: {
             "name": "",
-            "description": ""
+            "email": ""
         },
         orgId: this.props.orgId,
         eventId: this.props.eventId,
@@ -41,28 +42,53 @@ export class MiniCalendar extends Component {
     handleTextChange = (key, value) => {
         var copyReserveInfo = this.state.reserveInfo
         copyReserveInfo[key] = value
+        console.log(copyReserveInfo)
         this.setState({ reserveInfo : copyReserveInfo })
     };
 
     reserveSession = () => {
+        if (this.state.reserveInfo["name"].length == "") {
+            return toast.dark('Please enter a name');
+        }
+
         var copiedSession = this.state.session
         copiedSession["timeslots"].map((slot, id) => {
             if (slot["_id"] == this.state.event["_id"]) {
                 copiedSession["timeslots"][id]["filled"][uuid()] = {
                     "name": this.state.reserveInfo["name"],
-                    "description": this.state.reserveInfo["description"]
+                    "email": this.state.reserveInfo["email"]
                 }
             }
         })
 
         const sessionBody = { session: copiedSession }
 
+        var timestamp = moment(this.state.event["start_time"]).format("YYYY-MM-DD hh:mm A") + " to " + moment(this.state.event["end_time"]).format("YYYY-MM-DD hh:mm A")
+
+        const sendingEmail = {
+            "name": this.state.reserveInfo["name"],
+            "email": this.state.reserveInfo["email"],
+            "timestamp": timestamp,
+            "session": this.state.session
+        }
+
         SessionService.updateSession(this.state.orgId, this.state.eventId, this.state.session["_id"], sessionBody).then((sessions) => {
             if (sessions) {
                 toast.dark('Successfully added to session', {transition: Slide, position: "top-center"})
+                this.resetSessionInfo()
                 this.toggle()
             }
+            EmailService.sendReserveEmail(sendingEmail)
         })
+    };
+
+    resetSessionInfo = () => {
+        this.setState({ 
+            reserveInfo : {
+                "name": "",
+                "email": ""
+            }
+        });
     };
 
     componentDidUpdate() {
@@ -73,6 +99,7 @@ export class MiniCalendar extends Component {
     };
 
     render() {
+        console.log(this.state.event)
 
         var events = [];
 
@@ -161,10 +188,15 @@ export class MiniCalendar extends Component {
 
                     <br></br>
 
-                    <Label style={{marginBottom: 9}} className="createProjectLabel"> Your Name </Label>
+                    <Label aria-required style={{marginBottom: 9}} className="createProjectLabel">  Name </Label>
                     <br></br>
 
-                    <Input style={{width: '100%'}} onChange={(text) => this.handleTextChange("name", text.target.value) } placeholder="Enter name" />
+                    <Input required style={{width: '100%'}} onChange={(text) => this.handleTextChange("name", text.target.value) } placeholder="Enter name" />
+                    <br></br>
+                    <Label style={{marginBottom: 9}} className="createProjectLabel">  Email </Label>
+                    <br></br>
+
+                    <Input style={{width: '100%'}} onChange={(text) => this.handleTextChange("email", text.target.value) } placeholder="Enter e-mail" />
                     <br></br>
                     <br></br>
                 </ModalBody>

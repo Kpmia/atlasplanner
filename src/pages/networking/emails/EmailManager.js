@@ -17,4 +17,18 @@ export const EmailManager = {
     }
   },
 
+  reserveEmail: async (emailInfo) => {
+    const config = {};
+    try {
+      return await emailAPI.post(
+        '/reserve-email',
+        emailInfo,
+        config
+      )
+    } catch (error) {
+      console.log(error)
+      return null;
+    }
+  },
+
 }

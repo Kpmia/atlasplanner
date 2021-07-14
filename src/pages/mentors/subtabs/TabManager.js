@@ -23,21 +23,21 @@ export const TabManager = {
 
     getTabNames() {
         return [{
-            "name": "Add",
+            "name": "Add Availability",
             "route": "create-session",
             "icon": "plus square outline"
         }, {
-            "name": "Delete",
-            "route": "delete-session",
-            "icon": "trash alternate outline"
-        }, {
-            "name": "Edit",
+            "name": "Edit Availability",
             "route": "edit-session",
             "icon": "pencil alternate"
         }, {
-            "name": "View All",
+            "name": "View All Mentor Availabilites",
             "route": "view-session",
-            "icon": "list ul"
+            "icon": "calendar"
+        },{
+            "name": "Delete",
+            "route": "delete-session",
+            "icon": "trash alternate outline"
         },]
     }
 

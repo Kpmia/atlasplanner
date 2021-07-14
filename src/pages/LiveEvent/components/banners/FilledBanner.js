@@ -23,7 +23,10 @@ export const FilledBanner = ({
                         {
                             Object.keys(filled).map((time) => {
                                 return (
-                                    <p className="instructionSubTitle"> {filled[time]["name"]} </p>
+                                    <div>
+                                        <p style={{marginBottom: 0}} className="instructionSubTitle"> {filled[time]["name"]} </p>
+                                        <p className="instructionSubTitle"> {filled[time]["email"]} </p>
+                                    </div>
                                 )
                             })
                         }

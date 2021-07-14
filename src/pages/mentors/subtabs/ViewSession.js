@@ -86,7 +86,7 @@ export class ViewSession extends Component {
                             <div style={{marginTop: 0}}  className="eventProjectGradCard"></div>
                                 <CardBody>
                             <p style={{marginBottom: 0}} className="eventProjectTitle"> {this.state.chosenSession["name"]} </p>
-                            <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {this.state.chosenSession["link"]} </p>
+                            <p onClick={() => window.open(this.state.chosenSession["link"])} style={{textDecoration: 'underline', opacity: 0.9, fontSize: '13px'}}> {this.state.chosenSession["link"]} </p>
                             <a class={"ui image label"}> {this.state.chosenSession['category']} </a>
                             <p style={{fontWeight: 'bold', marginTop: 5}}> {this.state.chosenSession["section"]} </p>
                             <p> {this.state.chosenSession["descriptions"]} </p>

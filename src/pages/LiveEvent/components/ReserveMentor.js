@@ -27,10 +27,7 @@ export const ReserveMentor = (props) => {
     const [modal, setModal] = useState(false);
     const [timeslott, setSlot] = useState(timeslot);
     const [projectName, setName] = useState("");
-    const [idx, setIdx] = useState(0);
-    const [description, setDesc] = useState("");
-
-    console.log(currWeek)
+    const [email, setEmail] = useState("");
   
     const toggle = () => setModal(!modal);
 
@@ -40,14 +37,7 @@ export const ReserveMentor = (props) => {
 
     }, [timeslot])
 
-    const handleClick = (i) => {
-      setIdx(i)
-    }
-
     const reserveMentor = async(name) => {
-
-        console.log(mentor)
-        console.log(originalMentors)
 
         if (projectName == "") {
             return toast.dark('Please enter a name', {transition: Slide})
@@ -55,28 +45,15 @@ export const ReserveMentor = (props) => {
         
         const id = uuid();
 
-        console.log(mentor["data"])
-
-        mentor["data"]["timeslots"][timeslot["id"]]["filled"][id] = {"name": projectName, "description": description}
-
-        console.log(mentor["data"])
+        mentor["data"]["timeslots"][timeslot["id"]]["filled"][id] = {"name": projectName, "email": email }
 
         var saveMentor = {}
         originalMentors.map((orgMentor, idx) => {
-          console.log(originalMentors)
-          console.log(mentor["_id"] == orgMentor["_id"])
-          console.log(mentor["data"]["_id"])
-          console.log(orgMentor["_id"])
           if (mentor["data"]["_id"] == orgMentor["_id"]) {
-            console.log("matces")
             originalMentors[idx]["timeslots"][currWeek] = mentor["data"]["timeslots"]
             saveMentor['session'] = orgMentor
           }
-        })
-
-        console.log(saveMentor)
-
-       
+        })       
     }
 
     return (
@@ -92,36 +69,12 @@ export const ReserveMentor = (props) => {
           <Input style={{width: '100%'}} onChange={(text) => setName(text.target.value)} placeholder="Enter name" />
           <br></br>
           <br></br>
-          {/* <br></br>
+          <br></br>
           <Form>
-          <TextArea style={{width: '100%'}} onChange={(text) => setDesc(text.target.value)} placeholder="What are we talking about? (optional)" />
-          </Form> */}
+          <TextArea style={{width: '100%'}} onChange={(text) => setEmail(text.target.value)} placeholder="Please add your email" />
+          </Form>
           <br></br>
           <br></br>
-          {/* <p> Participants </p>
-          <Accordion styled>
-           
-          {
-              Object.keys(timeslot["filled"]).map((time, i) => {
-                console.log(time)
-                  return <span>
-                  <Accordion.Title
-                      active={i === idx}
-                      index={i}
-                      onClick={() => handleClick(i)}>
-                          <Icon name="user" style={{marginRight: 15}} />
-                          {timeslot["filled"][time]["name"]}
-                    </Accordion.Title>
-                    <Accordion.Content active={i === idx}>
-                      <p>
-                      {timeslot["filled"][time]["description"]}
-                      </p>
-                    </Accordion.Content>
-                </span>
-              })
-          }
-
-          </Accordion> */}
            
           </ModalBody>
           <ModalFooter style={{borderTop: 'none'}}>

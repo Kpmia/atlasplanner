@@ -225,9 +225,9 @@ export class EditSession extends Component {
                                     id='form-input-control-first-name'
                                     control={Input} 
                                     value={this.state.copiedSession["box_a"]}
-                                    label='Box A'
+                                    label='Linkedin Profile Link'
                                     onChange={(text) => this.handleSelect("box_a", text.target.value) }                    
-                                    placeholder='Box A'
+                                    placeholder='Link'
                                     />
                             </Form>
                             <Form>
@@ -235,9 +235,9 @@ export class EditSession extends Component {
                                     id='form-input-control-first-name'
                                     control={Input} 
                                     value={this.state.copiedSession["box_b"]}
-                                    label='Box B'
+                                    label='Industries/Markets'
                                     onChange={(text) => this.handleSelect("box_b", text.target.value) }                    
-                                    placeholder='Box B'
+                                    placeholder='Markets you may specialize in'
                                     />
                             </Form>
                             <Form>
@@ -245,9 +245,9 @@ export class EditSession extends Component {
                                     id='form-input-control-first-name'
                                     control={Input} 
                                     value={this.state.copiedSession["box_c"]}
-                                    label='Box C'
+                                    label='Skills to assist founders'
                                     onChange={(text) => this.handleSelect("box_c", text.target.value) }                    
-                                    placeholder='Box C'
+                                    placeholder='Skills'
                                     />
                             </Form>
                             </Row>

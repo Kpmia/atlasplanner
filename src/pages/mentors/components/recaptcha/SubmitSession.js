@@ -26,6 +26,7 @@ export class CreateSessionReCaptcha extends Component {
     createSession = async(key) => {
         var session = this.state.sessionData;
         session["timeslots"] = SessionUtils.reformatTimeslots(this.state.timeslots);
+        session["email"] = this.state.email
 
        await SessionService.createSession(this.orgId, this.eventId, session).then((session) => {
             if (session) {

@@ -114,7 +114,8 @@ export class Mentors extends Component {
                                         <div style={{marginTop: 0}}  className="eventProjectGradCard"></div>
                                         <CardBody>
                                             <p style={{marginBottom: 0}} className="eventProjectTitle"> {this.state.currentMentor["data"]["name"]} </p>
-                                            <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {this.state.currentMentor["data"]["link"]} </p>
+                                            <p style={{marginBottom: 0}}> {this.state.currentMentor["data"]["email"]}</p> 
+                                            <p  style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {this.state.currentMentor["data"]["link"]} </p>
                                             <a class={"ui image label"}> {this.state.currentMentor["data"]['category']} </a>
                                             <p style={{fontWeight: 'bold', marginTop: 5}}> {this.state.currentMentor["data"]["section"]} </p>
                                             <p> {this.state.currentMentor["data"]["descriptions"]} </p>
@@ -183,6 +184,7 @@ export class Mentors extends Component {
                                                 <div style={{marginTop: 0}}  className="eventProjectGradCard"></div>
                                                     <CardBody>
                                                     <p style={{marginBottom: 0}} className="eventProjectTitle"> {session["name"]} </p>
+                                                    <p  style={{marginBottom: 0}}> {session["email"]} </p>
                                                     <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {session["link"]} </p>
                                                     <a class={"ui " + tags[session['category']] + " image label"}>
                                                     {session['category']}
