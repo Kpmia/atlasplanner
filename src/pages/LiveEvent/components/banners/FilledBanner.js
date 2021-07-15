@@ -8,6 +8,8 @@ export const FilledBanner = ({
     ...restProps
 }) => {
     const [open, isOpen] = useState(true);
+    
+    console.log(filled)
 
     const closeBanner = () => { isOpen(false) }
 

@@ -16,6 +16,19 @@ export const SessionManager = {
     }
   },
 
+  getSession: async (orgId, eventId, sessionId) => {
+    const config = {};
+    try {
+      return await atlasAPI.get(
+        '/sessions/' + orgId  + '/' + eventId + '/' + sessionId,
+        config
+      )
+    } catch (error) {
+      console.log(error)
+      return null;
+    }
+  },
+
   createSession: async (userToken, orgId, eventId, session) => {
     const config = {};
     try {

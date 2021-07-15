@@ -129,6 +129,8 @@ export class EditSession extends Component {
 
     render() {
 
+        console.log(this.state.chosenSession)
+
         if (this.state.isLoading) {
             return <div>
                 <br></br>

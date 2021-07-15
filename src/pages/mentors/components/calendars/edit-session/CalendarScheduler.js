@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -38,6 +38,14 @@ const CalendarScheduler = ({events, setTimeslots, ...restProps}) => {
     })
     const [event, setEvent] = useState(reformatEvents(events));
     const calendarAPI = React.useRef(null);
+
+    useEffect(() => {
+
+      if (events != event) {
+        setEvent(reformatEvents(events))
+      }
+
+    }, [events])
 
     const handleDateSelect = (selectInfo) => {
       let calendarApi = selectInfo.view.calendar

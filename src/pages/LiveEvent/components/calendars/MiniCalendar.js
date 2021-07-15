@@ -42,7 +42,6 @@ export class MiniCalendar extends Component {
     handleTextChange = (key, value) => {
         var copyReserveInfo = this.state.reserveInfo
         copyReserveInfo[key] = value
-        console.log(copyReserveInfo)
         this.setState({ reserveInfo : copyReserveInfo })
     };
 
@@ -52,9 +51,10 @@ export class MiniCalendar extends Component {
         }
 
         var copiedSession = this.state.session
+        var createId = {"id" : uuid()}
         copiedSession["timeslots"].map((slot, id) => {
             if (slot["_id"] == this.state.event["_id"]) {
-                copiedSession["timeslots"][id]["filled"][uuid()] = {
+                copiedSession["timeslots"][id]["filled"][createId.id] = {
                     "name": this.state.reserveInfo["name"],
                     "email": this.state.reserveInfo["email"]
                 }
@@ -64,10 +64,12 @@ export class MiniCalendar extends Component {
         const sessionBody = { session: copiedSession }
 
         var timestamp = moment(this.state.event["start_time"]).format("YYYY-MM-DD hh:mm A") + " to " + moment(this.state.event["end_time"]).format("YYYY-MM-DD hh:mm A")
+        let cancelLink = `${window.location.origin}/delete-booking/${this.state.orgId}/${this.state.eventId}/${this.state.session["_id"]}?id=${createId.id}`
 
         const sendingEmail = {
             "name": this.state.reserveInfo["name"],
             "email": this.state.reserveInfo["email"],
+            "cancel": cancelLink,
             "timestamp": timestamp,
             "session": this.state.session
         }

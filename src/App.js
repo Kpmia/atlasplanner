@@ -13,6 +13,7 @@ import { db } from './pages/firebase';
 import { EventService } from './pages/networking/events/EventService';
 import { LoadingPage } from './pages/LoadingPage';
 import history from './pages/history'
+import DeleteBooking from './pages/bookings/pages/DeleteBooking';
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
@@ -103,6 +104,12 @@ class App extends React.Component {
           exact
           path='/editsession/:orgId/:eventId'
           component={MentorForm}
+        />
+
+        <Route
+          exact
+          path='/delete-booking/:orgId/:eventId/:sessionId'
+          component={DeleteBooking}
         />
 
           </Switch>

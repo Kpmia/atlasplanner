@@ -100,6 +100,7 @@ class LiveEventPage extends React.Component {
         })
 
         this.socket.on('UPDATED_SESSION', (data) => {
+            console.log(data)
             var dataMentors = this.state.mentors
             var jsonBody = {}
             dataMentors.map((mentor) => {

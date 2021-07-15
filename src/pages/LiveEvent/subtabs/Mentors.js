@@ -41,9 +41,6 @@ export class Mentors extends Component {
     };
 
     componentDidUpdate() {
-        if (this.state.currWeek != this.props.currWeek) {
-            this.setState({ currWeek : this.props.currWeek })
-        }
 
         if (this.props.originalMentors != this.state.originalMentors) {
             this.setState({ originalMentors : this.props.originalMentors })
@@ -62,6 +59,8 @@ export class Mentors extends Component {
     }
 
     render() {
+
+        console.log(this.state.selectEvent)
 
         const tags = {}
 

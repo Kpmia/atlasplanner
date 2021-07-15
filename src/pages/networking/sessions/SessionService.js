@@ -24,6 +24,23 @@ export const SessionService = {
         }
     },
 
+    getSession: async(orgId, eventId, sessionId) => {
+        try {
+            return new Promise((resolve, reject) => {
+                SessionManager.getSession(orgId, eventId, sessionId).then((exp) => {
+                    if (exp != null && exp) {
+                        resolve(exp["data"]);
+                    } else {
+                        resolve(null);
+                    }
+                }, reject);
+            })
+        } catch (err) {
+            console.log('Cannot grab a session')
+            return null;
+        }
+    },
+
     createSession: async(orgId, eventId, session) => {
         const userToken = await EventService.getUserToken()
         try {

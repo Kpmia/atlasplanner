@@ -96,6 +96,7 @@ class MentorForm extends React.Component {
         })
 
         this.socket.on('UPDATED_SESSION', (data) => {
+            console.log(data)
             var dataMentors = this.state.sessions
             var jsonBody = {}
             dataMentors.map((mentor) => {
