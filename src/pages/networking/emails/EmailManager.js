@@ -17,6 +17,20 @@ export const EmailManager = {
     }
   },
 
+  cancelEmail: async (emailBody) => {
+    const config = {};
+    try {
+      return await emailAPI.post(
+        '/cancel-email',
+        emailBody,
+        config
+      )
+    } catch (error) {
+      console.log(error)
+      return null;
+    }
+  },
+
   reserveEmail: async (emailInfo) => {
     const config = {};
     try {

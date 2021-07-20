@@ -4,6 +4,8 @@ import { SessionService } from "../../networking/sessions/SessionService";
 import { BookingService } from '../../networking/bookings/BookingService'
 import { LoadingPage } from "../../LoadingPage";
 import { toast, ToastContainer } from "react-toastify";
+import moment from "moment"
+import { EmailService } from "../../networking/emails/EmailService";
 
 class DeleteBooking extends React.Component {
     constructor(props) {
@@ -14,6 +16,7 @@ class DeleteBooking extends React.Component {
         this.bookingId = new URLSearchParams(window.location.search).get('id')
         this.state ={
             booking: "",
+            select_timestamp: [],
             session: "",
             isLoading: true,
             success: false,
@@ -36,6 +39,7 @@ class DeleteBooking extends React.Component {
     getBooking = async(session, id) => {
         const isBooked = session["timeslots"].some((slot) => {
             if (slot["filled"][id]) {
+                this.setState({ select_timestamp : slot })
                 this.setState({ booking : slot["filled"][id] })
                 return true;
             }
@@ -49,10 +53,22 @@ class DeleteBooking extends React.Component {
         this.setState({ isLoading : false })
     };
 
+
     deleteBooking = () => {
+
+        var reformat_timestamp = `${moment(this.state.select_timestamp.actual_start).format("MM-DD-YYYY hh:mm a")} to ${moment(this.state.select_timestamp.actual_end).format("MM-DD-YYYY hh:mm a")}`
+
+        const sendingEmail = {
+            "name": this.state.booking["name"],
+            "email": this.state.booking["email"],
+            "timestamp": reformat_timestamp,
+            "session": this.state.session
+        }
+
         return BookingService.deleteBooking(this.orgId, this.eventId, this.sessionId, this.bookingId).then((resp) => {
             if (resp) {
                 toast.dark('Successfully cancelled the reservation.')
+                EmailService.sendCancelEmail(sendingEmail);
                 this.setState({ success : true })
             }
         })
@@ -78,6 +94,9 @@ class DeleteBooking extends React.Component {
             return "Page not found"
         }
 
+        var reformat_timestamp = `${moment(this.state.select_timestamp.actual_start).format("MM-DD-YYYY hh:mm a")} to ${moment(this.state.select_timestamp.actual_end).format("MM-DD-YYYY hh:mm a")}`
+        console.log(reformat_timestamp)
+
         return (
             <div>
 
@@ -87,13 +106,13 @@ class DeleteBooking extends React.Component {
                 {
                     this.state.success ? 
                     <div style={{height: '200px', width: '400px'}}>
-                        <p style={{width: '300px', }} className="delete-booking-card"> You have successfully cancelled your reservation! Changes have now been made live. We hope to see you soon again! </p>
+                        <p style={{width: '300px', }} className="delete-booking-card"> You have successfully cancelled your reservation! The owner should receive a notification of your cancellation. We hope to see you soon again! </p>
                     </div>
 
                     :
                     <div>
                         <p style={{textAlign: 'center', fontWeight: 500}}> Cancel a reservation </p>
-                        <p> Hi {this.state.booking.name}, looks like you are deleting a reservation with {this.state.session.name} that was supposed to be at: {this.state.session.link.length != "" ? this.state.session.link.length : `owner did not set a location`}.  </p>
+                        <p> Hi {this.state.booking.name}, looks like you are deleting a reservation with {this.state.session.name} that was supposed to be at: {this.state.session.link.length != "" ? this.state.session.link : `owner did not set a location`}.  </p>
                         <p> Are you positive you want to cancel this reservation? You cannot undo this action.  </p>
 
                         <Button style={{width: '130px'}} className="float-right backBtn" onClick={() => this.deleteBooking()}> Yes, cancel </Button>

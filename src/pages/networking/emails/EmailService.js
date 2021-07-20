@@ -24,6 +24,26 @@ export const EmailService = {
         }
     },
 
+    sendCancelEmail: async(emailBody) => {
+        try {
+            return new Promise((resolve, reject) => {
+                EmailManager.cancelEmail(emailBody).then((exp) => {
+                    if (exp != null && exp) {
+                        if (exp) {
+                            console.log(exp)
+                            resolve(exp["data"]);
+                        } else {
+                            resolve(null);
+                        }
+                    }
+                }, reject);
+            })
+        } catch (err) {
+            console.log('Cannot send cancellation email.')
+            return null;
+        }
+    },
+
     sendReserveEmail: async(emailInfo) => {
         try {
             return new Promise((resolve, reject) => {
@@ -39,7 +59,7 @@ export const EmailService = {
                 }, reject);
             })
         } catch (err) {
-            console.log('Cannot send confirmation email.')
+            console.log('Cannot send reservation email.')
             return null;
         }
     }
