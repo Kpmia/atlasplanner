@@ -10,10 +10,8 @@ export const TabManager = {
         switch (name) {
             case "create-session":
                 return <CreateSession eventInfo={eventInfo} orgId={orgId} eventId={eventId} sessions={sessions} />
-            case "delete-session":
-                return <DeleteSession  orgId={orgId} eventId={eventId} getSessions={getSessions} sessions={sessions} />
             case "edit-session":
-                return <EditSession  orgId={orgId} eventId={eventId} getSessions={getSessions} sessions={sessions} />
+                return <EditSession orgId={orgId} eventId={eventId} getSessions={getSessions} sessions={sessions} />
             case "view-session":
                 return <ViewSession  orgId={orgId} eventId={eventId} sessions={sessions} />
             default:
@@ -34,11 +32,7 @@ export const TabManager = {
             "name": "View All Mentor Availabilites",
             "route": "view-session",
             "icon": "calendar"
-        },{
-            "name": "Delete",
-            "route": "delete-session",
-            "icon": "trash alternate outline"
-        },]
+        }]
     }
 
 }

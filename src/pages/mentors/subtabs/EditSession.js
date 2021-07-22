@@ -7,6 +7,7 @@ import { Slide, toast } from "react-toastify";
 import { CircularProgress } from "@material-ui/core";
 import { ShareSessionModal } from "../components/modals/ShareSessionModal";
 import CalendarScheduler from "../components/calendars/edit-session/CalendarScheduler";
+import { DeleteSessionModal } from "../components/modals/DeleteSessionModal";
 
 export class EditSession extends Component {
     state = {
@@ -128,8 +129,6 @@ export class EditSession extends Component {
     };
 
     render() {
-
-        console.log(this.state.chosenSession)
 
         if (this.state.isLoading) {
             return <div>
@@ -259,7 +258,9 @@ export class EditSession extends Component {
                                 <CalendarScheduler setTimeslots={this.setTimeslots} events={this.state.chosenSession} />
                             </div>
                             <br></br>
-                            <Button className="float-right nextBtn" onClick={() => this.updateUserInfo()}> Submit </Button>
+                            <Button  style={{marginLeft: '10px'}} className="float-right nextBtn delete-session-btn" onClick={() => this.updateUserInfo()}>
+                                <Icon name="save" /> Save </Button>
+                            <DeleteSessionModal chooseSession={this.chooseSession} session={this.state.chosenSession}> <Button className="float-right delete-session-btn"> <Icon name="trash"/> Delete </Button>  </DeleteSessionModal>
                         </Col>
                     </Row>
 
