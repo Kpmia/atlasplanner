@@ -25,6 +25,25 @@ export const EventService = {
         }
     },
 
+    eventExists: async(orgId, eventId) => {
+        try {
+            return new Promise((resolve, reject) => {
+                EventManager.eventExists(orgId, eventId).then((exp) => {
+                    if (exp != null && exp) {
+                        if (exp) {
+                            resolve(exp["data"]);
+                        } else {
+                            resolve(null);
+                        }
+                    }
+                }, reject);
+            })
+        } catch (err) {
+            console.log('Cannot event exists -')
+            return null;
+        }
+    },
+
     createEvent: async(orgId, name) => {
         const userToken = await EventService.getUserToken()
         try {

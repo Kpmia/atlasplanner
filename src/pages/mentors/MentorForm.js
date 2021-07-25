@@ -75,19 +75,6 @@ class MentorForm extends React.Component {
             this.socket.emit("edit-sessions-users", this.props.match.params.orgId + "-" + this.props.match.params.eventId + '-user-edit-sessions');
         })
 
-        this.socket.on('num_user_editing', (data) => {
-            var animals = []
-            for (var i = 0; i < data; i++) {
-                if (i == 3) {
-                    animals.push(<div style={{borderRadius: '100%', padding: 5, border: '1px solid white', width: 32, fontWeight: 'bold', height: 32, background: '#222', color: 'white'}}> 3+ </div>)
-                    break;
-                } else {
-                  animals.push(<Popup content="Anonymous User" position="bottom center" on="hover" trigger={<a style={{marginRight: 5}}><Animal  style={{borderRadius: '100%'}} rounded /></a>}/>)
-                }
-            }
-            this.setState({ numPeople : animals })
-        })
-
         this.socket.on('ADDED_SESSION', (data) => {
             var dataMentors = this.state.sessions
             dataMentors.push(data)
@@ -138,7 +125,6 @@ class MentorForm extends React.Component {
                 <Header 
                     orgId={this.props.match.params.orgId} 
                     eventId={this.props.match.params.eventId} 
-                    numPeople={this.state.numPeople} 
                 />
 
             <div style={{paddingTop: 131, zIndex:999, position: 'relative'}} className="eventPageBody">          

@@ -14,6 +14,8 @@ import { EventService } from './pages/networking/events/EventService';
 import { LoadingPage } from './pages/LoadingPage';
 import history from './pages/history'
 import DeleteBooking from './pages/bookings/pages/DeleteBooking';
+import CreateSession from './pages/session/create-session/pages/CreateSession';
+import EditSession from './pages/session/edit-session/pages/EditSession';
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
@@ -102,8 +104,20 @@ class App extends React.Component {
 
       <Route
           exact
-          path='/editsession/:orgId/:eventId'
+          path='/all-sessions/:orgId/:eventId'
           component={MentorForm}
+        />
+
+        <Route
+          exact
+          path='/edit-session/:orgId/:eventId/:sessionId'
+          component={EditSession}
+        />
+
+        <Route
+          exact
+          path='/create-session/:orgId/:eventId'
+          component={CreateSession}
         />
 
         <Route

@@ -108,8 +108,8 @@ class AllEventsPage extends React.Component {
                                     <Card  className="eventProjectCard">
                                     <OptionsDropdown updateEvents={this.getEvents} orgId={this.props.match.params.orgId} eventId={event["name"]} />
 
-                                    <div  onClick={() => window.location.href = `/editsession/${this.orgId}/${event["name"]}?tab-name=create-session`} style={{background: event['color'], marginTop: -30}}  className="eventProjectGradCard"></div>
-                                        <CardBody  onClick={() => window.location.href = `/editsession/${this.orgId}/${event["name"]}?tab-name=create-session`} style={{cursor: 'pointer'}}>
+                                    <div  onClick={() => window.location.href = `/all-sessions/${this.orgId}/${event["name"]}?tab-name=create-session`} style={{background: event['color'], marginTop: -30}}  className="eventProjectGradCard"></div>
+                                        <CardBody  onClick={() => window.location.href = `/all-sessions/${this.orgId}/${event["name"]}?tab-name=create-session`} style={{cursor: 'pointer'}}>
                                             <p className="eventProjectTitle"> {event["name"]} </p>
                                             <p className="eventDescription"> {event["description"]} </p>
 

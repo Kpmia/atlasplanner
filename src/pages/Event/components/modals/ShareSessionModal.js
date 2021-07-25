@@ -63,8 +63,8 @@ export const ShareSessionModal = (props) => {
         <ModalBody>
         <Label style={{marginBottom: 9}} className="createProjectLabel">  <Icon name="attach"   /> Get link </Label>
         <div className="getLinkShare" style={{padding: 8, borderRadius: 7}}> 
-            <p  style={{fontSize: '.875rem', wordBreak: 'break-word'}}> {window.location.origin + '/editsession/' + orgId + '/' + eventId }
-            <Tooltip title="Copy link" placement="top"><Icon style={{color: 'gray', marginLeft: 6, cursor: 'pointer'}} name="clipboard" onClick={() => {navigator.clipboard.writeText(window.location.origin + '/editsession/' + orgId + '/' + eventId)}} /></Tooltip></p>
+            <p  style={{fontSize: '.875rem', wordBreak: 'break-word'}}> {window.location.origin + '/all-sessions/' + orgId + '/' + eventId }
+            <Tooltip title="Copy link" placement="top"><Icon style={{color: 'gray', marginLeft: 6, cursor: 'pointer'}} name="clipboard" onClick={() => {navigator.clipboard.writeText(window.location.origin + '/all-sessions/' + orgId + '/' + eventId)}} /></Tooltip></p>
         </div>
         <br></br>
         {

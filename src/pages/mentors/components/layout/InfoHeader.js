@@ -10,13 +10,6 @@ export class Header extends Component {
     state = {
         orgId: this.props.orgId,
         eventId: this.props.eventId,
-        numPeople: this.props.numPeople
-    }
-
-    componentDidUpdate() {
-        if (this.state.numPeople != this.props.numPeople) {
-            this.setState({ numPeople : this.props.numPeople })
-        }
     }
 
     render() {

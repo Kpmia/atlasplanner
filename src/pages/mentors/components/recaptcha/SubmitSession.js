@@ -52,7 +52,7 @@ export class CreateSessionReCaptcha extends Component {
             "name": this.state.sessionData["name"],
             "link": this.state.sessionData["link"],
             "timeslots": stringifyTimeslots,
-            "editURL": `${window.location.origin}/editsession/${this.orgId}/${this.eventId}?tab-name=edit-session&user=${this.state.sessionId}`,
+            "editURL": `${window.location.origin}/edit-session/${this.orgId}/${this.eventId}/${this.state.sessionId}`,
             "key": key
         }
 

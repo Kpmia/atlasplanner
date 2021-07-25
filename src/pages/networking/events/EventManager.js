@@ -20,6 +20,19 @@ export const EventManager = {
     }
   },
 
+  eventExists: async (orgId, eventId) => {
+    const config = {}
+    try {
+      return await atlasAPI.get(
+        `/event-exists/${orgId}/${eventId}`,
+        config
+      )
+    } catch (error) {
+      console.log(error)
+      return null;
+    }
+  },
+
   getEvent: async (userToken, orgId, eventId) => {
     const config = {
       headers: {

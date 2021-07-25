@@ -24,6 +24,23 @@ export const SessionService = {
         }
     },
 
+    sessionExists: async(orgId, eventId, sessionId) => {
+        try {
+            return new Promise((resolve, reject) => {
+                SessionManager.sessionExists(orgId, eventId, sessionId).then((exp) => {
+                    if (exp != null && exp) {
+                        resolve(exp["data"]);
+                    } else {
+                        resolve(null);
+                    }
+                }, reject);
+            })
+        } catch (err) {
+            console.log('Cannot check if session exists')
+            return null;
+        }
+    },
+
     getSession: async(orgId, eventId, sessionId) => {
         try {
             return new Promise((resolve, reject) => {

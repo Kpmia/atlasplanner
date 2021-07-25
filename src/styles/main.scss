@@ -1281,6 +1281,43 @@ color: #FFFFFF;
 }
 
 
+.create-session-back-btn {
+  height: 37px;
+  width: 152px;
+
+  border: 1px solid #000000!important;
+  background: none!important;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: 600!important;
+  font-size: 14px;
+  line-height: 154.84%;
+  /* identical to box height, or 22px */
+
+  text-align: center;
+
+  color: #000000!important;
+  border-radius: 4px!important;
+}
+
+.create-session-back-btn:hover {
+  height: 37px;
+  width: 152px;
+
+  border: 1px solid #000000!important;
+  background: black!important;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: 600!important;
+  font-size: 14px;
+  line-height: 154.84%;
+  /* identical to box height, or 22px */
+
+  text-align: center;
+
+  color: white!important;
+  border-radius: 4px!important;
+}
 
 .ui.input {
   background: #FFFFFF;
@@ -1318,6 +1355,182 @@ color: #FFFFFF;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);  
+}
+
+.create-session-intro-text {
+  font-style: normal;
+  font-weight: 500;
+  font-family: Helvetica!important;
+  font-size: 14px;
+  line-height: 143.34%;
+  width: 397px;
+
+  /* or 20px */
+  
+  text-align: center;
+  
+  color: #000000;
+  
+}
+
+.create-session-input {
+  border: none!important;
+
+  background: #F6F6F7!important;
+  border-radius: 4px!important;
+  width: 393px!important;
+  height: 40px;
+  font-style: normal;
+  font-weight: 500!important;
+  font-size: 14px!important;
+  line-height: 17px;
+  font-family: Helvetica!important;
+  color: #3E3D3D!important;
+}
+
+.create-session-mini-cards {
+  width: 159px!important;
+  height: 160px!important;
+  cursor: pointer;
+
+  box-sizing: border-box!important;
+  border-radius: 5px!important;
+  transition: all .6s ease-in;
+  margin-right: 10px!important;
+  background: none!important;
+}
+
+.create-session-mini-cards:hover {
+  width: 159px!important;
+  height: 160px!important;
+  transition: all .6s ease-in;
+  cursor: pointer;
+
+  border: 1px solid #000000!important;
+  box-sizing: border-box!important;
+  border-radius: 5px!important;
+  margin-right: 10px!important;
+  background: none!important;
+}
+
+
+
+.create-session-mini-card-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 143.3%;
+  text-align: center!important;
+  /* identical to box height, or 20px */
+  
+  text-align: center;
+  
+  color: #5B5B5B;
+}
+
+.lets-get-started {
+  width: 389px!important;
+  height: 50px!important;
+
+  background: #222222!important;
+  border-radius: 5px!important;
+  font-style: normal;
+  font-weight: bold!important;
+  font-size: 14px!important;
+  line-height: 17px;
+  /* identical to box height */
+
+  letter-spacing: 0.015em;
+
+  color: #FFFFFF;
+}
+
+.finished-title {
+  background: linear-gradient(90.92deg, #E361F9 27.39%, #6A59FF 67.79%);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.finished-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  font-family: Helvetica!important;
+  line-height: 20px;
+  text-align: center;
+  
+  color: #000000;
+}
+
+.create-session-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  line-height: 26px;
+
+  color: #000000;
+}
+
+.create-session-next-btn {
+  width: 175px;
+  height: 37px;
+  left: 1048px;
+  transition: 2s all;
+  font-style: normal;
+  font-weight: 600!important;
+  font-size: 14px;
+  line-height: 154.84%;
+  /* identical to box height, or 22px */
+  transform: translateY(0px);
+
+  text-align: center;
+  transition: 2s all;
+
+  color: #FFFFFF;
+  background: #000000!important;
+  border-radius: 4px;
+  
+}
+
+.create-session-next-btn:hover {
+  width: 175px;
+  height: 37px;
+  box-shadow: 0px 23px 27px -4px rgba(0, 0, 0, 0.25);
+  left: 1048px;
+  transition: 1s all;
+  font-style: normal;
+  font-weight: 600!important;
+  font-size: 14px;
+  line-height: 154.84%;
+  /* identical to box height, or 22px */
+  
+  text-align: center;
+  
+  color: #FFFFFF;
+  background: #000000!important;
+  border-radius: 4px;
+}
+
+
+.create-session-p1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.create-session-input::placeholder {
+  font-weight: 500!important;
+  color: #3E3D3D!important;
 }
 
 @media (min-width: 1200px){

@@ -20,7 +20,7 @@ export const ShareSessionModal = (props) => {
 
   const copyAgain = () => {
       isCopy(true)
-      var URLLink = window.location.origin + "/editsession/" + orgId + "/" + eventId + "?tab-name=edit-session&user=" + userId
+      var URLLink = window.location.origin + "/all-sessions/" + orgId + "/" + eventId + "?tab-name=edit-session&user=" + userId
       copy(URLLink)
   };
 
@@ -32,7 +32,7 @@ export const ShareSessionModal = (props) => {
         <ModalBody>
             <p> Share this link, and allow others to edit this session. </p>
 
-            <p style={{marginRight: 10}} className={copied? "linkCopiedText" : "linkCopyText"}> {window.location.origin}/editsession/{orgId}/{eventId}?tab-name=edit-session&user={userId}
+            <p style={{marginRight: 10}} className={copied? "linkCopiedText" : "linkCopyText"}> {window.location.origin}/all-sessions/{orgId}/{eventId}?tab-name=edit-session&user={userId}
             <Popup
             content="Copied!"
             trigger={ <Icon onClick={copyAgain} style={{cursor: 'pointer'}} name="clipboard" /> }

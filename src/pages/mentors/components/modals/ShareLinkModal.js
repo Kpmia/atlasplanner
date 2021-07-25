@@ -20,19 +20,25 @@ export const ShareLinkModal = (props) => {
 
   const copyAgain = () => {
       isCopy(true)
-      var URLLink = window.location.origin + "/editsession/" + orgId + "/" + eventName
+      var URLLink = window.location.origin + "/create-session/" + orgId + "/" + eventName
       copy(URLLink)
   };
 
   return (
     <span onClick={toggle}>
-        <Button className="overrideShareBtn" style={{marginRight: 10}}>  Share </Button> 
+       <Popup
+            content="Let others create sessions in your event by sending them a tiny URL to access."
+            trigger={         <Button className="overrideShareBtn" style={{marginRight: 10}}>  Share </Button> 
+          }
+            on='hover'
+            
+            />
       <Modal style={{padding: 20}} overlay={false} isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader cssModule={{'modal-title': 'w-100 text-center'}} style={{borderBottom: 'none', paddingBottom: 0, fontWeight: 600, fontSize: '17px', textAlign: 'center'}} className="createProjectTitle" toggle={toggle}> <span style={{borderBottom: 'none', paddingBottom: '0px', fontWeight: 600, fontSize: '17px', textAlign: 'center'}}> Share Link </span></ModalHeader>
+        <ModalHeader cssModule={{'modal-title': 'w-100 text-center'}} style={{borderBottom: 'none', paddingBottom: 0, fontWeight: 600, fontSize: '17px', textAlign: 'center'}} className="createProjectTitle" toggle={toggle}> <span style={{borderBottom: 'none', paddingBottom: '0px', fontWeight: 600, fontSize: '17px', textAlign: 'center', fontFamily: "Helvetica"}}> Share Link </span></ModalHeader>
         <ModalBody>
-            <p> Share this link, and allow others to join in and edit the event document. </p>
+            <p> Send a tiny URL to members to allow them to create & edit their sessions in your event. </p>
 
-            <p style={{marginRight: 10}} className={copied? "linkCopiedText" : "linkCopyText"}> {window.location.origin}/editsession/{orgId}/{eventName} 
+            <p style={{marginRight: 10}} className={copied? "linkCopiedText" : "linkCopyText"}> {window.location.origin}/create-session/{orgId}/{eventName} 
             <Popup
             content="Copied!"
             trigger={ <Icon onClick={copyAgain} style={{cursor: 'pointer'}} name="clipboard" /> }
@@ -42,6 +48,7 @@ export const ShareLinkModal = (props) => {
            </p>
      
         </ModalBody>
+        <Button style={{width: '100px'}} onClick={() => window.open(`${window.location.origin}/create-session/${orgId}/${eventName}`)} className="float-right create-session-next-btn"> Preview  </Button>
         <ModalFooter style={{borderTop: 'none'}}>
         </ModalFooter>
       </Modal>
