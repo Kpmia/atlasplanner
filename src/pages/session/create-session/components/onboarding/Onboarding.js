@@ -61,18 +61,18 @@ export class Onboarding extends React.Component {
     };
 
     sendConfirmEmail = async(sessionId, key) => {
-        console.log(key)
 
         var stringifyTimeslots = this.state.memberInfo.timeslots.map((time) => {
-            return `<span> ${moment(time.start).format("MM-DD-YYYY hh:mm A")}-${moment(time.end).format("MM-DD-YYYY hh:mm A")} <br /> </span>`
+            return `<span> ${moment(time.actual_start).format("MM-DD-YYYY hh:mm A")}-${moment(time.actual_end).format("MM-DD-YYYY hh:mm A")} <br /> </span>`
         }).join(`\n`)
+
 
         const emailBody = {
             "email": this.state.memberInfo.email,
             "name": this.state.memberInfo.name,
             "link": this.state.memberInfo.link,
             "timeslots": stringifyTimeslots,
-            "editURL": `${window.location.origin}/edit-session/${this.state.orgId}/${this.state.eventId}?tab-name=edit-session&user=${sessionId}`,
+            "editURL": `${window.location.origin}/edit-session/${this.state.orgId}/${this.state.eventId}/${sessionId}`,
             "key": key
         }
 

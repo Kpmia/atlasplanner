@@ -106,7 +106,7 @@ export const StepSix = ({
             <ReCAPTCHA
                 ref={recaptchaRef}
                 size="invisible"
-                sitekey={"6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
+                sitekey={"6LcX80MbAAAAAEQ0Q69Jlbg43dqFGAnfedxpBKBs"}
                 onChange={getRecapKey}
             />
 
