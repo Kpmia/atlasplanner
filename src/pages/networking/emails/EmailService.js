@@ -24,6 +24,26 @@ export const EmailService = {
         }
     },
 
+    sendHostCancelEmail: async(emailBody) => {
+        try {
+            return new Promise((resolve, reject) => {
+                EmailManager.hostCancels(emailBody).then((exp) => {
+                    if (exp != null && exp) {
+                        if (exp) {
+                            console.log(exp)
+                            resolve(exp["data"]);
+                        } else {
+                            resolve(null);
+                        }
+                    }
+                }, reject);
+            })
+        } catch (err) {
+            console.log('Cannot send host cancellation email.')
+            return null;
+        }
+    },
+
     sendCancelEmail: async(emailBody) => {
         try {
             return new Promise((resolve, reject) => {

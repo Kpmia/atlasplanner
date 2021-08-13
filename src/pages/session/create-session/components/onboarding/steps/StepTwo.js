@@ -38,11 +38,9 @@ export const StepTwo = ({
 
             <Row style={{justifyContent: 'center'}}>
                 <Button 
-                
                     className="create-session-next-btn"
                     disabled={location == "" ? true : false}
-                    onClick={() => handleStepChange(3)}
-                > Next </Button>
+                    onClick={() => handleStepChange(3)}> Next </Button>
             </Row>
 
 

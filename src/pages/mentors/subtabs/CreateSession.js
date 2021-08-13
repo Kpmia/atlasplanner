@@ -82,7 +82,7 @@ export class CreateSession extends Component {
                 <CardBody style={{padding: '3.25em'}}>
                
                     <div style={{borderBottom: '1px solid rgb(29 27 27 / 17%) '}}>
-                        <p className="formStep" style={{marginBottom: 10}}> Add your availability </p>
+                        <p className="formStep" style={{marginBottom: 10}}> Add a Session </p>
                     </div>
                 
                     <br></br>

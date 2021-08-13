@@ -72,7 +72,7 @@ export class Onboarding extends React.Component {
             "name": this.state.memberInfo.name,
             "link": this.state.memberInfo.link,
             "timeslots": stringifyTimeslots,
-            "editURL": `${window.location.origin}/edit-session/${this.state.orgId}/${this.state.eventId}/${sessionId}`,
+            "editURL": `${window.location.origin}/profile/${this.state.orgId}/${this.state.eventId}/${sessionId}`,
             "key": key
         }
 

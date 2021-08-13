@@ -3,78 +3,57 @@ import React from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { Button, Card, CardBody, Col, Row } from "reactstrap";
 import { Icon, Input, TextArea, Form } from "semantic-ui-react";
-import { LoadingPage } from "../../../LoadingPage";
-import CalendarScheduler from "../../../mentors/components/calendars/edit-session/CalendarScheduler";
-import { DeleteSessionModal } from "../../../mentors/components/modals/DeleteSessionModal";
-import { SessionService } from "../../../networking/sessions/SessionService";
-import { PageNotFound } from "../../../PageNotFound";
+import CalendarScheduler from "../../../../mentors/components/calendars/edit-session/CalendarScheduler";
+import { DeleteSessionModal } from "../../../../mentors/components/modals/DeleteSessionModal";
+import { SessionService } from "../../../../networking/sessions/SessionService";
+import { DeleteProfileModal } from "../../components/modals/DeleteProfileModal";
+import { PreviewModal } from "../../components/modals/PreviewModal";
 
-class EditSession extends React.Component {
-    constructor() {
-        super()
-        this.orgId = ""
-        this.eventId = ""
-        this.sessionId = ""
-        this.state={
-            sessionInfo: [],
-            timeslots: [],
-            isLoading: true,
-            pageFound: false
-        }
+export class EditSession extends React.Component {
+    orgId = this.props.orgId
+    eventId = this.props.eventId
+    sessionId = this.props.sessionId
+    state={
+        sessionInfo: this.props.sessionInfo,
+        copiedSessionInfo: JSON.parse(JSON.stringify(this.props.sessionInfo)),
+        timeslots: [],
+        isLoading: true,
+        pageFound: false
     }
 
     setTimeslots = (timeslots) => {
-        var copiedSession = this.state.sessionInfo
+        var copiedSession = this.state.copiedSessionInfo
         copiedSession["timeslots"] = timeslots;
-        this.setState({ sessionInfo : copiedSession }); 
+        this.setState({ copiedSession : copiedSession }); 
     }
 
     handleSelect = (key, value) => {
-        var copiedSession = this.state.sessionInfo
+        var copiedSession = this.state.copiedSessionInfo
         copiedSession[key] = value;
-        this.setState({ sessionInfo : copiedSession });
+        this.setState({ copiedSession : copiedSession }); 
     };
 
-    updateUserInfo = () => {
-        const session = { "session": this.state.sessionInfo }
+    updateUserInfo = async() => {
+        const session = { "session": this.state.copiedSessionInfo }
 
-        SessionService.updateSession(this.state.sessionInfo["_orgId"], this.state.sessionInfo["_eventId"], this.state.sessionInfo["_id"],session).then((session) => {
-            toast.dark('Successfully updated the session', { position: "top-center", transition: Slide })
+        await SessionService.updateSession(this.state.sessionInfo["_orgId"], this.state.sessionInfo["_eventId"], this.state.sessionInfo["_id"],session).then((session) => {
+            this.setState({ sessionInfo : this.state.copiedSessionInfo })
+            toast.dark('Successfully updated the session')
         })
     };
 
-    checkSession = async(orgId, eventId, sessionId) => {
-        await SessionService.sessionExists(orgId, eventId, sessionId).then((session) => {
-            if (session) {
-                this.setState({ sessionInfo : session })
-            } else {
-                this.setState({ pageFound : true })
-            }
-        });
-    };
-
-    isLoading = () => {
-        this.setState({ isLoading : false })
-    };
-
     componentDidMount() {
-        this.orgId = this.props.match.params.orgId
-        this.eventId = this.props.match.params.eventId
-        this.sessionId = this.props.match.params.sessionId
 
-        this.checkSession(this.orgId, this.eventId, this.sessionId).then(() => {
-            this.isLoading();
-        });
+    }
+
+    componentDidUpdate() {
+        if (this.props.sessionInfo != this.state.sessionInfo) {
+            this.setState({ sessionInfo : this.props.sessionInfo })
+            this.setState({ copiedSessionInfo : JSON.parse(JSON.stringify(this.props.sessionInfo)) })
+        };
     }
 
     render() {
-        console.log(this.state.sessionInfo)
-        if (this.state.isLoading) {
-            return <LoadingPage />
-        }
-        if (this.state.pageFound) {
-            return <PageNotFound />
-        }
 
         return (
             <div className="container">
@@ -86,7 +65,7 @@ class EditSession extends React.Component {
                     <CardBody style={{padding: '3.25em'}}>
                     <div>
 
-                    <a className="formStep"> {this.state.sessionInfo["name"]} </a>
+                    <a className="formStep"> {this.state.copiedSessionInfo["name"]} </a>
                     <br></br>
                     <br></br>
 
@@ -99,7 +78,7 @@ class EditSession extends React.Component {
                     id='form-input-control-first-name'
                     control={Input}
                     label='Full Name'
-                    value={this.state.sessionInfo["name"]}
+                    value={this.state.copiedSessionInfo["name"]}
                     required
                     onChange={(text) => this.handleSelect("name", text.target.value)}                    
                     placeholder={this.state.sessionInfo["name"]}
@@ -107,7 +86,7 @@ class EditSession extends React.Component {
                    <Form.Field
                     id='form-input-control-first-name'
                     control={Input}
-                    value={this.state.sessionInfo["link"]}
+                    value={this.state.copiedSessionInfo["link"]}
                     label='Location'
                     onChange={(text) => this.handleSelect("link", text.target.value)}                    
                     placeholder='Link'
@@ -116,7 +95,7 @@ class EditSession extends React.Component {
                     id='form-input-control-first-name'
                     control={Input}
                     label='Section'
-                    value={this.state.sessionInfo["section"]}
+                    value={this.state.copiedSessionInfo["section"]}
                     onChange={(text) => this.handleSelect("section", text.target.value)}                    
                     placeholder='Section'
                 />
@@ -128,7 +107,7 @@ class EditSession extends React.Component {
                             id='form-input-control-first-name'
                             control={Input}
                             label='Category'
-                            value={this.state.sessionInfo["category"]}
+                            value={this.state.copiedSessionInfo["category"]}
                             onChange={(text) => this.handleSelect("category", text.target.value)}                    
                             placeholder='Category'
                         />
@@ -138,7 +117,7 @@ class EditSession extends React.Component {
                     <Form.Field
                         id='form-textarea-control-opinion'
                         control={TextArea}
-                        value={this.state.sessionInfo["descriptions"]}
+                        value={this.state.copiedSessionInfo["descriptions"]}
                         onChange={(text) => this.handleSelect("descriptions", text.target.value)}                    
                         label='Anything more about this session?'
                         placeholder='Description'
@@ -152,7 +131,7 @@ class EditSession extends React.Component {
                                 <Form.Field
                                     id='form-input-control-first-name'
                                     control={Input} 
-                                    value={this.state.sessionInfo["box_a"]}
+                                    value={this.state.copiedSessionInfo["box_a"]}
                                     label='Linkedin Profile Link'
                                     onChange={(text) => this.handleSelect("box_a", text.target.value) }                    
                                     placeholder='Link'
@@ -162,7 +141,7 @@ class EditSession extends React.Component {
                                 <Form.Field
                                     id='form-input-control-first-name'
                                     control={Input} 
-                                    value={this.state.sessionInfo["box_b"]}
+                                    value={this.state.copiedSessionInfo["box_b"]}
                                     label='Industries/Markets'
                                     onChange={(text) => this.handleSelect("box_b", text.target.value) }                    
                                     placeholder='Markets you may specialize in'
@@ -172,7 +151,7 @@ class EditSession extends React.Component {
                                 <Form.Field
                                     id='form-input-control-first-name'
                                     control={Input} 
-                                    value={this.state.sessionInfo["box_c"]}
+                                    value={this.state.copiedSessionInfo["box_c"]}
                                     label='Skills to assist founders'
                                     onChange={(text) => this.handleSelect("box_c", text.target.value) }                    
                                     placeholder='Skills'
@@ -182,20 +161,18 @@ class EditSession extends React.Component {
                     </Col>
                         <Col>
                             <div id="times">
-                                <CalendarScheduler setTimeslots={this.setTimeslots} events={this.state.sessionInfo} />
+                                <CalendarScheduler setTimeslots={this.setTimeslots} events={this.state.copiedSessionInfo} />
                             </div>
                             <br></br>
-                            <Button style={{marginLeft: '10px'}} className="float-right nextBtn delete-session-btn" onClick={() => this.updateUserInfo()}>
-                                <Icon name="save" /> Save </Button>
-                            <DeleteSessionModal chooseSession={this.chooseSession} session={this.state.sessionInfo}> <Button className="float-right delete-session-btn"> <Icon name="trash"/> Delete </Button>  </DeleteSessionModal>
+                            <Button style={{marginLeft: '10px'}} className="float-right nextBtn delete-session-btn" onClick={() => this.updateUserInfo()}> Save </Button>
+                            <DeleteProfileModal sessionInfo={this.state.sessionInfo} />
+                            <PreviewModal sessionInfo={this.state.copiedSessionInfo} />
                         </Col>
                     </Row>
 
                     </div>
                     </CardBody>
                     </Card>
-
-                    <ToastContainer />
             </div>
         )
     }

@@ -37,7 +37,6 @@ export const StepSix = ({
     };
 
     const getRecapKey = (key) => {
-        console.log(key)
         stepChange(7, key)
     };
 
@@ -106,7 +105,7 @@ export const StepSix = ({
             <ReCAPTCHA
                 ref={recaptchaRef}
                 size="invisible"
-                sitekey={"6LcX80MbAAAAAEQ0Q69Jlbg43dqFGAnfedxpBKBs"}
+                sitekey={"6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
                 onChange={getRecapKey}
             />
 

@@ -106,10 +106,10 @@ export class MiniCalendar extends Component {
         var events = [];
 
         this.state.session["timeslots"].map((time) => {
-            var bgColor = "black"
+            var bgColor = "rgb(75, 197, 99)"
             var title = [""]
             if (Object.keys(time["filled"]) != 0) {
-                bgColor = "repeating-linear-gradient(45deg, rgb(96, 109, 188), rgb(96, 109, 188) 10px, rgb(70, 82, 152) 10px, rgb(70, 82, 152) 20px)"
+                bgColor = "repeating-linear-gradient(45deg, rgb(188, 96, 107), rgb(188, 96, 152) 10px, rgb(152, 70, 94) 10px, rgb(152, 70, 126) 20px) 0% 0% / 500%"
                 Object.keys(time["filled"]).map((person) => {
                     title[0] = time["filled"][person]["name"]
                 })
@@ -170,7 +170,7 @@ export class MiniCalendar extends Component {
                         }}
                         eventDidMount={ function (info) {
                                 if (info.event.extendedProps.background) {
-                                    info.el.style.backgroundColor = 'black'
+                                    info.el.style.backgroundColor = '#5af779'
                                     info.el.style.background = info.event.extendedProps.background;
                                     info.el.style.backgroundSize = '500%';
                                 }

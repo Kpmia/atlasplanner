@@ -28,7 +28,7 @@ export const ShareLinkModal = (props) => {
     <span onClick={toggle}>
        <Popup
             content="Let others create sessions in your event by sending them a tiny URL to access."
-            trigger={         <Button className="overrideShareBtn" style={{marginRight: 10}}>  Share </Button> 
+            trigger={         <Button className="overrideShareBtn" style={{marginRight: 10}}>  Invite Members </Button> 
           }
             on='hover'
             

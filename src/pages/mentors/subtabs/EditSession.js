@@ -42,6 +42,7 @@ export class EditSession extends Component {
     };
       
     chooseSession = (session) => {
+        console.log(session)
         this.addQuery("user", session["_id"]);
         this.setState({ chosenSession : session })
         this.setState({ copiedSession : JSON.parse(JSON.stringify(session))})
@@ -113,6 +114,7 @@ export class EditSession extends Component {
             if (user) {
                 this.state.sessions.map((session) => {
                     if (urlParams.get('user') == session["_id"]) {
+                        console.log('Found it')
                         this.chooseSession(session)
                     }
                 })

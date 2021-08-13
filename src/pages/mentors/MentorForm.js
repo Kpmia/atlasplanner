@@ -152,8 +152,6 @@ class MentorForm extends React.Component {
 
             <div style={{paddingTop: 90}} className="container">
 
-            <InstructionBanner instruction={this.state.eventInfo["instruction"]} />
-
             {this.state.pageComponent}
 
             </div>

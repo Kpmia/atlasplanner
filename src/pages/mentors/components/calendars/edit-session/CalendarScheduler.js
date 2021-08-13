@@ -10,14 +10,16 @@ import moment from "moment"
 const reformatEvents = (events) => {
     var eventsBody = []
     events["timeslots"].map((slot) => {
-        var bgColor = "black"
+        var bgColor = "green"
+        var title = ""
         if (Object.keys(slot["filled"]).length != 0) {
-            bgColor = "repeating-linear-gradient(45deg, rgb(96, 109, 188), rgb(96, 109, 188) 10px, rgb(70, 82, 152) 10px, rgb(70, 82, 152) 20px)"
+            bgColor = "red"
+            title = "Filled"
         }
         eventsBody.push({
             id: uuid(),
             timezone: "local",
-            title: "",
+            title: title,
             extendedProps: {
                 _id: slot["_id"],
                 filled: slot["filled"]
@@ -36,29 +38,50 @@ const CalendarScheduler = ({events, setTimeslots, ...restProps}) => {
       weekendsVisible: true,
       currentEvents: []
     })
+    const [apiEvents, setApiEvents] = useState({ 'calendarApi': [] })
     const [event, setEvent] = useState(reformatEvents(events));
     const calendarAPI = React.useRef(null);
+
+    const resetCalendar = async() => {
+      var calendarApi = apiEvents.calendarApi
+      if (calendarApi) {
+        if (calendarApi.length != 0) {
+          calendarApi.getEvents().forEach(event => { 
+            event.remove()
+          });
+          reformatEvents(events).map((event) => {
+            calendarApi.addEvent(event)
+          })
+        }
+      }
+    }
 
     useEffect(() => {
 
       if (events != event) {
-        setEvent(reformatEvents(events))
+        resetCalendar().then(() => {
+        })
       }
 
     }, [events])
 
+    console.log(apiEvents)
+
     const handleDateSelect = (selectInfo) => {
       let calendarApi = selectInfo.view.calendar
-      calendarApi.unselect() 
-        calendarApi.addEvent({
-            id: uuid(),
-            timezone: "local",
-            backgroundColor: "black",
-            title: "",
-            start: selectInfo.startStr,
-            end: selectInfo.endStr,
-            allDay: false
-        })
+      calendarApi.unselect()
+      var copied = apiEvents 
+      copied['calendarApi'] = calendarApi
+      setApiEvents(copied)
+      calendarApi.addEvent({
+          id: uuid(),
+          timezone: "local",
+          backgroundColor: "pink",
+          title: "",
+          start: selectInfo.startStr,
+          end: selectInfo.endStr,
+          allDay: false
+      })
     }
 
     const reformatTimeslot = (data) => {
@@ -130,7 +153,7 @@ const CalendarScheduler = ({events, setTimeslots, ...restProps}) => {
             eventsSet={handleEvents} // called after events are initialized/added/changed/removed
             eventDidMount={ function (info) {
                 if (info.event.extendedProps.background) {
-                    info.el.style.backgroundColor = 'black'
+                    info.el.style.backgroundColor = 'green'
                     info.el.style.animation = ""
                     info.el.style.background = info.event.extendedProps.background;
                     info.el.style.backgroundSize = '100%';

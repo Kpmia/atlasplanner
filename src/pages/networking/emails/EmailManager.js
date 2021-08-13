@@ -17,6 +17,20 @@ export const EmailManager = {
     }
   },
 
+  hostCancels: async (emailBody) => {
+    const config = {};
+    try {
+      return await emailAPI.post(
+        '/host-cancels',
+        emailBody,
+        config
+      )
+    } catch (error) {
+      console.log(error)
+      return null;
+    }
+  },
+
   cancelEmail: async (emailBody) => {
     const config = {};
     try {
