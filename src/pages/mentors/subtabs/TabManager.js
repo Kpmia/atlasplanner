@@ -1,5 +1,5 @@
 import React from "react";
-import { CreateSession } from "./CreateSession";
+import { CreateSession } from "./CreateSession/CreateSession";
 import { DeleteSession } from "./DeleteSession";
 import { EditSession } from "./EditSession";
 import { ViewSession } from "./ViewSession";
@@ -7,13 +7,14 @@ import { ViewSession } from "./ViewSession";
 export const TabManager = {
 
     getTabComponent: (name, orgId, eventId, sessions, getSessions, eventInfo) => {
+        console.log(name)
         switch (name) {
-            case "create-session":
+            case "add-profile":
                 return <CreateSession eventInfo={eventInfo} orgId={orgId} eventId={eventId} sessions={sessions} />
-            case "edit-session":
+            case "edit-profile":
                 return <EditSession orgId={orgId} eventId={eventId} getSessions={getSessions} sessions={sessions} />
-            case "view-session":
-                return <ViewSession  orgId={orgId} eventId={eventId} sessions={sessions} />
+            case "view-profile":
+                return <ViewSession  orgId={orgId} eventId={eventId} eventInfo={eventInfo}  sessions={sessions} />
             default:
                 return
         }
@@ -21,16 +22,16 @@ export const TabManager = {
 
     getTabNames() {
         return [{
-            "name": "Add Session",
-            "route": "create-session",
+            "name": "Add Profile",
+            "route": "add-profile",
             "icon": "plus square outline"
         }, {
-            "name": "Edit Session",
-            "route": "edit-session",
+            "name": "View & Edit Profiles",
+            "route": "edit-profile",
             "icon": "pencil alternate"
         }, {
-            "name": "View All Sessions",
-            "route": "view-session",
+            "name": "View Calendar",
+            "route": "view-profile",
             "icon": "calendar"
         }]
     }

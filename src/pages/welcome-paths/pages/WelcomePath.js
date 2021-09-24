@@ -6,6 +6,7 @@ import { Icon, Popup } from "semantic-ui-react";
 import { LoadingPage } from "../../LoadingPage";
 import { EventService } from "../../networking/events/EventService";
 import { PageNotFound } from "../../PageNotFound";
+import { ProfileInstructions } from "../components/modals/ProfileInstructions";
 
 class WelcomePath extends React.Component {
     constructor(props) {
@@ -22,11 +23,13 @@ class WelcomePath extends React.Component {
 
     checkSession = async(orgId, eventId) => {
         await EventService.eventExists(orgId, eventId).then((session) => {
+            console.log(session)
             if (session) {
                 this.setState({ sessionInfo : session })
             } else {
                 this.setState({ sessionFound : true })
             }
+            this.isLoading()
         });
     };
 
@@ -43,9 +46,7 @@ class WelcomePath extends React.Component {
         this.eventId = this.props.match.params.eventId
         this.sessionId = this.props.match.params.sessionId
 
-        this.checkSession(this.orgId, this.eventId, this.sessionId).then(() => {
-            this.isLoading()
-        })
+        this.checkSession(this.orgId, this.eventId, this.sessionId)
     }
 
     render() {
@@ -68,7 +69,7 @@ class WelcomePath extends React.Component {
                                     this.state.chosenRole == "organizer" ? 
 
                                     <div>
-                                        <p className="who-are-you-h1"> You’re an organizer. </p>
+                                        <p className="who-are-you-h1"> You’re an alumni. </p>
 
                                         <Row style={{justifyContent: "center", marginBottom: '25px'}}>
                                             <p className="who-are-you-p"> This is {this.orgId}’s event {this.eventId}. Let’s redirect you to the right place: what’s your role in this event? </p>
@@ -81,13 +82,7 @@ class WelcomePath extends React.Component {
                                         </Card>
                                         
                                         <br></br>
-                                        <Card onClick={() => window.location.href = `/edit-session/${this.orgId}/${this.eventId}`} style={{marginBottom: '13px'}} className="who-are-you-card ">
-                                            <CardBody style={{padding: '1.95rem'}}>
-                                                <p className="who-are-you-h2" style={{marginBottom: '4px'}}> <Icon name="checked calendar" style={{fontSize: '14px'}} /> Edit or view my profile </p>
-                                                <p className="who-are-you-p2"> Need to edit and go back? Click here for quick instructions. </p>
-                                            </CardBody>
-                                        </Card>
-
+                                        <ProfileInstructions />
                                     </div>
                             
                                     :
@@ -96,7 +91,7 @@ class WelcomePath extends React.Component {
                                 <p className="who-are-you-h1"> Who are you? </p>
 
                                 <Row style={{justifyContent: "center", marginBottom: '25px'}}>
-                                    <p className="who-are-you-p"> This is {this.orgId}’s event {this.eventId}. Let’s redirect you to the right place: what’s your role in this event? </p>
+                                    <p className="who-are-you-p"> This is {this.orgId}’s event {this.eventId}. This link is live for anyone to access. Let’s redirect you to the right place: what’s your role in this event? </p>
                                 </Row>
 
                                 <Card onClick={() => window.location.href = `/c/${this.orgId}/${this.eventId}`} className="who-are-you-card ">
@@ -109,8 +104,8 @@ class WelcomePath extends React.Component {
                                 <br></br>
                                 <Card onClick={() => this.setState({ chosenRole : "organizer" })} style={{marginBottom: '13px'}} className="who-are-you-card ">
                                     <CardBody style={{padding: '1.95rem'}}>
-                                        <p className="who-are-you-h2" style={{marginBottom: '4px'}}> <Icon name="calendar plus" style={{fontSize: '14px'}} /> Organizer </p>
-                                        <p className="who-are-you-p2"> You were invited by the host to create a profile and help organize this event. </p>
+                                        <p className="who-are-you-h2" style={{marginBottom: '4px'}}> <Icon name="calendar plus" style={{fontSize: '14px'}} /> Alumni </p>
+                                        <p className="who-are-you-p2"> You were invited by the host to create a profile and take part in this event. </p>
                                     </CardBody>
                                 </Card>
 

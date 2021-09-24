@@ -5,9 +5,12 @@ import { CardBody } from "reactstrap";
 import { Icon } from "semantic-ui-react";
 
 export const ReserveInstructBanner = ({
+    maxCapacity,
     ...restProps
 }) => {
     const [open, isOpen] = useState(true);
+
+    console.log(maxCapacity)
 
     const closeBanner = () => { isOpen(false) }
 
@@ -21,12 +24,19 @@ export const ReserveInstructBanner = ({
                         <Card className="formCard instructionCard">
                             <CardBody style={{position: 'relative'}}>
                                 <Icon className="cancelInstructionBtn" onClick={closeBanner} name="cancel" />
-                                <p className="instructionTitle"> Book/Reserve Slots <Icon style={{color: '#EA60DC', fontSize: '13px'}} name="triangle right" /> </p>
-                                <p className="instructionSubTitle"> Blue represents filled slots, while black represents unfilled slots. Click on a slot to reserve/book, or view existing bookings by clicking on a filled slot. </p>
+                                <p className="instructionTitle"> Reserve Slots </p>
+                                <p className="instructionSubTitle">  Click on a slot to book a session.</p>
+                            </CardBody>
+                        </Card>
+                        <br></br>
+                        <Card className="formCard instructionCard">
+                            <CardBody style={{position: 'relative'}}>
+                                <Icon className="cancelInstructionBtn" onClick={closeBanner} name="cancel" />
+                                <p className="instructionTitle"> Maximum Capacity <Icon name="exclamation triangle" />  </p>
+                                <p className="instructionSubTitle">  Owner of this session has only allowed {maxCapacity} reservations per timeslot.</p>
                             </CardBody>
                         </Card>
                     </FadeIn>
-                    <br></br>
                     <br></br>
                 </div>
                 :

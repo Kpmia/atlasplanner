@@ -20,6 +20,7 @@ export class Onboarding extends React.Component {
             email: "",
             section: "",
             descriptions: "",
+            max_per_slot: 5,
             box_b: "",
             box_c: "",
             box_a: "",
@@ -112,11 +113,11 @@ export class Onboarding extends React.Component {
                         <p className="finished-title">You’re finished.</p>
 
                         <Row style={{justifyContent: 'center'}}>
-                            <p style={{width: '397px', marginBottom: '30px'}} className="text-center finished-text"> You can find your live session on <span style={{textDecoration: "underline", cursor: 'pointer'}} onClick={() => window.open(`/c/${this.state.orgId}/${this.state.eventId}`) }>{window.location.origin}/c/{this.state.orgId}/{this.state.eventId}</span>.  </p>
+                            <p style={{width: '397px', marginBottom: '30px'}} className="text-center finished-text"> Your profile is now available for attendees to see at <span style={{textDecoration: "underline", cursor: 'pointer'}} onClick={() => window.open(`/c/${this.state.orgId}/${this.state.eventId}`) }>{window.location.origin}/c/{this.state.orgId}/{this.state.eventId}</span>.  </p>
                         </Row>
 
                         <Row style={{justifyContent: 'center'}}>
-                            <p style={{width: '397px', fontWeight: 600}} className="text-center finished-text"> You should now receive notifications of bookings. You can edit or cancel your schedule or details via a link from your email. </p>
+                            <p style={{width: '397px', fontWeight: 600}} className="text-center finished-text"> You should receive notifications of bookings. You can edit or cancel your profile via a link sent to your email. </p>
                         </Row>
 
                     </div>

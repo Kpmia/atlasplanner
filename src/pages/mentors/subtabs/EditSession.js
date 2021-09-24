@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Card, CardBody, Col, Row, Table } from "reactstrap";
-import { Form, Icon, Input, TextArea } from "semantic-ui-react";
+import { Form, Icon, Input, Label, TextArea } from "semantic-ui-react";
 import history from "../../history";
 import { SessionService } from "../../networking/sessions/SessionService";
 import { Slide, toast } from "react-toastify";
@@ -15,6 +15,7 @@ export class EditSession extends Component {
         chosenSession: [],
         copiedSession: [],
         timeslots: [],
+        search: "",
         userExists: true,
         isLoading: true
     }
@@ -132,6 +133,8 @@ export class EditSession extends Component {
 
     render() {
 
+        console.log(this.state.sessions)
+
         if (this.state.isLoading) {
             return <div>
                 <br></br>
@@ -151,144 +154,167 @@ export class EditSession extends Component {
                 </row>
 
                 {
+
+                    this.state.sessions.length == 0 ?
+                        <div>
+                              <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
+                                    <CardBody style={{padding: '3.25em'}}>
+                                    <p className="formStep" style={{marginBottom: 10}}> Edit Profiles </p>
+                                    <p className="text-center atlasplanner-there-are-no-profile"> There are no profiles yet  </p>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    :
                     this.state.chosenSession.length != 0 ?
                     
-                    <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
-                    <CardBody style={{padding: '3.25em'}}>
-                        <Button style={{width: '300px'}} className="backBtn" onClick={this.goBack}> <Icon name="caret left" /> Back</Button>
-                    <div>
-                    <br></br>
-                    <br></br>
+                        <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
+                        <CardBody style={{padding: '3.25em'}}>
+                            <Button style={{width: '300px'}} className="backBtn" onClick={this.goBack}> <Icon name="caret left" /> Back</Button>
+                        <div>
+                        <br></br>
+                        <br></br>
+                        <a className="formStep"> {this.state.chosenSession["name"]} </a>
+                        <br></br>
+                        <br></br>
+                        <Row>
+                            <Col>
+                                <Form id="basicDetails">
+                                        <Form.Group widths='equal'>
+                                        <Form.Field
+                                            id='form-input-control-first-name'
+                                            control={Input}
+                                            value={this.state.copiedSession["name"]}
+                                            label='Full Name'
+                                            className="formLabel"                                       
 
-                    <a className="formStep"> {this.state.chosenSession["name"]} </a>
-                    <br></br>
-                    <br></br>
+                                            required
+                                            onChange={(text) => this.handleSelect("name", text.target.value) }                    
+                                            placeholder='Full Name'
+                                        />
+                                        <Form.Field
+                                            id='form-input-control-first-name'
+                                            control={Input}
+                                            value={this.state.copiedSession["link"]}
+                                            label='Location'
+                                            onChange={(text) => this.handleSelect("link", text.target.value) }                    
+                                            placeholder='Location'
+                                        />
+                                        <Form.Field
+                                            id='form-input-control-first-name'
+                                            control={Input}
+                                            value={this.state.copiedSession["section"]}
+                                            label='Section'
+                                            onChange={(text) => this.handleSelect("section", text.target.value) }                    
+                                            placeholder='Section'
+                                        />
+                                
+                                        </Form.Group>
+                                    </Form>
+                                    <br></br>
+                                        <Form>
+                                            <Form.Group widths='equal'>
+                                                <Form.Field
+                                                    id='form-input-control-first-name'
+                                                    control={Input}
+                                                    value={this.state.copiedSession["category"]}
+                                                    label='Category'
+                                                    onChange={(text) => this.handleSelect("category", text.target.value) }                    
+                                                    placeholder='Category (e.g. alumni, coach, etc.)'
+                                                />
+                                            <Form>
+                                            <Form.Field
+                                                id='form-input-control-first-name'
+                                                control={Input} 
+                                                value={this.state.copiedSession["box_b"]}
+                                                label='Industries/Markets'
+                                                onChange={(text) => this.handleSelect("box_b", text.target.value) }                    
+                                                placeholder='Industry focus'
+                                                />
+                                        </Form>
+                                            <Form.Field
+                                                id='form-input-control-first-name'
+                                                control={Input}
+                                                type="number"
+                                                min={0}
+                                                max={20}
+                                                value={this.state.copiedSession["max_per_slot"]}
+                                                label='Capacity per timeslot'
+                                                onChange={(text) => this.handleSelect("max_per_slot", text.target.value) }                    
+                                                placeholder='Category'
+                                            />
+                                            </Form.Group>
+                                        </Form>
+                                        <hr />
+                                        <Label style={{marginBottom: 9}} className="createProjectLabel">  Additional Information  </Label>
+                                        <Form>
+                                                <Form.Field
+                                                    id='form-textarea-control-opinion'
+                                                    control={TextArea}
+                                                    value={this.state.copiedSession["descriptions"]}
+                                                    onChange={(text) => this.handleSelect("descriptions", text.target.value) }                    
+                                                    label='Anything more about this profile'
+                                                    placeholder='Description'
+                                                    />
+                                            </Form>
+                                            <br></br>
+                                        <Form>
+                                            <Form.Group widths='equal'>
+                                                <Form.Field
+                                                    id='form-input-control-first-name'
+                                                    control={Input} 
+                                                    value={this.state.copiedSession["box_a"]}
+                                                    label='Linkedin Profile Link'
+                                                    onChange={(text) => this.handleSelect("box_a", text.target.value) }                    
+                                                    placeholder='Enter link URL'
+                                                    />
+                                                </Form.Group>
 
-                    <Row>
-                        <Col>
+                                        </Form>
+                                    
+                                        <Form>
+                                        
+                                        </Form>
+                                        </Col>
+                                <Col>
+                                <div id="times">
+                                    <CalendarScheduler setTimeslots={this.setTimeslots} events={this.state.chosenSession} />
+                                </div>
+                                <br></br>
+                                <Button  style={{marginLeft: '10px'}} className="float-right nextBtn delete-session-btn" onClick={() => this.updateUserInfo()}>
+                                    <Icon name="save" /> Save </Button>
+                                <DeleteSessionModal chooseSession={this.chooseSession} session={this.state.chosenSession}> <Button className="float-right delete-session-btn"> <Icon name="trash"/> Delete </Button>  </DeleteSessionModal>
+                            </Col>
+                        </Row>
 
-                          <Form id="basicDetails">
-                <Form.Group widths='equal'>
-                <Form.Field
-                    id='form-input-control-first-name'
-                    control={Input}
-                    label='Full Name'
-                    value={this.state.copiedSession["name"]}
-                    required
-                    onChange={(text) => this.handleSelect("name", text.target.value)}                    
-                    placeholder={this.state.copiedSession["name"]}
-                />
-                   <Form.Field
-                    id='form-input-control-first-name'
-                    control={Input}
-                    value={this.state.copiedSession["link"]}
-                    label='Location'
-                    onChange={(text) => this.handleSelect("link", text.target.value)}                    
-                    placeholder='Link'
-                />
-                 <Form.Field
-                    id='form-input-control-first-name'
-                    control={Input}
-                    label='Section'
-                    value={this.state.copiedSession["section"]}
-                    onChange={(text) => this.handleSelect("section", text.target.value)}                    
-                    placeholder='Section'
-                />
-              
-             
-                    </Form.Group>
-                    </Form>
-                    <Form>
-                            <Form.Field
-                            id='form-input-control-first-name'
-                            control={Input}
-                            label='Category'
-                            value={this.state.copiedSession["category"]}
-                            onChange={(text) => this.handleSelect("category", text.target.value)}                    
-                            placeholder='Category'
-                        />
-                    </Form>
-                    <br></br>
-                    <Form>
-                    <Form.Field
-                        id='form-textarea-control-opinion'
-                        control={TextArea}
-                        value={this.state.copiedSession["descriptions"]}
-                        onChange={(text) => this.handleSelect("descriptions", text.target.value)}                    
-                        label='Anything more about this session?'
-                        placeholder='Description'
-                        />
-                    </Form>
-
-                    <hr />
-
-                    <Row style={{justifyContent: 'space-evenly'}}>
-                            <Form>
-                                <Form.Field
-                                    id='form-input-control-first-name'
-                                    control={Input} 
-                                    value={this.state.copiedSession["box_a"]}
-                                    label='Linkedin Profile Link'
-                                    onChange={(text) => this.handleSelect("box_a", text.target.value) }                    
-                                    placeholder='Link'
-                                    />
-                            </Form>
-                            <Form>
-                                <Form.Field
-                                    id='form-input-control-first-name'
-                                    control={Input} 
-                                    value={this.state.copiedSession["box_b"]}
-                                    label='Industries/Markets'
-                                    onChange={(text) => this.handleSelect("box_b", text.target.value) }                    
-                                    placeholder='Markets you may specialize in'
-                                    />
-                            </Form>
-                            <Form>
-                                <Form.Field
-                                    id='form-input-control-first-name'
-                                    control={Input} 
-                                    value={this.state.copiedSession["box_c"]}
-                                    label='Skills to assist founders'
-                                    onChange={(text) => this.handleSelect("box_c", text.target.value) }                    
-                                    placeholder='Skills'
-                                    />
-                            </Form>
-                            </Row>
-                    </Col>
-                        <Col>
-                            <div id="times">
-                                <CalendarScheduler setTimeslots={this.setTimeslots} events={this.state.chosenSession} />
-                            </div>
-                            <br></br>
-                            <Button  style={{marginLeft: '10px'}} className="float-right nextBtn delete-session-btn" onClick={() => this.updateUserInfo()}>
-                                <Icon name="save" /> Save </Button>
-                            <DeleteSessionModal chooseSession={this.chooseSession} session={this.state.chosenSession}> <Button className="float-right delete-session-btn"> <Icon name="trash"/> Delete </Button>  </DeleteSessionModal>
-                        </Col>
-                    </Row>
-
-                    </div>
-                    </CardBody>
+                        </div>
+                        </CardBody>
                     </Card>
                   
                     : 
                     <div>
                           <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
                 <CardBody style={{padding: '3.25em'}}>
-                <div>
-                    <p className="formStep" style={{marginBottom: 10}}> Edit Sessions </p>
-                        <p className="formStepDesc"> Edit sessions by clicking on any card & editing the times or information. </p>
+                    <div>
+                        <p className="formStep" style={{marginBottom: 10}}> Edit Profiles </p>
+                        <p className="formStepDesc"> Edit profiles by clicking on any card & editing the times or information. </p>
+                        <Input onChange={(text) => this.setState({ search : text.target.value })} placeholder="Search for a profile" style={{width: '300px'}} />
                     </div>
                     <br></br>
 
-                         <Row id="sessions_body">
+                         <Row id="sessions_body" style={{height: '600px', overflowY: 'scroll'}}>
                         {
-                            this.state.sessions.map((mentor) => {
+                            this.state.sessions.filter((session) => {
+                                if (session.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) {
+                                    return session
+                                }
+
+                            }  ).map((mentor) => {
                                 return (
                                     <Col style={{marginBottom: 30}} sm={4}>
                                         <Card style={{cursor: 'pointer'}}  className="formCard">
-                                        <ShareSessionModal orgId={this.orgId} eventId = {this.eventId} userId={mentor["_id"]} />
                                             <CardBody onClick={() => this.chooseSession(mentor)}>
                                             <p style={{marginBottom: 0}} className="editSessionCardTitle"> {mentor["name"]} </p>
+                                            <p style={{marginBottom: 0}}> {mentor["email"]} </p>
                                             <p style={{textDecoration: 'underline', opacity: 0.4, fontSize: '13px'}}> {mentor["link"]} </p>
                                             <a style={{background: 'black', backgroundColor: 'black', border: 'black', color: 'white', borderRadius: '2px'}} class={"ui image label"}>
                                                     {mentor['category']}

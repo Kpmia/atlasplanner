@@ -105,7 +105,7 @@ export class CreateSessionReCaptcha extends Component {
 
         return (
             <span>
-                <span className="float-right"> <Checkbox style={{paddingTop: '4px'}} checked={this.state.sendEmail} onChange={() => this.setState({ sendEmail : !this.state.sendEmail })}   /> I wish to have an email confirmation sent to me. 
+                <span className="float-right"> <Checkbox style={{paddingTop: '4px'}} checked={this.state.sendEmail} onChange={() => this.setState({ sendEmail : !this.state.sendEmail })}   /> I wish to have an email confirmation sent to user. 
                 {this.state.sendEmail ? <FadeIn> <Input className="float-right" type="email" style={{width:'250px'}} onChange={(text) => this.setState({ email : text.target.value })} placeholder="Please enter your email" /> </FadeIn>: null} </span>
                 <br></br>
                 <br></br>

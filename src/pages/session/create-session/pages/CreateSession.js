@@ -42,7 +42,7 @@ class CreateSession extends React.Component {
         }
 
         return (
-            <div style={{background: 'white', height: '100vh'}}>
+            <div style={{background: 'white', height: '200vh'}}>
                 <div style={{paddingTop: '100px'}}>
                     <Onboarding orgId={this.orgId} eventId={this.eventId} />
                 </div>

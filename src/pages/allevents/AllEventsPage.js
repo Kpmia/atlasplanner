@@ -29,9 +29,7 @@ class AllEventsPage extends React.Component {
         await OrgService.getOrganization(orgId).then((org) => {
             if (org != null && org) {
                 this.org = org;
-            } else {
-                this.pageNotFound();
-            }
+            } 
         })
     };
 
@@ -39,7 +37,9 @@ class AllEventsPage extends React.Component {
         await EventService.getAllEvents(orgId).then((events) => {
             if (events != null && events) {
                 this.setState({ events : events })
-            } 
+            } else {
+                this.pageNotFound();
+            }
             this.isLoading();
         })
     };
@@ -108,7 +108,7 @@ class AllEventsPage extends React.Component {
                                     <Card  className="eventProjectCard">
                                     <OptionsDropdown updateEvents={this.getEvents} orgId={this.props.match.params.orgId} eventId={event["name"]} />
 
-                                    <div  onClick={() => window.location.href = `/welcome/${this.orgId}/${event["name"]}`} style={{background: event['color'], marginTop: -30}}  className="eventProjectGradCard"></div>
+                                    <div  onClick={() => window.location.href = `/welcome/${this.orgId}/${event["name"]}`} style={{background: event['theme_color'], marginTop: -30}}  className="eventProjectGradCard"></div>
                                         <CardBody  onClick={() => window.location.href = `/welcome/${this.orgId}/${event["name"]}`} style={{cursor: 'pointer'}}>
                                             <p className="eventProjectTitle"> {event["name"]} </p>
                                             <p className="eventDescription"> {event["description"]} </p>
@@ -116,7 +116,6 @@ class AllEventsPage extends React.Component {
                                         </CardBody>
                                         <div style={{padding: 5}}>
 
-                                        <Button id="live_link" style={{marginRight: 10, marginBottom: 20}} onClick={() => window.location.href = '/c/' + this.orgId + '/' + event["name"]} className="float-right getLink"> View public link </Button>
                                         </div>
                                     </Card>
                                     </FadeIn>

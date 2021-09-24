@@ -8,8 +8,6 @@ export const OptionsDropdown = ({orgId, eventId, updateEvents, ...restProps}) =>
     return (
         <Dropdown style={{background: 'none', border: 'none'}} className="optionsIcon" trigger={<Icon  name="cog" />}>
             <Dropdown.Menu>
-                <Dropdown.Item  onClick={() => window.location.href = '/event/' + orgId + '/' + eventId} description="Edit name, description, or instruction." icon="edit"> 
-                <Icon name="edit" /> <span> Edit Event </span></Dropdown.Item>
                 <Dropdown.Item icon="delete"><DeleteEventModal updateEvents={updateEvents} orgId={orgId} eventId={eventId} />  </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>

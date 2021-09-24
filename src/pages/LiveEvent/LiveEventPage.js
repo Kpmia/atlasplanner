@@ -31,8 +31,8 @@ class LiveEventPage extends React.Component {
 
     getMentorData = async() => {
         return SessionService.getAllSessions(this.props.match.params.orgId, this.props.match.params.eventId).then((eventInfo) => {
+            console.log(eventInfo)
             if (eventInfo != null) {
-                console.log(eventInfo)
                 this.eventId = this.props.match.params.eventId
                 this.setState({ mentors : eventInfo["sessions"] })
                 this.setState({ copiedMentorData : eventInfo["sessions"] })
@@ -47,7 +47,7 @@ class LiveEventPage extends React.Component {
     updateTabData = (tabName) => {
         this.props.history.push("?tab-name=" + tabName)
         this.setState({ tab : tabName })
-        this.setState({ pageComponent : TabManager.getTabComp(tabName, this.props.match.params.orgId, this.props.match.params.eventId, this.state.mentors, this.getMentorData, this.state.copiedMentorData, this.state.currWeek) })
+        this.setState({ pageComponent : TabManager.getTabComp(tabName, this.props.match.params.orgId, this.props.match.params.eventId, this.state.eventInfo, this.state.mentors, this.getMentorData, this.state.copiedMentorData, this.state.currWeek) })
     };
 
     updateMentorData = async(data) => {
@@ -100,7 +100,6 @@ class LiveEventPage extends React.Component {
         })
 
         this.socket.on('UPDATED_SESSION', (data) => {
-            console.log(data)
             var dataMentors = this.state.mentors
             var jsonBody = {}
             dataMentors.map((mentor) => {
@@ -129,10 +128,10 @@ class LiveEventPage extends React.Component {
 
         return (
             <div className="eventBody">
-                <div className="eventHeader">
+                <div style={{background: this.state.eventInfo.banner_color}} className="eventHeader">
                     <div className="container">
                         <row>
-                            <Icon style={{marginTop: '-16px', paddingTop: 15}} className="diamondIcon" name="diamond" />
+                            <Icon onClick={() => window.location.href = '/'} style={{marginTop: '-16px', cursor: 'pointer', paddingTop: 15}} className="diamondIcon" name="diamond" />
                             <a className="poweredByCompany" onClick={() => window.location.href = '/'}> Powered by Atlasplanner. </a>
                         </row>
                     </div>

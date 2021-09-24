@@ -7,6 +7,7 @@ import { Row } from "reactstrap";
 import { Icon } from "semantic-ui-react";
 import { LoadingPage } from "../../../LoadingPage";
 import { PageNotFound } from "../../../PageNotFound";
+import { DisplayService } from "../../../networking/display/DisplayService";
 
 class UserProfile extends React.Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class UserProfile extends React.Component {
         this.socket = io("//atlasplanner.ue.r.appspot.com")
         this.eventId = ""
         this.sessionId = ""
+        this.eventDisplay = []
         this.state={
             currTab: {
                 "name": "Edit Profile",
@@ -37,13 +39,24 @@ class UserProfile extends React.Component {
     };
 
     checkSession = async(orgId, eventId, sessionId) => {
-        await SessionService.sessionExists(orgId, eventId, sessionId).then((session) => {
+        await SessionService.sessionExists(orgId, eventId, sessionId).then(async(session) => {
             if (session) {
                 this.setState({ sessionInfo : session })
+                this.getEventDisplay(orgId, eventId).then(() => {
+                    this.isLoading();
+                })
             } else {
                 this.setState({ pageFound : true })
             }
         });
+    };
+
+    getEventDisplay = async(orgId, eventId) => {
+        await DisplayService.getEventDisplay(orgId, eventId).then((display) => {
+            if (display) {
+                this.eventDisplay = display
+            }
+        })
     };
 
     isLoading = () => {
@@ -71,7 +84,6 @@ class UserProfile extends React.Component {
 
         this.checkSession(this.orgId, this.eventId, this.sessionId).then(() => {
             this.switchTab(this.state.currTab.name, tabName)
-            this.isLoading();
         });
     }
 
@@ -85,7 +97,7 @@ class UserProfile extends React.Component {
         }
 
         return (
-            <div className="user-profile-bg">
+            <div style={{ background: this.eventDisplay.color }} className="user-profile-bg">
 
                 <div className="user-profile-dark-gray-header">
                 
@@ -98,9 +110,9 @@ class UserProfile extends React.Component {
                                 {
                                     tabNames.map((tab) => {
                                         if (tab.name == this.state.currTab.name) {
-                                            return <span className="user-profile-links" style={{position: 'relative', marginRight: '30px', fontWeight: 500, color: 'rgb(254 190 246)', zIndex: 999}} onClick={() => this.switchTab(tab.name, tab.route)}> {tab.name} </span>
+                                            return <span className="user-profile-links" style={{position: 'relative', background: 'none', color: 'white', marginRight: '30px', fontWeight: 500, color: 'rgb(254 190 246)', zIndex: 999}} onClick={() => this.switchTab(tab.name, tab.route)}> {tab.name} </span>
                                         }
-                                        return <span className="user-profile-links" style={{position: 'relative', marginRight: '30px', zIndex: 999}} onClick={() => this.switchTab(tab.name, tab.route)}> {tab.name} </span>
+                                        return <span className="user-profile-links" style={{position: 'relative', marginRight: '30px', background: 'none', color: 'white', zIndex: 999}} onClick={() => this.switchTab(tab.name, tab.route)}> {tab.name} </span>
                                     })
                                 }
                             </div>
@@ -116,7 +128,7 @@ class UserProfile extends React.Component {
                             </Row>
                         </div>
                 </div>
-                <div className="user-profile-thin-gradient-banner"></div>
+                <div style={{background: this.eventDisplay.color }} className="user-profile-thin-gradient-banner"></div>
 
                 <div style={{paddingTop: '70px'}}>
                     {this.state.pageComponent}

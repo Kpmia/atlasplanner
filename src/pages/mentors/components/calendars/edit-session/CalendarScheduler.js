@@ -76,7 +76,7 @@ const CalendarScheduler = ({events, setTimeslots, ...restProps}) => {
       calendarApi.addEvent({
           id: uuid(),
           timezone: "local",
-          backgroundColor: "pink",
+          backgroundColor: "rgb(21, 21, 21)",
           title: "",
           start: selectInfo.startStr,
           end: selectInfo.endStr,

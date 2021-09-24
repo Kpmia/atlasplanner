@@ -91,7 +91,7 @@ export const UpdateEventModal = (props) => {
         </Row>
         <br></br>
         <br></br>
-        <Label style={{marginBottom: 9}} className="createProjectLabel">  Description (optional) </Label>
+        <Label style={{marginBottom: 9}} className="createProjectLabel"> Message for attendees (optional) </Label>
         <br></br>
         <Form>
           <TextArea value={description} style={{width: '100%',  borderRadius: '5px'}} onChange={(text) => setDesc(text.target.value)} placeholder="Enter description" />

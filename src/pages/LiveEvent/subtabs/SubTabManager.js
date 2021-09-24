@@ -4,14 +4,14 @@ import { TodaySession } from "./TodaySession"
 
 export const TabManager = {
 
-    getTabComp: (name, orgId, eventId, mentors,  updateMentors, copiedMentorData, currWeek) => {
+    getTabComp: (name, orgId, eventId, eventInfo, mentors,  updateMentors, copiedMentorData, currWeek) => {
         switch (name) {
 
             case "mentors":
-                return <Mentors orgId={orgId} eventId={eventId} currWeek={currWeek} mentors={copiedMentorData} originalMentors={mentors}  updateMentor={updateMentors} />
+                return <Mentors eventInfo={eventInfo} orgId={orgId} eventId={eventId} currWeek={currWeek} mentors={copiedMentorData} originalMentors={mentors}  updateMentor={updateMentors} />
 
             case "view-calendar":
-                return <TodaySession orgId={orgId} eventId={eventId} currWeek={currWeek} mentors={mentors} />
+                return <TodaySession eventInfo={eventInfo} orgId={orgId} eventId={eventId} currWeek={currWeek} mentors={mentors} />
         }
     },
 

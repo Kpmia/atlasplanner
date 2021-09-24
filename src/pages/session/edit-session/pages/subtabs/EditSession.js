@@ -1,13 +1,12 @@
-import { Slide } from "@material-ui/core";
 import React from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { Button, Card, CardBody, Col, Row } from "reactstrap";
+import { Button, Card, CardBody, Col, Label, Row } from "reactstrap";
 import { Icon, Input, TextArea, Form } from "semantic-ui-react";
 import CalendarScheduler from "../../../../mentors/components/calendars/edit-session/CalendarScheduler";
-import { DeleteSessionModal } from "../../../../mentors/components/modals/DeleteSessionModal";
 import { SessionService } from "../../../../networking/sessions/SessionService";
 import { DeleteProfileModal } from "../../components/modals/DeleteProfileModal";
 import { PreviewModal } from "../../components/modals/PreviewModal";
+
 
 export class EditSession extends React.Component {
     orgId = this.props.orgId
@@ -71,94 +70,103 @@ export class EditSession extends React.Component {
 
                     <Row>
                         <Col>
+                            <Form id="basicDetails">
+                                <Form.Group widths='equal'>
+                                    <Form.Field
+                                        id='form-input-control-first-name'
+                                        control={Input}
+                                        value={this.state.copiedSessionInfo["name"]}
+                                        label='Full Name'
+                                        className="formLabel"                                       
 
-                          <Form id="basicDetails">
-                <Form.Group widths='equal'>
-                <Form.Field
-                    id='form-input-control-first-name'
-                    control={Input}
-                    label='Full Name'
-                    value={this.state.copiedSessionInfo["name"]}
-                    required
-                    onChange={(text) => this.handleSelect("name", text.target.value)}                    
-                    placeholder={this.state.sessionInfo["name"]}
-                />
-                   <Form.Field
-                    id='form-input-control-first-name'
-                    control={Input}
-                    value={this.state.copiedSessionInfo["link"]}
-                    label='Location'
-                    onChange={(text) => this.handleSelect("link", text.target.value)}                    
-                    placeholder='Link'
-                />
-                 <Form.Field
-                    id='form-input-control-first-name'
-                    control={Input}
-                    label='Section'
-                    value={this.state.copiedSessionInfo["section"]}
-                    onChange={(text) => this.handleSelect("section", text.target.value)}                    
-                    placeholder='Section'
-                />
-             
-                    </Form.Group>
-                    </Form>
-                    <Form>
-                            <Form.Field
-                            id='form-input-control-first-name'
-                            control={Input}
-                            label='Category'
-                            value={this.state.copiedSessionInfo["category"]}
-                            onChange={(text) => this.handleSelect("category", text.target.value)}                    
-                            placeholder='Category'
-                        />
-                    </Form>
-                    <br></br>
-                    <Form>
-                    <Form.Field
-                        id='form-textarea-control-opinion'
-                        control={TextArea}
-                        value={this.state.copiedSessionInfo["descriptions"]}
-                        onChange={(text) => this.handleSelect("descriptions", text.target.value)}                    
-                        label='Anything more about this session?'
-                        placeholder='Description'
-                        />
-                    </Form>
+                                        required
+                                        onChange={(text) => this.handleSelect("name", text.target.value) }                    
+                                        placeholder='Full Name'
+                                    />
+                                    <Form.Field
+                                        id='form-input-control-first-name'
+                                        control={Input}
+                                        value={this.state.copiedSessionInfo["link"]}
+                                        label='Location'
+                                        onChange={(text) => this.handleSelect("link", text.target.value) }                    
+                                        placeholder='Location'
+                                    />
+                                    <Form.Field
+                                        id='form-input-control-first-name'
+                                        control={Input}
+                                        value={this.state.copiedSessionInfo["section"]}
+                                        label='Section'
+                                        onChange={(text) => this.handleSelect("section", text.target.value) }                    
+                                        placeholder='Section'
+                                    />
+                        
+                                </Form.Group>
+                            </Form>
+                                <br></br>
+                                    <Form>
+                                        <Form.Group widths='equal'>
+                                            <Form.Field
+                                                id='form-input-control-first-name'
+                                                control={Input}
+                                                value={this.state.copiedSessionInfo["category"]}
+                                                label='Category'
+                                                onChange={(text) => this.handleSelect("category", text.target.value) }                    
+                                                placeholder='Category (e.g. alumni, coach, etc.)'
+                                            />
+                                        <Form>
+                                        <Form.Field
+                                            id='form-input-control-first-name'
+                                            control={Input} 
+                                            value={this.state.copiedSessionInfo["box_b"]}
+                                            label='Industries/Markets'
+                                            onChange={(text) => this.handleSelect("box_b", text.target.value) }                    
+                                            placeholder='Industry focus'
+                                            />
+                                    </Form>
+                                        <Form.Field
+                                            id='form-input-control-first-name'
+                                            control={Input}
+                                            type="number"
+                                            min={0}
+                                            max={20}
+                                            value={this.state.copiedSessionInfo["max_per_slot"]}
+                                            label='Capacity per timeslot'
+                                            onChange={(text) => this.handleSelect("max_per_slot", text.target.value) }                    
+                                            placeholder='Category'
+                                        />
+                                        </Form.Group>
+                                    </Form>
+                                    <hr />
+                                    <Label style={{marginBottom: 9}} className="createProjectLabel">  Additional Information  </Label>
+                                    <Form>
+                                            <Form.Field
+                                                id='form-textarea-control-opinion'
+                                                control={TextArea}
+                                                value={this.state.copiedSessionInfo["descriptions"]}
+                                                onChange={(text) => this.handleSelect("descriptions", text.target.value) }                    
+                                                label='Anything more about this profile'
+                                                placeholder='Description'
+                                                />
+                                        </Form>
+                                        <br></br>
+                                    <Form>
+                                        <Form.Group widths='equal'>
+                                            <Form.Field
+                                                id='form-input-control-first-name'
+                                                control={Input} 
+                                                value={this.state.copiedSessionInfo["box_a"]}
+                                                label='Linkedin Profile Link'
+                                                onChange={(text) => this.handleSelect("box_a", text.target.value) }                    
+                                                placeholder='Enter link URL'
+                                                />
+                                            </Form.Group>
 
-                    <hr />
-
-                    <Row style={{justifyContent: 'space-evenly'}}>
-                            <Form>
-                                <Form.Field
-                                    id='form-input-control-first-name'
-                                    control={Input} 
-                                    value={this.state.copiedSessionInfo["box_a"]}
-                                    label='Linkedin Profile Link'
-                                    onChange={(text) => this.handleSelect("box_a", text.target.value) }                    
-                                    placeholder='Link'
-                                    />
-                            </Form>
-                            <Form>
-                                <Form.Field
-                                    id='form-input-control-first-name'
-                                    control={Input} 
-                                    value={this.state.copiedSessionInfo["box_b"]}
-                                    label='Industries/Markets'
-                                    onChange={(text) => this.handleSelect("box_b", text.target.value) }                    
-                                    placeholder='Markets you may specialize in'
-                                    />
-                            </Form>
-                            <Form>
-                                <Form.Field
-                                    id='form-input-control-first-name'
-                                    control={Input} 
-                                    value={this.state.copiedSessionInfo["box_c"]}
-                                    label='Skills to assist founders'
-                                    onChange={(text) => this.handleSelect("box_c", text.target.value) }                    
-                                    placeholder='Skills'
-                                    />
-                            </Form>
-                            </Row>
-                    </Col>
+                                    </Form>
+                                
+                                    <Form>
+                            
+                                </Form>
+                            </Col>
                         <Col>
                             <div id="times">
                                 <CalendarScheduler setTimeslots={this.setTimeslots} events={this.state.copiedSessionInfo} />

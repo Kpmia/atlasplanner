@@ -33,8 +33,11 @@ export class MiniCalendar extends Component {
     };
     
     handleEventClick = ({ event, el }) => {
-        this.toggle();
-        console.log(event)
+        if (Object.keys(event._def.extendedProps.session.filled).length < this.state.session.max_per_slot) {
+            this.toggle();
+        } else {
+            toast.dark("These slots are already filled")
+        }
         this.selectEvent(event, "");
         this.setState({ event : event._def.extendedProps.session });
     };
@@ -48,6 +51,10 @@ export class MiniCalendar extends Component {
     reserveSession = () => {
         if (this.state.reserveInfo["name"].length == "") {
             return toast.dark('Please enter a name');
+        }
+
+        if (this.state.reserveInfo["email"].length == "") {
+            return toast.dark('Please enter an email');
         }
 
         var copiedSession = this.state.session
@@ -101,18 +108,18 @@ export class MiniCalendar extends Component {
     };
 
     render() {
-        console.log(this.state.event)
+        console.log(this.state.session.max_per_slot)
 
         var events = [];
 
         this.state.session["timeslots"].map((time) => {
             var bgColor = "rgb(75, 197, 99)"
             var title = [""]
-            if (Object.keys(time["filled"]) != 0) {
+            if (Object.keys(time["filled"]).length >= this.state.session.max_per_slot) {
                 bgColor = "repeating-linear-gradient(45deg, rgb(188, 96, 107), rgb(188, 96, 152) 10px, rgb(152, 70, 94) 10px, rgb(152, 70, 126) 20px) 0% 0% / 500%"
-                Object.keys(time["filled"]).map((person) => {
-                    title[0] = time["filled"][person]["name"]
-                })
+                title[0] = `Filled`
+            } else {
+                title[0] = `${Object.keys(time["filled"]).length} People`
             }
 
             events.push({
@@ -184,11 +191,18 @@ export class MiniCalendar extends Component {
 
                 <ModalHeader toggle={this.toggle} cssModule={{'modal-title': 'w-100 text-center'}} style={{borderBottom: 'none', paddingBottom: '0px', padding: 10, fontWeight: 600, fontSize: '17px', textAlign: 'center'}} className="createProjectTitle"> <span style={{borderBottom: 'none', paddingBottom: '0px', fontWeight: 600, fontSize: '15px', fontFamily: 'Helvetica', textAlign: 'center'}}> Reserve Session </span></ModalHeader>
                 <div>
-                    <p style={{textAlign: 'center', fontFamily: 'Helvetica', fontSize: 14}}> {moment(new Date(this.state.event['start_time'])).format('MM-DD-YYYY hh:mm a')} - {moment(new Date(this.state.event['end_time'])).format('MM-DD-YYYY hh:mm a')} </p>
-                    </div>
+                    {
+                        moment(new Date(this.state.event['start_time'])).format('MM-DD-YYYY') == moment(new Date(this.state.event['end_time'])).format('MM-DD-YYYY')?
+                        <div>
+                            <p style={{textAlign: 'center', marginBottom: '1px', fontFamily: 'Helvetica', fontWeight: 'bold', fontSize: 14}}>{moment(new Date(this.state.event['start_time'])).format('LL')}</p>
+                            <p style={{textAlign: 'center', fontFamily: 'Helvetica', fontSize: 14}}> {moment(new Date(this.state.event['start_time'])).format('hh:mm a')}-{moment(new Date(this.state.event['end_time'])).format('hh:mm a')} </p>
+                        </div>
+                        :
+                        <p style={{textAlign: 'center', fontFamily: 'Helvetica', fontSize: 14}}> 
+                        {moment(new Date(this.state.event['start_time'])).format('MM-DD-YYYY hh:mm a')} - {moment(new Date(this.state.event['end_time'])).format('MM-DD-YYYY hh:mm a')} </p>
+                    }
+                </div>
                 <ModalBody>
-
-                    <br></br>
 
                     <Label aria-required style={{marginBottom: 9}} className="createProjectLabel">  Name </Label>
                     <br></br>

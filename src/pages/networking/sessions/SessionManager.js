@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { atlasAPI } from "../endpoints";
+import { atlasAPI, csvAPI } from "../endpoints";
 
 export const SessionManager = {
 
@@ -8,6 +8,25 @@ export const SessionManager = {
     try {
       return await atlasAPI.get(
         '/sessions/' + orgId  + '/' + eventId,
+        config
+      )
+    } catch (error) {
+      console.log(error)
+      return null;
+    }
+  },
+
+  createBulkSessions: async (userToken, orgId, eventId, subjectLine, emailFormat, files) => {
+    const config = {
+      headers: {
+        'Authorization': userToken,
+        'Content-Type': 'multipart/form-data'
+      }
+    }
+    try {
+      return await csvAPI.post(
+        `/bulk-upload/${orgId}/${eventId}`,
+        files,
         config
       )
     } catch (error) {

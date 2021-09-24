@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Input, Row } from "reactstrap";
+import { Button, Input, Label, Row } from "reactstrap";
 import CalendarScheduler from "../../calendars/CalendarScheduler";
 
 
@@ -11,10 +11,16 @@ export const StepThree = ({
 }) => {
 
     const [timeslots, setTimeslots] = useState(memberInfo["timeslots"]);
+    const [maxCapacity, setCapacity] = useState(memberInfo["max_per_slot"]);
 
     const setTimeslotss = (timeslots) => {
         setTimeslots(timeslots)
         handleChange("timeslots", timeslots)
+    };
+
+    const setCapacityy = (capacity) => {
+        setCapacity(capacity)
+        handleChange("max_per_slot", capacity)
     };
 
     const handleStepChange = (num) => {
@@ -33,8 +39,22 @@ export const StepThree = ({
             <Row style={{justifyContent: 'center'}}>
                 <CalendarScheduler setTimeslots={setTimeslotss} />
             </Row>
+
             <br></br>
-            <br></br>
+
+            <Row style={{justifyContent: 'center'}}>
+            <Label style={{marginRight: '14px', marginTop: '20px'}}> <span style={{color: 'red'}}>*</span> Maximum number of reservations per timeslot? </Label>
+                <Input 
+                    // className="create-session-input"
+                    value={memberInfo["max_per_slot"]}
+                    placeholder="Set capacity" 
+                    type="number"
+                    min={0}
+                    max={20}
+                    style={{marginBottom: '29px', height: '50px', width: '80px', color: 'black', background: 'white', border: '1px solid black'}}
+                    onChange={(text) => { setCapacityy(text.target.value) }}
+                />
+            </Row>
 
             <Row style={{justifyContent: 'center'}}>
             <Button className="create-session-back-btn" onClick={() => handleStepChange(2)}> Back </Button>

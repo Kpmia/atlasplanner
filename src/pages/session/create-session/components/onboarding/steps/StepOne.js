@@ -28,10 +28,6 @@ export const StepOne = ({
                 <Icon name="diamond" />
             </Row>
 
-            <Row style={{justifyContent: 'center'}}>
-                <img src={require('../../../../../../assets/atlasplanner-img.svg')} />
-            </Row>
-
             <Row style={{justifyContent: 'center', marginTop: '20px'}}>
                 <p style={{marginBottom: '34px'}} className="create-session-intro-text">  The organizer {sessionInfo.orgId} is hosting the event {sessionInfo.eventId}. Add your availability to start taking part.</p>
             </Row>

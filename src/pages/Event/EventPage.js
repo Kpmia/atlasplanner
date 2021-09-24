@@ -95,7 +95,7 @@ class EventPage extends React.Component {
       
                 <br></br>
                 <Card style={{cursor: 'pointer'}}>
-                    <CardBody onClick={() => window.open('/all-sessions/' + this.props.match.params.orgId+ '/' + this.props.match.params.eventId + '?tab-name=create-session')}>
+                    <CardBody onClick={() => window.open('/all-sessions/' + this.props.match.params.orgId+ '/' + this.props.match.params.eventId + '?tab-name=add-profile')}>
                         <p> <Icon name="add circle" /> Do you want to create a session?</p>
                     </CardBody>
                 </Card>            

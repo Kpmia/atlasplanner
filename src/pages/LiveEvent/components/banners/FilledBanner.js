@@ -19,14 +19,15 @@ export const FilledBanner = ({
                 open ?
                 <div>
                 <Card className="instructionCard formCard">
-                    <CardBody style={{position: 'relative', maxHeight: '150px', overflowY: 'auto'}}>
+                    <CardBody style={{position: 'relative', maxHeight: '190px', overflowY: 'auto'}}>
                         <Icon className="cancelInstructionBtn" onClick={closeBanner} name="cancel" />
-                        <p style={{marginBottom: 3}} className="instructionTitle"> Filled by <Icon style={{color: '#EA60DC', fontSize: '13px'}} name="diamond" /> </p>
+                        <p style={{marginBottom: 3}} className="instructionTitle"> Filled by </p>
+                        <hr style={{marginBottom: '6px', marginTop: '0px'}} />
                         {
                             Object.keys(filled).map((time) => {
                                 return (
-                                    <div>
-                                        <p style={{marginBottom: 0}} className="instructionSubTitle"> {filled[time]["name"]} </p>
+                                    <div style={{marginTop: '2px', marginBottom: '3px'}}>
+                                        <p style={{marginBottom: '0px', fontWeight: 'bold'}} className="instructionSubTitle"> <Icon name="triangle right" /> {filled[time]["name"]} </p>
                                         <p className="instructionSubTitle"> {filled[time]["email"]} </p>
                                     </div>
                                 )

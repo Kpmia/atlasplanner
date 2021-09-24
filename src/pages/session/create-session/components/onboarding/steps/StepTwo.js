@@ -31,7 +31,7 @@ export const StepTwo = ({
                     className="create-session-input"
                     value={memberInfo["link"]}
                     style={{height: '55px', marginBottom: '30px', width: 657}}
-                    placeholder="Enter your location!" 
+                    placeholder="Enter a URL if held virtually or an address if in-person" 
                     onChange={(text) => { handleLocationChange(text.target.value) }}
                 />
             </Row>

@@ -4,6 +4,13718 @@ import uuid from "react-uuid"
 
 export const SessionUtils = {
 
+    getInitialEmailState(orgName, eventName) {
+        return {
+            "_cache": {
+                "html": "<p>Hey there,</p>\n<p>I have invited you to this {event} and created a user profile for you. View your profile link <u>here</u>.</p>\n<p>Sincerely,</p>\n<p>{org-name}</p>"
+            },
+            "_editorState": {
+                "_immutable": {
+                    "allowUndo": true,
+                    "currentContent": {
+                        "entityMap": {},
+                        "blockMap": {
+                            "98j04": {
+                                "key": "98j04",
+                                "type": "unstyled",
+                                "text": "Hey there,",
+                                "characterList": [
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    }
+                                ],
+                                "depth": 0,
+                                "data": {}
+                            },
+                            "f5cho": {
+                                "key": "f5cho",
+                                "type": "unstyled",
+                                "text": "I have invited you to this {event} and created a user profile for you. View your profile link here.",
+                                "characterList": [
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [
+                                            "UNDERLINE"
+                                        ],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [
+                                            "UNDERLINE"
+                                        ],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [
+                                            "UNDERLINE"
+                                        ],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [
+                                            "UNDERLINE"
+                                        ],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    }
+                                ],
+                                "depth": 0,
+                                "data": {}
+                            },
+                            "3geai": {
+                                "key": "3geai",
+                                "type": "unstyled",
+                                "text": "Sincerely,",
+                                "characterList": [
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    }
+                                ],
+                                "depth": 0,
+                                "data": {}
+                            },
+                            "8e3al": {
+                                "key": "8e3al",
+                                "type": "unstyled",
+                                "text": "{org-name}",
+                                "characterList": [
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    },
+                                    {
+                                        "style": [],
+                                        "entity": null
+                                    }
+                                ],
+                                "depth": 0,
+                                "data": {}
+                            }
+                        },
+                        "selectionBefore": {
+                            "anchorKey": "1elr9",
+                            "anchorOffset": 0,
+                            "focusKey": "1elr9",
+                            "focusOffset": 0,
+                            "isBackward": false,
+                            "hasFocus": true
+                        },
+                        "selectionAfter": {
+                            "anchorKey": "f5cho",
+                            "anchorOffset": 71,
+                            "focusKey": "f5cho",
+                            "focusOffset": 71,
+                            "isBackward": false,
+                            "hasFocus": true
+                        }
+                    },
+                    "decorator": {
+                        "_decorators": [
+                            {},
+                            {}
+                        ]
+                    },
+                    "directionMap": {
+                        "98j04": "LTR",
+                        "f5cho": "LTR",
+                        "3geai": "LTR",
+                        "8e3al": "LTR"
+                    },
+                    "forceSelection": false,
+                    "inCompositionMode": false,
+                    "inlineStyleOverride": null,
+                    "lastChangeType": "backspace-character",
+                    "nativelyRenderedContent": null,
+                    "redoStack": [],
+                    "selection": {
+                        "anchorKey": "98j04",
+                        "anchorOffset": 10,
+                        "focusKey": "98j04",
+                        "focusOffset": 10,
+                        "isBackward": false,
+                        "hasFocus": true
+                    },
+                    "treeMap": {
+                        "98j04": [
+                            {
+                                "start": 0,
+                                "end": 10,
+                                "decoratorKey": null,
+                                "leaves": [
+                                    {
+                                        "start": 0,
+                                        "end": 10
+                                    }
+                                ]
+                            }
+                        ],
+                        "f5cho": [
+                            {
+                                "start": 0,
+                                "end": 99,
+                                "decoratorKey": null,
+                                "leaves": [
+                                    {
+                                        "start": 0,
+                                        "end": 94
+                                    },
+                                    {
+                                        "start": 94,
+                                        "end": 98
+                                    },
+                                    {
+                                        "start": 98,
+                                        "end": 99
+                                    }
+                                ]
+                            }
+                        ],
+                        "6s1hb": [
+                            {
+                                "start": 0,
+                                "end": 0,
+                                "decoratorKey": null,
+                                "leaves": [
+                                    {
+                                        "start": 0,
+                                        "end": 0
+                                    }
+                                ]
+                            }
+                        ],
+                        "1elr9": [
+                            {
+                                "start": 0,
+                                "end": 28,
+                                "decoratorKey": null,
+                                "leaves": [
+                                    {
+                                        "start": 0,
+                                        "end": 23
+                                    },
+                                    {
+                                        "start": 23,
+                                        "end": 27
+                                    },
+                                    {
+                                        "start": 27,
+                                        "end": 28
+                                    }
+                                ]
+                            }
+                        ],
+                        "3geai": [
+                            {
+                                "start": 0,
+                                "end": 10,
+                                "decoratorKey": null,
+                                "leaves": [
+                                    {
+                                        "start": 0,
+                                        "end": 10
+                                    }
+                                ]
+                            }
+                        ],
+                        "8e3al": [
+                            {
+                                "start": 0,
+                                "end": 10,
+                                "decoratorKey": null,
+                                "leaves": [
+                                    {
+                                        "start": 0,
+                                        "end": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "undoStack": [
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "I have invited you to this {event} and created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "3geai": {
+                                    "key": "3geai",
+                                    "type": "unstyled",
+                                    "text": "Sincerely,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "8e3al": {
+                                    "key": "8e3al",
+                                    "type": "unstyled",
+                                    "text": "{org-name}",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "8e3al",
+                                "anchorOffset": 0,
+                                "focusKey": "8e3al",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "8e3al",
+                                "anchorOffset": 10,
+                                "focusKey": "8e3al",
+                                "focusOffset": 10,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "I have invited you to this {event} and created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "3geai": {
+                                    "key": "3geai",
+                                    "type": "unstyled",
+                                    "text": "Sincerely,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "8e3al": {
+                                    "key": "8e3al",
+                                    "type": "unstyled",
+                                    "text": "",
+                                    "characterList": [],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "3geai",
+                                "anchorOffset": 10,
+                                "focusKey": "3geai",
+                                "focusOffset": 10,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "8e3al",
+                                "anchorOffset": 0,
+                                "focusKey": "8e3al",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "I have invited you to this {event} and created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "3geai": {
+                                    "key": "3geai",
+                                    "type": "unstyled",
+                                    "text": "Sincerely,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "3geai",
+                                "anchorOffset": 4,
+                                "focusKey": "3geai",
+                                "focusOffset": 4,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "3geai",
+                                "anchorOffset": 10,
+                                "focusKey": "3geai",
+                                "focusOffset": 10,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "I have invited you to this {event} and created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "3geai": {
+                                    "key": "3geai",
+                                    "type": "unstyled",
+                                    "text": "Sinc",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "3geai",
+                                "anchorOffset": 5,
+                                "focusKey": "3geai",
+                                "focusOffset": 5,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "3geai",
+                                "anchorOffset": 4,
+                                "focusKey": "3geai",
+                                "focusOffset": 4,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "I have invited you to this {event} and created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "3geai": {
+                                    "key": "3geai",
+                                    "type": "unstyled",
+                                    "text": "Sincr",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 42,
+                                "focusKey": "f5cho",
+                                "focusOffset": 42,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 38,
+                                "focusKey": "f5cho",
+                                "focusOffset": 38,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "I have invited you to this {event} and has created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "3geai": {
+                                    "key": "3geai",
+                                    "type": "unstyled",
+                                    "text": "Sincr",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 0,
+                                "focusKey": "f5cho",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 7,
+                                "focusKey": "f5cho",
+                                "focusOffset": 7,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "invited you to this {event} and has created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "3geai": {
+                                    "key": "3geai",
+                                    "type": "unstyled",
+                                    "text": "Sincr",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 15,
+                                "focusKey": "f5cho",
+                                "focusOffset": 0,
+                                "isBackward": true,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 0,
+                                "focusKey": "f5cho",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "3geai": {
+                                    "key": "3geai",
+                                    "type": "unstyled",
+                                    "text": "Sincr",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "3geai",
+                                "anchorOffset": 0,
+                                "focusKey": "3geai",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "3geai",
+                                "anchorOffset": 5,
+                                "focusKey": "3geai",
+                                "focusOffset": 5,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "3geai": {
+                                    "key": "3geai",
+                                    "type": "unstyled",
+                                    "text": "",
+                                    "characterList": [],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "3geai",
+                                "anchorOffset": 4,
+                                "focusKey": "3geai",
+                                "focusOffset": 4,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "3geai",
+                                "anchorOffset": 0,
+                                "focusKey": "3geai",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "3geai": {
+                                    "key": "3geai",
+                                    "type": "unstyled",
+                                    "text": "Best",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "3geai",
+                                "anchorOffset": 0,
+                                "focusKey": "3geai",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "3geai",
+                                "anchorOffset": 4,
+                                "focusKey": "3geai",
+                                "focusOffset": 4,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "3geai": {
+                                    "key": "3geai",
+                                    "type": "unstyled",
+                                    "text": "",
+                                    "characterList": [],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "1elr9",
+                                "anchorOffset": 28,
+                                "focusKey": "1elr9",
+                                "focusOffset": 28,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "3geai",
+                                "anchorOffset": 0,
+                                "focusKey": "3geai",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [
+                                                "UNDERLINE"
+                                            ],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "1elr9",
+                                "anchorOffset": 27,
+                                "focusKey": "1elr9",
+                                "focusOffset": 23,
+                                "isBackward": true,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "1elr9",
+                                "anchorOffset": 27,
+                                "focusKey": "1elr9",
+                                "focusOffset": 23,
+                                "isBackward": true,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created a user profile for you. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "1elr9": {
+                                    "key": "1elr9",
+                                    "type": "unstyled",
+                                    "text": "View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 83,
+                                "focusKey": "f5cho",
+                                "focusOffset": 83,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "1elr9",
+                                "anchorOffset": 0,
+                                "focusKey": "1elr9",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created a user profile for you. View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 59,
+                                "focusKey": "f5cho",
+                                "focusOffset": 59,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 60,
+                                "focusKey": "f5cho",
+                                "focusOffset": 60,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created  user profile for you. View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 60,
+                                "focusKey": "f5cho",
+                                "focusOffset": 60,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 59,
+                                "focusKey": "f5cho",
+                                "focusOffset": 59,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created n user profile for you. View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 60,
+                                "focusKey": "f5cho",
+                                "focusOffset": 60,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 59,
+                                "focusKey": "f5cho",
+                                "focusOffset": 59,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created an user profile for you. View your profile link here.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 92,
+                                "focusKey": "f5cho",
+                                "focusOffset": 92,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 112,
+                                "focusKey": "f5cho",
+                                "focusOffset": 112,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created an user profile for you. View you",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 95,
+                                "focusKey": "f5cho",
+                                "focusOffset": 95,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 92,
+                                "focusKey": "f5cho",
+                                "focusOffset": 92,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created an user profile for you. View you pr",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 83,
+                                "focusKey": "f5cho",
+                                "focusOffset": 83,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 95,
+                                "focusKey": "f5cho",
+                                "focusOffset": 95,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created an user profile for you.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "6s1hb",
+                                "anchorOffset": 0,
+                                "focusKey": "6s1hb",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 83,
+                                "focusKey": "f5cho",
+                                "focusOffset": 83,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created an user profile for you.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "6s1hb": {
+                                    "key": "6s1hb",
+                                    "type": "unstyled",
+                                    "text": "",
+                                    "characterList": [],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 83,
+                                "focusKey": "f5cho",
+                                "focusOffset": 83,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "6s1hb",
+                                "anchorOffset": 0,
+                                "focusKey": "6s1hb",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created an user profile for you.",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 59,
+                                "focusKey": "f5cho",
+                                "focusOffset": 59,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 83,
+                                "focusKey": "f5cho",
+                                "focusOffset": 83,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 66,
+                                "focusKey": "f5cho",
+                                "focusOffset": 66,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 59,
+                                "focusKey": "f5cho",
+                                "focusOffset": 59,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} and has created a user ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 43,
+                                "focusKey": "f5cho",
+                                "focusOffset": 43,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 66,
+                                "focusKey": "f5cho",
+                                "focusOffset": 66,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 69,
+                                "focusKey": "f5cho",
+                                "focusOffset": 43,
+                                "isBackward": true,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 43,
+                                "focusKey": "f5cho",
+                                "focusOffset": 43,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "{org-name} has invited you to this {event} to create a user profile. ",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 0,
+                                "focusKey": "f5cho",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 69,
+                                "focusKey": "f5cho",
+                                "focusOffset": 69,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                },
+                                "f5cho": {
+                                    "key": "f5cho",
+                                    "type": "unstyled",
+                                    "text": "",
+                                    "characterList": [],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 10,
+                                "focusKey": "98j04",
+                                "focusOffset": 10,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "f5cho",
+                                "anchorOffset": 0,
+                                "focusKey": "f5cho",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hey there,",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 1,
+                                "focusKey": "98j04",
+                                "focusOffset": 1,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 10,
+                                "focusKey": "98j04",
+                                "focusOffset": 10,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "H",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 7,
+                                "focusKey": "98j04",
+                                "focusOffset": 7,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 1,
+                                "focusKey": "98j04",
+                                "focusOffset": 1,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "Hye the",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 0,
+                                "focusKey": "98j04",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 7,
+                                "focusKey": "98j04",
+                                "focusOffset": 7,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "",
+                                    "characterList": [],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 24,
+                                "focusKey": "98j04",
+                                "focusOffset": 24,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 0,
+                                "focusKey": "98j04",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "sadasdasdasdasdsadasdasd",
+                                    "characterList": [
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        },
+                                        {
+                                            "style": [],
+                                            "entity": null
+                                        }
+                                    ],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 0,
+                                "focusKey": "98j04",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": true
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 24,
+                                "focusKey": "98j04",
+                                "focusOffset": 24,
+                                "isBackward": false,
+                                "hasFocus": true
+                            }
+                        },
+                        {
+                            "entityMap": {},
+                            "blockMap": {
+                                "98j04": {
+                                    "key": "98j04",
+                                    "type": "unstyled",
+                                    "text": "",
+                                    "characterList": [],
+                                    "depth": 0,
+                                    "data": {}
+                                }
+                            },
+                            "selectionBefore": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 0,
+                                "focusKey": "98j04",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": false
+                            },
+                            "selectionAfter": {
+                                "anchorKey": "98j04",
+                                "anchorOffset": 0,
+                                "focusKey": "98j04",
+                                "focusOffset": 0,
+                                "isBackward": false,
+                                "hasFocus": false
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+
+    },
+
     /**
      * This helper method takes in an object array that is in the format [{start: ISODateString, end: ISODateString}]
      * This is to reformat the timeslot data structure to add more attributes including:

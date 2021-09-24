@@ -18,6 +18,8 @@ export class ViewSession extends Component {
         assignedColor: ""
     }
 
+    eventInfo = this.props.eventInfo 
+
     colorCodeEvents = (events) => {
         var recordColors = []
         this.state.sessions.map((session, id) => {
@@ -42,7 +44,7 @@ export class ViewSession extends Component {
 
         var events = [];
 
-        console.log(this.state.chosenSession)
+        console.log(this.eventInfo.theme_color)
 
         this.state.sessions.map((session, id) => {
             session["timeslots"].map((time) => {
@@ -74,15 +76,9 @@ export class ViewSession extends Component {
                 <CalendarBanner />
                 <Row>
                     <Col sm={4}>
-                        {
-                        this.state.chosenSession["filled"] ?
-                            Object.keys(this.state.chosenSession["filled"]).length != 0 ?  
-                                <FilledBanner filled={this.state.chosenSession["filled"]} />
-                                : null
-                        : null
-                        }
+                
                         <FadeIn delay="300">
-                            <Card style={{cursor: 'pointer', outline: '#ffffff21 solid 40px'}}  className="eventProjectCard">
+                            <Card style={{cursor: 'pointer', background: this.eventInfo.theme_color, outline: '#ffffff21 solid 40px'}}  className="eventProjectCard">
                             <div style={{marginTop: 0}}  className="eventProjectGradCard"></div>
                                 <CardBody>
                             <p style={{marginBottom: 0}} className="eventProjectTitle"> {this.state.chosenSession["name"]} </p>
@@ -93,7 +89,18 @@ export class ViewSession extends Component {
                             </CardBody>
                                 </Card>
                         </FadeIn>
+                        <br></br>
+
+                        {
+                        this.state.chosenSession["filled"] ?
+                            Object.keys(this.state.chosenSession["filled"]).length != 0 ?  
+                                <FilledBanner filled={this.state.chosenSession["filled"]} />
+                                : null
+                        : null
+                        }
                         </Col>
+
+                        
                     <Col>
 
             <Card className="formCard">

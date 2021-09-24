@@ -9,11 +9,8 @@ import { PageNotFound } from "../PageNotFound";
 import { LoadingPage } from "../LoadingPage";
 import { ToastContainer } from "react-toastify";
 import { Icon, Popup } from "semantic-ui-react";
-import Animal from "react-animals";
-import { onboarding } from "./components/onboarding";
 import { Header } from "./components/layout/InfoHeader";
-import { Tooltip } from "@material-ui/core";
-import { InstructionBanner } from "./components/layout/InstructionBanner";
+import { EventService } from "../networking/events/EventService";
 
 class MentorForm extends React.Component {
     constructor() {
@@ -24,6 +21,7 @@ class MentorForm extends React.Component {
         this.state={
             numPeople: 0,
             sessions: [],
+            eventDetails: [],
             pageNotFound: false,
             pageComponent: [],
             eventInfo: [],
@@ -32,12 +30,22 @@ class MentorForm extends React.Component {
         }
     }
 
+    getEventDetails = async(orgId, eventId) => {
+        await EventService.getEvent(orgId, eventId).then((eventDetails) => {
+            if (eventDetails) {
+                this.setState({ eventDetails : eventDetails })
+                this.getSessions(orgId, eventId)
+            } else {
+                this.pageNotFound()
+            }
+        })
+    };
+
     getSessions = async(orgId, eventId) => {
         await SessionService.getAllSessions(orgId, eventId).then((sessions) => {
             if (sessions) {
                 this.setState({ eventInfo : sessions['event_info'] })
                 this.setState({ sessions : sessions['sessions'] })
-                onboarding.startNewUser(orgId, eventId)
             } else {
                 this.pageNotFound()
             }
@@ -59,14 +67,14 @@ class MentorForm extends React.Component {
     }
 
     componentDidMount() {
-        this.getSessions(this.props.match.params.orgId, this.props.match.params.eventId).then(() => {
+        this.getEventDetails(this.props.match.params.orgId, this.props.match.params.eventId).then(() => {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('tab-name') != "" && urlParams.get('tab-name') != null) {
                 this.updateTabData(urlParams.get('tab-name'))
                 
             } else {
-                this.props.history.push('?tab-name=create-session')
-                this.updateTabData('create-session')
+                this.props.history.push('?tab-name=add-profile')
+                this.updateTabData('add-profile')
             }
         })
 
@@ -120,11 +128,12 @@ class MentorForm extends React.Component {
           } 
                    
         return (
-            <div className="gradientBackground">
+            <div style={{background: this.state.eventDetails.theme_color}} className="gradientBackground">
 
                 <Header 
                     orgId={this.props.match.params.orgId} 
                     eventId={this.props.match.params.eventId} 
+                    eventDetails={this.state.eventDetails}
                 />
 
             <div style={{paddingTop: 131, zIndex:999, position: 'relative'}} className="eventPageBody">          

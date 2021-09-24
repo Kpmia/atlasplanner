@@ -97,7 +97,7 @@ export class ViewBookings extends React.Component {
 
                 <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
                     <CardBody style={{padding: '3.25em'}}>
-                    <a className="formStep"> All Bookings </a>
+                    <a className="formStep" style={{color: 'white'}}> All Bookings </a>
 
                     <p className="float-right" style={{cursor: 'pointer'}}> View by: 
                     <Icon style={{marginLeft: '7px'}} onClick={() => this.setState({ viewName : 'time' })} className={this.state.viewName == 'time'? 'highlighted-icon-link': null} name="calendar" /> Calendar

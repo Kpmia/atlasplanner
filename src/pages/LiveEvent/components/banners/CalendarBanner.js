@@ -18,7 +18,7 @@ export const CalendarBanner = ({
                 <Card className="instructionCard formCard">
                     <CardBody style={{position: 'relative'}}>
                         <Icon className="cancelInstructionBtn" onClick={closeBanner} name="cancel" />
-                        <p className="instructionTitle"> Calendar Mode <Icon style={{color: '#EA60DC', fontSize: '13px'}} name="triangle right" /> </p>
+                        <p className="instructionTitle"> Calendar Mode  </p>
                         <p className="instructionSubTitle"> Click on any session & find more details about it </p>
                     </CardBody>
                 </Card>

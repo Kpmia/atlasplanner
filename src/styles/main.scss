@@ -700,7 +700,7 @@ tr td {
   font-size: 14px;
   letter-spacing: -0.03em!important;
 
-  color: #999999!important;
+  color: #999999;
 }
 
 
@@ -769,6 +769,7 @@ tr td {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
+  cursor: pointer;
   position: absolute;
   left: 23px;
   font-size: 14px;
@@ -1655,6 +1656,11 @@ color: #FFFFFF;
   border-radius: 4px;
 }
 
+.outline-html {
+  padding: 15px;
+  border: 1px solid #c7c7c7;
+  border-radius: 8px;
+}
 
 .create-session-p1 {
   font-style: normal;
@@ -1664,6 +1670,27 @@ color: #FFFFFF;
   text-align: center;
 
   color: #000000;
+}
+
+.email-preview-btn {
+  font-family: 'Inter'!important;
+  float: right!important;
+  
+  font-size: 14px!important;
+  border-radius: 2px!important;
+}
+
+.email-preview-btn:hover {
+  font-family: 'Inter'!important;
+  background: black;
+  color: white;
+  float: right!important;
+  font-size: 14px!important;
+  border-radius: 2px!important;
+}
+
+div.text-editor {
+  font-family: inherit;
 }
 
 .create-session-input::placeholder {
@@ -1738,10 +1765,110 @@ color: #FFFFFF;
   font-size: 12px;
   cursor: pointer;
   line-height: 136.84%;
-  /* or 16px */
-
-
   color: #000000;
+}
+
+.profile-creation-btn {
+  background: white!important;
+  border-radius: 4px!important;
+  padding: 10px!important;
+  transition: .3s all ease!important;
+  font-family: Inter!important;
+  color: black!important;
+}
+
+.profile-creation-btn:hover {
+  background: black!important;
+  border-radius: 4px!important;
+  padding: 10px!important;
+  transition: .3s all ease!important;
+  font-family: Inter!important;
+  color: white!important;
+}
+
+.go-to-event-btn {
+  background: #000000!important;
+  border-radius: 2px!important;
+  font-style: normal!important;
+  font-weight: 500!important;
+  border: none!important;
+  outline: none!important;
+  font-size: 14px!important;
+  width: 100%!important;
+  height: 40px!important; 
+  line-height: 14px!important;
+  letter-spacing: -0.012em!important;
+  color: #FFFFFF!important;
+}
+
+.atlasplanner-event-URL {
+  word-break: break-all;
+  font-style: normal;
+  font-weight: 500;
+  padding-left: 10px;
+  font-size: 14px;
+  border-left: 1px solid #DDDFE1;
+  line-height: 14px;
+  letter-spacing: -0.012em;
+}
+
+.atlasplanner-there-are-no-profile {
+  font-weight: bold;
+  font-size: 15px;
+  color: #717b85;
+}
+
+.access-share-link {
+  padding: 13px;
+  line-height: 14px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 14px;
+  letter-spacing: -0.04em;
+  color: #426B35;
+  background: #CAEFBE;
+  border-radius: 2px;
+}
+
+.banner_color_box {
+  width: 200px;
+  font-weight: bold;
+  padding: 20px;
+  height: 30px;
+  color: white;
+  transition: .5s ease-in;
+  padding: 6px;
+}
+
+.theme_color_box {
+  width: 200px;
+  height: 100px;
+  box-shadow: 10px 17px 20px 1px rgba(0, 0, 0, .18)!important;
+  color: white;
+  position: relative!important;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  cursor: pointer;
+  padding: 20px;
+  font-weight: bold;
+  transition: .5s ease-in;
+  border-bottom-right-radius: 100px;
+}
+
+.theme_color_box:hover {
+  width: 200px;
+  height: 100px;
+  font-weight: bold;
+  box-shadow: 10px 17px 20px 1px rgba(0, 0, 0, .18)!important;
+  color: white;
+  position: relative!important;
+  padding: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 100px;
+  transition: .5s ease-in;
+  transform: translateY(-5px);;
 }
 
 @media (min-width: 1200px){

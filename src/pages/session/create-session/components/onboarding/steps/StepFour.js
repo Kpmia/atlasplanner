@@ -19,8 +19,6 @@ export const StepFour = ({
         stepChange(num)
     }
 
-    console.log(roles)
-
     return (
         <div>
 

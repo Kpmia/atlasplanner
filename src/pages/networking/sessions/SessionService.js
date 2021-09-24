@@ -41,6 +41,25 @@ export const SessionService = {
         }
     },
 
+    createBulkSessions: async(orgId, eventId, subjectLine, emailFormat, files) => {
+        let userToken = await EventService.getUserToken()
+        try {
+            return new Promise((resolve, reject) => {
+                SessionManager.createBulkSessions(userToken, orgId, eventId, subjectLine, emailFormat, files).then((exp) => {
+                    if (exp != null && exp) {
+                        console.log(exp)
+                        resolve(exp["data"]["code"]);
+                    } else {
+                        resolve(null);
+                    }
+                }, reject);
+            })
+        } catch (err) {
+            console.log('Bulk sessions cannot be created.')
+            return null;
+        }
+    },
+
     getSession: async(orgId, eventId, sessionId) => {
         try {
             return new Promise((resolve, reject) => {

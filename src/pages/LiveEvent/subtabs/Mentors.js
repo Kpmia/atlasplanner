@@ -21,6 +21,7 @@ export class Mentors extends Component {
         search: '',
     }
 
+    eventInfo = this.props.eventInfo
     updateMentor = this.props.updateMentor
 
     selectMentor = (id, session, switched) => {
@@ -100,7 +101,7 @@ export class Mentors extends Component {
                         <CardBody>
                             <Row>
                                 <Col sm={4}>
-                                    <ReserveInstructBanner />
+                                    <ReserveInstructBanner maxCapacity={this.state.currentMentor.data.max_per_slot} />
                                     {
                                         this.state.selectEvent["filled"] ?
                                             Object.keys(this.state.selectEvent["filled"]).length != 0 ?  
@@ -110,7 +111,7 @@ export class Mentors extends Component {
                                     }
                                     <FadeIn delay="300">
                                         <Card style={{cursor: 'pointer'}}  className="eventProjectCard">
-                                        <div style={{marginTop: 0}}  className="eventProjectGradCard"></div>
+                                        <div style={{marginTop: 0, background: this.eventInfo.theme_color}}  className="eventProjectGradCard"></div>
                                         <CardBody>
                                             <p style={{marginBottom: 0}} className="eventProjectTitle"> {this.state.currentMentor["data"]["name"]} </p>
                                             <p style={{marginBottom: 0}}> {this.state.currentMentor["data"]["email"]}</p> 
@@ -128,6 +129,7 @@ export class Mentors extends Component {
                                 </Col>
                                 <Col>
                                     <MiniCalendar 
+                                        eventDetails={this.eventInfo}
                                         selectEvent={this.selectEvent}
                                         session={this.state.currentMentor["data"]} 
                                         orgId={this.state.orgId} 
@@ -156,7 +158,6 @@ export class Mentors extends Component {
                     </Dropdown.Menu>
                     </Dropdown.Menu>
                 </Dropdown>
-            <p className="float-right" style={{marginTop: 5, marginRight: 10}}> View as <Icon color={this.state.view == 'list'? "pink": null} onClick={() => this.setState({ view : 'list' })} style={{cursor: 'pointer'}} name="list" /> <Icon color={this.state.view == 'grid'? "pink": null} onClick={() => this.setState({ view : 'grid' })} style={{cursor: 'pointer'}} name="grid layout" /> </p>
 
             <br></br>            
             <br></br>
@@ -180,7 +181,7 @@ export class Mentors extends Component {
                                             
                                             <FadeIn delay="300">
                                                 <Card  onClick={() => this.selectMentor(session['_id'], session, true)} style={{cursor: 'pointer'}}  className="eventProjectCard">
-                                                <div style={{marginTop: 0}}  className="eventProjectGradCard"></div>
+                                                <div style={{marginTop: 0, background: this.eventInfo.theme_color}}  className="eventProjectGradCard"></div>
                                                     <CardBody>
                                                     <p style={{marginBottom: 0}} className="eventProjectTitle"> {session["name"]} </p>
                                                     <p  style={{marginBottom: 0}}> {session["email"]} </p>

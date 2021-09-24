@@ -4,10 +4,10 @@ import { Form, Icon, Input, Label, TextArea } from "semantic-ui-react";
 import 'react-toastify/dist/ReactToastify.css';
 import { Card } from "@material-ui/core";
 import FadeIn from 'react-fade-in'
-import { CreateSessionReCaptcha } from "../components/recaptcha/SubmitSession";
-import CalendarScheduler from "../components/calendars/create-session/CalendarScheduler";
+import { CreateSessionReCaptcha } from "../../../components/recaptcha/SubmitSession";
+import CalendarScheduler from "../../../components/calendars/create-session/CalendarScheduler";
 
-export class CreateSession extends Component {
+export class SingleProfile extends Component {
     state={
         orgId: this.props.orgId,
         eventId: this.props.eventId,
@@ -16,6 +16,7 @@ export class CreateSession extends Component {
             link: "",
             section: "",
             descriptions: "",
+            max_per_slot: 5,
             category: "",
             box_a: "",
             box_b: "",
@@ -65,6 +66,7 @@ export class CreateSession extends Component {
                 sessionId: "",
                 section: "",
                 description: "",
+                max_per_slot: 5,
                 category: "",
                 box_a: "",
                 box_b: "",
@@ -78,11 +80,8 @@ export class CreateSession extends Component {
                    
         return (
             <div>
-            <Card style={{outline: '#ffffff21 solid 40px'}} className="formCard">
-                <CardBody style={{padding: '3.25em'}}>
-               
                     <div style={{borderBottom: '1px solid rgb(29 27 27 / 17%) '}}>
-                        <p className="formStep" style={{marginBottom: 10}}> Add a Session </p>
+                        <p className="formStep" style={{marginBottom: 10}}> Create a Profile </p>
                     </div>
                 
                     <br></br>
@@ -127,63 +126,68 @@ export class CreateSession extends Component {
                                     </Form.Group>
                                 </Form>
                                 <br></br>
-                                <Form>
-                                <Form.Field
-                                        id='form-input-control-first-name'
-                                        control={Input}
-                                
-                                        value={this.state.sessionBody["category"]}
-                                        label='Category'
-                                        onChange={(text) => this.handleChange("category", text.target.value) }                    
-                                        placeholder='Category'
-                                    />
-                                    <br></br>
-                                </Form>
                                     <Form>
+                                        <Form.Group widths='equal'>
                                             <Form.Field
-                                                id='form-textarea-control-opinion'
-                                                control={TextArea}
-                                                value={this.state.sessionBody["descriptions"]}
-                                                onChange={(text) => this.handleChange("descriptions", text.target.value) }                    
-                                                label='Anything more about this session?'
-                                                placeholder='Description'
-                                                />
-                                        </Form>
-
-                                    <hr />
-
-                                    <Row style={{justifyContent: 'space-evenly'}}>
-                                    <Form>
-                                        <Form.Field
-                                            id='form-input-control-first-name'
-                                            control={Input} 
-                                            value={this.state.sessionBody["box_a"]}
-                                            label='Linkedin Profile Link'
-                                            onChange={(text) => this.handleChange("box_a", text.target.value) }                    
-                                            placeholder='Link'
+                                                id='form-input-control-first-name'
+                                                control={Input}
+                                                value={this.state.sessionBody["category"]}
+                                                label='Category'
+                                                onChange={(text) => this.handleChange("category", text.target.value) }                    
+                                                placeholder='Category (e.g. alumni, coach, etc.)'
                                             />
-                                    </Form>
-                                    <Form>
+                                        <Form>
                                         <Form.Field
                                             id='form-input-control-first-name'
                                             control={Input} 
                                             value={this.state.sessionBody["box_b"]}
                                             label='Industries/Markets'
                                             onChange={(text) => this.handleChange("box_b", text.target.value) }                    
-                                            placeholder='Markets you may specialize in'
+                                            placeholder='Industry focus'
                                             />
                                     </Form>
-                                    <Form>
                                         <Form.Field
                                             id='form-input-control-first-name'
-                                            control={Input} 
-                                            value={this.state.sessionBody["box_c"]}
-                                            label='Skills to assist founders'
-                                            onChange={(text) => this.handleChange("box_c", text.target.value) }                    
-                                            placeholder='Skills'
-                                            />
+                                            control={Input}
+                                            type="number"
+                                            min={0}
+                                            max={20}
+                                            value={this.state.sessionBody["max_per_slot"]}
+                                            label='Capacity per timeslot'
+                                            onChange={(text) => this.handleChange("max_per_slot", text.target.value) }                    
+                                            placeholder='Category'
+                                        />
+                                        </Form.Group>
                                     </Form>
-                                    </Row>
+                                    <hr />
+                                    <Label style={{marginBottom: 9}} className="createProjectLabel">  Additional Information  </Label>
+                                    <Form>
+                                            <Form.Field
+                                                id='form-textarea-control-opinion'
+                                                control={TextArea}
+                                                value={this.state.sessionBody["descriptions"]}
+                                                onChange={(text) => this.handleChange("descriptions", text.target.value) }                    
+                                                label='Anything more about this profile'
+                                                placeholder='Description'
+                                                />
+                                        </Form>
+                                    <Form>
+                                        <Form.Group widths='equal'>
+                                            <Form.Field
+                                                id='form-input-control-first-name'
+                                                control={Input} 
+                                                value={this.state.sessionBody["box_a"]}
+                                                label='Linkedin Profile Link'
+                                                onChange={(text) => this.handleChange("box_a", text.target.value) }                    
+                                                placeholder='Enter link URL'
+                                                />
+                                                </Form.Group>
+
+                                    </Form>
+                                
+                                    <Form>
+                                    
+                                    </Form>
                                     </Col>
 
                                     <br></br>
@@ -221,9 +225,7 @@ export class CreateSession extends Component {
 
                  
           
-                        <br></br>
-                    </CardBody>
-                </Card>
+                    <br></br>
             </div>
         );
       }

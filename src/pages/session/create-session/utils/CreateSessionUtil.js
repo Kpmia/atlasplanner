@@ -7,11 +7,11 @@ import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 export const CreateSessionUtil = {
 
     getRole() {
-        return ["Mentor", "Coach", "Educator", "Student", "Speaker" ]
+        return ["Alumni", "Mentor", "Coach", "Educator", "Student", "Speaker" ]
     },
 
     getIndustry() {
-        return ["VC", "Product", "Design", "Retail", "Finance", "Software", "Misc." ]
+        return ["Management", "VC", "Product", "Design", "Retail", "Finance", "Software", "Misc." ]
     },
 
     getStepIcons() {
